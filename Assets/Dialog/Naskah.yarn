@@ -1,0 +1,29 @@
+﻿title: Start
+---
+Raka: Aduh, capek banget habis ngerjain tugas kuliah...
+Raka: Coba cek Instagram bentar deh.
+// Di sini Raka melihat Story teman
+Raka: Wah, Bima pamer profit saham 40%?! Kok bisa secepat itu?
+Raka: Kalau aku ikut beli sekarang, lumayan nih uang tabunganku bisa cepat bertambah.
+
+// Memunculkan tombol pilihan
+-> Buka aplikasi trading & beli saham (FOMO)
+    <<jump Fase_FOMO>>
+-> Taruh HP, lanjut tidur & tetap menabung (Rasional)
+    <<jump Fase_Rasional>>
+===
+
+title: Fase_FOMO
+---
+Raka: Bodo amat lah, aku all-in sekarang mumpung lagi naik!
+// Memanggil fungsi potong_uang di objek GameManager sebesar 3 juta
+<<potong_uang GameManager 3000000>>
+Kak Zaki: Welcome bro! Jangan lupa masuk grup Telegram Influencer kita.
+===
+
+title: Fase_Rasional
+---
+Raka: Ah sudahlah, investasi tanpa riset itu namanya judi. Mending tidur.
+// Rute aman tercapai
+Raka: Uang daruratku tetap aman.
+===
