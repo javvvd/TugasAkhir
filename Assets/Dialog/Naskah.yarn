@@ -2,14 +2,18 @@
 ---
 Raka: Aduh, capek banget habis ngerjain tugas kuliah...
 Raka: Coba cek Instagram bentar deh.
-// Di sini Raka melihat Story teman
+
+// Sistem akan memanggil fungsi untuk menyalakan panel HP
+<<munculkan_hp GameManager>>
+
 Raka: Wah, Bima pamer profit saham 40%?! Kok bisa secepat itu?
 Raka: Kalau aku ikut beli sekarang, lumayan nih uang tabunganku bisa cepat bertambah.
 
-// Memunculkan tombol pilihan
 -> Buka aplikasi trading & beli saham (FOMO)
     <<jump Fase_FOMO>>
 -> Taruh HP, lanjut tidur & tetap menabung (Rasional)
+    // Kalau pilih tidur, kita tutup lagi HP-nya
+    <<tutup_hp GameManager>>
     <<jump Fase_Rasional>>
 ===
 
