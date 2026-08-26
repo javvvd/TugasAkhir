@@ -11,14 +11,8 @@ Raka: Udah 6 jam nonstop, bug-nya masih nggak ketemu juga.
 
 Raka: Deadline masih besok sore sih. Mending istirahat sebentar deh, otakku udah nggak bisa dipaksa.
 
-// Pilihan kecil pertama
--> Ambil HP dari meja
-    Raka: Scrolling sebentar lah, 5 menit doang.
--> Rebahan dulu sebentar
-    Raka: (Rebahan di kasur, tapi langsung ambil HP)
-    Raka: ...Ya, "rebahan" tanpa HP itu bohong namanya.
 
-Raka: Buka Instagram dulu ah buat refreshing.
+Raka: Kenapa nih Bima ngechat.
 
 // SFX: Bunyi notifikasi HP - "ting ting"
 <<munculkan_hp GameManager>>
