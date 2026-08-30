@@ -7,6 +7,13 @@
 Raka: Duh, mataku sampai pedih ngerjain tugas coding web ini semalaman...
 Raka: Udah 6 jam nonstop, bug-nya masih nggak ketemu juga.
 
+// Sekarang, suruh Unity memudarkan layar hitamnya!
+<<fade_in Manager>>
+<<wait 2>>
+Raka: (Menggeliat di depan laptop) Hhh... jam berapa sih ini?
+Raka: Duh, mataku sampai pedih ngerjain tugas coding web ini semalaman...
+Raka: Udah 6 jam nonstop, bug-nya masih nggak ketemu juga.
+
 // SFX: Raka meregangkan badan, bunyi "krek"
 
 Raka: Deadline masih besok sore sih. Mending istirahat sebentar deh, otakku udah nggak bisa dipaksa.
@@ -14,27 +21,29 @@ Raka: Deadline masih besok sore sih. Mending istirahat sebentar deh, otakku udah
 
 Raka: Kenapa nih Bima ngechat.
 
+===
+title: Fase_0_Pembuka
+---
 // SFX: Bunyi notifikasi HP - "ting ting"
-<<munculkan_hp GameManager>>
+// Munculkan HP dan buka aplikasi Chat
+<<munculkan_hp HPmanager>>
+<<buka_chat HPmanager>>
 
-// HP muncul sebagai overlay, menampilkan lockscreen
-// Lockscreen: Jam 23:47, notifikasi Instagram & Telegram bertumpuk
-// Animasi: Raka swipe unlock -> buka Instagram
 
-// BG: BG02 - Layar HP Instagram
-// SPRITE: Raka, ekspresi biasa -> berubah kaget
+// Memunculkan Pesan_Bima_1 (Element 0)
+<<munculkan_pesan HPmanager 0>>
+Raka: Tumben anak ini ngechat malam-malam...
+<<wait 2>>
+// Memunculkan Pesan_Bima_2 (Element 1)
+<<munculkan_pesan HPmanager 1>>
+Raka : Hah apaan ini
+<<munculkan_pesan_raka HPmanager 0>>
+<<wait 2>>
+<<munculkan_pesan HPmanager 2>>
+Raka: "Gue baru aja cuan 40% sehari! Gampang banget nyari duit rebahan, haha."
 
-// Instagram story Bima muncul: screenshot profit +40%
-
-Raka: Hah? Si Bima update story?
-Raka: "Profit +40% dalam SEHARI! Gampang banget cari cuan, thanks rekomendasinya Kak Zaki!"
-
-// SFX: Bunyi swipe story
-// Story berikutnya: Bima pamer saldo hijau
-
-Raka: Dia bahkan screenshot saldonya?! 
-Raka: ...Gila, si Bima padahal waktu praktikum ekonomi aja nilainya C. Nggak ngerti apa-apa soal investasi.
-
+Raka: ...Gila, Bima kan waktu praktikum ekonomi nilainya C. Nggak ngerti investasi. 
+Raka: Kalau dia aja bisa, masa aku anak IT takut nyoba!
 // SPRITE: Raka, ekspresi penasaran/iri
 
 Raka: Kak Zaki... Kak Zaki... Oh, "Trader Zaki" yang sering muncul di FYP TikTok itu ya?

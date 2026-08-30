@@ -23,6 +23,6 @@ public class UangManager : MonoBehaviour
     void UpdateLayar()
     {
         // Menampilkan angka dengan format ribuan (titik)
-        teksUang.text = "Portofolio: Rp " + saldo.ToString("N0");
+        teksUang.text = saldo.ToString("N0");
     }
 }
