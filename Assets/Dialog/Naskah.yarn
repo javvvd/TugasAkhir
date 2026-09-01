@@ -4,22 +4,20 @@
 // BGM: Lo-fi ambient malam, suara jangkrik samar
 // SPRITE: Raka, ekspresi ngantuk
 
-Raka: Duh, mataku sampai pedih ngerjain tugas coding web ini semalaman...
-Raka: Udah 6 jam nonstop, bug-nya masih nggak ketemu juga.
-
 // Sekarang, suruh Unity memudarkan layar hitamnya!
+Raka: (Menggeliat di depan laptop) Hhh... jam berapa sih ini?
+Raka: Duh, mataku sampai pedih ngerjain tugas coding web ini ...
+Raka: Udah 6 jam nonstop. Tutup laptop dulu lah.
 <<fade_in Manager>>
 <<wait 2>>
-Raka: (Menggeliat di depan laptop) Hhh... jam berapa sih ini?
-Raka: Duh, mataku sampai pedih ngerjain tugas coding web ini semalaman...
-Raka: Udah 6 jam nonstop, bug-nya masih nggak ketemu juga.
+
 
 // SFX: Raka meregangkan badan, bunyi "krek"
 
-Raka: Deadline masih besok sore sih. Mending istirahat sebentar deh, otakku udah nggak bisa dipaksa.
+Raka: istirahat sebentar deh, otakku udah nggak bisa dipaksa.
 
 
-Raka: Kenapa nih Bima ngechat.
+Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
 
 ===
 title: Fase_0_Pembuka
@@ -32,7 +30,7 @@ title: Fase_0_Pembuka
 
 // Memunculkan Pesan_Bima_1 (Element 0)
 <<munculkan_pesan HPmanager 0>>
-Raka: Tumben anak ini ngechat malam-malam...
+Raka: Oh si Bima ngechat
 <<wait 2>>
 // Memunculkan Pesan_Bima_2 (Element 1)
 <<munculkan_pesan HPmanager 1>>
@@ -40,10 +38,9 @@ Raka : Hah apaan ini
 <<munculkan_pesan_raka HPmanager 0>>
 <<wait 2>>
 <<munculkan_pesan HPmanager 2>>
-Raka: "Gue baru aja cuan 40% sehari! Gampang banget nyari duit rebahan, haha."
-
-Raka: ...Gila, Bima kan waktu praktikum ekonomi nilainya C. Nggak ngerti investasi. 
-Raka: Kalau dia aja bisa, masa aku anak IT takut nyoba!
+<<wait 2>>
+Raka: Hebat juga Bima ini padahal dia kan tidak mengerti investasi
+Raka: Tapi bisa untung 10 juta cuma dari HP
 // SPRITE: Raka, ekspresi penasaran/iri
 
 Raka: Kak Zaki... Kak Zaki... Oh, "Trader Zaki" yang sering muncul di FYP TikTok itu ya?
