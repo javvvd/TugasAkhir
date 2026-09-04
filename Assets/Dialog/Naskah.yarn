@@ -39,46 +39,38 @@ Raka : Hah apaan ini
 <<wait 2>>
 <<munculkan_pesan HPmanager 2>>
 <<wait 2>>
-Raka: Hebat juga Bima ini padahal dia kan tidak mengerti investasi
-Raka: Tapi bisa untung 10 juta cuma dari HP
+Raka: Hebat juga Bima ini. Padahal waktu kelas Pengantar Ekonomi nilainya cuma C.
+Raka: Tapi bisa untung 10 juta cuma modal rebahan main HP...
+Raka: Coba telepon dia aja deh, penasaran aku caranya gimana.
 // SPRITE: Raka, ekspresi penasaran/iri
 
-Raka: Kak Zaki... Kak Zaki... Oh, "Trader Zaki" yang sering muncul di FYP TikTok itu ya?
-Raka: Follower-nya 500 ribu, videonya banyak yang viral. Kayaknya legit sih...
+// Layar HP menyala dengan tampilan panggilan
+<<munculkan_layar_telepon HPmanager>>
+: (Suara nada sambung... Tut... Tut...)
+: (Klik)
 
-// Transisi ke Telegram
-// SFX: Bunyi switch app
+Bima: Halo, Ka! Gimana? Udah liat screenshot portofolio gue kan? Hijau semua bos!
+Raka: Udah, makanya ini gue nelepon. Lu dapet untung 40% gitu dari mana ceritanya, Bim?
+Bima: Hahaha, gampang banget bro sekarang cari duit. Lo tinggal daftar aplikasi, masukin modal, terus ikutin sinyal. Tinggal tidur, besoknya cuan deh.
+Raka: Sinyal apaan? Lu kan nggak ngerti baca grafik analisa pasar gitu. Bahaya nggak tuh asal taruh duit?
+Bima: Ah elah, lu kebanyakan mikir! Emang gue nggak ngerti, tapi gue gabung grup VIP Telegram-nya "Master Trading".
+Bima: Dia tuh influencer paling top sekarang. Kita nggak usah capek mikir, tinggal copy-paste aja apa yang dia suruh beli.
+Raka: Grup VIP Influencer? Yakin lu itu aman? 
+Bima: Aman 100%! Buktinya gue udah narik duit 10 juta hari ini. Lu kalau mau, nanti gue invite ke grupnya deh. Mumpung lagi ada promo pendaftaran nih.
+Raka: Mmm... 
+Bima: Udah, ntar gue kirim aja link grupnya lewat chat ya. Lu pantau aja dulu. Udah ya, gue mau lanjut push rank. Yoi!
 
-Raka: Eh, Bima juga mention grup Telegram "Billionaire Signal". Aku join ah, gratis ini.
+// Telepon dimatikan
+<<tutup_telepon HPmanager>>
+<<tutup_hp HPmanager>>
 
-// BG: BG03 - Layar HP Telegram Group (Malam, ramai)
-// Telegram grup penuh chat excited
-
-Raka: Wow, anggotanya 12 ribu orang?!
-
-// Chat scroll otomatis:
-// - Kak Zaki: "Guys saham CUAN besok pasti gap up. Ini info dari orang dalam. Masuk sekarang atau nyesel seumur hidup."
-// - Member: "Siap masuk kak!!"
-// - Member: "Kemarin untung 30%, hari ini all in lagi!"
-// - Bima: "Baru masuk 2jt, bismillah cuan!"
-
-Raka: Semuanya pada untung?! Dan Kak Zaki nyuruh all-in saham "CUAN" - PT Cuan Sejahtera Tbk.
-Raka: Voice note-nya juga meyakinkan banget...
-
-// SFX: Voice note Kak Zaki terputar - suara pria karismatik, cepat, penuh urgensi
-// "Teman-teman, saya sudah analisis mendalam. Saham CUAN ini undervalued. Besok pasti terbang. Kalau kalian nggak masuk malam ini, besok harganya sudah kemahalan. Ini kesempatan SEKALI seumur hidup."
-
-// EDUKASI - Pop Up Box Biru
-Narator: Apa itu FOMO? FOMO (Fear Of Missing Out) adalah rasa takut ketinggalan yang membuat seseorang mengambil keputusan impulsif tanpa analisis, hanya karena melihat orang lain tampak untung. Di dunia investasi, FOMO adalah salah satu jebakan psikologis paling berbahaya.
-
-Raka: Kalau aku ikut beli sekarang pakai uang tabungan bayar kos... besok bisa langsung untung besar nih!
-Raka: Uang 5 juta di tabungan... Kalau masukin 2 juta aja, untung 40% berarti besok bisa dapat 800 ribu!
-
-// SPRITE: Raka, ekspresi girang tapi ragu
+Raka: (Menatap layar HP yang kembali gelap)
+Raka: Grup VIP Influencer... Cuma modal copy-paste instruksi bisa untung puluhan juta.
+Raka: ...Gila. Aku yang tiap hari begadang ngerjain coding web sampai mata pedih aja tabungannya nggak seberapa.
+Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kesempatan ini?// SPRITE: Raka, ekspresi girang tapi ragu
 // Ketukan di pintu
 // SFX: Tok tok tok
 
-<<munculkan_dina GameManager>>
 // SPRITE: Dina, ekspresi khawatir
 
 Dina: Rak, belum tidur? Ini udah hampir jam 12 lho.
@@ -98,7 +90,6 @@ Narator: Apa itu Pump & Dump? Skema manipulasi di mana seseorang atau kelompok m
 Dina: Lagian, itu uang buat bayar kos dan UKT kan? Kalau hilang gimana?
 Raka: ...
 
-<<tutup_dina GameManager>>
 
 -> Buka aplikasi "Cuanku", all-in beli saham sekarang! (FOMO menang)
     Raka: (Dalam hati) Ah, Dina terlalu paranoid. Kalau nggak berani ambil risiko, kapan kayanya?
@@ -121,7 +112,7 @@ title: Fase_FOMO
 Raka: Kesempatan nggak datang dua kali. Dina nggak ngerti soal peluang kayak gini.
 Raka: Lagian, yang nyuruh bukan sembarang orang - Kak Zaki analisanya selalu tepat di video-videonya!
 
-<<munculkan_hp GameManager>>
+<<munculkan_hp HPmanager>>
 // BG: BG04 - Layar HP Aplikasi Cuanku (Hijau)
 
 // Tampilan aplikasi Cuanku:
@@ -157,7 +148,7 @@ Raka: Oke, order masuk. Rp 2.000.000 sudah terpakai.
 
 Raka: Hehe, aku juga udah jadi bagian dari komunitas investor sekarang!
 
-<<tutup_hp GameManager>>
+<<tutup_hp HPmanager>>
 // BG: BG01 - Kamar Kos Raka (Malam)
 // SPRITE: Raka, ekspresi senang
 
@@ -199,7 +190,7 @@ Raka: ...Dina ada benarnya.
 Raka: Kalau dipikir-pikir, aku nggak tau apa-apa soal perusahaan ini.
 Raka: Laporan keuangannya gimana? Bisnisnya apa? Aku bahkan nggak tau.
 
-<<munculkan_hp GameManager>>
+<<munculkan_hp HPmanager>>
 
 // Raka melihat lagi chat Telegram
 // Kali ini pemain melihat dari sudut pandang lebih kritis
@@ -212,7 +203,7 @@ Narator: Red Flag Investasi Bodong: 1. Janji keuntungan pasti dan besar dalam wa
 
 Raka: Ah sudahlah.
 
-<<tutup_hp GameManager>>
+<<tutup_hp HPmanager>>
 
 Raka: Investasi ikut-ikutan tanpa riset itu sama aja judi.
 Raka: Lagian ini uang darurat buat bayar kos dan UKT semester depan.
@@ -275,7 +266,7 @@ Raka: Iya iya, selamat malam!
 Raka: Hmm... Mungkin aku mulai dari baca-baca di Stockbit sama IDX dulu deh.
 Raka: Pelan-pelan aja, yang penting paham.
 
-<<tutup_hp GameManager>>
+<<tutup_hp HPmanager>>
 
 Raka: Zzz...
 
@@ -288,7 +279,7 @@ title: Fase_Harga_Anjlok
 ---
 // Scene 3: Fase Harga Anjlok - Pagi yang Mengerikan
 
-<<munculkan_hp GameManager>>
+<<munculkan_hp HPmanager>>
 // BG: BG04 - Layar HP Cuanku (MERAH)
 // BGM: Musik tegang, bass berat, heartbeat SFX
 // SPRITE: Raka, ekspresi kaget -> panik

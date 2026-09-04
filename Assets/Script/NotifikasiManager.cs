@@ -23,6 +23,22 @@ public class NotifikasiManager : MonoBehaviour
         latarGelap.SetActive(false); // <-- Matikan latar gelap
     }
 
+    public GameObject layarTelepon;
+    [YarnCommand("munculkan_layar_telepon")]
+    public void MunculkanTelepon()
+    {
+        // Matikan UI lain dan nyalakan UI layar panggilan
+        appChat.SetActive(false);
+        layarTelepon.SetActive(true);
+    }
+
+    [YarnCommand("tutup_telepon")]
+    public void TutupTelepon()
+    {
+        layarTelepon.SetActive(false);
+        // Bisa tambahkan kode untuk mematikan HP sepenuhnya di sini
+    }
+
     [YarnCommand("buka_chat")]
     public void BukaChat()
     {
