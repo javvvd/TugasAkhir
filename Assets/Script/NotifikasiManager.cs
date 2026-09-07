@@ -45,6 +45,19 @@ public class NotifikasiManager : MonoBehaviour
         appChat.SetActive(true);
     }
 
+    [YarnCommand("tutup_chat")]
+    public void TutupChat()
+    {
+        if (appChat != null)
+        {
+            appChat.SetActive(false);
+        }
+        else
+        {
+            Debug.LogWarning("Objek appChat belum dimasukkan ke Inspector!");
+        }
+    }
+
     // ... (Kode latar gelap dan aplikasi yang sebelumnya sudah ada) ...
 
     [Header("Daftar Pesan Bima")]
@@ -61,6 +74,21 @@ public class NotifikasiManager : MonoBehaviour
             daftarPesanBima[indexPesan].SetActive(true);
         }
     }
+    [YarnCommand("bersihkan_chat")]
+    public void BersihkanChat()
+    {
+        // Mematikan semua kotak chat Bima
+        foreach (GameObject pesan in daftarPesanBima)
+        {
+            if (pesan != null) pesan.SetActive(false);
+        }
+
+        // Mematikan semua kotak chat Raka
+        foreach (GameObject pesan in daftarPesanRaka)
+        {
+            if (pesan != null) pesan.SetActive(false);
+        }
+    }
     //Pesan Raka
     [Header("Daftar Pesan Raka")]
     // Array ini untuk menyimpan semua kotak pesan Bima secara berurutan
@@ -75,5 +103,21 @@ public class NotifikasiManager : MonoBehaviour
             // Menyalakan pesan sesuai urutan nomor yang diminta Yarn Spinner
             daftarPesanRaka[indexPesanRaka].SetActive(true);
         }
+    }
+
+    //App Saham
+    [Header("Aplikasi Saham")]
+    public GameObject AppSaham;
+
+    [YarnCommand("buka_AppSaham")]
+    public void BukaAppSaham()
+    {
+        AppSaham.SetActive(true);
+    }
+
+    [YarnCommand("tutup_AppSaham")]
+    public void TutupAppSaham()
+    {
+        if (AppSaham != null) AppSaham.SetActive(false);
     }
 }

@@ -46,6 +46,7 @@ Raka: Coba telepon dia aja deh, penasaran aku caranya gimana.
 
 // Layar HP menyala dengan tampilan panggilan
 <<munculkan_layar_telepon HPmanager>>
+<<bersihkan_chat HPmanager>>
 : (Suara nada sambung... Tut... Tut...)
 : (Klik)
 
@@ -62,9 +63,42 @@ Bima: Udah, ntar gue kirim aja link grupnya lewat chat ya. Lu pantau aja dulu. U
 
 // Telepon dimatikan
 <<tutup_telepon HPmanager>>
+<<buka_chat HPmanager>>
+
+
+// Memunculkan Pesan_Bima_1 (Element 0)
+<<munculkan_pesan HPmanager 3>>
+<<wait 1>>
+<<munculkan_pesan HPmanager 4>>
+<<wait 1>>
+<<munculkan_pesan HPmanager 5>>
+<<wait 1>>
+
+// Menutup chat dan beralih ke aplikasi saham
+<<tutup_chat HPmanager>>
+Raka: ...
+<<buka_AppSaham HPmanager>>
+
+Raka: hmm harga sekarang 400 per lembar
+Raka: Kalau aku masukin 5 juta sekarang, besok pasti naik lagi nih.
+
+// Munculkan pilihan untuk pemain SEBELUM hp ditutup
+-> Beli Saham (Rp 5.000.000)
+    Raka: Bismillah, langsung hajar beli semua!
+    // Potong uang di UI BoxPorto (Pastikan nama objek Managernya sesuai)
+    <<kurangi_uang Manager 5000000>>
+    <<set $saham_dibeli = true>>
+
+-> Nanti dulu deh...
+    Raka: Ngeri ah, mending pantau dulu besok pagi.
+    <<set $saham_dibeli = false>>
+
+// Setelah memilih, baru HP ditutup
+<<tutup_AppSaham HPmanager>>
 <<tutup_hp HPmanager>>
 
 Raka: (Menatap layar HP yang kembali gelap)
+Raka: Hhh... waktunya tidur. Besok pagi aku cek lagi harganya.
 Raka: Grup VIP Influencer... Cuma modal copy-paste instruksi bisa untung puluhan juta.
 Raka: ...Gila. Aku yang tiap hari begadang ngerjain coding web sampai mata pedih aja tabungannya nggak seberapa.
 Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kesempatan ini?// SPRITE: Raka, ekspresi girang tapi ragu
