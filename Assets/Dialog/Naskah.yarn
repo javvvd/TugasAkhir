@@ -16,7 +16,6 @@ Raka: Udah 6 jam nonstop. Tutup laptop dulu lah.
 
 Raka: istirahat sebentar deh, otakku udah nggak bisa dipaksa.
 
-
 Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
 
 ===
@@ -88,7 +87,6 @@ Raka: Kalau aku masukin 5 juta sekarang, besok pasti naik lagi nih.
     // Potong uang di UI BoxPorto (Pastikan nama objek Managernya sesuai)
     <<kurangi_uang Manager 5000000>>
     <<set $saham_dibeli = true>>
-
 -> Nanti dulu deh...
     Raka: Ngeri ah, mending pantau dulu besok pagi.
     <<set $saham_dibeli = false>>
@@ -104,7 +102,9 @@ Raka: ...Gila. Aku yang tiap hari begadang ngerjain coding web sampai mata pedih
 Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kesempatan ini?// SPRITE: Raka, ekspresi girang tapi ragu
 // Ketukan di pintu
 // SFX: Tok tok tok
-
+: tok tok tok
+<<wait 2>>
+<<buka_pintu EngselPintu>>
 // SPRITE: Dina, ekspresi khawatir
 
 Dina: Rak, belum tidur? Ini udah hampir jam 12 lho.

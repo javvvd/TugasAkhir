@@ -4,7 +4,11 @@ using System.Collections;
 
 public class PengendaliPintu : MonoBehaviour
 {
-    // Perintah ini bisa dipanggil langsung dari naskah Yarn
+    [Header("Pengaturan Pintu")]
+    public float sudutBuka = 80f; // Ubah ke -90f jika pintu terbuka ke arah yang salah
+    public float kecepatan = 2f;  // Semakin besar, semakin cepat terbuka
+
+    // Perintah ini akan dipanggil oleh Yarn Spinner
     [YarnCommand("buka_pintu")]
     public void BukaPintu()
     {
@@ -13,19 +17,20 @@ public class PengendaliPintu : MonoBehaviour
 
     IEnumerator ProsesBuka()
     {
-        float targetSudut = 90f;  // Ganti -90f jika pintunya terbuka ke arah luar/terbalik
-        float kecepatan = 150f;   // Semakin besar, semakin cepat pintu terbuka
-        float sudutSekarang = 0f;
+        Quaternion rotasiAwal = transform.rotation;
+        // Menargetkan rotasi pada sumbu Y (kiri-kanan)
+        Quaternion rotasiTarget = transform.rotation * Quaternion.Euler(0, sudutBuka, 0);
 
-        while (sudutSekarang < Mathf.Abs(targetSudut))
+        float waktu = 0f;
+        while (waktu < 1f)
         {
-            float putaran = kecepatan * Time.deltaTime;
-            
-            // Memutar pada sumbu Y
-            transform.Rotate(0, targetSudut > 0 ? putaran : -putaran, 0); 
-            
-            sudutSekarang += putaran;
-            yield return null; // Tunggu ke frame berikutnya biar mulus
+            waktu += Time.deltaTime * kecepatan;
+            // Memutar pintu secara halus dari posisi awal ke target
+            transform.rotation = Quaternion.Slerp(rotasiAwal, rotasiTarget, waktu);
+            yield return null; 
         }
+        
+        // Memastikan posisi akhir tepat 100%
+        transform.rotation = rotasiTarget; 
     }
 }
