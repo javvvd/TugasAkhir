@@ -1,51 +1,60 @@
 using UnityEngine;
-using Yarn.Unity; // Wajib ada agar bisa memanggil cerita
+using Yarn.Unity;
 
 public class SistemInteraksi : MonoBehaviour
 {
     public Camera kameraPemain;
     public GameObject tombolUI;
-    public DialogueRunner mesinCerita; // Penarik naskah Yarn
+    public DialogueRunner mesinCerita;
 
-    private GameObject bendaYangDitabrak; 
+    // Sekarang kita menyimpan script BendaInteraktif, bukan GameObject-nya
+    private BendaInteraktif bendaYangDitabrak;
 
     void Update()
     {
-        // 1. Tembakkan laser ke tengah layar sejauh 3 meter
+        // Cegah interaksi kalau dialog sedang jalan
+        if (mesinCerita.IsDialogueRunning)
+        {
+            tombolUI.SetActive(false);
+            return;
+        }
+
         Ray laser = new Ray(kameraPemain.transform.position, kameraPemain.transform.forward);
         RaycastHit dataTabrakan;
 
         if (Physics.Raycast(laser, out dataTabrakan, 3f))
         {
-            // 2. Kalau laser kena benda dengan Tag "Handphone"
-            if (dataTabrakan.collider.CompareTag("Handphone"))
+            // Cek apakah benda yang ditabrak punya script "BendaInteraktif"
+            BendaInteraktif benda = dataTabrakan.collider.GetComponent<BendaInteraktif>();
+
+            if (benda != null)
             {
-                tombolUI.SetActive(true); // Munculkan tombol
-                bendaYangDitabrak = dataTabrakan.collider.gameObject; // Ingat HP-nya
+                tombolUI.SetActive(true); // Munculkan tombol UI
+                bendaYangDitabrak = benda; // Ingat benda yang sedang disorot
             }
             else
             {
-                tombolUI.SetActive(false); // Kalau nengok ke benda lain, matikan tombol
+                tombolUI.SetActive(false);
+                bendaYangDitabrak = null;
             }
         }
         else
         {
-            tombolUI.SetActive(false); // Kalau nengok ke ruang kosong, matikan tombol
+            tombolUI.SetActive(false);
+            bendaYangDitabrak = null;
         }
     }
 
-    // 3. Fungsi ini akan dipanggil kalau tombol di layar ditekan
+    // Fungsi ini dipanggil saat tombol UI di layar ditekan
     public void TombolDitekan()
     {
-        if (bendaYangDitabrak != null && bendaYangDitabrak.CompareTag("Handphone"))
+        // Pastikan ada benda yang ditabrak dan string node Yarn-nya tidak kosong
+        if (bendaYangDitabrak != null && !string.IsNullOrEmpty(bendaYangDitabrak.namaNodeYarn))
         {
-            tombolUI.SetActive(false); // Sembunyikan tombolnya lagi
-            
-            // Mulai naskah Yarn Spinner (Pastikan nama nodenya benar)
-            if (mesinCerita.IsDialogueRunning == false)
-            {
-                mesinCerita.StartDialogue("Fase_0_Pembuka");
-            }
+            tombolUI.SetActive(false);
+
+            // Mulai dialog sesuai nama node yang ada di benda tersebut!
+            mesinCerita.StartDialogue(bendaYangDitabrak.namaNodeYarn);
         }
     }
 }

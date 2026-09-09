@@ -16,6 +16,7 @@ Raka: Tabunganku di bank cuma ada 5 juta, itu pun harus dipotong buat bayar kos 
 <<wait 2>>
 Raka: istirahat sebentar deh, otakku udah nggak bisa dipaksa.
 Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
+<<aktifkan_interaksi Handphone>>
 ===
 title: Fase_0_Pembuka
 ---
@@ -92,12 +93,17 @@ Raka: Ya... nggak sih. Tapi influencernya udah analisis, follower-nya ratusan ri
 Heri: Follower banyak bukan berarti analisanya bener, Rak. Banyak influencer yang cuma pompom saham biar harganya naik, terus mereka jualan di harga pucuk. Itu namanya skema Pump and Dump.
 Heri: Udah mending dipikir-pikir lagi deh. Aku balik kamar dulu ya.
 Raka: [speed=0.2]...oke, Her[/speed]
-
 <<tutup_pintu EngselPintu>>
+<<matikan_interaksi Handphone>>
 
-// Setelah memilih, baru HP ditutup
-<<tutup_AppSaham HPmanager>>
-<<tutup_hp HPmanager>>
+<<wait 5>>
+Raka: ...hmmm..
+// Muncul pilihan di layar pemain
+-> Buka HP lagi dan beli saham, OTW Kaya!. 'Beli'
+    <<jump Fase_FOMO>>
+-> Kata Heri ada benarnya juga.'Nanti Dulu'
+    <<jump Fase_Rasional>>
+
 ===
 
 title: Fase_FOMO
