@@ -4,25 +4,21 @@
 // BGM: Lo-fi ambient malam, suara jangkrik samar
 // SPRITE: Raka, ekspresi ngantuk
 
-// Sekarang, suruh Unity memudarkan layar hitamnya!
-Raka: Hhh... jam berapa sih ini?
-Raka: Duh, mataku sampai pedih ngerjain tugas coding web ini ...
-Raka: Udah 6 jam nonstop. Tutup laptop dulu lah.
+Raka: Hadeh... jam berapa sih ini?
+Raka: Duh, mataku sampai pedih ngerjain tugas coding ini ...
+Raka: Udah 3 jam nonstop. Tutup laptop dulu lah.
 <<fade_in Manager>>
+Raka: hadeh... Dari mana aku bisa cepat dapat uang buat beli laptop baru ya?
+Raka: Laptop ini kipasnya udah bunyi kencang buat buka Visual Studio doang.
+Raka: Port LAN-nya juga udah mati, keyboard-nya kadang ngaco ngetik sendiri.
+Raka: Aku butuh banget ganti laptop baru. Tapi harganya lumayan mahal.
+Raka: Tabunganku di bank cuma ada 5 juta, itu pun harus dipotong buat bayar kos dan makan.
 <<wait 2>>
-
-
-// SFX: Raka meregangkan badan, bunyi "krek"
-
 Raka: istirahat sebentar deh, otakku udah nggak bisa dipaksa.
-
 Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
-
 ===
 title: Fase_0_Pembuka
 ---
-// SFX: Bunyi notifikasi HP - "ting ting"
-// Munculkan HP dan buka aplikasi Chat
 <<munculkan_hp HPmanager>>
 <<buka_chat HPmanager>>
 
@@ -38,8 +34,8 @@ Raka : Hah apaan ini
 <<wait 2>>
 <<munculkan_pesan HPmanager 2>>
 <<wait 2>>
-Raka: Hebat juga Bima ini. Padahal waktu kelas Pengantar Ekonomi nilainya cuma C.
-Raka: Tapi bisa untung 10 juta cuma modal rebahan main HP...
+Raka: Hebat juga Bima ini. Dia ga pernah bilang mengerti saham.
+Raka: Tapi bisa untung 10 juta cuma pakai HP...
 Raka: Coba telepon dia aja deh, penasaran aku caranya gimana.
 // SPRITE: Raka, ekspresi penasaran/iri
 
@@ -49,90 +45,59 @@ Raka: Coba telepon dia aja deh, penasaran aku caranya gimana.
 : (Suara nada sambung... Tut... Tut...)
 : (Klik)
 
-Bima: Halo, Ka! Gimana? Udah liat screenshot portofolio gue kan? Hijau semua bos!
-Raka: Udah, makanya ini gue nelepon. Lu dapet untung 40% gitu dari mana ceritanya, Bim?
-Bima: Hahaha, gampang banget bro sekarang cari duit. Lo tinggal daftar aplikasi, masukin modal, terus ikutin sinyal. Tinggal tidur, besoknya cuan deh.
-Raka: Sinyal apaan? Lu kan nggak ngerti baca grafik analisa pasar gitu. Bahaya nggak tuh asal taruh duit?
-Bima: Ah elah, lu kebanyakan mikir! Emang gue nggak ngerti, tapi gue gabung grup VIP Telegram-nya "Master Trading".
+Bima: Halo, raka! Gimana? Udah liat screenshot keuntunganku kan?
+Raka: Udah, makanya ini aku nelepon. kau dapet untung segitu darimana ceritanya, Bim?
+Bima: Hahaha, gampang banget bro sekarang cari duit. Kau tinggal daftar aplikasi, masukin modal, terus ikutin sinyal. cuan deh.
+Raka: Sinyal apaan? kau kan nggak ngerti baca grafik analisa pasar gitu. Bahaya nggak tuh asal taruh duit?
+Bima: Ah elah, kau kebanyakan mikir! Emang gue nggak ngerti, tapi gue gabung grup VIP Telegram-nya "Master Trading".
 Bima: Dia tuh influencer paling top sekarang. Kita nggak usah capek mikir, tinggal copy-paste aja apa yang dia suruh beli.
-Raka: Grup VIP Influencer? Yakin lu itu aman? 
-Bima: Aman 100%! Buktinya gue udah narik duit 10 juta hari ini. Lu kalau mau, nanti gue invite ke grupnya deh. Mumpung lagi ada promo pendaftaran nih.
+Raka: Grup VIP Influencer? Yakin kau itu aman? 
+Bima: Aman 100%! Buktinya gue udah narik duit 10 juta hari ini. kau kalau mau, nanti gue invite ke grupnya deh. Mumpung lagi ada promo pendaftaran nih.
 Raka: Mmm... 
-Bima: Udah, ntar gue kirim aja link grupnya lewat chat ya. Lu pantau aja dulu. Udah ya, gue mau lanjut push rank. Yoi!
+Bima: Udah, ntar ku kirim aja link grupnya lewat chat ya. kau pantau aja dulu. Udah ya, gue mau lanjut push rank. Yoi!
 
 // Telepon dimatikan
 <<tutup_telepon HPmanager>>
 <<buka_chat HPmanager>>
 
-
-// Memunculkan Pesan_Bima_1 (Element 0)
+// Memunculkan Pesan_Bima
 <<munculkan_pesan HPmanager 3>>
 <<wait 1>>
 <<munculkan_pesan HPmanager 4>>
 <<wait 1>>
 <<munculkan_pesan HPmanager 5>>
 <<wait 1>>
-
-// Menutup chat dan beralih ke aplikasi saham
-<<tutup_chat HPmanager>>
 Raka: ...
-<<buka_AppSaham HPmanager>>
 
-Raka: hmm harga sekarang 400 per lembar
-Raka: Kalau aku masukin 5 juta sekarang, besok pasti naik lagi nih.
-
-// Munculkan pilihan untuk pemain SEBELUM hp ditutup
--> Beli Saham (Rp 5.000.000)
-    Raka: Bismillah, langsung hajar beli semua!
-    // Potong uang di UI BoxPorto (Pastikan nama objek Managernya sesuai)
-    <<kurangi_uang Manager 5000000>>
-    <<set $saham_dibeli = true>>
--> Nanti dulu deh...
-    Raka: Ngeri ah, mending pantau dulu besok pagi.
-    <<set $saham_dibeli = false>>
-
-// Setelah memilih, baru HP ditutup
-<<tutup_AppSaham HPmanager>>
+<<tutup_chat HPmanager>>
 <<tutup_hp HPmanager>>
-
-Raka: (Menatap layar HP yang kembali gelap)
-Raka: Hhh... waktunya tidur. Besok pagi aku cek lagi harganya.
-Raka: Grup VIP Influencer... Cuma modal copy-paste instruksi bisa untung puluhan juta.
-Raka: ...Gila. Aku yang tiap hari begadang ngerjain coding web sampai mata pedih aja tabungannya nggak seberapa.
+Raka: Selama ini aku masih belajar pakai akun virtual sih.
+Raka: Tapi lihat Bima untung besar dengan uang asli aku jadi tergiur.
 Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kesempatan ini?// SPRITE: Raka, ekspresi girang tapi ragu
 // Ketukan di pintu
 // SFX: Tok tok tok
 : tok tok tok
 <<wait 2>>
+Raka: Siapa sih ketok pintu...
 <<buka_pintu EngselPintu>>
-// SPRITE: Dina, ekspresi khawatir
 
-Dina: Rak, belum tidur? Ini udah hampir jam 12 lho.
-Raka: Eh, Din. Belum nih. Eh, kamu tau nggak soal saham CUAN?
-Dina: CUAN? Yang lagi rame di TikTok itu?
-Raka: Iya! Si Bima untung 40% dalam sehari! Aku mau ikut beli juga nih.
+Heri: Rak, lagi ngapain?
+Raka: Oh Heri, kirain siapa
+Raka: Lagi istirahat aja nyantai.
+Raka: Her Si Bima untung besar main saham! Aku mau ikut beli juga nih.
+Heri: Hah? Saham apa?
+Raka: Itu loh, saham DUIT yang lagi rame dibahas juga di grup Master Trading.
+Heri: Rak... Kau yakin? Kamu tau nggak perusahaan itu?
+Raka: Ya... nggak sih. Tapi influencernya udah analisis, follower-nya ratusan ribu lho.
+Heri: Follower banyak bukan berarti analisanya bener, Rak. Banyak influencer yang cuma pompom saham biar harganya naik, terus mereka jualan di harga pucuk. Itu namanya skema Pump and Dump.
+Heri: Udah mending dipikir-pikir lagi deh. Aku balik kamar dulu ya.
+Raka: [speed=0.2]...oke, Her[/speed]
 
-// SPRITE: Dina, ekspresi kecewa/khawatir
+<<tutup_pintu EngselPintu>>
 
-Dina: Rak... Kamu yakin? Kamu tau nggak fundamentalnya perusahaan itu?
-Raka: Ya... nggak sih. Tapi Kak Zaki udah analisis, follower-nya setengah juta lho.
-Dina: Follower banyak bukan berarti analisanya bener. Banyak influencer yang cuma pompom saham biar harganya naik, terus mereka jual duluan. Namanya Pump and Dump.
-
-// EDUKASI - Pop Up Box Kuning
-Narator: Apa itu Pump & Dump? Skema manipulasi di mana seseorang atau kelompok membeli saham murah dalam jumlah besar, lalu mempromosikannya secara agresif ("pump") agar orang lain ikut beli dan harganya naik. Setelah harga naik tinggi, mereka menjual semua ("dump"), meninggalkan investor ritel dengan kerugian besar.
-
-Dina: Lagian, itu uang buat bayar kos dan UKT kan? Kalau hilang gimana?
-Raka: ...
-
-
--> Buka aplikasi "Cuanku", all-in beli saham sekarang! (FOMO menang)
-    Raka: (Dalam hati) Ah, Dina terlalu paranoid. Kalau nggak berani ambil risiko, kapan kayanya?
-    <<jump Fase_FOMO>>
--> Dengarkan Dina, taruh HP dan tidur. (Logika menang)
-    Raka: (Dalam hati) ...Dina ada benarnya. Aku nggak ngerti apa-apa soal saham ini.
-    <<jump Fase_Rasional>>
--> Tanya Dina lebih lanjut soal investasi yang benar. (Ingin belajar)
-    <<jump Fase_Tanya_Dina>>
+// Setelah memilih, baru HP ditutup
+<<tutup_AppSaham HPmanager>>
+<<tutup_hp HPmanager>>
 ===
 
 title: Fase_FOMO
