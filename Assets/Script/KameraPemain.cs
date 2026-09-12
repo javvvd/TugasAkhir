@@ -9,15 +9,31 @@ public class KameraMobile : MonoBehaviour
     private float rotasiX = 0f;
     private float rotasiY = 0f;
 
+    void Start()
+    {
+        // 1. Ambil rotasi awal kamera dari Unity Editor saat game dimulai
+        Vector3 rotasiAwal = transform.localEulerAngles;
+        rotasiX = rotasiAwal.x;
+        rotasiY = rotasiAwal.y;
+
+        // 2. Koreksi sumbu X (Atas-Bawah)
+        // Unity menyimpan sudut negatif (misal menunduk -10 derajat) sebagai 350 derajat.
+        // Kita harus mengembalikannya ke format minus agar fungsi Clamp (-90 sampai 90) tidak rusak.
+        if (rotasiX > 180f)
+        {
+            rotasiX -= 360f;
+        }
+    }
+
     void Update()
     {
         float geserX = 0f;
         float geserY = 0f;
 
-        // 1. Deteksi usapan jari untuk perangkat Mobile (HP)
+        // Deteksi usapan jari untuk perangkat Mobile (HP)
         if (Input.touchCount > 0)
         {
-            Touch sentuhan = Input.GetTouch(0); // Mendeteksi jari pertama yang menyentuh layar
+            Touch sentuhan = Input.GetTouch(0); 
 
             if (sentuhan.phase == TouchPhase.Moved)
             {
@@ -25,7 +41,7 @@ public class KameraMobile : MonoBehaviour
                 geserY = sentuhan.deltaPosition.y * sensitivitasLayarHP;
             }
         }
-        // 2. Deteksi klik-kiri & tahan (Drag) untuk uji coba di PC/Unity Editor
+        // Deteksi klik-kiri & tahan (Drag) untuk uji coba di PC/Unity Editor
         else if (Input.GetMouseButton(0)) 
         {
             geserX = Input.GetAxis("Mouse X") * sensitivitasMouseEditor;
@@ -35,14 +51,11 @@ public class KameraMobile : MonoBehaviour
         // Terapkan kalkulasi rotasi jika ada pergeseran
         if (geserX != 0 || geserY != 0)
         {
-            // Menghitung rotasi atas-bawah (Sumbu Y dibalik agar arah usapan terasa natural)
             rotasiX -= geserY;
-            rotasiX = Mathf.Clamp(rotasiX, -90f, 90f); // Mengunci leher agar tidak berputar ke belakang
+            rotasiX = Mathf.Clamp(rotasiX, -90f, 90f); 
 
-            // Menghitung rotasi kiri-kanan
             rotasiY += geserX;
 
-            // Menggerakkan kamera
             transform.localRotation = Quaternion.Euler(rotasiX, rotasiY, 0f);
         }
     }

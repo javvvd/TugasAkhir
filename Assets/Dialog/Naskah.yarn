@@ -6,7 +6,7 @@
 
 Raka: Hadeh... jam berapa sih ini?
 Raka: Duh, mataku sampai pedih ngerjain tugas coding ini ...
-Raka: Udah 3 jam nonstop. Tutup laptop dulu lah.
+Raka: Udah 3 jam nonstop.
 <<fade_in Manager>>
 Raka: hadeh... Dari mana aku bisa cepat dapat uang buat beli laptop baru ya?
 Raka: Laptop ini kipasnya udah bunyi kencang buat buka Visual Studio doang.
@@ -14,6 +14,8 @@ Raka: Port LAN-nya juga udah mati, keyboard-nya kadang ngaco ngetik sendiri.
 Raka: Aku butuh banget ganti laptop baru. Tapi harganya lumayan mahal.
 Raka: Tabunganku di bank cuma ada 5 juta, itu pun harus dipotong buat bayar kos dan makan.
 <<wait 2>>
+<<tutup_laptop LayarLaptop>>
+
 Raka: istirahat sebentar deh, otakku udah nggak bisa dipaksa.
 Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
 <<aktifkan_interaksi Handphone>>
@@ -108,79 +110,115 @@ Raka: ...hmmm..
 
 title: Fase_FOMO
 ---
-// Scene 2A: Fase FOMO - Keputusan Impulsif
-
-// BG: BG01 - Kamar Kos Raka (Malam)
-// SPRITE: Raka, ekspresi semangat/nekat
-// BGM: Musik tempo naik, sedikit menegangkan
-
-Raka: Kesempatan nggak datang dua kali. Dina nggak ngerti soal peluang kayak gini.
-Raka: Lagian, yang nyuruh bukan sembarang orang - Kak Zaki analisanya selalu tepat di video-videonya!
+// Lanjutan setelah Raka menolak mendengarkan Heri (Kejadian Siang Hari)
+Raka: Ah, si Heri mah terlalu penakut. Kalau nggak berani ambil risiko, kapan bisa beli laptop baru?
+Raka: Lagian, yang nyuruh bukan sembarang orang. Pengikut VIP-nya udah ribuan!
 
 <<munculkan_hp HPmanager>>
-// BG: BG04 - Layar HP Aplikasi Cuanku (Hijau)
+<<buka_AppSaham HPmanager>>
+<<wait 1>>
 
-// Tampilan aplikasi Cuanku:
-// Saldo: Rp 5.000.000
-// Saham: CUAN - PT Cuan Sejahtera Tbk
-// Harga: Rp 500/lembar
-// Grafik: Candlestick hijau naik tajam
+Raka: Oke... Buka aplikasinya... Saham CUAN... harganya Rp 500 per lembar.
+Raka: Saldo tabunganku ada 5 juta. Jangan serakah dulu deh, kita tes ombak.
+Raka: Aku masukin Rp 2.000.000 aja dulu, dapet 40 Lot. Sisa 3 juta buat jaga-jaga.
 
-Raka: Oke... Buka Cuanku... Saham CUAN... harganya Rp 500 per lembar.
-Raka: Kalau aku masukin Rp 2.000.000... itu dapat 4.000 lembar.
-
-// Animasi: Raka input jumlah beli
-// Tombol BELI muncul besar dan hijau
-
+// Pilihan interaktif
 -> (Tekan tombol BELI)
     // SFX: Bunyi "cha-ching" - order masuk
     <<potong_uang GameManager 2000000>>
 -> (Ragu sejenak... tapi tetap tekan BELI)
-    Raka: ...
-    Raka: (Jari gemetar di atas tombol)
-    Raka: YOLO!
+    Raka: (Jari gemetar di atas layar)
+    Raka: Bismillah, YOLO!
     // SFX: Bunyi "cha-ching" - order masuk
     <<potong_uang GameManager 2000000>>
 
-// Update UI:
-// Saldo: Rp 5.000.000 -> Rp 3.000.000
-// Portofolio: CUAN 4.000 lembar @ Rp 500 = Rp 2.000.000
+Raka: Oke, order *Matched*! 2 Juta udah masuk ke saham CUAN.
+Raka: Sekarang sisa saldoku 3 Juta. Mantap! 
+Raka: Biar nggak kepikiran, aku lanjut nugas coding web dulu deh sambil mantau.
 
-Raka: Oke, order masuk. Rp 2.000.000 sudah terpakai.
-
-// SFX: Notifikasi Telegram
-// Telegram: Member baru chat "Sudah masuk juga! Bismillah cuan!"
-
-Raka: Hehe, aku juga udah jadi bagian dari komunitas investor sekarang!
-
+<<tutup_AppSaham HPmanager>>
 <<tutup_hp HPmanager>>
-// BG: BG01 - Kamar Kos Raka (Malam)
-// SPRITE: Raka, ekspresi senang
 
-Raka: Mantap! Tinggal tidur, besok pagi pasti udah kaya mendadak.
-Raka: Bayar kos lunas, sisa buat jajan... Mungkin bisa traktir Dina juga biar dia percaya.
+// Menyalakan fungsi klik pada Laptop (BendaInteraktif)
+<<aktifkan_interaksi ObjekLaptop>>
+// Ubah target interaksi Laptop untuk memicu transisi waktu singkat
+<<ubah_node ObjekLaptop Interaksi_Nugas_Siang>>
 
-// SFX: Raka matikan lampu meja
-// SPRITE: Raka, ekspresi ngantuk senang
+// (Dialog berhenti di sini, menunggu player klik Laptop yang rusak)
+===
 
-Raka: Zzz...
+title: Interaksi_Nugas_Siang
+---
+// Player mengklik laptop
+// SFX: Suara kipas laptop berdengung keras dan ketikan keyboard
+Raka: Hhh... ngoding pakai laptop lemot gini emang butuh kesabaran ekstra.
 
-// TRANSISI
-// BG: BG05 - Layar Hitam
-// BGM: Fade out
-// Teks: "Beberapa jam kemudian..."
-// Teks: "07:12 AM"
+// TRANSISI WAKTU SINGKAT (Misal: 2 Jam Kemudian)
+// Layar bisa digelapkan sebentar (fade out/fade in) atau langsung muncul tulisan di layar
+<<fade_out Manager>>
+<<wait 2>>
 
-// SFX: Alarm HP berdering
-// BG: BG01 - Kamar Kos Raka (Pagi) - cahaya matahari masuk
-// BGM: Musik pagi yang normal, tapi akan berubah
-// SPRITE: Raka, ekspresi ngantuk
+// Teks di layar (opsional jika kamu punya fungsi UI untuk menampilkannya):
+// "2 Jam Kemudian... Pukul 14.30 (Menjelang Penutupan Bursa)"
 
-Raka: Hoam... Wah udah pagi.
-Raka: (Langsung meraih HP)
-Raka: Cek portofolio dulu ah, pasti udah hijau tebal!
+<<fade_in Manager>>
+<<wait 2>>
 
-<<jump Fase_Harga_Anjlok>>
+// SFX: Bunyi notifikasi Telegram bertubi-tubi (Ting! Ting! Ting!)
+Raka: Eh, rame banget grup Telegram Master Trading. Ada apa nih?
+
+<<munculkan_hp HPmanager>>
+<<buka_chat HPmanager>>
+<<wait 1>>
+
+// Memunculkan pesan di grup secara berurutan
+: [Grup VIP] Member A: "ALHAMDULILLAH TERBANG! Makasih Master!"
+<<wait 1>>
+: [Grup VIP] Member B: "Tembus resisten! Target harga 1000 didepan mata!"
+<<wait 1>>
+: [Grup VIP] Master Trading: "Selamat yang sudah serok dari pagi! Yang belum masuk, segera HAKA (Hajar Kanan) sebelum ARA (Auto Reject Atas)!"
+<<wait 1>>
+: [Grup VIP] Master Trading: "Bandar belum jualan, ini barang masih aman! 🚀🚀"
+
+Raka: Hah?! Terbang?! 
+Raka: Buruan cek aplikasi saham!
+
+<<tutup_chat HPmanager>>
+<<buka_AppSaham HPmanager>>
+<<wait 1>>
+
+// (Sistem sudah mengganti UI saham menjadi hijau/naik di belakang layar)
+// SPRITE: Raka, ekspresi syok bahagia / mata berbinar
+
+Raka: GILA!! Harga saham CUAN naik dari 500 ke 625 dalam dua jam!
+Raka: Portofolioku hijau! Untung 25% cuy!
+Raka: Uang 2 jutaku sekarang jadi Rp 2.500.000! Dapet 500 ribu gampang banget!
+
+// EDUKASI: Pop-Up Average Up / FOMO
+Narator: FOMO (Fear Of Missing Out) membuat investor merasa tertinggal dan cemas saat melihat orang lain untung. Di fase ini, korban skema Pump & Dump biasanya akan dipancing untuk menambah modal (Average Up) di harga pucuk sebelum bandar mulai membuang barangnya ("Dump").
+
+Raka: Bener kata grup. Aku nyesel tadi siang cuma masukin 2 juta. 
+Raka: Kalau tadi aku masukin semua 5 juta, pasti untungnya udah 1,2 juta!
+Raka: Kalau aku masukin sisa tabunganku yang 3 juta sekarang... dan harganya beneran ditarik ke 1000... 
+Raka: ...Bulan depan aku bisa langsung *cash* beli laptop ROG baru!
+
+Raka: Gimana nih? Bentar lagi bursa tutup jam 3 sore. Tambah muatan habisin semua sisa tabungan, atau biarin aja yang 2 juta ini jalan?
+
+// Pilihan Kritis FOMO
+-> Tambah Muatan! (All-In sisa Rp 3.000.000)
+    Raka: Sikat lah! Mumpung belum ARA! 
+    Raka: Tabungan kos kumasukin semua! Beli lagi di harga 625!
+    // Memotong sisa uang
+    <<potong_uang GameManager 3000000>>
+    Raka: Order *Matched*! Saldo bener-bener ludes sekarang. Total Rp 5.000.000 ada di saham CUAN!
+    Raka: Ayo Master, bawa aku terbang besok!
+    <<jump Fase_Penutupan_Bursa>>
+
+-> Tahan diri. Biarkan saja yang 2 juta.
+    Raka: Nggak, nggak... Jangan serakah. Kalau tiba-tiba turun, aku masih punya sisa 3 juta buat hidup.
+    Raka: Biarin aja dah untung yang 2 juta ini dulu. Aku pantau aja sampai bursa tutup.
+    <<jump Fase_Penutupan_Bursa>>
+
 ===
 
 title: Fase_Rasional
