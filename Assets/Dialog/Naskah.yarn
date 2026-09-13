@@ -3,11 +3,11 @@
 // BG: BG01 - Kamar Kos Raka (Malam)
 // BGM: Lo-fi ambient malam, suara jangkrik samar
 // SPRITE: Raka, ekspresi ngantuk
-
+<<fade_in Manager>>
+<<wait 8>>
 Raka: Hadeh... jam berapa sih ini?
 Raka: Duh, mataku sampai pedih ngerjain tugas coding ini ...
 Raka: Udah 3 jam nonstop.
-<<fade_in Manager>>
 Raka: hadeh... Dari mana aku bisa cepat dapat uang buat beli laptop baru ya?
 Raka: Laptop ini kipasnya udah bunyi kencang buat buka Visual Studio doang.
 Raka: Port LAN-nya juga udah mati, keyboard-nya kadang ngaco ngetik sendiri.
@@ -57,6 +57,7 @@ Bima: Dia tuh influencer paling top sekarang. Kita nggak usah capek mikir, tingg
 Raka: Grup VIP Influencer? Yakin kau itu aman? 
 Bima: Aman 100%! Buktinya gue udah narik duit 10 juta hari ini. kau kalau mau, nanti gue invite ke grupnya deh. Mumpung lagi ada promo pendaftaran nih.
 Raka: Mmm... 
+Bima: Kalau kau cuma pake akun virtual doang, kapan bisa dapet untung besar.
 Bima: Udah, ntar ku kirim aja link grupnya lewat chat ya. kau pantau aja dulu. Udah ya, gue mau lanjut push rank. Yoi!
 
 // Telepon dimatikan
@@ -112,13 +113,13 @@ title: Fase_FOMO
 ---
 // Lanjutan setelah Raka menolak mendengarkan Heri (Kejadian Siang Hari)
 Raka: Ah, si Heri mah terlalu penakut. Kalau nggak berani ambil risiko, kapan bisa beli laptop baru?
-Raka: Lagian, yang nyuruh bukan sembarang orang. Pengikut VIP-nya udah ribuan!
+Raka: Si Bima aja bisa untung besar begitu.
 
 <<munculkan_hp HPmanager>>
 <<buka_AppSaham HPmanager>>
 <<wait 1>>
 
-Raka: Oke... Buka aplikasinya... Saham CUAN... harganya Rp 500 per lembar.
+Raka: Oke... Buka aplikasinya... Saham DUIT... harganya Rp 400 per lembar.
 Raka: Saldo tabunganku ada 5 juta. Jangan serakah dulu deh, kita tes ombak.
 Raka: Aku masukin Rp 2.000.000 aja dulu, dapet 40 Lot. Sisa 3 juta buat jaga-jaga.
 
@@ -132,32 +133,41 @@ Raka: Aku masukin Rp 2.000.000 aja dulu, dapet 40 Lot. Sisa 3 juta buat jaga-jag
     // SFX: Bunyi "cha-ching" - order masuk
     <<potong_uang GameManager 2000000>>
 
-Raka: Oke, order *Matched*! 2 Juta udah masuk ke saham CUAN.
-Raka: Sekarang sisa saldoku 3 Juta. Mantap! 
-Raka: Biar nggak kepikiran, aku lanjut nugas coding web dulu deh sambil mantau.
+Raka: Oke, order *Matched*! 2 Juta udah masuk ke saham DUIT.
+Raka: Aku juga sudah join grup Master Trading.
+Raka: Sekarang sisa saldoku 3 Juta. 
+Raka: Oke.. lanjut nugas dulu deh.
 
+<<wait 2>>
 <<tutup_AppSaham HPmanager>>
 <<tutup_hp HPmanager>>
 
-// Menyalakan fungsi klik pada Laptop (BendaInteraktif)
-<<aktifkan_interaksi ObjekLaptop>>
-// Ubah target interaksi Laptop untuk memicu transisi waktu singkat
-<<ubah_node ObjekLaptop Interaksi_Nugas_Siang>>
+<<buka_laptop LayarLaptop>>
+Raka: Hhh... ngoding pakai laptop lemot gini emang butuh kesabaran ekstra.
 
-// (Dialog berhenti di sini, menunggu player klik Laptop yang rusak)
+<<wait 5>>
+<<fade_out Manager>>
+<<wait 3>> // Tunggu layar hitam sempurna
+
+// Memunculkan teks transisi
+<<munculkan_teks Manager "3 Jam Kemudian...">>
+<<wait 4>> // Biarkan pemain membaca teksnya selama 2 detik
+
+// Hapus teks sebelum layar kembali terang
+<<hapus_teks Manager>>
+
+<<fade_in Manager>>
+<<wait 4>>
+
 ===
 
-title: Interaksi_Nugas_Siang
+title: Fase_FOMO_lanjutan
 ---
 // Player mengklik laptop
 // SFX: Suara kipas laptop berdengung keras dan ketikan keyboard
-Raka: Hhh... ngoding pakai laptop lemot gini emang butuh kesabaran ekstra.
 
 // TRANSISI WAKTU SINGKAT (Misal: 2 Jam Kemudian)
 // Layar bisa digelapkan sebentar (fade out/fade in) atau langsung muncul tulisan di layar
-<<fade_out Manager>>
-<<wait 2>>
-
 // Teks di layar (opsional jika kamu punya fungsi UI untuk menampilkannya):
 // "2 Jam Kemudian... Pukul 14.30 (Menjelang Penutupan Bursa)"
 
