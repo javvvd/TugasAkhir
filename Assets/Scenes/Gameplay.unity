@@ -4417,6 +4417,54 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1579777175}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1642258152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1642258153}
+  - component: {fileID: 1642258154}
+  m_Layer: 0
+  m_Name: HPmanager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1642258153
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642258152}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -918.4489, y: -522.89404, z: 29.39661}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1773743234}
+  - {fileID: 1835878005}
+  m_Father: {fileID: 2065112055}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1642258154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1642258152}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc451029000a154abf249cd7bf07e6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelHandphone: {fileID: 1430582220}
+  latarGelap: {fileID: 138080523}
 --- !u!1 &1647381887
 GameObject:
   m_ObjectHideFlags: 0
@@ -4769,6 +4817,58 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 72ebaf4301982db4cb1528fd841bbc0b, type: 3}
   m_PrefabInstance: {fileID: 1710271804}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1773743233
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1773743234}
+  - component: {fileID: 1773743235}
+  m_Layer: 0
+  m_Name: AppSahamManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1773743234
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773743233}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1642258153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1773743235
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773743233}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4aa89d12dc3ed0469e578a0d9c8797d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  appSaham: {fileID: 1850353382}
+  gambarLayarSaham: {fileID: 1850353384}
+  daftarLayarSaham:
+  - {fileID: 21300000, guid: f458362374bc0c347a86e5127696991c, type: 3}
+  - {fileID: 21300000, guid: c0936f7c173a9754a86a31e4f24217c3, type: 3}
+  - {fileID: 21300000, guid: 0dc8a479185d6ab4784531c1de028bac, type: 3}
+  - {fileID: 21300000, guid: 86879a434ea8540479021ee8f5c497e7, type: 3}
+  - {fileID: 21300000, guid: 607c06c7e341f2a4da54dcfd273b1637, type: 3}
 --- !u!224 &1789993606 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2958262986393358531, guid: 52571f68872914e24837210513edea1d, type: 3}
@@ -4783,15 +4883,30 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1835878005}
-  - component: {fileID: 1835878004}
+  - component: {fileID: 1835878006}
   m_Layer: 0
-  m_Name: HPmanager
+  m_Name: AppChatManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1835878004
+--- !u!4 &1835878005
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835878003}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1204.3534, y: 501.84787, z: -35.05655}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1642258153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1835878006
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4800,12 +4915,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1835878003}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4aa89d12dc3ed0469e578a0d9c8797d, type: 3}
+  m_Script: {fileID: 11500000, guid: cdfafd6442341c44c9d20c8c7a339ce6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelHandphone: {fileID: 1430582220}
   appChat: {fileID: 140143762}
-  latarGelap: {fileID: 138080523}
   layarTelepon: {fileID: 266265862}
   daftarPesanBima:
   - {fileID: 955948964}
@@ -4816,22 +4929,6 @@ MonoBehaviour:
   - {fileID: 1036355787}
   daftarPesanRaka:
   - {fileID: 357232901}
-  AppSaham: {fileID: 1850353382}
---- !u!4 &1835878005
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1835878003}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 285.90448, y: -21.046173, z: -5.6599393}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2065112055}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1850353382
 GameObject:
   m_ObjectHideFlags: 0
@@ -4889,7 +4986,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e84cdbfcac0c13b49a2ce8ac89a68c72, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b73dcea3907cda64685edc8022e02748, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5939,8 +6036,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1642258153}
   - {fileID: 1947672051}
-  - {fileID: 1835878005}
   - {fileID: 1562943279}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

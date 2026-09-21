@@ -20,19 +20,19 @@ Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
 title: Fase_0_Pembuka
 ---
 <<munculkan_hp HPmanager>>
-<<buka_chat HPmanager>>
+<<buka_chat AppChatManager>>
 
 
 // Memunculkan Pesan_Bima_1 (Element 0)
-<<munculkan_pesan HPmanager 0>>
+<<munculkan_pesan AppChatManager 0>>
 Raka: Oh si Bima ngechat
 <<wait 2>>
 // Memunculkan Pesan_Bima_2 (Element 1)
-<<munculkan_pesan HPmanager 1>>
+<<munculkan_pesan AppChatManager 1>>
 Raka : Hah apaan ini
-<<munculkan_pesan_raka HPmanager 0>>
+<<munculkan_pesan_raka AppChatManager 0>>
 <<wait 2>>
-<<munculkan_pesan HPmanager 2>>
+<<munculkan_pesan AppChatManager 2>>
 <<wait 2>>
 Raka: Hebat juga Bima ini. Dia ga pernah bilang mengerti saham.
 Raka: Tapi bisa untung 10 juta cuma pakai HP...
@@ -40,8 +40,8 @@ Raka: Coba telepon dia aja deh, penasaran aku caranya gimana.
 // SPRITE: Raka, ekspresi penasaran/iri
 
 // Layar HP menyala dengan tampilan panggilan
-<<munculkan_layar_telepon HPmanager>>
-<<bersihkan_chat HPmanager>>
+<<munculkan_layar_telepon AppChatManager>>
+<<bersihkan_chat AppChatManager>>
 : (Suara nada sambung... Tut... Tut...)
 : (Klik)
 
@@ -58,26 +58,31 @@ Bima: Kalau kau cuma pake akun virtual doang, kapan bisa dapet untung besar.
 Bima: Udah, ntar ku kirim aja link grupnya lewat chat ya. kau pantau aja dulu. Udah ya, gue mau lanjut push rank. Yoi!
 
 // Telepon dimatikan
-<<tutup_telepon HPmanager>>
-<<buka_chat HPmanager>>
+<<tutup_telepon AppChatManager>>
+<<buka_chat AppChatManager>>
 
 // Memunculkan Pesan_Bima
-<<munculkan_pesan HPmanager 3>>
+<<munculkan_pesan AppChatManager 3>>
 <<wait 1>>
-<<munculkan_pesan HPmanager 4>>
+<<munculkan_pesan AppChatManager 4>>
 <<wait 1>>
-<<munculkan_pesan HPmanager 5>>
+<<munculkan_pesan AppChatManager 5>>
 <<wait 1>>
 Raka: ...
 
-<<tutup_chat HPmanager>>
+<<tutup_chat AppChatManager>>
 <<tutup_hp HPmanager>>
 Raka: Selama ini aku masih belajar pakai akun virtual sih.
 Raka: Tapi lihat Bima untung besar dengan uang asli aku jadi tergiur.
+<<munculkan_hp HPmanager>>
+<<buka_AppSaham AppSahamManager>>
+<<wait 3>>
+Raka: Harga sahamnya sekarang 100 per lembar!
 Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kesempatan ini?// SPRITE: Raka, ekspresi girang tapi ragu
 // Ketukan di pintu
 // SFX: Tok tok tok
-: tok tok tok
+<<tutup_AppSaham AppSahamManager>>
+<<tutup_hp HPmanager>>
 <<wait 2>>
 Raka: Siapa sih ketok pintu...
 <<buka_pintu EngselPintu>>
@@ -115,7 +120,7 @@ Raka: Ah, si Heri mah terlalu penakut. Kalau nggak berani ambil risiko, kapan bi
 Raka: Si Bima aja bisa untung besar begitu.
 
 <<munculkan_hp HPmanager>>
-<<buka_AppSaham HPmanager>>
+<<buka_AppSaham AppSahamManager>>
 <<wait 1>>
 
 Raka: Oke... Buka aplikasinya... Saham DUIT... harganya Rp 400 per lembar.
@@ -127,14 +132,14 @@ Raka: Aku masukin Rp 2.000.000 aja dulu, dapet 40 Lot. Sisa 3 juta buat jaga-jag
 Raka: (Jari sedikit gemetar di atas layar... tapi tetap ditekan)
 Raka: Bismillah. Kalau nggak dicoba, nggak bakal tau hasilnya.
 <<potong_uang GameManager 2000000>>
-
+<<ganti_layar_saham AppSahamManager 0>>
 Raka: Oke, order *Matched*! 2 Juta udah masuk ke saham DUIT.
 Raka: Aku juga sudah join grup Master Trading.
 Raka: Sekarang sisa saldoku 3 Juta. 
 Raka: Oke.. lanjut nugas dulu deh.
 
 <<wait 2>>
-<<tutup_AppSaham HPmanager>>
+<<tutup_AppSaham AppSahamManager>>
 <<tutup_hp HPmanager>>
 
 <<buka_laptop LayarLaptop>>
