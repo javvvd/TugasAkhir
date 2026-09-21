@@ -1,8 +1,5 @@
-title: Start
+﻿title: Start
 ---
-// BG: BG01 - Kamar Kos Raka (Malam)
-// BGM: Lo-fi ambient malam, suara jangkrik samar
-// SPRITE: Raka, ekspresi ngantuk
 <<fade_in Manager>>
 <<wait 8>>
 Raka: Hadeh... jam berapa sih ini?
@@ -91,10 +88,12 @@ Raka: Lagi istirahat aja nyantai.
 Raka: Her Si Bima untung besar main saham! Aku mau ikut beli juga nih.
 Heri: Hah? Saham apa?
 Raka: Itu loh, saham DUIT yang lagi rame dibahas juga di grup Master Trading.
-Heri: Rak... Kau yakin? Kamu tau nggak perusahaan itu?
+Heri: Rak... Kau yakin? Udah pernah cek perusahaannya dulu belum?
 Raka: Ya... nggak sih. Tapi influencernya udah analisis, follower-nya ratusan ribu lho.
-Heri: Follower banyak bukan berarti analisanya bener, Rak. Banyak influencer yang cuma pompom saham biar harganya naik, terus mereka jualan di harga pucuk. Itu namanya skema Pump and Dump.
-Heri: Udah mending dipikir-pikir lagi deh. Aku balik kamar dulu ya.
+Heri: Hmm... follower banyak nggak otomatis analisanya bener, Rak.
+Heri: Aku pernah baca kasus kayak gini. Ada influencer yang nyuruh orang beli saham biar harganya naik, terus diam-diam jualan di pucuk. Yang rugi ya yang ikut-ikutan.
+Heri: Namanya skema Pump and Dump. Aku nggak bilang Bima salah, tapi hati-hati aja.
+Heri: Udah, mending dipikir-pikir lagi deh. Aku balik kamar dulu ya.
 Raka: [speed=0.2]...oke, Her[/speed]
 <<tutup_pintu EngselPintu>>
 <<matikan_interaksi Handphone>>
@@ -123,15 +122,11 @@ Raka: Oke... Buka aplikasinya... Saham DUIT... harganya Rp 400 per lembar.
 Raka: Saldo tabunganku ada 5 juta. Jangan serakah dulu deh, kita tes ombak.
 Raka: Aku masukin Rp 2.000.000 aja dulu, dapet 40 Lot. Sisa 3 juta buat jaga-jaga.
 
-// Pilihan interaktif
--> (Tekan tombol BELI)
-    // SFX: Bunyi "cha-ching" - order masuk
-    <<potong_uang GameManager 2000000>>
--> (Ragu sejenak... tapi tetap tekan BELI)
-    Raka: (Jari gemetar di atas layar)
-    Raka: Bismillah, YOLO!
-    // SFX: Bunyi "cha-ching" - order masuk
-    <<potong_uang GameManager 2000000>>
+// Raka menekan tombol beli dengan tangan yang sedikit ragu
+// SFX: Bunyi "cha-ching" - order masuk
+Raka: (Jari sedikit gemetar di atas layar... tapi tetap ditekan)
+Raka: Bismillah. Kalau nggak dicoba, nggak bakal tau hasilnya.
+<<potong_uang GameManager 2000000>>
 
 Raka: Oke, order *Matched*! 2 Juta udah masuk ke saham DUIT.
 Raka: Aku juga sudah join grup Master Trading.
@@ -174,7 +169,7 @@ Raka: rame banget grup Telegram Master Trading. Ada apa nih?
 <<wait 1>>
 : [Grup VIP] Master Trading: "Selamat yang sudah serok dari pagi! Yang belum masuk, segera HAKA (Hajar Kanan) sebelum ARA (Auto Reject Atas)!"
 <<wait 1>>
-: [Grup VIP] Master Trading: "Bandar belum jualan, ini barang masih aman! 🚀🚀"
+: [Grup VIP] Master Trading: "Bandar belum jualan, ini barang masih aman! ðŸš€ðŸš€"
 
 Raka: Hah?! Terbang?! 
 Raka: Buruan cek aplikasi saham!
@@ -195,13 +190,10 @@ Raka: Kalau tadi aku masukin semua 5 juta, pasti untungnya udah 500 ribu!
 Raka: Kalau aku masukin sisa tabunganku yang 3 juta sekarang... dan harganya beneran naik ke 1000... 
 Raka: ...aku bisa langsung beli laptop Gaming baru cash!
 
-Raka: Gimana nih? Bentar lagi bursa tutup sore. Tambah muatan habisin semua sisa tabungan, atau biarin aj?
-
-// (Dialog sebelumnya saat Raka menimbang sisa uang)
 Raka: Gimana nih? Bentar lagi bursa tutup jam 4 sore. Tambah muatan habisin semua sisa tabungan, atau biarin aja yang 2 juta ini jalan?
 
 // Pilihan Kritis FOMO
--> Tambah Muatan! (All-In sisa Rp 3.000.000)
+-> Tambah Muatan! All-In sisa Rp 3.000.000!
     Raka: Sikat lah! Mumpung belum ARA! 
     Raka: Sisa tabunganku 3 juta... Bisa dapet sekitar 68 Lot lagi di harga 440!
     <<potong_uang GameManager 3000000>>
@@ -212,10 +204,10 @@ Raka: Gimana nih? Bentar lagi bursa tutup jam 4 sore. Tambah muatan habisin semu
     Raka: Harga pasar kan sekarang lagi di 440, berarti posisi saat ini aja portofolioku masih untung sekitar 200 ribu!
     Raka: Total uang kos dan makanku udah masuk semua. Ayo Master, bawa aku terbang sore ini!!
     <<jump Fase_Harga_Anjlok>>
--> Tahan diri. Biarkan saja yang 2 juta.
+-> Tahan diri. Biarkan saja yang 2 juta, sisa 3 juta untuk jaga-jaga.
     Raka: Nggak, nggak... Jangan serakah. Kalau tiba-tiba turun, aku masih punya sisa 3 juta buat hidup.
-    Raka: Biarin aja dah untung yang 2 juta ini dulu. Aku pantau aja sampai bursa tutup.
-    <<jump Fase_Harga_Anjlok>>
+    Raka: Biarin aja dah yang 2 juta ini dulu. Aku pantau aja sampai bursa tutup.
+    <<jump Fase_Anjlok_Hold>>
 
 ===
 
@@ -297,58 +289,6 @@ Raka: Beli sekarang aja kali ya?! Masih ada waktu sebelum bursa tutup!
     <<jump Ending_D_Tujuan_Tercapai>>
 ===
 
-title: Fase_Tanya_Dina
----
-// Scene 2C: Fase Tanya Dina - Belajar Lebih Dalam
-
-// BG: BG06 - Lorong Kos / atau tetap di BG01
-// SPRITE: Dina, ekspresi senyum
-// BGM: Musik santai, suasana ngobrol malam
-
-Raka: Din, kalau misalnya aku emang mau mulai investasi, harusnya gimana sih?
-Dina: Nah gitu dong, mau belajar dulu!
-
-Dina: Pertama, pahami dulu produknya. Saham itu bukan cuma grafik hijau-merah. 
-Dina: Setiap saham itu mewakili kepemilikan di sebuah perusahaan. 
-Dina: Kamu harus tau perusahaan itu ngapain, untung atau rugi, utangnya berapa.
-
-Raka: Itu yang namanya analisis fundamental ya?
-
-Dina: Betul! Dan ada juga analisis teknikal - baca pola grafik buat timing beli dan jual.
-Dina: Tapi yang paling penting...
-
-// SPRITE: Dina, ekspresi serius
-
-Dina: JANGAN pernah pakai uang yang kamu nggak siap kehilangan.
-Dina: Uang kos, uang makan, uang darurat - itu BUKAN uang investasi.
-
-// EDUKASI - Pop Up Box Biru
-Narator: Prinsip Dasar Investasi Sehat: 1. Gunakan uang dingin (uang yang tidak dibutuhkan dalam waktu dekat). 2. Diversifikasi - jangan taruh semua telur di satu keranjang. 3. Pahami produk sebelum membeli (Do Your Own Research). 4. Investasi bukan Trading, Investasi = jangka panjang. 5. Jangan pernah investasi karena FOMO atau tekanan sosial.
-
-Raka: Jadi... saham CUAN yang lagi rame itu?
-
-Dina: Coba cek sendiri besok. Lihat laporan keuangannya di IDX. 
-Dina: Kalau kamu nggak nemu informasi yang jelas, atau semua hype-nya cuma dari influencer... 
-Dina: Itu red flag besar.
-
-Raka: Oke deh. Makasih ya, Din.
-Dina: Sama-sama. Udah sana tidur, besok masih ada deadline kan?
-Raka: Iya iya, selamat malam!
-
-// SPRITE: Dina keluar
-// SPRITE: Raka, ekspresi lega dan termotivasi
-
-Raka: Hmm... Mungkin aku mulai dari baca-baca di Stockbit sama IDX dulu deh.
-Raka: Pelan-pelan aja, yang penting paham.
-
-<<tutup_hp HPmanager>>
-
-Raka: Zzz...
-
-// BG: BG05 - Layar Hitam
-
-<<jump Ending_Secret>>
-===
 
 title: Fase_Harga_Anjlok
 ---
@@ -381,7 +321,7 @@ Raka: Eh, rame banget grup Telegramnya. Pasti harganya udah tembus 1000 nih!
 <<wait 1>>
 : [Grup VIP] Member B: "ARB!!! GAK BISA JUAL!! GAK ADA YANG MAU BELI!"
 <<wait 1>>
-: [Grup VIP] Master Trading: "Mohon bersabar, ini hanya koreksi sehat sementara—"
+: [Grup VIP] Master Trading: "Mohon bersabar, ini hanya koreksi sehat sementaraâ€”"
 <<wait 1>>
 : [Sistem] "Master Trading telah keluar dari grup."
 <<wait 1>>
@@ -444,6 +384,10 @@ Raka: Mentok di gocap?
 // EDUKASI: Pop-Up Saham Gocap
 Narator: SAHAM GOCAP (Rp 50): Batas harga terendah saham di papan reguler Bursa Efek Indonesia. Saham yang hancur ke harga ini sering disebut "saham tidur" atau "saham mati" karena sangat sulit untuk dijual kembali.
 
+// SPRITE: Raka, menatap layar dengan tatapan kosong
+Raka: (Berbisik) Jadi ini yang namanya saham mati...
+Raka: Nggak ada yang mau beli, nggak ada yang bisa kujual. Uangnya terkunci di sini selamanya.
+
 Raka: Uang 5 jutaku... sekarang nilainya cuma sisa 500 ribu?
 Raka: Hilang 90 persen?!
 Raka: Dan ini pun tetap nggak bisa kujual karena antrean belinya benar-benar KOSONG?!
@@ -457,135 +401,191 @@ Raka: (Tertawa getir) Hahaha... bodohnya aku...
 <<jump Ending_Bangkrut>>
 ===
 
-title: Fase_Average_Down
+title: Fase_Anjlok_Hold
 ---
-// Scene 4A: Average Down - Menambah Lubang
+// Scene: Harga saham dibanting turun, namun Raka masih punya sisa cash Rp 3.000.000
 
-// BG: BG04 - Layar HP Cuanku (MERAH)
-// BGM: Musik makin tegang
-// SPRITE: Raka, ekspresi nekat
+<<fade_out Manager>>
+<<wait 2>>
+<<munculkan_teks Manager "Pukul 15.30 WIB (Menjelang Penutupan Bursa)">>
+<<wait 3>>
+<<hapus_teks Manager>>
+<<fade_in Manager>>
+<<wait 1>>
 
-Raka: Bismillah. Aku harus yakin. Saham bagus pasti naik lagi.
-Raka: Masukin Rp 2.000.000 lagi buat Average Down!
+Raka: Haaah, ngantuk juga merhatiin pergerakan harga dari tadi.
+Raka: Coba cek grup Telegram ah, biasanya jam segini Master Trading ngasih aba-aba.
 
-// Animasi: Input beli 8.000 lembar @ Rp 250 = Rp 2.000.000
-<<potong_uang GameManager 2000000>>
+<<munculkan_hp HPmanager>>
+<<buka_chat HPmanager>>
+<<wait 1>>
 
-// Update UI:
-// Saldo kas: Rp 3.000.000 -> Rp 1.000.000
-// Portofolio: 12.000 lembar CUAN, avg Rp 333
-// Total investasi: Rp 4.000.000
+// Suasana grup berubah kacau
+: [Grup VIP] Member C: "LAH KOK DIBANTING TURUN?!"
+<<wait 1>>
+: [Grup VIP] Member A: "WOY INI KENAPA LANGSUNG MERAH?!"
+<<wait 1>>
+: [Grup VIP] Member B: "ARB!!! GAK BISA JUAL!! ANTRIAN BELI KOSONG!"
+<<wait 1>>
 
-Raka: Oke, sekarang rata-rata hargaku turun ke Rp 333. 
-Raka: Tinggal nunggu naik dikit aja, langsung balik modal!
-Raka: Ayo dong naik... grafiknya... ayo naik...
+Raka: HAH?! Dibanting turun?! Jangan bilang...
+<<tutup_chat HPmanager>>
 
-// BG: BG05 - Layar Hitam
-// Teks: "1 jam kemudian..."
+// Mengubah UI saham menjadi merah/hancur (Harga turun ke 280)
+<<tampilkan_saham_rugi HPmanager>> 
+<<buka_AppSaham HPmanager>>
+<<wait 1.5>>
 
-// BG: BG04 - Layar HP Cuanku (MERAH PARAH)
-// SFX: Bunyi alarm - harga turun lagi
+// SPRITE: Raka, ekspresi syok tapi belum hancur total
+Raka: Astaga... KOK MERAH SEMUA?!
+Raka: Harganya anjlok parah dari 440 ke 280 per lembar?! 
+Raka: Tadi modalku 2 juta di harga 400... Kalau sekarang harganya 280...
+Raka: Nilai sahamku sekarang sisa 1,4 juta... Aku rugi 600 ribu!
 
-// Update: CUAN Rp 250 -> Rp 125 (ARB LAGI!)
-// Portofolio: 12.000 x Rp 125 = Rp 1.500.000
-// Total kerugian: -Rp 2.500.000
-// Saldo kas: Rp 1.000.000
-// Total aset: Rp 2.500.000 (dari awal Rp 5.000.000)
+// SFX: Notifikasi Penting Telegram
+Raka: Eh, Master Trading nge-tag semua member di grup!
 
-Raka: ...Loh kok turun lagi?! 
-Raka: ARB lagi?! ARB BERJILID-JILID?!
+<<tutup_AppSaham HPmanager>>
+<<buka_chat HPmanager>>
+<<wait 1>>
 
-// SPRITE: Raka, ekspresi shock/putus asa
-// SFX: HP jatuh ke kasur
+: [Grup VIP] Master Trading: "SEMUA MEMBER JANGAN PANIK! INI KESEMPATAN EMAS!"
+: [Grup VIP] Master Trading: "Bandar sedang goyang pohon. Waktunya SEROK BAWAH! Lakukan AVERAGE DOWN sekarang!"
+: [Grup VIP] Master Trading: "Gunakan sisa amunisi (uang) kalian untuk beli di harga bawah ini, supaya harga rata-rata modal kalian ikut turun!"
+: [Grup VIP] Master Trading: "Besok pasti mantul (Rebound) terbang ke 1000!! SIKAT!!"
+<<wait 1>>
+: [Sistem] "Master Trading telah mengubah grup menjadi Only Admins Can Message."
 
-Raka: Nggak... Nggak mungkin...
-Raka: Uangku... sudah hilang setengah lebih...
-Raka: Dan sekarang mau jual pun nggak bisa karena ARB... Nggak ada yang mau beli...
+Raka: Serok bawah? Average down?
+Raka: Berarti... dia nyuruh aku pakai sisa uang kosku yang 3 juta ini buat beli sahamnya lagi di harga 280?
+Raka: Kata Master, kalau aku beli sekarang, harga rata-rataku bakal turun. Kalau besok naik dikit aja, aku udah langsung balik modal...
 
-<<tutup_hp GameManager>>
+// EDUKASI: Bahaya Average Down
+Narator: AVERAGE DOWN: Strategi membeli saham secara bertahap saat harga sedang turun untuk menurunkan harga rata-rata modal. Namun, melakukan Average Down pada saham pompom/bodong sangat berbahaya karena sama saja dengan "menangkap pisau jatuh" (harga terus turun).
+
+// SPRITE: Raka, mengerutkan dahi - mencerna informasi ini
+Raka: (Bergumam) Menangkap pisau jatuh...
+Raka: Berarti kalau sahamnya memang bodong dan terus turun, makin banyak uang yang aku masukkan, makin dalam lubang yang aku gali sendiri.
+Raka: Tapi kalau Master beneran dan harganya mantul besok..
+
+Raka: Gimana nih?! Kalau aku biarin, aku rugi 600 ribu. 
+Raka: Tapi kalau aku ikutin Master masukin sisa 3 jutaku... dan besok harganya beneran mantul naik, aku bisa selamat!
+
+// ========================================
+// PILIHAN 3: AVERAGE DOWN ATAU CUT LOSS
+// ========================================
+-> Ikut Influencer! Serok Bawah (Average Down sisa 3 Juta)
+    Raka: Bener kata Master, ini harga diskon! Kesempatan buat balik modal!
+    Raka: Aku masukin semua sisa uang makanku yang 3 juta di antrean!
+    <<potong_uang GameManager 3000000>>
+    Raka: Order Matched! Selesai... Saldo di rekeningku beneran habis 0 Rupiah sekarang.
+    Raka: Tolong... besok harus mantul naik. Kalau nggak, aku bener-bener mati.
+    <<jump Transisi_Average_Down_Bangkrut>>
+
+-> Jangan gila! Cut loss sekarang, terima rugi.
+    Raka: Nggak, nggak! Ini pasti jebakan! 
+    Raka: Kalau besok harganya makin longsor, uang kosku yang 3 juta bakal ikutan hancur!
+    Raka: Aku harus rela rugi 600 ribu ini. Jual semuanya sekarang di harga berapapun!
+    Raka: Biar besok pagi orderku langsung tereksekusi dan sisa uangku selamat.
+    <<jump Ending_Rugi_Ringan>>
+===
+
+title: Transisi_Average_Down_Bangkrut
+---
+// Node pendek untuk menyambungkan pilihan Average Down ke Ending Bangkrut
+<<tutup_chat HPmanager>>
+<<tutup_hp HPmanager>>
+
+<<fade_out Manager>>
+<<wait 3>>
+<<munculkan_teks Manager "Keesokan Harinya... (Pukul 09.00 WIB)">>
+<<wait 3>>
+<<hapus_teks Manager>>
+<<fade_in Manager>>
+<<wait 1>>
+
+// SPRITE: Raka, wajah sangat pucat dan putus asa
+Raka: (Gemetar melihat layar HP)
+Raka: ARB lagi... Harganya turun lagi ke 210...
+Raka: Nggak ada pantulan sama sekali. Master Trading-nya hilang... akun Telegramnya dihapus.
+Raka: Uang 5 jutaku nyangkut semua...
+
 <<jump Ending_Bangkrut>>
-===
 
-title: Fase_Cut_Loss
+
+===
+title: Ending_Rugi_Ringan
 ---
-// Scene 4B: Cut Loss - Menelan Pil Pahit
+// JALUR B: CUT LOSS / TERIMA RUGI (ENDING B)
+// Lanjutan setelah Raka menolak rayuan Average Down dan memilih antre jual (Cut Loss)
 
-// BG: BG04 - Layar HP Cuanku (MERAH)
-// BGM: Musik melankolis tapi ada unsur ketegasan
-// SPRITE: Raka, ekspresi sedih tapi tegas
+<<tutup_chat HPmanager>>
+<<wait 1>>
 
-Raka: Nggak, ini udah nggak masuk akal.
-Raka: Grup Telegramnya aja udah pada kabur. Kak Zaki menghilang.
-Raka: Kalau ini beneran Pump and Dump, harganya nggak akan naik lagi.
-Raka: Aku harus Cut Loss sekarang. Lebih baik rugi satu juta daripada habis semua.
+// SPRITE: Raka, ekspresi tegang dan cemas
+Raka: Haaah... antrean jual udah kupasang untuk besok pagi.
+Raka: Gila, tanganku sampai gemetar. Tolonglah besok pagi langsung laku...
 
-// Animasi: Raka tekan tombol JUAL
-// Jual 4.000 lembar @ Rp 250 = Rp 1.000.000
+<<tutup_hp HPmanager>>
 
-// SFX: Bunyi konfirmasi jual - nada rendah, berat
+// Transisi waktu ke keesokan paginya saat bursa baru buka
+<<fade_out Manager>>
+<<wait 3>>
+<<munculkan_teks Manager "Keesokan Harinya... Pukul 09.00 WIB (Bursa Buka)">>
+<<wait 3>>
+<<hapus_teks Manager>>
+<<fade_in Manager>>
+<<wait 1>>
 
-// Update UI:
-// Realisasi kerugian: -Rp 1.000.000
-// Saldo setelah jual: Rp 1.000.000 + Rp 3.000.000 = Rp 4.000.000
-// (Dari awal Rp 5.000.000, kehilangan Rp 1.000.000)
+// SPRITE: Raka, bangun tidur langsung mengecek HP
+Raka: (Menelan ludah) Jam 9 pas. Ayo kita lihat...
 
-Raka: Klik Jual.
-Raka: ...
-Raka: Done. Sahamnya sudah terjual.
+<<munculkan_hp HPmanager>>
+<<buka_AppSaham HPmanager>>
+<<wait 2>>
 
-<<tutup_hp GameManager>>
-// BG: BG01 - Kamar Kos Raka (Pagi)
-// SPRITE: Raka, ekspresi menyesal tapi lega
+// SFX: Bunyi notifikasi berhasil (Ting!)
+Raka: ...Status order: MATCHED!
+Raka: Laku! Sahamku berhasil kejual di harga bawah sebelum ARB lagi!
 
-Raka: Hhh... Uangku berkurang satu juta.
-Raka: Tapi seenggaknya sisa empat juta masih cukup buat bayar kos bulan ini.
-Raka: Kalau tadi aku Average Down... mungkin sekarang udah habis semua.
+// SPRITE: Raka, menghela napas sangat panjang, memegang dada (lega)
+Raka: Haaaaaah..... Syukurlah!
+Raka: Sisa uangku yang di saham berhasil kutarik, ditambah uang kos yang 3 juta... 
+Raka: Total uangku sekarang sisa 4,4 juta. 
+Raka: Tabungan beli laptopku memang berkurang 600 ribu, tapi setidaknya aku nggak bangkrut!
 
-<<jump Ending_Rugi_Ringan>>
+Raka: Coba kulihat pergerakan saham DUIT hari ini...
+<<tampilkan_saham_rugi HPmanager>>
+<<wait 1>>
+
+// SPRITE: Raka, ekspresi merinding / ngeri
+Raka: Astaga... harganya langsung terjun bebas lagi ke 210 dan nyangkut ARB.
+Raka: Grup Telegram Master Trading juga udah dihapus pagi ini. Fix, ini penipuan.
+Raka: Seandainya... seandainya semalam aku serakah dan nekat pakai sisa uang 3 jutaku buat *Average Down*...
+Raka: Semua uang 5 jutaku pasti hari ini ikut nyangkut dan nilainya makin hancur. Aku nggak bakal bisa bayar kos.
+
+<<tutup_AppSaham HPmanager>>
+<<tutup_hp HPmanager>>
+<<wait 1>>
+
+// SPRITE: Raka, tersenyum getir tapi ikhlas (mendapat pelajaran)
+Raka: Rugi 600 ribu emang nyesek sih... bulan ini aku harus rela makan mie instan terus.
+Raka: Tapi nggak apa-apa. Lebih baik kehilangan satu jari daripada kehilangan seluruh lengan.
+Raka: Anggap aja 600 ribu ini biaya sekolah paling berharga buat belajar investasi.
+Raka: Lain kali, aku nggak akan pernah sentuh saham tanpa riset laporan keuangan perusahaannya dulu.
+
+<<fade_out Manager>>
+<<wait 3>>
+
+// EDUKASI: Kesimpulan Moral Pop-Up
+<<munculkan_teks Manager "ENDING B: RUGI RINGAN (CUT LOSS)\n\nKerugian adalah hal yang wajar dalam investasi. Namun, memiliki keberanian untuk mengakui kesalahan dan melakukan Cut Loss akan menyelamatkanmu dari kehancuran total. Membatasi risiko sama pentingnya dengan mencari keuntungan.">>
+<<wait 7>>
+<<hapus_teks Manager>>
+
+// Panggil fungsi untuk kembali ke Scene Main Menu
+<<kembali_ke_menu GameManager>>
+
 ===
-
-title: Fase_Telepon_Dina
----
-// Scene 4C: Telepon Dina
-
-// BG: BG01 - Kamar Kos Raka (Pagi)
-// SFX: Nada dering telepon
-// SPRITE: Raka, ekspresi panik
-
-Raka: (Telepon Dina)
-Raka: Din! Din! Angkat dong!
-
-// SFX: Telepon diangkat
-// SPRITE: Dina, ekspresi khawatir
-
-Dina: Halo? Rak? Pagi-pagi amat, kenapa?
-Raka: Din, aku... aku kemarin malem beli saham CUAN itu. Yang aku ceritain.
-Raka: Sekarang turun 50%. Uangku hilang sejuta...
-
-Dina: ...
-Dina: Rak...
-Dina: Oke, dengarkan aku baik-baik. 
-
-Dina: Pertama, tarik napas. Jangan ambil keputusan dalam keadaan panik.
-Dina: Kedua, jawab jujur: kamu paham nggak kenapa saham itu naik kemarin?
-
-Raka: ...Karena Kak Zaki nyuruh orang-orang beli?
-
-Dina: Nah. Itu bukan kenaikan karena performa perusahaan. Itu pompom.
-Dina: Sekarang pemompom-nya kabur, harganya balik ke nilai aslinya - atau bahkan lebih rendah.
-Dina: Menurutmu, ada alasan fundamental harganya bisa naik lagi?
-
-Raka: ...Nggak ada.
-
-Dina: Kalau gitu, kamu sudah tau jawabannya.
-Dina: Cut Loss itu bukan kalah, Rak. Itu keputusan dewasa.
-Dina: Lebih baik kehilangan satu juta daripada empat juta.
-
-Raka: ...Oke. Makasih, Din.
-
-<<jump Fase_Cut_Loss>>
-===
-
 title: Ending_Bangkrut
 ---
 // Scene 5: Ending Bangkrut - Konsekuensi Berat
@@ -616,6 +616,15 @@ Raka: ...
 Raka: ...Bapak lembur buat nambahin uang kuliahku.
 Raka: Dan aku... habiskan dalam semalam karena ikut-ikutan di Telegram.
 
+// SFX: Notifikasi WhatsApp satu kali
+<<wait 1>>
+: [WhatsApp] Bima: "Rak, lo liat beritanya? Grup dihapus. Gw nyangkut juga. Lo gimana?"
+
+// SPRITE: Raka, ekspresi getir
+Raka: (Tertawa pahit pelan)
+Raka: Bima... kamu yang ngenalin semua ini ke aku.
+Raka: Kita sama-sama jadi ikannya.
+
 <<tutup_hp GameManager>>
 
 Raka: (Menunduk)
@@ -645,47 +654,6 @@ Raka: Dan aku... ikan yang makan umpannya.
 <<tampilkan_ending GameManager "Ending_Bangkrut">>
 ===
 
-title: Ending_Rugi_Ringan
----
-// Scene 6: Ending Rugi Ringan - Pelajaran Mahal
-
-// BG: BG01 - Kamar Kos Raka (Pagi) - warna sedikit warm
-// BGM: Musik reflektif, gitar akustik lembut
-// SPRITE: Raka, ekspresi menyesal tapi bertekad
-
-Raka: (Menghela napas panjang)
-Raka: Satu juta rupiah.
-Raka: Itu harga pelajaran hari ini.
-
-Raka: Jangan pernah beli aset cuma karena disuruh influencer atau FOMO lihat story teman.
-Raka: Bima aja yang pamer kemarin sekarang juga rugi. Screenshot profit-nya cuma di satu moment doang.
-Raka: Yang nggak di-share itu kerugiannya.
-
-// SFX: Raka mengambil buku dari rak
-
-Raka: Besok-besok aku harus belajar analisis fundamental dan teknikal dulu.
-Raka: Sebelum nekat masuk pasar saham, aku harus paham apa yang aku beli.
-
-// SPRITE: Raka, ekspresi serius/termotivasi
-
-Raka: Dan yang paling penting...
-Raka: Uang darurat ya uang darurat. Bukan uang spekulasi.
-
-Raka: ...Mungkin aku harus minta maaf ke Dina juga. Kemarin dia udah ngingetin.
-
-// BG: BG07 - Ending Screen 2
-
-// ========================================
-// ENDING 2: KERUGIAN SEBAGAI GURU
-// ========================================
-// Teks:
-// *** ENDING 2: KERUGIAN SEBAGAI GURU ***
-//
-// Summary:
-// Raka mengalami kerugian Rp 1.000.000 tapi berhasil Cut Loss sebelum kerugian membesar. Pengalaman ini menjadi motivasi untuk belajar investasi yang benar.
-// ========================================
-
-===
 title: Ending_D_Tujuan_Tercapai
 ---
 // JALUR B: TETAP PADA RENCANA (ENDING D)
@@ -706,6 +674,16 @@ Raka: Mending aku lanjut ngerjain tugas basis data biar cepat beres.
 
 // Raka meregangkan badan setelah nugas
 Raka: Akhirnya selesai juga tugas coding ini...
+
+// SPRITE: Raka, melirik ke arah HP yang diam di meja
+Raka: ...
+Raka: (Melirik HP)
+Raka: Hmm. Nggak apa-apa deh, nggak usah dibuka.
+Raka: Kalau naik ya syukur buat yang beli. Kalau turun... itu bukan urusanku.
+
+// SFX: Raka hampir meraih HP, tapi menahan tangannya sendiri
+Raka: (Menarik napas panjang)
+Raka: Nggak. Nggak perlu. Aku udah mutusin dari tadi siang. Pegang teguh itu.
 
 // SFX: Suara ketukan pintu
 : tok tok tok
@@ -747,6 +725,30 @@ Raka: Siap, Her!
 <<tutup_pintu EngselPintu>>
 <<wait 1>>
 
+// SFX: Notifikasi WhatsApp masuk
+Raka: Eh, Bima ngechat lagi?
+
+<<munculkan_hp HPmanager>>
+<<buka_chat HPmanager>>
+<<wait 1>>
+
+: [WhatsApp] Bima: "Rak..."
+<<wait 1>>
+: [WhatsApp] Bima: "Uang gw nyangkut. Tadi gw niat jual di 1000, eh keburu dibanting duluan."
+<<wait 1>>
+: [WhatsApp] Bima: "20 juta yang tadi gw pamer itu... sekarang nilainya tinggal 2 jutaan. Mau jual pun gak bisa, ARB."
+<<wait 1>>
+: [WhatsApp] Bima: "Gw kira gw udah menang... ternyata gw juga cuma jadi umpannya mereka."
+
+// SPRITE: Raka, ekspresi prihatin tapi juga merenung dalam
+Raka: (Membaca chat Bima)
+Raka: Bima..
+Raka: Ternyata yang untung beneran cuma bandarnya. Semua yang lain, termasuk yang masuk awal kayak Bima, tetap jadi korban kalau nggak keluar tepat waktu.
+
+<<tutup_chat HPmanager>>
+<<tutup_hp HPmanager>>
+<<wait 1>>
+
 Raka: Tabunganku aman. Bulan depan, laptop baru akhirnya bisa kebeli juga.
 Raka: Pelajaran berharga hari ini: Kesabaran dan ilmu adalah pelindung aset terbaik.
 
@@ -761,8 +763,7 @@ Raka: Pelajaran berharga hari ini: Kesabaran dan ilmu adalah pelindung aset terb
 ===
 title: Ending_C_Rugi_Puncak
 ---
-// JALUR A: TIDAK TAHAN LAGI KARENA FOMO (ENDING C)
-// Lanjutan setelah Raka menekan tombol beli 5 Juta di harga pucuk (Rp 800)
+
 
 <<tutup_hp HPmanager>>
 <<wait 1>>
@@ -853,6 +854,11 @@ Heri: Anggap ini biaya belajar paling mahal buat lo. Jangan pernah naruh uang pa
 
 // EDUKASI - Pop Up Box Merah
 Narator: FASE DUMP (Guyur): Penipu mempromosikan saham agar harganya naik tajam. Saat investor ritel terkena FOMO dan membeli di harga paling tinggi (Pucuk), penipu menjual seluruh sahamnya secara masif. Harga langsung hancur lebur, dan ritel terjebak kerugian besar.
+
+// SPRITE: Raka, wajah pucat - baru mengerti apa yang terjadi
+Raka: (Lemas) Jadi... dari awal aku memang yang ditunggu-tunggu.
+Raka: Aku yang beli di pucuk... aku yang jadi jalan keluar mereka.
+Raka: Bima... Bima juga pasti belum sempat keluar. Kita semua cuma pion di papan mereka.
 
 <<fade_out Manager>>
 <<wait 3>>
