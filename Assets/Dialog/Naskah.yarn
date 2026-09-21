@@ -22,12 +22,11 @@ title: Fase_0_Pembuka
 <<munculkan_hp HPmanager>>
 <<buka_chat AppChatManager>>
 
-
-// Memunculkan Pesan_Bima_1 (Element 0)
+// Memunculkan Pesan_Bima_1
 <<munculkan_pesan AppChatManager 0>>
 Raka: Oh si Bima ngechat
 <<wait 2>>
-// Memunculkan Pesan_Bima_2 (Element 1)
+// Memunculkan Pesan_Bima_2
 <<munculkan_pesan AppChatManager 1>>
 Raka : Hah apaan ini
 <<munculkan_pesan_raka AppChatManager 0>>
@@ -35,9 +34,8 @@ Raka : Hah apaan ini
 <<munculkan_pesan AppChatManager 2>>
 <<wait 2>>
 Raka: Hebat juga Bima ini. Dia ga pernah bilang mengerti saham.
-Raka: Tapi bisa untung 10 juta cuma pakai HP...
+Raka: Tapi bisa untung jutaan cuma pakai HP...
 Raka: Coba telepon dia aja deh, penasaran aku caranya gimana.
-// SPRITE: Raka, ekspresi penasaran/iri
 
 // Layar HP menyala dengan tampilan panggilan
 <<munculkan_layar_telepon AppChatManager>>
@@ -52,7 +50,7 @@ Raka: Sinyal apaan? kau kan nggak ngerti baca grafik analisa pasar gitu. Bahaya 
 Bima: Ah elah, kau kebanyakan mikir! Emang gue nggak ngerti, tapi gue gabung grup VIP Telegram-nya "Master Trading".
 Bima: Dia tuh influencer paling top sekarang. Kita nggak usah capek mikir, tinggal copy-paste aja apa yang dia suruh beli.
 Raka: Grup VIP Influencer? Yakin kau itu aman? 
-Bima: Aman 100%! Buktinya gue udah narik duit 10 juta hari ini. kau kalau mau, nanti gue invite ke grupnya deh. Mumpung lagi ada promo pendaftaran nih.
+Bima: Aman 100%! Buktinya gue udah narik duit jutaan hari ini. kau kalau mau, nanti gue invite ke grupnya deh. Mumpung lagi ada promo pendaftaran nih.
 Raka: Mmm... 
 Bima: Kalau kau cuma pake akun virtual doang, kapan bisa dapet untung besar.
 Bima: Udah, ntar ku kirim aja link grupnya lewat chat ya. kau pantau aja dulu. Udah ya, gue mau lanjut push rank. Yoi!
@@ -74,11 +72,14 @@ Raka: ...
 <<tutup_hp HPmanager>>
 Raka: Selama ini aku masih belajar pakai akun virtual sih.
 Raka: Tapi lihat Bima untung besar dengan uang asli aku jadi tergiur.
+
+// Raka membuka aplikasi saham untuk pertama kali
 <<munculkan_hp HPmanager>>
 <<buka_AppSaham AppSahamManager>>
 <<wait 3>>
 Raka: Harga sahamnya sekarang 100 per lembar!
-Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kesempatan ini?// SPRITE: Raka, ekspresi girang tapi ragu
+Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kesempatan ini?
+
 // Ketukan di pintu
 // SFX: Tok tok tok
 <<tutup_AppSaham AppSahamManager>>
