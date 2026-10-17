@@ -20,6 +20,12 @@ public class UangManager : MonoBehaviour
         UpdateLayar();
     }
 
+    [YarnCommand("kembali_ke_menu")]
+    public void KembaliKeMenu()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+    }
+
     void UpdateLayar()
     {
         // Menampilkan angka dengan format ribuan (titik)

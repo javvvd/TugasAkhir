@@ -1023,7 +1023,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &344668601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2186,7 +2186,7 @@ MonoBehaviour:
   appGrup: {fileID: 344668600}
   gambarLayarGrup: {fileID: 344668601}
   daftarLayarGrup:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 2032343227d87f946aa0808e59d4516d, type: 3}
 --- !u!1 &783247266
 GameObject:
   m_ObjectHideFlags: 0
@@ -4201,7 +4201,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1430582221
 MonoBehaviour:
   m_ObjectHideFlags: 0
