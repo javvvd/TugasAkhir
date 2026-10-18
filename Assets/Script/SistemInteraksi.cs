@@ -31,6 +31,12 @@ public class SistemInteraksi : MonoBehaviour
             {
                 tombolUI.SetActive(true); // Munculkan tombol UI
                 bendaYangDitabrak = benda; // Ingat benda yang sedang disorot
+
+                // Tambahan: bisa tekan tombol E di keyboard juga untuk PC/Editor
+                if (Input.GetKeyDown(KeyCode.E))
+                {
+                    TombolDitekan();
+                }
             }
             else
             {

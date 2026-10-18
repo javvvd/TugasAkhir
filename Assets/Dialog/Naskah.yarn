@@ -264,31 +264,56 @@ Raka: Mending aku lanjut nugas coding aja deh. Biar lambat asal selamat.
 
 Raka: Haaah, akhirnya beres juga tugasnya.
 
-// SFX: Notifikasi WhatsApp bertubi-tubi
-Raka: Lho, Bima nge-spam chat? Tadi katanya mau push rank?
+// Telepon masuk: HP di meja menyala layarnya dan interaksi diaktifkan
+<<nyalakan_layar Handphone>>
+<<ubah_node Handphone "Fase_Rasional_Telepon">>
+<<aktifkan_interaksi Handphone>>
 
+Raka: (Dering telepon berbunyi... Drrrtt... Drrrtt...)
+Raka: Lho? HP-ku bergetar dan layarnya menyala?
+Raka: Ada telepon masuk... dari Bima?
+Raka: Tumben banget dia nelepon sore-sore begini. Coba kuangkat dulu.
+===
+
+title: Fase_Rasional_Telepon
+position: 604,450
+---
+// Matikan efek cahaya layar di meja & nonaktifkan interaksi 3D
+<<matikan_layar Handphone>>
+<<matikan_interaksi Handphone>>
+
+// Munculkan HP dan buka layar telepon
 <<munculkan_hp HPmanager>>
-<<buka_chat AppChatManager>>
-<<wait 1>>
+<<munculkan_layar_telepon AppChatManager>>
+<<bersihkan_chat AppChatManager>>
 
-// Bima pamer lagi karena harga meroket
-Bima (WhatsApp): RAK!! LO LIHAT NGGAK?!
-<<wait 1>>
-Bima (WhatsApp): SAHAM DUIT TERBANG KE 135 BRO!! ARA 35%!!
-<<wait 1>>
-Bima (WhatsApp): Gila, duit gw puluhan juta ngalir deras dalam sehari!!
-<<wait 1>>
-Bima (WhatsApp): Nyesel kan lo tadi siang ga ikut masuk?! Mumpung bursa belum tutup, buruan HAKA (Hajar Kanan)!!
+Raka: (Klik... Telepon terhubung)
+Raka: Halo, Bim? Kenapa nelepon? Tadi katanya mau push rank?
 
-Raka: HAH?! Seriusan naik sampai 135?! Kena Auto Rejection Atas?!
-Raka: (Menelan ludah) Bima untung jutaan cuma modal duduk manis...?
+Bima: RAK!! LO LIHAT BURSA SEKARANG NGGAK?!
+Raka: Belum, ini baru beres nugas. Ada apaan sih heboh amat?
+Bima: SAHAM DUIT TERBANG KE 135 BRO!! ARA 35% MENTOK ATAS!!
+Raka: HAH?! Seriusan naik sampai 135?!
+Bima: Gila, duit gue puluhan juta ngalir deras dalam sehari!! Bener kan kata gue, sinyal VIP Master Trading ga ada lawan!
+Bima: Makanya gue langsung telepon lo, mumpung bursa belum tutup jam 4! Buruan buka aplikasi, HAKA (Hajar Kanan) sebelum kehabisan antrean!
+Raka: Tapi Bim... harganya kan udah pucuk banget di 135...
+Bima: Alah, besok juga ditarik terbang lagi! Jangan banyak mikir, ini kesempatan emas lo beli laptop baru!
+Bima: Udah ya, gue mau pamer ke tongkrongan dulu. Buruan ambil keputusan! Yoi!
 
-<<tutup_chat AppChatManager>>
+// Telepon dimatikan
+<<tutup_telepon AppChatManager>>
+
+Raka: (Menelan ludah) Bima sampai seheboh itu neleponku...
+Raka: Saham DUIT naik sampai 135 per lembar... Kena Auto Rejection Atas (ARA)?
+Raka: Coba kucek aplikasinya langsung...
+
+// Buka aplikasi saham untuk melihat lonjakan harga (Index 6: ARA 135)
 <<buka_AppSaham AppSahamManager>>
 <<ganti_layar_saham AppSahamManager 6>>
 <<wait 1>>
 
-Raka: Uang 5 jutaku... kalau tadi siang aku beliin saham, sekarang pasti udah untung hampir 2 juta.
+Raka: Gila... beneran Rp 135! Grafiknya vertikal ke atas!
+Raka: Uang 5 jutaku... kalau tadi siang aku beliin saham, sekarang pasti udah untung hampir 2 juta...
 Raka: Laptop idaman udah di depan mata. 
 Raka: Beli sekarang aja kali ya?! Masih ada waktu sebelum bursa tutup!
 

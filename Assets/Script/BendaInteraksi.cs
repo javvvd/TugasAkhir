@@ -3,12 +3,40 @@ using Yarn.Unity;
 
 public class BendaInteraktif : MonoBehaviour
 {
+    [Header("Pengaturan Dialog Yarn")]
     public string namaNodeYarn;
     private Collider areaKlik;
+
+    [Header("Efek Layar / Lampu Panggilan")]
+    [Tooltip("Objek visual/lampu yang menyala ketika ada panggilan masuk (misal: Point Light atau Plane di layar HP)")]
+    public GameObject efekLayar;
+
+    [Tooltip("Jika dicentang, efek layar akan berkedip-kedip saat menyala seperti telepon berdering")]
+    public bool kedipSaatMenyala = true;
+    public float intervalKedip = 0.5f;
+    private float timerKedip = 0f;
+    private bool sedangMenyala = false;
 
     void Start()
     {
         areaKlik = GetComponent<Collider>();
+        if (efekLayar != null)
+        {
+            efekLayar.SetActive(false);
+        }
+    }
+
+    void Update()
+    {
+        if (sedangMenyala && kedipSaatMenyala && efekLayar != null)
+        {
+            timerKedip -= Time.deltaTime;
+            if (timerKedip <= 0f)
+            {
+                efekLayar.SetActive(!efekLayar.activeSelf);
+                timerKedip = intervalKedip;
+            }
+        }
     }
 
     [YarnCommand("matikan_interaksi")]
@@ -23,10 +51,33 @@ public class BendaInteraktif : MonoBehaviour
         if (areaKlik != null) areaKlik.enabled = true;
     }
 
-    // FUNGSI BARU: Mengganti target node dari dalam Yarn
+    // Mengganti target node dari dalam Yarn secara dinamis
     [YarnCommand("ubah_node")]
     public void UbahNode(string nodeBaru)
     {
         namaNodeYarn = nodeBaru;
+    }
+
+    // Menyalakan efek layar HP (misal ada panggilan masuk)
+    [YarnCommand("nyalakan_layar")]
+    public void NyalakanLayar()
+    {
+        sedangMenyala = true;
+        timerKedip = intervalKedip;
+        if (efekLayar != null)
+        {
+            efekLayar.SetActive(true);
+        }
+    }
+
+    // Mematikan efek layar HP
+    [YarnCommand("matikan_layar")]
+    public void MatikanLayar()
+    {
+        sedangMenyala = false;
+        if (efekLayar != null)
+        {
+            efekLayar.SetActive(false);
+        }
     }
 }
