@@ -1,4 +1,4 @@
-﻿title: Start
+title: Start
 position: 124,-122
 ---
 <<fade_in Manager>>
@@ -77,6 +77,7 @@ Raka: Tapi lihat Bima untung besar dengan uang asli aku jadi tergiur.
 
 // Raka membuka aplikasi saham untuk pertama kali
 <<munculkan_hp HPmanager>>
+<<reset_layar_saham AppSahamManager>>
 <<buka_AppSaham AppSahamManager>>
 <<wait 3>>
 Raka: Harga sahamnya sekarang 100 per lembar!
@@ -124,6 +125,7 @@ Raka: Ah, si Heri mah terlalu penakut. Kalau nggak berani ambil risiko, kapan bi
 Raka: Si Bima aja bisa untung besar begitu.
 
 <<munculkan_hp HPmanager>>
+<<reset_layar_saham AppSahamManager>>
 <<buka_AppSaham AppSahamManager>>
 <<wait 1>>
 
@@ -211,10 +213,16 @@ Raka: Gimana nih? Bentar lagi bursa tutup jam 4 sore. Tambah muatan habisin semu
     Raka: Harga rata-rata modalku (Average) sekarang naik jadi sekitar Rp 106 per lembar.
     Raka: Harga pasar kan sekarang lagi di 110, berarti posisi saat ini aja portofolioku masih untung sekitar 200 ribu!
     Raka: Total uang kos dan makanku udah masuk semua. Ayo Master, bawa aku terbang sore ini!!
+    <<wait 1>>
+    <<tutup_AppSaham AppSahamManager>>
+    <<tutup_hp HPmanager>>
     <<jump Fase_Harga_Anjlok>>
 -> Tahan diri. Biarkan saja yang 2 juta, sisa 3 juta untuk jaga-jaga.
     Raka: Nggak, nggak... Jangan serakah. Kalau tiba-tiba turun, aku masih punya sisa 3 juta buat hidup.
     Raka: Biarin aja dah yang 2 juta ini dulu. Aku pantau aja sampai bursa tutup.
+    <<wait 1>>
+    <<tutup_AppSaham AppSahamManager>>
+    <<tutup_hp HPmanager>>
     <<jump Fase_Anjlok_Hold>>
 
 ===
@@ -276,6 +284,9 @@ Raka: HAH?! Seriusan naik sampai 135?! Kena Auto Rejection Atas?!
 Raka: (Menelan ludah) Bima untung jutaan cuma modal duduk manis...?
 
 <<tutup_chat AppChatManager>>
+<<buka_AppSaham AppSahamManager>>
+<<ganti_layar_saham AppSahamManager 6>>
+<<wait 1>>
 
 Raka: Uang 5 jutaku... kalau tadi siang aku beliin saham, sekarang pasti udah untung hampir 2 juta.
 Raka: Laptop idaman udah di depan mata. 
@@ -291,8 +302,13 @@ Raka: Beli sekarang aja kali ya?! Masih ada waktu sebelum bursa tutup!
     <<ganti_layar_saham AppSahamManager 7>>
     Raka: Order Matched! Dapet 370 Lot di harga 135!
     Raka: Ayo terbang lagi besok, jadikan modal laptopku berlipat ganda!!
+    <<wait 1>>
+    <<tutup_AppSaham AppSahamManager>>
+    <<tutup_hp HPmanager>>
     <<jump Ending_C_Rugi_Puncak>>
 -> Tetap pada rencana menabung. (Abaikan Bima)
+    <<tutup_AppSaham AppSahamManager>>
+    <<tutup_hp HPmanager>>
     Raka: Nggak. Nggak. Aku udah janji sama diri sendiri.
     Raka: Harganya udah naik 35% mentok batas atas, risikonya pasti makin gila kalau dibanting.
     Raka: Biarin aja Bima yang untung. Aku tetep fokus nabung pelan-pelan buat beli laptop.
@@ -301,7 +317,7 @@ Raka: Beli sekarang aja kali ya?! Masih ada waktu sebelum bursa tutup!
 
 
 title: Fase_Harga_Anjlok
-position: -10,621
+position: -18,623
 ---
 // Scene: Harga Anjlok (Khusus jalur Raka All-In 5 Juta)
 // Waktu menunjukkan menjelang penutupan bursa (sekitar 15.30 WIB)
@@ -481,16 +497,27 @@ Raka: Tapi kalau aku ikutin Master masukin sisa 3 jutaku... dan besok harganya b
     Raka: Bener kata Master, ini harga diskon! Kesempatan buat balik modal!
     Raka: Aku masukin semua sisa uang makanku yang 3 juta di antrean!
     <<potong_uang GameManager 3000000>>
+    <<tutup_chat AppChatManager>>
+    <<buka_AppSaham AppSahamManager>>
     <<ganti_layar_saham AppSahamManager 3>>
     Raka: Order Matched! Selesai... Saldo di rekeningku beneran habis 0 Rupiah sekarang.
     Raka: Tolong... besok harus mantul naik. Kalau nggak, aku bener-bener mati.
+    <<wait 1>>
+    <<tutup_AppSaham AppSahamManager>>
+    <<tutup_hp HPmanager>>
     <<jump Transisi_Average_Down_Bangkrut>>
 
 -> Jangan gila! Cut loss sekarang, terima rugi.
     Raka: Nggak, nggak! Ini pasti jebakan! 
     Raka: Kalau besok harganya makin longsor, uang kosku yang 3 juta bakal ikutan hancur!
     Raka: Aku harus rela rugi 300 ribu ini. Pasang antrean jual sekarang di harga pasar!
+    <<tutup_chat AppChatManager>>
+    <<buka_AppSaham AppSahamManager>>
+    <<ganti_layar_saham AppSahamManager 5>>
     Raka: Biar besok pagi orderku langsung tereksekusi dan sisa uang 4,7 jutaku selamat.
+    <<wait 1>>
+    <<tutup_AppSaham AppSahamManager>>
+    <<tutup_hp HPmanager>>
     <<jump Ending_Rugi_Ringan>>
 ===
 
@@ -498,9 +525,6 @@ title: Transisi_Average_Down_Bangkrut
 position: 169,1001
 ---
 // Node pendek untuk menyambungkan pilihan Average Down ke Ending Bangkrut
-<<tutup_chat AppChatManager>>
-<<tutup_hp HPmanager>>
-
 <<fade_out Manager>>
 <<wait 3>>
 <<munculkan_teks Manager "Keesokan Harinya... (Pukul 09.00 WIB)">>
@@ -510,10 +534,17 @@ position: 169,1001
 <<wait 1>>
 
 // SPRITE: Raka, wajah sangat pucat dan putus asa
+<<munculkan_hp HPmanager>>
+<<buka_AppSaham AppSahamManager>>
+<<ganti_layar_saham AppSahamManager 3>>
+<<wait 1>>
 Raka: (Gemetar melihat layar HP)
 Raka: ARB lagi... Harganya terus longsor ke bawah...
 Raka: Nggak ada pantulan sama sekali. Master Trading-nya hilang... akun Telegramnya dihapus.
 Raka: Uang 5 jutaku nyangkut semua...
+<<wait 1>>
+<<tutup_AppSaham AppSahamManager>>
+<<tutup_hp HPmanager>>
 
 <<jump Ending_Bangkrut>>
 
@@ -759,9 +790,6 @@ Raka: Pelajaran berharga hari ini: Kesabaran dan ilmu adalah pelindung aset terb
 title: Ending_C_Rugi_Puncak
 position: 674,716
 ---
-
-<<tutup_hp HPmanager>>
-<<wait 1>>
 
 // SPRITE: Raka, ekspresi sangat antusias / senyum lebar
 Raka: Hahaha, mantap! Orderku langsung *Matched* di harga 135.
