@@ -1,4 +1,4 @@
-title: Start
+﻿title: Start
 position: 124,-122
 ---
 <<fade_in Manager>>
@@ -547,7 +547,7 @@ Raka: Tapi kalau aku ikutin Master masukin sisa 3 jutaku... dan besok harganya b
 ===
 
 title: Transisi_Average_Down_Bangkrut
-position: 169,1001
+position: 106,936
 ---
 // Node pendek untuk menyambungkan pilihan Average Down ke Ending Bangkrut
 <<fade_out Manager>>
@@ -709,7 +709,7 @@ Raka: Dan aku... ikan yang makan umpannya.
 ===
 
 title: Ending_D_Tujuan_Tercapai
-position: 976,586
+position: 584,760
 ---
 // JALUR B: TETAP PADA RENCANA (ENDING D)
 <<tutup_hp HPmanager>>
@@ -813,7 +813,7 @@ Raka: Pelajaran berharga hari ini: Kesabaran dan ilmu adalah pelindung aset terb
 
 ===
 title: Ending_C_Rugi_Puncak
-position: 674,716
+position: 941,664
 ---
 
 // SPRITE: Raka, ekspresi sangat antusias / senyum lebar
