@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 992e2b513670a4d089c2e58d4c48e8c8, type: 3}
+  m_Name: Nama
+  m_EditorClassIdentifier: 
+  BasicMarkers:
+  - Marker: Raka
+    CustomColor: 1
+    Color: {r: 1, g: 0.8243476, b: 0.033018887, a: 0}
+    Boldened: 0
+    Italicised: 0
+    Underlined: 0
+    Strikedthrough: 0
+  - Marker: Bima
+    CustomColor: 1
+    Color: {r: 0.7075472, g: 0.01668743, b: 0.01668743, a: 0}
+    Boldened: 0
+    Italicised: 0
+    Underlined: 0
+    Strikedthrough: 0
+  - Marker: Heri
+    CustomColor: 1
+    Color: {r: 0.18810606, g: 0.5283019, b: 0.01744394, a: 0}
+    Boldened: 0
+    Italicised: 0
+    Underlined: 0
+    Strikedthrough: 0
+  CustomMarkers: []
