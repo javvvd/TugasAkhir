@@ -1,4 +1,4 @@
-﻿title: Start
+title: Start
 position: 124,-122
 ---
 <<fade_in Manager>>
@@ -15,6 +15,7 @@ Raka: Tabunganku di bank cuma ada 5 juta, itu pun harus dipotong buat bayar kos 
 <<tutup_laptop LayarLaptop>>
 
 Raka: istirahat sebentar deh, otakku udah nggak bisa dipaksa.
+<<putar_sfx AudioManager notif>>
 Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
 <<aktifkan_interaksi Handphone>>
 <<tampilkan_tugas BoxTugasManager>>
@@ -28,14 +29,17 @@ position: 233,77
 <<buka_chat AppChatManager>>
 
 // Memunculkan Pesan_Bima_1
+<<putar_sfx AudioManager notif>>
 <<munculkan_pesan AppChatManager 0>>
 Raka: Oh si Bima ngechat
 <<wait 2>>
 // Memunculkan Pesan_Bima_2
+<<putar_sfx AudioManager notif>>
 <<munculkan_pesan AppChatManager 1>>
 Raka: Hah apaan ini
 <<munculkan_pesan_raka AppChatManager 0>>
 <<wait 2>>
+<<putar_sfx AudioManager notif>>
 <<munculkan_pesan AppChatManager 2>>
 <<wait 2>>
 Raka: Hebat juga Bima ini. Dia ga pernah bilang mengerti saham.
@@ -45,7 +49,10 @@ Raka: Coba telepon dia aja deh, penasaran aku caranya gimana.
 // Layar HP menyala dengan tampilan panggilan
 <<munculkan_layar_telepon AppChatManager>>
 <<bersihkan_chat AppChatManager>>
+<<mulai_dering AudioManager>>
 (Suara nada sambung... Tut... Tut...)
+<<stop_dering AudioManager>>
+<<putar_sfx AudioManager klik>>
 (Klik)
 
 Bima: Halo, Raka! Gimana? Udah liat screenshot keuntunganku kan?
@@ -61,14 +68,18 @@ Bima: Kalau kau cuma pake akun virtual doang, kapan bisa dapet untung besar.
 Bima: Udah, ntar ku kirim aja link grupnya lewat chat ya. Kau pantau aja dulu. Udah ya, gue mau lanjut push rank. Yoi!
 
 // Telepon dimatikan
+<<putar_sfx AudioManager klik>>
 <<tutup_telepon AppChatManager>>
 <<buka_chat AppChatManager>>
 
 // Memunculkan Pesan_Bima
+<<putar_sfx AudioManager notif>>
 <<munculkan_pesan AppChatManager 3>>
 <<wait 1>>
+<<putar_sfx AudioManager notif>>
 <<munculkan_pesan AppChatManager 4>>
 <<wait 1>>
+<<putar_sfx AudioManager notif>>
 <<munculkan_pesan AppChatManager 5>>
 <<wait 1>>
 Raka: ...
@@ -88,6 +99,7 @@ Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kes
 
 // Ketukan di pintu
 // SFX: Tok tok tok
+<<putar_sfx AudioManager pintu>>
 <<tutup_AppSaham AppSahamManager>>
 <<tutup_hp HPmanager>>
 <<wait 2>>
@@ -141,6 +153,7 @@ Raka: Aku masukin Rp 2.000.000 aja dulu, dapet 200 Lot. Sisa 3 juta buat jaga-ja
 Raka: (Jari sedikit gemetar di atas layar... tapi tetap ditekan)
 Raka: Bismillah. Kalau nggak dicoba, nggak bakal tau hasilnya.
 <<potong_uang GameManager 2000000>>
+<<putar_sfx AudioManager order>>
 <<ganti_layar_saham AppSahamManager 0>>
 Raka: Oke, order *Matched*! 2 Juta udah masuk ke saham DUIT.
 Raka: Aku juga sudah join grup Master Trading.
@@ -170,6 +183,7 @@ Raka: Hhh... ngoding pakai laptop lemot gini emang butuh kesabaran ekstra.
 
 
 // SFX: Bunyi notifikasi Telegram bertubi-tubi (Ting! Ting! Ting!)
+<<putar_sfx AudioManager notif>>
 Raka: Rame banget grup Telegram Master Trading. Ada apa nih?
 
 <<munculkan_hp HPmanager>>
@@ -209,6 +223,7 @@ Raka: Gimana nih? Bentar lagi bursa tutup jam 4 sore. Tambah muatan habisin semu
     Raka: Sikat lah! Mumpung belum mentok ARA! 
     Raka: Sisa tabunganku 3 juta... Bisa dapet 272 Lot lagi di harga 110!
     <<potong_uang GameManager 3000000>>
+    <<putar_sfx AudioManager order>>
     <<ganti_layar_saham AppSahamManager 2>>
     Raka: Order *Matched*! Saldo bener-bener ludes sekarang.
     Raka: Tadi aku beli 200 lot di harga 100, sekarang tambah 272 lot di harga 110...
@@ -271,7 +286,8 @@ Raka: Haaah, akhirnya beres juga tugasnya.
 <<nyalakan_layar Handphone>>
 <<ubah_node Handphone "Fase_Rasional_Telepon">>
 <<aktifkan_interaksi Handphone>>
-<<ubah_tugas BoxTugas "Angkat Telepon Bima">>
+<<ubah_tugas BoxTugasManager "Angkat Telepon Bima">>
+<<mulai_dering AudioManager>>
 
 Raka: (Dering telepon berbunyi... Drrrtt... Drrrtt...)
 Raka: Lho? HP-ku bergetar dan layarnya menyala?
@@ -282,7 +298,8 @@ Raka: Tumben banget dia nelepon sore-sore begini. Coba kuangkat dulu.
 title: Fase_Rasional_Telepon
 position: 604,450
 ---
-<<sembunyikan_tugas BoxTugas>>
+<<stop_dering AudioManager>>
+<<sembunyikan_tugas BoxTugasManager>>
 // Matikan efek cahaya layar di meja & nonaktifkan interaksi 3D
 <<matikan_layar Handphone>>
 <<matikan_interaksi Handphone>>
@@ -291,6 +308,7 @@ position: 604,450
 <<munculkan_hp HPmanager>>
 <<munculkan_layar_telepon AppChatManager>>
 <<bersihkan_chat AppChatManager>>
+<<putar_sfx AudioManager klik>>
 
 Raka: (Klik... Telepon terhubung)
 Raka: Halo, Bim? Kenapa nelepon? Tadi katanya mau push rank?
@@ -306,6 +324,7 @@ Bima: Alah, besok juga ditarik terbang lagi! Jangan banyak mikir, ini kesempatan
 Bima: Udah ya, gue mau pamer ke tongkrongan dulu. Buruan ambil keputusan! Yoi!
 
 // Telepon dimatikan
+<<putar_sfx AudioManager klik>>
 <<tutup_telepon AppChatManager>>
 
 Raka: (Menelan ludah) Bima sampai seheboh itu neleponku...
@@ -329,6 +348,7 @@ Raka: Beli sekarang aja kali ya?! Masih ada waktu sebelum bursa tutup!
     Raka: Bodo amat lah sama analisa! Si Bima udah buktiin sendiri!
     Raka: Buka aplikasi, masukin semua 5 juta di harga pucuk 135! 
     <<potong_uang GameManager 5000000>>
+    <<putar_sfx AudioManager order>>
     <<ganti_layar_saham AppSahamManager 7>>
     Raka: Order Matched! Dapet 370 Lot di harga 135!
     Raka: Ayo terbang lagi besok, jadikan modal laptopku berlipat ganda!!
@@ -368,7 +388,7 @@ Raka: Tinggal nunggu harganya ditarik terbang lagi, besok langsung meluncur beli
 Raka: Eh, rame banget grup Telegramnya. Pasti harganya udah makin terbang nih!
 
 <<munculkan_hp HPmanager>>
-<<buka_chat AppChatManager>>
+<<buka_chat AppChatManager grup_anjlok>>
 <<wait 1>>
 
 // Suasana grup yang berubah 180 derajat menjadi kacau
@@ -385,6 +405,7 @@ Raka: Buruan buka aplikasinya!!
 
 // Mengubah UI saham menjadi merah/hancur (Harga 85)
 <<buka_AppSaham AppSahamManager>>
+<<putar_sfx AudioManager arb>>
 <<ganti_layar_saham AppSahamManager 3>>
 <<wait 1.5>>
 
@@ -469,7 +490,7 @@ Raka: Haaah, ngantuk juga merhatiin pergerakan harga dari tadi.
 Raka: Coba cek grup Telegram ah, biasanya jam segini Master Trading ngasih aba-aba.
 
 <<munculkan_hp HPmanager>>
-<<buka_chat AppChatManager>>
+<<buka_chat AppChatManager grup_anjlok>>
 <<wait 1>>
 
 // Suasana grup berubah kacau
@@ -495,7 +516,7 @@ Raka: Nilai sahamku sekarang sisa 1,7 juta... Aku rugi 300 ribu!
 Raka: Eh, Master Trading nge-tag semua member di grup!
 
 <<tutup_AppSaham AppSahamManager>>
-<<buka_chat AppChatManager>>
+<<buka_chat AppChatManager grup_hold>>
 <<wait 1>>
 
 Master Trading (Grup VIP): SEMUA MEMBER JANGAN PANIK! INI KESEMPATAN EMAS!
@@ -668,7 +689,7 @@ Raka: Uang bayar kos, uang makan bulan ini... amblas semua.
 
 // SFX: Notifikasi WhatsApp
 <<munculkan_hp HPmanager>>
-<<buka_chat AppChatManager>>
+<<buka_chat AppChatManager mama>>
 
 // WhatsApp dari Mama
 Mama (WhatsApp): Nak, uang kos bulan ini sudah ditransfer belum? Ibu belum lihat bukti transfernya.
@@ -684,6 +705,8 @@ Raka: Dan aku... habiskan dalam sekejap karena ikut-ikutan sinyal di Telegram.
 
 // SFX: Notifikasi WhatsApp satu kali
 <<wait 1>>
+<<putar_sfx AudioManager notif>>
+<<buka_chat AppChatManager bima_bangkrut>>
 Bima (WhatsApp): Rak, lo liat beritanya? Grup dihapus. Gw nyangkut juga. Lo gimana?
 
 // SPRITE: Raka, ekspresi getir
@@ -789,7 +812,7 @@ Raka: Siap, Her!
 Raka: Eh, Bima ngechat lagi?
 
 <<munculkan_hp HPmanager>>
-<<buka_chat AppChatManager>>
+<<buka_chat AppChatManager bima_selamat>>
 <<wait 1>>
 
 Bima (WhatsApp): Rak... duit gue amblas... Saham DUIT dibanting ARB, gue ga sempet jualan sama sekali...
@@ -857,7 +880,7 @@ Raka: KOK BISA?! Tadi kan lagi terbang kenceng banget?!
 
 // Raka panik dan mengecek grup Telegram
 <<tutup_AppSaham AppSahamManager>>
-<<buka_chat AppChatManager>>
+<<buka_chat AppChatManager grup_puncak>>
 <<wait 1>>
 
 Member X (Grup VIP): TOLONG!! KOK DIBANTING?!
