@@ -1,4 +1,4 @@
-﻿title: Start
+title: Start
 position: 124,-122
 ---
 <<fade_in Manager>>
@@ -17,10 +17,12 @@ Raka: Tabunganku di bank cuma ada 5 juta, itu pun harus dipotong buat bayar kos 
 Raka: istirahat sebentar deh, otakku udah nggak bisa dipaksa.
 Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
 <<aktifkan_interaksi Handphone>>
+<<ubah_tugas BoxTugas "Ambil HP">>
 ===
 title: Fase_0_Pembuka
 position: 233,77
 ---
+<<sembunyikan_tugas BoxTugas>>
 <<munculkan_hp HPmanager>>
 <<buka_chat AppChatManager>>
 
@@ -268,6 +270,7 @@ Raka: Haaah, akhirnya beres juga tugasnya.
 <<nyalakan_layar Handphone>>
 <<ubah_node Handphone "Fase_Rasional_Telepon">>
 <<aktifkan_interaksi Handphone>>
+<<ubah_tugas BoxTugas "Angkat Telepon Bima">>
 
 Raka: (Dering telepon berbunyi... Drrrtt... Drrrtt...)
 Raka: Lho? HP-ku bergetar dan layarnya menyala?
@@ -278,6 +281,7 @@ Raka: Tumben banget dia nelepon sore-sore begini. Coba kuangkat dulu.
 title: Fase_Rasional_Telepon
 position: 604,450
 ---
+<<sembunyikan_tugas BoxTugas>>
 // Matikan efek cahaya layar di meja & nonaktifkan interaksi 3D
 <<matikan_layar Handphone>>
 <<matikan_interaksi Handphone>>
