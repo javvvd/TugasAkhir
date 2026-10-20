@@ -1,4 +1,4 @@
-title: Start
+﻿title: Start
 position: 124,-122
 ---
 <<fade_in Manager>>
@@ -17,12 +17,13 @@ Raka: Tabunganku di bank cuma ada 5 juta, itu pun harus dipotong buat bayar kos 
 Raka: istirahat sebentar deh, otakku udah nggak bisa dipaksa.
 Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
 <<aktifkan_interaksi Handphone>>
-<<ubah_tugas BoxTugas "Ambil HP">>
+<<tampilkan_tugas BoxTugasManager>>
+<<ubah_tugas BoxTugasManager "Ambil HP">>
 ===
 title: Fase_0_Pembuka
 position: 233,77
 ---
-<<sembunyikan_tugas BoxTugas>>
+<<sembunyikan_tugas BoxTugasManager>>
 <<munculkan_hp HPmanager>>
 <<buka_chat AppChatManager>>
 
