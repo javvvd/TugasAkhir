@@ -1,22 +1,23 @@
-title: Start
-position: 124,-122
+﻿title: Start
+position: 228,-115
 ---
+<<set_kamera_instan PLAYER pintu>>
 <<fade_in Manager>>
-<<wait 8>>
-Raka: Hadeh... jam berapa sih ini?
-Raka: Duh, mataku sampai pedih ngerjain tugas coding ini ...
-Raka: Udah 3 jam nonstop.
-Raka: hadeh... Dari mana aku bisa cepat dapat uang buat beli laptop baru ya?
-Raka: Laptop ini kipasnya udah bunyi kencang buat buka Visual Studio doang.
-Raka: Port LAN-nya juga udah mati, keyboard-nya kadang ngaco ngetik sendiri.
-Raka: Aku butuh banget ganti laptop baru. Tapi harganya lumayan mahal.
-Raka: Tabunganku di bank cuma ada 5 juta, itu pun harus dipotong buat bayar kos dan makan.
 <<wait 2>>
-<<tutup_laptop LayarLaptop>>
-
-Raka: istirahat sebentar deh, otakku udah nggak bisa dipaksa.
+Raka: (Cklek... Pintu tertutup)
+Raka: Haaah... akhirnya sampai juga di kosan.
+Raka: Capek banget... Seharian kuliah dan praktikum coding di kampus bener-bener nguras energi.
+Raka: Mana komputer lab kampus tadi lemotnya minta ampun, rebutan pula sama yang lain.
+Raka: Coba kalau aku punya laptop sendiri yang kencang... Nggak perlu repot-repot rebutan di kampus, bisa santai ngerjain tugas di kamar kos.
+Raka: Tapi laptop impian harganya lumayan mahal... Tabunganku di bank pas-pasan banget cuma ada 5 juta, itu pun harus dipotong buat bayar kos dan makan.
+Raka: Hhh... ke meja dulu deh, taruh tas sama rebahan bentar.
+<<pindah_ke_meja PLAYER 2.5>>
+<<wait 2.5>>
+Raka: Haaah... duduk di kursi emang paling nikmat setelah seharian capek.
+<<wait 1>>
 <<putar_sfx AudioManager notif>>
-Raka: Buka Handphone dulu sebentar ah, ada chat masuk tadi sepertinya.
+Raka: Eh? Layar HP-ku nyala di meja?
+Raka: Ada notif chat masuk... Dari siapa nih jam segini? Coba kucek dulu.
 <<aktifkan_interaksi Handphone>>
 <<tampilkan_tugas BoxTugasManager>>
 <<ubah_tugas BoxTugasManager "Ambil HP">>

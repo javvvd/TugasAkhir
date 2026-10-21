@@ -9,9 +9,9 @@ public class KameraMobile : MonoBehaviour
     private float rotasiX = 0f;
     private float rotasiY = 0f;
 
-    void Start()
+    void OnEnable()
     {
-        // 1. Ambil rotasi awal kamera dari Unity Editor saat game dimulai
+        // 1. Ambil rotasi awal kamera dari Unity Editor saat game dimulai / kamera aktif
         Vector3 rotasiAwal = transform.localEulerAngles;
         rotasiX = rotasiAwal.x;
         rotasiY = rotasiAwal.y;
