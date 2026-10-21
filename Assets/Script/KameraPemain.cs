@@ -34,7 +34,7 @@ public class KameraMobile : MonoBehaviour
         // Deteksi usapan jari untuk perangkat Mobile (HP)
         if (Input.touchCount > 0)
         {
-            Touch sentuhan = Input.GetTouch(0); 
+            Touch sentuhan = Input.GetTouch(0);
 
             // Jangan putar kamera jika sedang menyentuh tombol UI
             if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(sentuhan.fingerId))
@@ -49,7 +49,7 @@ public class KameraMobile : MonoBehaviour
             }
         }
         // Deteksi klik-kiri & tahan (Drag) untuk uji coba di PC/Unity Editor
-        else if (Input.GetMouseButton(0)) 
+        else if (Input.GetMouseButton(0))
         {
             // Jangan putar kamera jika pointer mouse di atas UI
             if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
@@ -65,7 +65,7 @@ public class KameraMobile : MonoBehaviour
         if (geserX != 0 || geserY != 0)
         {
             rotasiX -= geserY;
-            rotasiX = Mathf.Clamp(rotasiX, -90f, 90f); 
+            rotasiX = Mathf.Clamp(rotasiX, -90f, 90f);
 
             rotasiY += geserX;
 
