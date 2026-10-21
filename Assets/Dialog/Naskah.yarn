@@ -1,4 +1,4 @@
-﻿title: Start
+title: Start
 position: 228,-115
 ---
 <<set_kamera_instan PLAYER pintu>>
@@ -103,9 +103,20 @@ Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kes
 <<putar_sfx AudioManager pintu>>
 <<tutup_AppSaham AppSahamManager>>
 <<tutup_hp HPmanager>>
-<<wait 2>>
-Raka: Siapa sih ketok pintu...
+<<wait 1>>
+Raka: Siapa sih ketok pintu... Coba kubuka dulu pintunya.
+<<ubah_node Pintu Fase_Heri_Datang>>
+<<aktifkan_interaksi Pintu>>
+<<tampilkan_tugas BoxTugasManager>>
+<<ubah_tugas BoxTugasManager "Buka Pintu">>
+===
+
+title: Fase_Heri_Datang
+---
+<<sembunyikan_tugas BoxTugasManager>>
+<<matikan_interaksi Pintu>>
 <<buka_pintu EngselPintu>>
+<<wait 1>>
 
 Heri: Rak, lagi ngapain?
 Raka: Oh Heri, kirain siapa
@@ -770,9 +781,21 @@ Raka: (Menarik napas panjang)
 Raka: Nggak. Nggak perlu. Aku udah mutusin dari tadi siang. Pegang teguh itu.
 
 // SFX: Suara ketukan pintu
+<<putar_sfx AudioManager pintu>>
 (Tok... Tok... Tok...)
-<<wait 1>>
+Raka: Eh, ada yang ngetok pintu. Siapa ya?
+<<ubah_node Pintu Ending_D_Buka_Pintu>>
+<<aktifkan_interaksi Pintu>>
+<<tampilkan_tugas BoxTugasManager>>
+<<ubah_tugas BoxTugasManager "Buka Pintu">>
+===
+
+title: Ending_D_Buka_Pintu
+---
+<<sembunyikan_tugas BoxTugasManager>>
+<<matikan_interaksi Pintu>>
 <<buka_pintu EngselPintu>>
+<<wait 1>>
 
 // SPRITE: Heri muncul dengan ekspresi lega
 Heri: Oi Rak, lagi santai?
@@ -902,9 +925,21 @@ Raka: Begitu aku dan ribuan orang lain nekat masuk di harga 135, mereka langsung
 Raka: Dan sekarang sahamku terkunci di bawah karena ARB... nggak ada yang mau beli.
 
 // SFX: Suara ketukan pintu yang terburu-buru
+<<putar_sfx AudioManager pintu>>
 (Tok tok tok!)
-<<wait 1>>
+Raka: Ada yang gedor-gedor pintu dengan terburu-buru...
+<<ubah_node Pintu Ending_C_Buka_Pintu>>
+<<aktifkan_interaksi Pintu>>
+<<tampilkan_tugas BoxTugasManager>>
+<<ubah_tugas BoxTugasManager "Buka Pintu">>
+===
+
+title: Ending_C_Buka_Pintu
+---
+<<sembunyikan_tugas BoxTugasManager>>
+<<matikan_interaksi Pintu>>
 <<buka_pintu EngselPintu>>
+<<wait 1>>
 
 // SPRITE: Heri muncul dengan ekspresi panik
 Heri: Rak! Lo aman kan?! 

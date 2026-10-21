@@ -1,35 +1,75 @@
 using UnityEngine;
+using TMPro;
 using Yarn.Unity;
 
 public class SistemInteraksi : MonoBehaviour
 {
     public Camera kameraPemain;
     public GameObject tombolUI;
+    public TextMeshProUGUI teksTombol;
     public DialogueRunner mesinCerita;
+    public float jarakInteraksi = 5f;
 
     // Sekarang kita menyimpan script BendaInteraktif, bukan GameObject-nya
     private BendaInteraktif bendaYangDitabrak;
 
+    void Awake()
+    {
+        if (tombolUI != null && teksTombol == null)
+        {
+            teksTombol = tombolUI.GetComponentInChildren<TextMeshProUGUI>();
+        }
+        if (mesinCerita == null)
+        {
+            mesinCerita = FindFirstObjectByType<DialogueRunner>();
+        }
+    }
+
     void Update()
     {
         // Cegah interaksi kalau dialog sedang jalan
-        if (mesinCerita.IsDialogueRunning)
+        if (mesinCerita != null && mesinCerita.IsDialogueRunning)
         {
-            tombolUI.SetActive(false);
+            if (tombolUI != null && tombolUI.activeSelf)
+            {
+                tombolUI.SetActive(false);
+            }
+            bendaYangDitabrak = null;
             return;
         }
 
-        Ray laser = new Ray(kameraPemain.transform.position, kameraPemain.transform.forward);
+        // Cari kamera yang sedang aktif di hierarchy
+        Camera cam = (kameraPemain != null && kameraPemain.gameObject.activeInHierarchy) ? kameraPemain : Camera.main;
+        if (cam == null)
+        {
+            cam = FindFirstObjectByType<Camera>();
+        }
+        if (cam == null) return;
+
+        Ray laser = new Ray(cam.transform.position, cam.transform.forward);
         RaycastHit dataTabrakan;
 
-        if (Physics.Raycast(laser, out dataTabrakan, 3f))
+        if (Physics.Raycast(laser, out dataTabrakan, jarakInteraksi))
         {
-            // Cek apakah benda yang ditabrak punya script "BendaInteraktif"
+            // Cek apakah benda yang ditabrak punya script "BendaInteraktif" (baik di objek atau parent-nya)
             BendaInteraktif benda = dataTabrakan.collider.GetComponent<BendaInteraktif>();
+            if (benda == null)
+            {
+                benda = dataTabrakan.collider.GetComponentInParent<BendaInteraktif>();
+            }
 
             if (benda != null)
             {
-                tombolUI.SetActive(true); // Munculkan tombol UI
+                if (tombolUI != null && !tombolUI.activeSelf)
+                {
+                    tombolUI.SetActive(true); // Munculkan tombol UI
+                }
+
+                if (teksTombol != null)
+                {
+                    teksTombol.text = !string.IsNullOrEmpty(benda.teksTombolInteraksi) ? benda.teksTombolInteraksi : "Interaksi";
+                }
+
                 bendaYangDitabrak = benda; // Ingat benda yang sedang disorot
 
                 // Tambahan: bisa tekan tombol E di keyboard juga untuk PC/Editor
@@ -40,13 +80,19 @@ public class SistemInteraksi : MonoBehaviour
             }
             else
             {
-                tombolUI.SetActive(false);
+                if (tombolUI != null && tombolUI.activeSelf)
+                {
+                    tombolUI.SetActive(false);
+                }
                 bendaYangDitabrak = null;
             }
         }
         else
         {
-            tombolUI.SetActive(false);
+            if (tombolUI != null && tombolUI.activeSelf)
+            {
+                tombolUI.SetActive(false);
+            }
             bendaYangDitabrak = null;
         }
     }
@@ -57,10 +103,19 @@ public class SistemInteraksi : MonoBehaviour
         // Pastikan ada benda yang ditabrak dan string node Yarn-nya tidak kosong
         if (bendaYangDitabrak != null && !string.IsNullOrEmpty(bendaYangDitabrak.namaNodeYarn))
         {
-            tombolUI.SetActive(false);
+            if (tombolUI != null)
+            {
+                tombolUI.SetActive(false);
+            }
+
+            string nodeTarget = bendaYangDitabrak.namaNodeYarn;
+            bendaYangDitabrak = null;
 
             // Mulai dialog sesuai nama node yang ada di benda tersebut!
-            mesinCerita.StartDialogue(bendaYangDitabrak.namaNodeYarn);
+            if (mesinCerita != null)
+            {
+                mesinCerita.StartDialogue(nodeTarget);
+            }
         }
     }
 }

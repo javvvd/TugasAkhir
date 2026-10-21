@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class KameraMobile : MonoBehaviour
 {
@@ -35,6 +36,12 @@ public class KameraMobile : MonoBehaviour
         {
             Touch sentuhan = Input.GetTouch(0); 
 
+            // Jangan putar kamera jika sedang menyentuh tombol UI
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject(sentuhan.fingerId))
+            {
+                return;
+            }
+
             if (sentuhan.phase == TouchPhase.Moved)
             {
                 geserX = sentuhan.deltaPosition.x * sensitivitasLayarHP;
@@ -44,6 +51,12 @@ public class KameraMobile : MonoBehaviour
         // Deteksi klik-kiri & tahan (Drag) untuk uji coba di PC/Unity Editor
         else if (Input.GetMouseButton(0)) 
         {
+            // Jangan putar kamera jika pointer mouse di atas UI
+            if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
+            {
+                return;
+            }
+
             geserX = Input.GetAxis("Mouse X") * sensitivitasMouseEditor;
             geserY = Input.GetAxis("Mouse Y") * sensitivitasMouseEditor;
         }

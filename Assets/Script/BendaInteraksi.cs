@@ -5,6 +5,13 @@ public class BendaInteraktif : MonoBehaviour
 {
     [Header("Pengaturan Dialog Yarn")]
     public string namaNodeYarn;
+    [Tooltip("Teks yang muncul pada tombol UI saat benda ini disorot (misal: 'Buka HP', 'Buka Pintu')")]
+    public string teksTombolInteraksi = "Interaksi";
+
+    [Header("Pengaturan Status Awal")]
+    [Tooltip("Jika false, collider interaksi dinonaktifkan di awal game dan menunggu perintah dari Yarn")]
+    public bool aktifSaatMulai = true;
+
     private Collider areaKlik;
 
     [Header("Efek Layar / Lampu Panggilan")]
@@ -17,9 +24,23 @@ public class BendaInteraktif : MonoBehaviour
     private float timerKedip = 0f;
     private bool sedangMenyala = false;
 
-    void Start()
+    void Awake()
     {
         areaKlik = GetComponent<Collider>();
+    }
+
+    void Start()
+    {
+        if (areaKlik == null)
+        {
+            areaKlik = GetComponent<Collider>();
+        }
+
+        if (!aktifSaatMulai && areaKlik != null)
+        {
+            areaKlik.enabled = false;
+        }
+
         if (efekLayar != null)
         {
             efekLayar.SetActive(false);
@@ -42,12 +63,14 @@ public class BendaInteraktif : MonoBehaviour
     [YarnCommand("matikan_interaksi")]
     public void MatikanInteraksi()
     {
+        if (areaKlik == null) areaKlik = GetComponent<Collider>();
         if (areaKlik != null) areaKlik.enabled = false;
     }
 
     [YarnCommand("aktifkan_interaksi")]
     public void AktifkanInteraksi()
     {
+        if (areaKlik == null) areaKlik = GetComponent<Collider>();
         if (areaKlik != null) areaKlik.enabled = true;
     }
 
@@ -56,6 +79,12 @@ public class BendaInteraktif : MonoBehaviour
     public void UbahNode(string nodeBaru)
     {
         namaNodeYarn = nodeBaru;
+    }
+
+    [YarnCommand("ubah_teks_interaksi")]
+    public void UbahTeksInteraksi(string teksBaru)
+    {
+        teksTombolInteraksi = teksBaru;
     }
 
     // Menyalakan efek layar HP (misal ada panggilan masuk)
