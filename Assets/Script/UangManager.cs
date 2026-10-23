@@ -186,6 +186,12 @@ public class UangManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
     }
 
+    public void SetSaldo(int nilaiBaru)
+    {
+        saldo = nilaiBaru;
+        UpdateLayar();
+    }
+
     void UpdateLayar()
     {
         if (teksUang != null)

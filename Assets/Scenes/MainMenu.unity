@@ -1161,6 +1161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1032451455}
   - component: {fileID: 1032451454}
+  - component: {fileID: 1032451456}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -1180,6 +1181,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1a613d76a44b374780f142c7115f383, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1032451456
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032451453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4c8271a39d84175b5e19741da87ef92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardGaleri: {fileID: 0}
+  btnPilihBabak: {fileID: 0}
+  panelModalBabak: {fileID: 0}
 --- !u!4 &1032451455
 Transform:
   m_ObjectHideFlags: 0

@@ -130,6 +130,9 @@ public class TransisiTextController : MonoBehaviour
 
         if (upper.Contains("ENDING A"))
         {
+            PlayerPrefs.SetInt("Ending_A_Unlocked", 1);
+            PlayerPrefs.Save();
+
             badge = "<color=#FF5252><b>[ BAD ENDING - KEBANGKRUTAN ]</b></color>";
             title = "<color=#FF5252>ENDING A: KEBANGKRUTAN TOTAL</color>";
             subtitle = "<color=#90A4AE><i>Jebakan Saham Gocap & Uang Panas</i></color>";
@@ -139,6 +142,9 @@ public class TransisiTextController : MonoBehaviour
         }
         else if (upper.Contains("ENDING B"))
         {
+            PlayerPrefs.SetInt("Ending_B_Unlocked", 1);
+            PlayerPrefs.Save();
+
             badge = "<color=#FFB300><b>[ REALISTIC ENDING - DISIPLIN ]</b></color>";
             title = "<color=#FFB300>ENDING B: REALITA TRADER</color>";
             subtitle = "<color=#90A4AE><i>Disiplin Manajemen Risiko (Cut Loss)</i></color>";
@@ -148,6 +154,9 @@ public class TransisiTextController : MonoBehaviour
         }
         else if (upper.Contains("ENDING C"))
         {
+            PlayerPrefs.SetInt("Ending_C_Unlocked", 1);
+            PlayerPrefs.Save();
+
             badge = "<color=#FF7043><b>[ TRAP ENDING - EXIT LIQUIDITY ]</b></color>";
             title = "<color=#FF7043>ENDING C: KORBAN CUCI PIRING</color>";
             subtitle = "<color=#90A4AE><i>Terjebak Skema Pump & Dump di Pucuk</i></color>";
@@ -157,6 +166,9 @@ public class TransisiTextController : MonoBehaviour
         }
         else if (upper.Contains("ENDING D"))
         {
+            PlayerPrefs.SetInt("Ending_D_Unlocked", 1);
+            PlayerPrefs.Save();
+
             badge = "<color=#66BB6A><b>[ BEST ENDING - INVESTOR BIJAK ]</b></color>";
             title = "<color=#66BB6A>ENDING D: INVESTOR RASIONAL</color>";
             subtitle = "<color=#90A4AE><i>Kemenangan Literasi Atas Godaan FOMO</i></color>";
