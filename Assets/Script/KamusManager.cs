@@ -86,43 +86,24 @@ public class KamusManager : MonoBehaviour
         // 3. Pasang event click tombol tutup di dalam modal
         if (panelKamusModal != null)
         {
-            Transform cardModal = panelKamusModal.transform.Find("CardModal");
-            if (cardModal != null)
-            {
-                // Tombol Close X di Header
-                Transform header = cardModal.Find("Header");
-                if (header != null)
-                {
-                    Transform btnClose = header.Find("BtnClose");
-                    if (btnClose != null)
-                    {
-                        Button bClose = btnClose.GetComponent<Button>();
-                        if (bClose != null)
-                        {
-                            bClose.onClick.RemoveListener(TutupKamus);
-                            bClose.onClick.AddListener(TutupKamus);
-                        }
-                    }
-                }
-
-                // Tombol Tutup Kamus di Footer
-                Transform footer = cardModal.Find("Footer");
-                if (footer != null)
-                {
-                    Transform btnFooter = footer.Find("TombolTutupFooter");
-                    if (btnFooter != null)
-                    {
-                        Button bF = btnFooter.GetComponent<Button>();
-                        if (bF != null)
-                        {
-                            bF.onClick.RemoveListener(TutupKamus);
-                            bF.onClick.AddListener(TutupKamus);
-                        }
-                    }
-                }
-            }
-
+            PasangListenerTombolTutup(panelKamusModal);
             panelKamusModal.SetActive(false);
+        }
+    }
+
+    private void PasangListenerTombolTutup(GameObject modal)
+    {
+        if (modal == null) return;
+
+        Button[] buttons = modal.GetComponentsInChildren<Button>(true);
+        foreach (var btn in buttons)
+        {
+            string n = btn.name.ToLower();
+            if (n.Contains("tutup") || n.Contains("close") || n.Contains("tomboltutup") || n.Contains("labelx"))
+            {
+                btn.onClick.RemoveListener(TutupKamus);
+                btn.onClick.AddListener(TutupKamus);
+            }
         }
     }
 
@@ -132,6 +113,7 @@ public class KamusManager : MonoBehaviour
         if (panelKamusModal != null)
         {
             panelKamusModal.SetActive(true);
+            PasangListenerTombolTutup(panelKamusModal);
             AudioManager.Instance?.PutarSFX("klik");
         }
     }

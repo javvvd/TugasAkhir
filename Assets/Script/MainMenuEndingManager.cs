@@ -22,6 +22,12 @@ public class MainMenuEndingManager : MonoBehaviour
         InisialisasiUI();
     }
 
+    void OnEnable()
+    {
+        InisialisasiUI();
+    }
+
+    [ContextMenu("Segarkan Progress UI")]
     public void RefreshProgress()
     {
         InisialisasiUI();
@@ -29,7 +35,7 @@ public class MainMenuEndingManager : MonoBehaviour
 
     private void InisialisasiUI()
     {
-        // 1. Cari otomatis jika belum di-drag ke Inspector
+        // 1. Cari referensi otomatis di CanvasMainMenu jika belum di-assign di Inspector
         if (cardGaleri == null || btnPilihBabak == null || panelModalBabak == null)
         {
             GameObject canvasGo = GameObject.Find("CanvasMainMenu");
@@ -60,13 +66,20 @@ public class MainMenuEndingManager : MonoBehaviour
             }
         }
 
-        // 2. Perbarui tampilan data progress ending dari PlayerPrefs
+        // Baca progress ending dari PlayerPrefs
+        bool endingA = PlayerPrefs.GetInt("Ending_A_Unlocked", 0) == 1;
+        bool endingB = PlayerPrefs.GetInt("Ending_B_Unlocked", 0) == 1;
+        bool endingC = PlayerPrefs.GetInt("Ending_C_Unlocked", 0) == 1;
+        bool endingD = PlayerPrefs.GetInt("Ending_D_Unlocked", 0) == 1;
+        int totalUnlocked = (endingA ? 1 : 0) + (endingB ? 1 : 0) + (endingC ? 1 : 0) + (endingD ? 1 : 0);
+
+        // 2. Perbarui teks dan centang pada kartu galeri
         if (cardGaleri != null)
         {
-            UpdateTampilanGaleri();
+            UpdateTampilanGaleri(cardGaleri, endingA, endingB, endingC, endingD, totalUnlocked);
         }
 
-        // 3. Hubungkan tombol pembuka modal babak
+        // 3. Hubungkan tombol buka modal percabangan babak
         if (btnPilihBabak != null)
         {
             Button btn = btnPilihBabak.GetComponent<Button>();
@@ -80,21 +93,17 @@ public class MainMenuEndingManager : MonoBehaviour
         // 4. Hubungkan tombol-tombol di dalam modal babak
         if (panelModalBabak != null)
         {
-            HubungkanListenerModalBabak();
+            HubungkanListenerModalBabak(panelModalBabak);
             panelModalBabak.SetActive(false);
         }
     }
 
-    private void UpdateTampilanGaleri()
+    private void UpdateTampilanGaleri(GameObject card, bool ea, bool eb, bool ec, bool ed, int total)
     {
-        bool endingA = PlayerPrefs.GetInt("Ending_A_Unlocked", 0) == 1;
-        bool endingB = PlayerPrefs.GetInt("Ending_B_Unlocked", 0) == 1;
-        bool endingC = PlayerPrefs.GetInt("Ending_C_Unlocked", 0) == 1;
-        bool endingD = PlayerPrefs.GetInt("Ending_D_Unlocked", 0) == 1;
-        int total = (endingA ? 1 : 0) + (endingB ? 1 : 0) + (endingC ? 1 : 0) + (endingD ? 1 : 0);
+        if (card == null) return;
 
-        // Header Progress
-        Transform header = cardGaleri.transform.Find("HeaderGaleri");
+        // Update Header
+        Transform header = card.transform.Find("HeaderGaleri");
         if (header != null)
         {
             TextMeshProUGUI tmpH = header.GetComponent<TextMeshProUGUI>();
@@ -104,14 +113,14 @@ public class MainMenuEndingManager : MonoBehaviour
             }
         }
 
-        // List 4 Ending
-        Transform listT = cardGaleri.transform.Find("ListEnding");
+        // Update List Items
+        Transform listT = card.transform.Find("ListEnding");
         if (listT != null)
         {
-            UpdateItemBaris(listT, "Ending A: Kebangkrutan Total (Gocap)", endingA, "#EF4444");
-            UpdateItemBaris(listT, "Ending B: Realita Trader (Cut Loss)", endingB, "#F59E0B");
-            UpdateItemBaris(listT, "Ending C: Korban Cuci Piring (Pucuk)", endingC, "#F97316");
-            UpdateItemBaris(listT, "Ending D: Investor Rasional (Cerdas)", endingD, "#10B981");
+            UpdateItemBaris(listT, "Ending A: Kebangkrutan Total (Gocap)", ea, "#EF4444");
+            UpdateItemBaris(listT, "Ending B: Realita Trader (Cut Loss)", eb, "#F59E0B");
+            UpdateItemBaris(listT, "Ending C: Korban Cuci Piring (Pucuk)", ec, "#F97316");
+            UpdateItemBaris(listT, "Ending D: Investor Rasional (Cerdas)", ed, "#10B981");
         }
     }
 
@@ -146,42 +155,37 @@ public class MainMenuEndingManager : MonoBehaviour
         }
     }
 
-    private void HubungkanListenerModalBabak()
+    private void HubungkanListenerModalBabak(GameObject modal)
     {
-        Transform cardModal = panelModalBabak.transform.Find("CardModalBabak");
-        if (cardModal == null) return;
+        if (modal == null) return;
 
-        // Tombol Close X
-        Transform header = cardModal.Find("Header");
-        if (header != null)
+        // Pasang event tutup ke semua tombol close/x di dalam modal
+        Button[] allButtons = modal.GetComponentsInChildren<Button>(true);
+        foreach (var b in allButtons)
         {
-            Transform btnClose = header.Find("BtnCloseX");
-            if (btnClose != null)
+            string n = b.name.ToLower();
+            if (n.Contains("tutup") || n.Contains("close") || n.Contains("btnclose") || n.Contains("labelx"))
             {
-                Button b = btnClose.GetComponent<Button>();
-                if (b != null)
-                {
-                    b.onClick.RemoveListener(TutupModalPilihBabak);
-                    b.onClick.AddListener(TutupModalPilihBabak);
-                }
+                b.onClick.RemoveListener(TutupModalPilihBabak);
+                b.onClick.AddListener(TutupModalPilihBabak);
             }
         }
+
+        Transform cardModal = modal.transform.Find("CardModalBabak");
+        if (cardModal == null) return;
 
         // 3 Tombol Mainkan di ContainerBabak
         Transform container = cardModal.Find("ContainerBabak");
         if (container != null)
         {
-            // Babak 1
             if (container.childCount > 0)
             {
                 PasangListenerBtnMainkan(container.GetChild(0), "Fase_Heri_Datang", 5000000);
             }
-            // Babak 2
             if (container.childCount > 1)
             {
                 PasangListenerBtnMainkan(container.GetChild(1), "Fase_Rasional_Telepon", 5000000);
             }
-            // Babak 3
             if (container.childCount > 2)
             {
                 PasangListenerBtnMainkan(container.GetChild(2), "Fase_Harga_Anjlok", 3000000);
@@ -205,7 +209,11 @@ public class MainMenuEndingManager : MonoBehaviour
 
     public void BukaModalPilihBabak()
     {
-        if (panelModalBabak != null) panelModalBabak.SetActive(true);
+        if (panelModalBabak != null)
+        {
+            panelModalBabak.SetActive(true);
+            HubungkanListenerModalBabak(panelModalBabak);
+        }
     }
 
     public void TutupModalPilihBabak()
