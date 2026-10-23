@@ -3,7 +3,8 @@ position: 228,-115
 ---
 <<set_kamera_instan PLAYER pintu>>
 <<fade_in Manager>>
-<<wait 2>>
+<<putar_sfx AudioManager tutup_pintu>>
+<<wait 1>>
 Raka: (Cklek... Pintu tertutup)
 Raka: Haaah... akhirnya sampai juga di kosan.
 Raka: Capek banget... Seharian kuliah dan praktikum coding di kampus bener-bener nguras energi.
@@ -177,11 +178,14 @@ Raka: Oke.. lanjut nugas dulu deh.
 <<tutup_hp HPmanager>>
 
 <<buka_laptop LayarLaptop>>
+<<mulai_ngetik AudioManager>>
 Raka: Hhh... ngoding pakai laptop lemot gini emang butuh kesabaran ekstra.
 
 <<wait 5>>
 <<fade_out Manager>>
-<<wait 3>> // Tunggu layar hitam sempurna
+<<wait 2>>
+<<stop_ngetik AudioManager>>
+<<tutup_laptop LayarLaptop>>
 
 // Memunculkan teks transisi
 <<munculkan_teks Manager "3 Jam Kemudian...">>
@@ -275,13 +279,15 @@ Raka: Mending aku lanjut nugas coding aja deh. Biar lambat asal selamat.
 
 // Raka membuka laptop untuk mengerjakan tugas
 <<buka_laptop LayarLaptop>>
+<<mulai_ngetik AudioManager>>
 <<wait 2>>
 
 // ==========================================
 // BAGIAN 2: EVENT - HARGA MEROKET, TEMAN PAMER
 // ==========================================
 <<fade_out Manager>>
-<<wait 3>>
+<<wait 2>>
+<<stop_ngetik AudioManager>>
 <<munculkan_teks Manager "Beberapa Jam Kemudian... Pukul 15.00 WIB">>
 <<wait 3>>
 <<hapus_teks Manager>>
@@ -678,8 +684,8 @@ Raka: Lain kali, aku nggak akan pernah sentuh saham tanpa riset laporan keuangan
 <<wait 3>>
 
 // EDUKASI: Kesimpulan Moral Pop-Up
-<<munculkan_teks Manager "ENDING B: RUGI RINGAN (CUT LOSS)\n\nKerugian adalah hal yang wajar dalam investasi. Namun, memiliki keberanian untuk mengakui kesalahan dan melakukan Cut Loss akan menyelamatkanmu dari kehancuran total. Membatasi risiko sama pentingnya dengan mencari keuntungan.">>
-<<wait 7>>
+<<munculkan_teks Manager "ENDING B: RUGI RINGAN (CUT LOSS)">>
+<<wait 10>>
 <<hapus_teks Manager>>
 
 // Panggil fungsi untuk kembali ke Scene Main Menu
@@ -742,8 +748,8 @@ Raka: Dan aku... ikan yang makan umpannya.
 
 <<fade_out Manager>>
 <<wait 3>>
-<<munculkan_teks Manager "ENDING A: KEBANGKRUTAN TOTAL (SAHAM GOCAP)\n\nRaka kehilangan tabungannya karena mengikuti sinyal investasi tanpa analisa dan memaksakan uang kos serta biaya hidup. Ketika terjebak di saham gocap, uang terkunci tanpa bisa ditarik kembali. Jangan pernah berinvestasi menggunakan uang panas!">>
-<<wait 7>>
+<<munculkan_teks Manager "ENDING A: KEBANGKRUTAN TOTAL (SAHAM GOCAP)">>
+<<wait 10>>
 <<hapus_teks Manager>>
 <<kembali_ke_menu GameManager>>
 ===
@@ -857,8 +863,8 @@ Raka: Pelajaran berharga hari ini: Kesabaran dan ilmu adalah pelindung aset terb
 
 <<fade_out Manager>>
 <<wait 3>>
-<<munculkan_teks Manager "ENDING D: AWAL INVESTOR CERDAS\n\nMenahan diri dari FOMO menyelamatkan aset Raka. Pengalaman ini membuka matanya bahwa investasi yang benar membutuhkan literasi dan edukasi, bukan sekadar ikut-ikutan.">>
-<<wait 6>>
+<<munculkan_teks Manager "ENDING D: AWAL INVESTOR CERDAS">>
+<<wait 10>>
 <<hapus_teks Manager>>
 <<kembali_ke_menu GameManager>>
 
@@ -975,8 +981,8 @@ Raka: Bima... Bima juga pasti belum sempat keluar. Kita semua cuma pion di papan
 
 <<fade_out Manager>>
 <<wait 3>>
-<<munculkan_teks Manager "ENDING C: KORBAN CUCI PIRING (RUGI DI PUNCAK)\n\nTerpancing pameran profit di akhir sesi sering membuat investor pemula masuk di saat yang paling salah. Membeli tanpa analisis hanya akan membuatmu menjadi exit liquidity bagi para manipulator pasar.">>
-<<wait 7>>
+<<munculkan_teks Manager "ENDING C: KORBAN CUCI PIRING (RUGI DI PUNCAK)">>
+<<wait 10>>
 <<hapus_teks Manager>>
 
 // Panggil fungsi untuk kembali ke Scene Main Menu

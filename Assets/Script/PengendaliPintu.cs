@@ -62,5 +62,11 @@ public class PengendaliPintu : MonoBehaviour
         }
 
         transform.rotation = rotasiTarget;
+
+        // Putar suara pintu tertutup saat pintu selesai menutup
+        if (AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PutarSFX("tutup_pintu");
+        }
     }
 }

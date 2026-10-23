@@ -9,11 +9,14 @@ public class AudioManager : MonoBehaviour
     [Header("Komponen AudioSource")]
     public AudioSource sfxSource;
     public AudioSource loopSource;
+    public AudioSource typingSource;
 
     [Header("Daftar Klip Suara (SFX)")]
     public AudioClip clipNotifChat;
     public AudioClip clipDeringTelepon;
     public AudioClip clipKetukPintu;
+    public AudioClip clipTutupPintu;
+    public AudioClip clipKetikKeyboard;
     public AudioClip clipOrderSukses;
     public AudioClip clipKlikTelepon;
     public AudioClip clipDramatisARB;
@@ -38,6 +41,13 @@ public class AudioManager : MonoBehaviour
             loopSource.playOnAwake = false;
             loopSource.loop = true;
         }
+
+        if (typingSource == null)
+        {
+            typingSource = gameObject.AddComponent<AudioSource>();
+            typingSource.playOnAwake = false;
+            typingSource.loop = true;
+        }
     }
 
     [YarnCommand("putar_sfx")]
@@ -57,7 +67,24 @@ public class AudioManager : MonoBehaviour
             case "ketuk_pintu":
             case "pintu":
             case "knock":
+            case "ketuk":
                 targetClip = clipKetukPintu;
+                break;
+
+            case "tutup_pintu":
+            case "pintu_tutup":
+            case "tutuppintu":
+            case "close_door":
+            case "door_close":
+                targetClip = clipTutupPintu;
+                break;
+
+            case "keyboard":
+            case "ketik":
+            case "ngetik":
+            case "typing":
+            case "tugas":
+                targetClip = clipKetikKeyboard;
                 break;
 
             case "order":
@@ -111,6 +138,26 @@ public class AudioManager : MonoBehaviour
         if (loopSource != null && loopSource.isPlaying)
         {
             loopSource.Stop();
+        }
+    }
+
+    [YarnCommand("mulai_ngetik")]
+    public void MulaiNgetik()
+    {
+        if (typingSource != null && clipKetikKeyboard != null)
+        {
+            typingSource.clip = clipKetikKeyboard;
+            typingSource.loop = true;
+            typingSource.Play();
+        }
+    }
+
+    [YarnCommand("stop_ngetik")]
+    public void StopNgetik()
+    {
+        if (typingSource != null && typingSource.isPlaying)
+        {
+            typingSource.Stop();
         }
     }
 }
