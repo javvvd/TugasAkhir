@@ -50,7 +50,8 @@ public class MainMenuEndingManager : MonoBehaviour
                 Transform canvasT = canvasGo.transform;
                 if (cardGaleri == null)
                 {
-                    Transform t = canvasT.Find("CardGaleriEnding");
+                    Transform t = canvasT.Find("CardEndingCollector");
+                    if (t == null) t = canvasT.Find("CardGaleriEnding");
                     if (t != null) cardGaleri = t.gameObject;
                 }
                 if (btnPilihBabak == null)
@@ -73,7 +74,7 @@ public class MainMenuEndingManager : MonoBehaviour
         bool endingD = PlayerPrefs.GetInt("Ending_D_Unlocked", 0) == 1;
         int totalUnlocked = (endingA ? 1 : 0) + (endingB ? 1 : 0) + (endingC ? 1 : 0) + (endingD ? 1 : 0);
 
-        // 2. Perbarui teks dan centang pada kartu galeri
+        // 2. Perbarui teks dan centang pada kartu galeri / ending collector
         if (cardGaleri != null)
         {
             UpdateTampilanGaleri(cardGaleri, endingA, endingB, endingC, endingD, totalUnlocked);
@@ -102,7 +103,18 @@ public class MainMenuEndingManager : MonoBehaviour
     {
         if (card == null) return;
 
-        // Update Header
+        // Update TextCount (jika menggunakan format CardEndingCollector)
+        Transform tCount = card.transform.Find("TextCount");
+        if (tCount != null)
+        {
+            TextMeshProUGUI tmpC = tCount.GetComponent<TextMeshProUGUI>();
+            if (tmpC != null)
+            {
+                tmpC.text = $"<size=36><b><color=#38BDF8>{total}</color></b></size> <size=22><color=#94A3B8>/ 4</color></size> <size=18><color=#E2E8F0>Ending Terbuka</color></size>";
+            }
+        }
+
+        // Update Header jika ada
         Transform header = card.transform.Find("HeaderGaleri");
         if (header != null)
         {
@@ -113,7 +125,7 @@ public class MainMenuEndingManager : MonoBehaviour
             }
         }
 
-        // Update List Items
+        // Update List Items jika ada
         Transform listT = card.transform.Find("ListEnding");
         if (listT != null)
         {
