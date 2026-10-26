@@ -27,6 +27,7 @@ title: Fase_0_Pembuka
 position: 233,77
 ---
 <<sembunyikan_tugas BoxTugasManager>>
+<<matikan_interaksi Handphone>>
 <<munculkan_hp HPmanager>>
 <<buka_chat AppChatManager>>
 

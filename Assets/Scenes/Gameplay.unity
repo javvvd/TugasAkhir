@@ -27223,6 +27223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelHandphone: {fileID: 1430582220}
   latarGelap: {fileID: 138080523}
+  objekHpDiMeja: {fileID: 1964398359}
 --- !u!1 &1647078911
 GameObject:
   m_ObjectHideFlags: 0
