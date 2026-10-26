@@ -121,6 +121,40 @@ public class PengendaliKamera : MonoBehaviour
         }
     }
 
+    [Header("Pengaturan Efek Shake Kamera")]
+    private Coroutine coroutineShake;
+
+    [YarnCommand("shake_kamera")]
+    public void TriggerShakeKamera(float durasi = 0.6f, float kekuatan = 0.08f)
+    {
+        if (coroutineShake != null) StopCoroutine(coroutineShake);
+        coroutineShake = StartCoroutine(ProsesShakeKamera(durasi, kekuatan));
+    }
+
+    private IEnumerator ProsesShakeKamera(float durasi, float kekuatan)
+    {
+        Camera camAktif = (kameraMeja != null && kameraMeja.gameObject.activeInHierarchy) ? kameraMeja : kameraPintu;
+        if (camAktif == null) yield break;
+
+        Vector3 posAwal = camAktif.transform.localPosition;
+        float elapsed = 0f;
+
+        while (elapsed < durasi)
+        {
+            elapsed += Time.deltaTime;
+            float t = 1f - Mathf.Clamp01(elapsed / durasi); // Decay peredam getaran
+
+            float offsetX = (Random.value * 2f - 1f) * kekuatan * t;
+            float offsetY = (Random.value * 2f - 1f) * kekuatan * t;
+
+            camAktif.transform.localPosition = posAwal + new Vector3(offsetX, offsetY, 0f);
+            yield return null;
+        }
+
+        camAktif.transform.localPosition = posAwal;
+        coroutineShake = null;
+    }
+
     private IEnumerator ProsesTransisiKamera(Camera camAwal, Camera camTujuan, float durasi, bool menujuMeja)
     {
         if (camAwal == null || camTujuan == null) yield break;

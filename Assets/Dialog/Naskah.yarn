@@ -441,6 +441,8 @@ Raka: Nilai investasiku tinggal 4 juta... Lenyap hampir 1 juta dalam hitungan me
 Raka: Nggak, nggak... Ayo jual! Jual semuanya sekarang juga!! 
 
 // Animasi/Dialog Raka panik menekan tombol jual tapi gagal (Tidak ada match)
+<<efek_gagal_jual AppSahamManager>>
+<<wait 1>>
 Raka: ...Gagal? Status ordernya kenapa cuma "Open"?! Kenapa nggak "Matched"?!
 Raka: Nggak ada yang antre beli saham ini... Bursa juga udah mau tutup!
 Raka: Uang kos dan tabunganku nyangkut semua di pucuk...
@@ -813,16 +815,16 @@ Heri: Nggak, cuma mau nanya aja. Kamu... akhirnya jadi beli saham DUIT yang tadi
 Raka: Nggak, Her. Setelah kamu keluar tadi, aku mikir lagi dan mutusin buat nahan diri. 
 Raka: Aku mending fokus nabung aja buat beli laptop. Bahaya kalau uang darurat dipakai nekat.
 
-Heri: (Menghela napas lega) Syukurlah kalau gitu, Rak. Keputusanmu tepat banget.
+Heri: Syukurlah kalau gitu, Rak. Keputusanmu tepat banget.
 Heri: Kamu belum cek berita ya? Saham DUIT barusan hancur lebur menjelang bursa tutup.
 Heri: Dibanting parah sampai ARB ke 85. Di forum saham lagi rame banget pada nangis uangnya nyangkut di pucuk karena Master Trading-nya kabur.
 
 // SPRITE: Raka, ekspresi kaget bercampur lega
 Raka: Astaga... Serius, Her?!
-Raka: Gila... Kalau tadi siang aku kemakan FOMO dan maksa beli... uang 5 jutaku pasti udah amblas sekarang.
+Raka: Gila... Kalau tadi siang aku nekat masukin uangku, udah nangis darah aku sekarang di pojokan kamar.
 Raka: Makasih banyak lho, Her. Kalau kamu nggak ngingetin, aku pasti udah jadi salah satu korban nyangkut itu.
 
-Heri: Sama-sama, Rak. Namanya juga temen.
+Heri: Hahaha, syukurlah kalau kau nggak jadi beli. Aku tadi juga agak was-was takut kau beneran kemakan omongan orang.
 Heri: Inget aja, investasi modal ikut-ikutan tanpa riset itu bukan investasi, tapi donasi ke bandar.
 
 // SPRITE: Raka, ekspresi termotivasi / serius
@@ -834,7 +836,7 @@ Raka: Investasi itu penting buat masa depan, tapi ilmunya harus ada dulu.
 
 Heri: Nah, itu baru pola pikir investor beneran! Mantap, Rak. 
 Heri: Yaudah, aku balik ke kamar dulu ya. Nanti malam kalau mau cari makan bareng, kabari aja.
-Raka: Siap, Her!
+
 
 <<tutup_pintu EngselPintu>>
 <<wait 1>>
@@ -846,9 +848,7 @@ Raka: Eh, Bima ngechat lagi?
 <<buka_chat AppChatManager bima_selamat>>
 <<wait 1>>
 
-Bima (WhatsApp): Rak... duit gue amblas... Saham DUIT dibanting ARB, gue ga sempet jualan sama sekali...
 <<wait 1>>
-Bima (WhatsApp): Profit yang kupamerin tadi siang ludes semua, malah sekarang saldo gue minus parah...
 
 // SPRITE: Raka, ekspresi prihatin tapi juga merenung dalam
 Raka: (Membaca chat Bima)

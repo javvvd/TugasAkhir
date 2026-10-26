@@ -103,6 +103,7 @@ public class AudioManager : MonoBehaviour
             case "arb":
             case "panik":
                 targetClip = clipDramatisARB;
+                PengendaliKamera.Instance?.TriggerShakeKamera(0.8f, 0.08f);
                 break;
 
             case "dering":
