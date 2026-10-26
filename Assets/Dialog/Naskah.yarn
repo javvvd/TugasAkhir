@@ -241,6 +241,7 @@ Raka: Gimana nih? Bentar lagi bursa tutup jam 4 sore. Tambah muatan habisin semu
     <<potong_uang GameManager 3000000>>
     <<putar_sfx AudioManager order>>
     <<ganti_layar_saham AppSahamManager 2>>
+    <<wait 1>>
     Raka: Order *Matched*! Saldo bener-bener ludes sekarang.
     Raka: Tadi aku beli 200 lot di harga 100, sekarang tambah 272 lot di harga 110...
     Raka: Berarti sekarang total aku punya 472 Lot saham DUIT!
@@ -659,6 +660,7 @@ Raka: Laku! Sahamku berhasil kejual di harga bawah sebelum ARB berjilid-jilid!
 Raka: Haaaaaah..... Syukurlah!
 Raka: Sisa uangku yang di saham berhasil kutarik 1,7 juta, ditambah uang kos yang 3 juta... 
 Raka: Total uangku sekarang sisa 4,7 juta. 
+<<set_saldo GameManager 4700000>>
 Raka: Tabungan beli laptopku memang berkurang 300 ribu, tapi setidaknya aku nggak bangkrut!
 
 Raka: Coba kulihat pergerakan saham DUIT hari ini...
@@ -696,10 +698,8 @@ title: Ending_Bangkrut
 position: -121,1223
 ---
 // Scene 5: Ending Bangkrut - Konsekuensi Berat
-
-// BG: BG01 - Kamar Kos Raka (Pagi) - warna desaturated/gelap
-// BGM: Musik sedih, piano minor
-// SPRITE: Raka, ekspresi sedih/shock - duduk di lantai
+<<set_bangkrut GameManager>>
+<<wait 1>>
 
 Raka: (Terdiam menatap layar HP yang masih merah)
 Raka: Habis... 
