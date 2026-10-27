@@ -128,7 +128,6 @@ public class UangManager : MonoBehaviour
         SetSaldo(nilaiBaru);
     }
 
-
     private IEnumerator AnimasiPotongUangRoutine(int jumlahPotongan, int saldoAwal, int saldoAkhir)
     {
         // 1. Setup teks melayang
