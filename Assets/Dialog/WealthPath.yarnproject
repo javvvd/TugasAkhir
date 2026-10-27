@@ -11,5 +11,10 @@
   "baseLanguage": "en",
   "compilerOptions": {
     "diagnosticsSeverity": {}
+  },
+  "editorOptions": {
+    "yarnScriptEditor": {
+      "characters": []
+    }
   }
 }
