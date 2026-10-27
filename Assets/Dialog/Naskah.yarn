@@ -476,7 +476,6 @@ Raka: ...Rp 50?
 Raka: Mentok di gocap?
 
 // EDUKASI: Pop-Up Saham Gocap
-Narator: SAHAM GOCAP (Rp 50): Batas harga terendah saham di papan reguler Bursa Efek Indonesia. Saham yang hancur ke harga ini sering disebut "saham tidur" atau "saham mati" karena sangat sulit untuk dijual kembali akibat hilangnya minat pasar.
 
 // SPRITE: Raka, menatap layar dengan tatapan kosong
 Raka: (Berbisik) Jadi ini yang namanya saham mati...
@@ -579,7 +578,6 @@ Raka: Tapi kalau aku ikutin Master masukin sisa 3 jutaku... dan besok harganya b
     <<tutup_AppSaham AppSahamManager>>
     <<tutup_hp HPmanager>>
     <<jump Transisi_Average_Down_Bangkrut>>
-
 -> Jangan gila! Cut loss sekarang, terima rugi.
     Raka: Nggak, nggak! Ini pasti jebakan! 
     Raka: Kalau besok harganya makin longsor, uang kosku yang 3 juta bakal ikutan hancur!
