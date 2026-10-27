@@ -31,6 +31,10 @@ public class AppSahamManager : MonoBehaviour
     [Tooltip("Transform Panel Handphone untuk efek getaran saat gagal eksekusi")]
     public RectTransform rectPanelHandphone;
 
+    [Header("Toast Notifikasi Transaksi")]
+    [Tooltip("Komponen banner pop-up notifikasi transaksi di atas HP")]
+    public ToastTransaksiManager toastManager;
+
     private Coroutine coroutineGagalJual;
     private Vector2 posisiAwalPanel;
 
@@ -39,6 +43,15 @@ public class AppSahamManager : MonoBehaviour
         if (layarAwal == null && gambarLayarSaham != null)
         {
             layarAwal = gambarLayarSaham.sprite;
+        }
+
+        if (toastManager == null)
+        {
+            toastManager = GetComponent<ToastTransaksiManager>();
+            if (toastManager == null)
+            {
+                toastManager = Object.FindFirstObjectByType<ToastTransaksiManager>();
+            }
         }
 
         if (rectPanelHandphone == null)
@@ -105,6 +118,20 @@ public class AppSahamManager : MonoBehaviour
             {
                 gambarLayarSaham.sprite = layarAwal;
             }
+        }
+    }
+
+    [YarnCommand("notif_transaksi")]
+    public void NotifTransaksi(string judul, string subjudul, string tipe = "beli")
+    {
+        if (toastManager == null) toastManager = UnityEngine.Object.FindFirstObjectByType<ToastTransaksiManager>();
+        if (toastManager != null)
+        {
+            toastManager.Tampilkan(judul, subjudul, tipe);
+        }
+        else
+        {
+            ToastTransaksiManager.Instance?.Tampilkan(judul, subjudul, tipe);
         }
     }
 

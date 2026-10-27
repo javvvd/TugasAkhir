@@ -169,6 +169,7 @@ Raka: Kalau nggak dicoba, nggak bakal tau hasilnya. Siapa tau untung
 <<potong_uang GameManager 2000000>>
 <<putar_sfx AudioManager order>>
 <<ganti_layar_saham AppSahamManager 0>>
+<<notif_transaksi AppSahamManager "Order Beli Berhasil: 200 Lot DUIT @ Rp100" "Saldo Rekening Berkurang: -Rp2.000.000" "beli">>
 Raka: Oke, order *Matched*! 2 Juta udah masuk ke saham DUIT.
 Raka: Aku juga sudah join grup Master Trading.
 Raka: Sekarang sisa saldoku 3 Juta. 
@@ -240,6 +241,7 @@ Raka: Gimana nih? Bentar lagi bursa tutup jam 4 sore. Tambah muatan habisin semu
     <<potong_uang GameManager 3000000>>
     <<putar_sfx AudioManager order>>
     <<ganti_layar_saham AppSahamManager 2>>
+    <<notif_transaksi AppSahamManager "Order Beli Berhasil: 272 Lot DUIT @ Rp110" "Saldo Rekening Berkurang: -Rp3.000.000" "beli">>
     <<wait 1>>
     Raka: Order *Matched*! Saldo bener-bener ludes sekarang.
     Raka: Tadi beli 200 lot di harga 100, sekarang tambah 272 lot di harga 110...
@@ -367,6 +369,7 @@ Raka: Beli sekarang aja kali ya?! Masih ada waktu sebelum bursa tutup!
     <<potong_uang GameManager 5000000>>
     <<putar_sfx AudioManager order>>
     <<ganti_layar_saham AppSahamManager 7>>
+    <<notif_transaksi AppSahamManager "Order Beli Berhasil: 370 Lot DUIT @ Rp135" "Saldo Rekening Berkurang: -Rp5.000.000" "beli">>
     Raka: Order Matched! Dapet 370 Lot di harga 135!
     Raka: Ayo terbang lagi besok, jadikan uangku berlipat ganda!!
     <<wait 1>>
@@ -427,7 +430,6 @@ Raka: T-tidak mungkin...
 Raka: KOK MERAH SEMUA?!
 
 // EDUKASI: Pop-Up Merah - Fase Dump & ARB
-Narator: ARB (Auto Rejection Bawah) & FASE DUMP: Batas penurunan harga maksimal dalam sehari di bursa. Ketika bandar selesai memompa harga (Pump), mereka menjual (Dump) jutaan lembar sekaligus. Harga langsung jatuh bebas hingga menyentuh ARB, di mana antrean jual menumpuk tanpa ada pembeli sama sekali.
 
 Raka: Harganya... harganya anjlok parah dari 110 dibanting ke 85 per lembar?! 
 Raka: Nilai investasiku tinggal 4 juta... Lenyap hampir 1 juta dalam hitungan menit?!
@@ -565,6 +567,7 @@ Raka: Tapi kalau aku ikutin Master masukin sisa 3 jutaku... dan besok harganya b
     <<tutup_chat AppChatManager>>
     <<buka_AppSaham AppSahamManager>>
     <<ganti_layar_saham AppSahamManager 3>>
+    <<notif_transaksi AppSahamManager "Order Beli Berhasil: 352 Lot DUIT @ Rp85" "Saldo Rekening Berkurang: -Rp3.000.000" "beli">>
     Raka: Order Matched! Selesai... Saldo di rekeningku beneran habis 0 Rupiah sekarang.
     Raka: Tolong... besok harus mantul naik. Kalau nggak, aku bener-bener mati.
     <<wait 1>>
@@ -644,6 +647,7 @@ Raka: (Menelan ludah) Jam 9 pas. Ayo kita lihat...
 <<munculkan_hp HPmanager>>
 <<buka_AppSaham AppSahamManager>>
 <<ganti_layar_saham AppSahamManager 5>>
+<<notif_transaksi AppSahamManager "Order Jual (Cut Loss) Berhasil: 200 Lot @ Rp85" "Saldo Rekening Bertambah: +Rp1.700.000" "jual">>
 <<wait 2>>
 
 // SFX: Bunyi notifikasi berhasil (Ting!)
