@@ -20,6 +20,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip clipOrderSukses;
     public AudioClip clipKlikTelepon;
     public AudioClip clipDramatisARB;
+    public AudioClip clipMinum;
 
     void Awake()
     {
@@ -109,6 +110,13 @@ public class AudioManager : MonoBehaviour
             case "dering":
             case "telepon":
                 targetClip = clipDeringTelepon;
+                break;
+
+            case "minum":
+            case "air":
+            case "gelas":
+            case "drink":
+                targetClip = clipMinum;
                 break;
         }
 

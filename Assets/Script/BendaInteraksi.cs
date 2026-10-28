@@ -109,4 +109,28 @@ public class BendaInteraktif : MonoBehaviour
             efekLayar.SetActive(false);
         }
     }
+
+    // Menyembunyikan tampilan visual objek (misal: gelas saat diangkat/diminum)
+    [YarnCommand("sembunyikan_benda")]
+    public void SembunyikanBenda()
+    {
+        Renderer[] allRenderers = GetComponentsInChildren<Renderer>(true);
+        foreach (var r in allRenderers)
+        {
+            r.enabled = false;
+        }
+        if (areaKlik == null) areaKlik = GetComponent<Collider>();
+        if (areaKlik != null) areaKlik.enabled = false;
+    }
+
+    // Memunculkan kembali tampilan visual objek (misal: gelas ditaruh kembali ke meja)
+    [YarnCommand("munculkan_benda")]
+    public void MunculkanBenda()
+    {
+        Renderer[] allRenderers = GetComponentsInChildren<Renderer>(true);
+        foreach (var r in allRenderers)
+        {
+            r.enabled = true;
+        }
+    }
 }

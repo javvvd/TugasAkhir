@@ -15,8 +15,24 @@ Raka: Hhh... ke meja dulu deh, taruh tas sama rebahan bentar.
 <<pindah_ke_meja PLAYER 2.5>>
 <<wait 2.5>>
 Raka: Haaah... duduk di kursi emang paling nikmat setelah seharian capek.
-<<wait 1>>
+Raka: Haus juga habis dari luar... Minum dulu deh.
+<<aktifkan_interaksi Gelas>>
+<<tampilkan_tugas BoxTugasManager>>
+<<ubah_tugas BoxTugasManager "Minum Air">>
+===
+title:Fase_Minum
+position: 230,-20
+---
+<<sembunyikan_tugas BoxTugasManager>>
+<<matikan_interaksi Gelas>>
+<<sembunyikan_benda Gelas>>
+<<putar_sfx AudioManager minum>>
+<<wait 1.5>>
+<<munculkan_benda Gelas>>
+Raka: Ahh... seger.
+<<wait 1.5>>
 <<putar_sfx AudioManager notif>>
+<<wait 1.5>>
 Raka: Ada notif chat masuk... Coba kucek dulu.
 <<aktifkan_interaksi Handphone>>
 <<tampilkan_tugas BoxTugasManager>>
@@ -33,12 +49,12 @@ position: 233,77
 // Memunculkan Pesan_Bima_1
 <<putar_sfx AudioManager notif>>
 <<munculkan_pesan AppChatManager 0>>
-Raka: Oh si Bima ngechat
+Raka: Oh pesan dari Bima
 <<wait 2>>
 // Memunculkan Pesan_Bima_2
 <<putar_sfx AudioManager notif>>
 <<munculkan_pesan AppChatManager 1>>
-Raka: Hah apaan ini
+Raka: Ha apa ini?
 <<munculkan_pesan_raka AppChatManager 0>>
 <<wait 2>>
 <<putar_sfx AudioManager notif>>
@@ -46,14 +62,12 @@ Raka: Hah apaan ini
 <<wait 2>>
 Raka: Hebat juga Bima ini. Dia ga pernah bilang mengerti saham.
 Raka: Tapi bisa untung jutaan cuma pakai HP...
-Raka: Coba telepon dia aja deh, penasaran aku caranya gimana.
+Raka: Coba kutelpon, penasaran caranya gimana.
 
 // Layar HP menyala dengan tampilan panggilan
 <<munculkan_layar_telepon AppChatManager>>
 <<bersihkan_chat AppChatManager>>
-<<mulai_dering AudioManager>>
 (Suara nada sambung... Tut... Tut...)
-<<stop_dering AudioManager>>
 <<putar_sfx AudioManager klik>>
 (Klik)
 
@@ -61,7 +75,7 @@ Bima: Halo, Raka! Gimana? Udah liat screenshot keuntunganku kan?
 Raka: Udah, makanya ini aku telpon. Kau dapet untung segitu darimana ceritanya, Bim?
 Bima: Hahaha, gampang banget bro sekarang cari duit. Kau tinggal daftar aplikasi, masukin modal, terus ikutin sinyal. Cuan deh.
 Raka: Sinyal apaan? Aku selama ini baru belajar di akun virtual demo. Bahaya nggak tuh asal taruh duit asli?
-Bima: Ah elah, kau kebanyakan mikir! Emang nggak ngerti, tapi aku gabung grup VIP Telegram-nya "Master Trading".
+Bima: Ah.. kau kebanyakan mikir! Emang nggak ngerti, tapi aku gabung grup VIP Telegram-nya "Master Trading".
 Bima: Dia tuh influencer paling top sekarang. Kita nggak usah capek mikir, tinggal copy-paste aja apa yang dia suruh beli.
 Raka: Grup VIP Influencer? Yakin kau itu aman? 
 Bima: Aman 100%! Buktinya aku udah untung jutaan hari ini. Kau kalau mau, nanti aku invite ke grupnya deh. Mumpung lagi ada promo pendaftaran nih.
@@ -270,7 +284,14 @@ position: 604,281
 // ----------------------------------------------------
 // SPRITE: Raka, ekspresi berpikir
 Raka: ...Omongan Heri tadi ada benarnya juga.
-Raka: Investasi cuma modal ikut-ikutan tanpa riset itu sama aja kayak judi tebak angka.
+Raka: Coba kucek sekilas laporan keuangannya di aplikasi...
+<<munculkan_hp HPmanager>>
+<<wait 2>>
+Raka: Lho... laba bersihnya minus berturut-turut tiap kuartal?
+Raka: Utangnya numpuk, penjualannya juga turun terus...
+Raka: Fundamentalnya jelek banget. Perusahaan rugi begini kok harganya bisa naik? Jelas digoreng ini.
+<<tutup_hp HPmanager>>
+Raka: Untung aku nggak langsung ikut-ikutan. Investasi tanpa riset itu sama aja kayak judi tebak angka.
 Raka: Uang 5 juta ini tabungan buat beli laptop baru supaya skripsiku lancar. 
 Raka: Nggak rela aku kalau sampai hilang gara-gara serakah sesaat.
 
@@ -922,7 +943,7 @@ title: Ending_C_Buka_Pintu
 <<wait 1>>
 
 // SPRITE: Heri muncul dengan ekspresi panik
-Heri: Rak! Kau aman kan?! 
+Heri: Rak 
 Heri: Kau nggak jadi beli saham DUIT yang tadi siang itu kan? Di berita lagi heboh harganya dibanting bandar sampai ARB parah!
 
 // SPRITE: Raka menatap Heri dengan tatapan kosong dan pucat

@@ -5,35 +5,55 @@ using System.Collections;
 public class PengendaliLaptop : MonoBehaviour
 {
     [Header("Pengaturan Layar Laptop")]
-    [Tooltip("Sudut rotasi saat laptop DITUTUP. Sesuaikan dengan sumbu putar model 3D-mu.")]
-    public float sudutTutupX = 90f; // Bisa dicoba 90f, -90f, 100f, dsb.
-    public float kecepatan = 3f;
+    [Tooltip("Sudut rotasi lokal saat laptop TERBUKA")]
+    public Vector3 eulerBuka = Vector3.zero;
 
-    private Quaternion rotasiBuka; // Menyimpan posisi saat layar TERBUKA (kondisi awal)
+    [Tooltip("Perubahan sudut sumbu X saat laptop DITUTUP")]
+    public float sudutTutupX = -89f;
 
-    void Start()
+    [Tooltip("Kecepatan animasi membuka / menutup")]
+    public float kecepatan = 1.2f;
+
+    [Tooltip("Jika true, saat game dimulai laptop langsung dalam posisi tertutup")]
+    public bool mulaiTertutup = true;
+
+    private Quaternion rotasiBuka;
+    private Quaternion rotasiTutup;
+    private Coroutine coroutineAnimasi;
+
+    void Awake()
     {
-        // Karena awal game laptop sudah terbuka, kita simpan posisi ini sebagai "rotasiBuka"
-        rotasiBuka = transform.localRotation;
+        rotasiBuka = Quaternion.Euler(eulerBuka);
+        rotasiTutup = rotasiBuka * Quaternion.Euler(sudutTutupX, 0, 0);
+
+        if (mulaiTertutup)
+        {
+            transform.localRotation = rotasiTutup;
+        }
+        else
+        {
+            transform.localRotation = rotasiBuka;
+        }
     }
 
     [YarnCommand("buka_laptop")]
     public void BukaLaptop()
     {
-        StartCoroutine(ProsesBuka());
+        if (coroutineAnimasi != null) StopCoroutine(coroutineAnimasi);
+        coroutineAnimasi = StartCoroutine(ProsesBuka());
     }
 
     [YarnCommand("tutup_laptop")]
     public void TutupLaptop()
     {
-        StartCoroutine(ProsesTutup());
+        if (coroutineAnimasi != null) StopCoroutine(coroutineAnimasi);
+        coroutineAnimasi = StartCoroutine(ProsesTutup());
     }
 
     IEnumerator ProsesTutup()
     {
         Quaternion rotasiAwal = transform.localRotation;
-        // Target saat menutup adalah posisi awal (buka) ditambah sudutTutupX
-        Quaternion rotasiTarget = rotasiBuka * Quaternion.Euler(sudutTutupX, 0, 0);
+        Quaternion rotasiTarget = rotasiTutup;
 
         float waktu = 0f;
         while (waktu < 1f)
@@ -42,13 +62,13 @@ public class PengendaliLaptop : MonoBehaviour
             transform.localRotation = Quaternion.Slerp(rotasiAwal, rotasiTarget, waktu);
             yield return null; 
         }
-        transform.localRotation = rotasiTarget; 
+        transform.localRotation = rotasiTarget;
+        coroutineAnimasi = null;
     }
 
     IEnumerator ProsesBuka()
     {
         Quaternion rotasiAwal = transform.localRotation;
-        // Target saat membuka adalah kembali ke posisi rotasiBuka (0)
         Quaternion rotasiTarget = rotasiBuka;
 
         float waktu = 0f;
@@ -58,6 +78,7 @@ public class PengendaliLaptop : MonoBehaviour
             transform.localRotation = Quaternion.Slerp(rotasiAwal, rotasiTarget, waktu);
             yield return null; 
         }
-        transform.localRotation = rotasiTarget; 
+        transform.localRotation = rotasiTarget;
+        coroutineAnimasi = null;
     }
 }

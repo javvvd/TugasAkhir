@@ -3299,6 +3299,7 @@ MonoBehaviour:
   clipOrderSukses: {fileID: 8300000, guid: dd3d1d910c1ac7f4685e8a2d98ebd922, type: 3}
   clipKlikTelepon: {fileID: 8300000, guid: 61d8b5337b5059542b9dcf11955ddd49, type: 3}
   clipDramatisARB: {fileID: 8300000, guid: 1ad3bb0c654db674286875fbc980079a, type: 3}
+  clipMinum: {fileID: 8300000, guid: 13a3a69cb8b182c4db6500accc32a98c, type: 3}
 --- !u!1 &186038936
 GameObject:
   m_ObjectHideFlags: 0
@@ -11115,8 +11116,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 77a4077627990f2428d45c83b380b5f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 685679219}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 77a4077627990f2428d45c83b380b5f0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 685679218}
   m_SourcePrefab: {fileID: 100100000, guid: 77a4077627990f2428d45c83b380b5f0, type: 3}
+--- !u!1 &600971634 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 77a4077627990f2428d45c83b380b5f0, type: 3}
+  m_PrefabInstance: {fileID: 600971633}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &626314956
 GameObject:
   m_ObjectHideFlags: 0
@@ -12002,6 +12014,45 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 77a4077627990f2428d45c83b380b5f0, type: 3}
   m_PrefabInstance: {fileID: 600971633}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &685679218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600971634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5336c19e17565449ab56dede9f37b86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  namaNodeYarn: Fase_Minum
+  teksTombolInteraksi: Minum Air
+  aktifSaatMulai: 0
+  efekLayar: {fileID: 0}
+  kedipSaatMenyala: 1
+  intervalKedip: 0.5
+--- !u!65 &685679219
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600971634}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Size: {x: 0.035, y: 0.04, z: 0.035}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &686174493
 GameObject:
   m_ObjectHideFlags: 0
@@ -24017,7 +24068,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1332093895}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0.70090926, y: 0, z: 0, w: 0.71325046}
   m_LocalPosition: {x: 0, y: 0, z: 0.0453}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -24038,8 +24089,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20027ade289e41f4cb69982e704989c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  eulerBuka: {x: 0, y: 0, z: 0}
   sudutTutupX: -89
-  kecepatan: 1
+  kecepatan: 1.2
+  mulaiTertutup: 1
 --- !u!1 &1333097061
 GameObject:
   m_ObjectHideFlags: 0
@@ -31851,7 +31904,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1773743234}
   - component: {fileID: 1773743235}
-  - component: {fileID: 1773743236}
   m_Layer: 0
   m_Name: AppSahamManager
   m_TagString: Untagged
@@ -31901,18 +31953,6 @@ MonoBehaviour:
   layarAwal: {fileID: 0}
   bannerGagalJual: {fileID: 550071477}
   rectPanelHandphone: {fileID: 1430582223}
---- !u!114 &1773743236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1773743233}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3899b398d048c6d41bcf54b1759c7a97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1777288248
 GameObject:
   m_ObjectHideFlags: 0
@@ -36992,7 +37032,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   namaNodeYarn: Fase_0_Pembuka
   teksTombolInteraksi: Buka HP
-  aktifSaatMulai: 1
+  aktifSaatMulai: 0
   efekLayar: {fileID: 1490546607}
   kedipSaatMenyala: 0
   intervalKedip: 0.5
