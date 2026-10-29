@@ -38,9 +38,25 @@ public class AppSahamManager : MonoBehaviour
 
     void Awake()
     {
-        if (layarAwal == null && gambarLayarSaham != null)
+        // Pastikan layar awal selalu merujuk ke AppSaham_Fase0 jika belum di-set
+        if (layarAwal == null && daftarLayarSaham != null)
         {
-            layarAwal = gambarLayarSaham.sprite;
+            foreach (var s in daftarLayarSaham)
+            {
+                if (s != null && s.name.Contains("Fase0"))
+                {
+                    layarAwal = s;
+                    break;
+                }
+            }
+        }
+
+        if (layarAwal == null && gambarLayarSaham != null && gambarLayarSaham.sprite != null)
+        {
+            if (gambarLayarSaham.sprite.name.Contains("Fase0"))
+            {
+                layarAwal = gambarLayarSaham.sprite;
+            }
         }
 
         if (rectPanelHandphone == null)
@@ -97,16 +113,9 @@ public class AppSahamManager : MonoBehaviour
     {
         if (bannerGagalJual != null) bannerGagalJual.SetActive(false);
 
-        if (gambarLayarSaham != null)
+        if (gambarLayarSaham != null && layarAwal != null)
         {
-            if (layarAwal == null && gambarLayarSaham.sprite != null)
-            {
-                layarAwal = gambarLayarSaham.sprite;
-            }
-            if (layarAwal != null)
-            {
-                gambarLayarSaham.sprite = layarAwal;
-            }
+            gambarLayarSaham.sprite = layarAwal;
         }
     }
 

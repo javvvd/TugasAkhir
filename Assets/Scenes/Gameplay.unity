@@ -32373,7 +32373,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: ea6db756487944c4a939d397c3ba6275, type: 3}
   - {fileID: 21300000, guid: 95a21ef8efa20994da51fb948a112b36, type: 3}
   - {fileID: 21300000, guid: 81704e1f12d4ff34d9c323b12d226a12, type: 3}
-  layarAwal: {fileID: 21300000, guid: 95a21ef8efa20994da51fb948a112b36, type: 3}
+  layarAwal: {fileID: 21300000, guid: b73dcea3907cda64685edc8022e02748, type: 3}
   bannerGagalJual: {fileID: 550071477}
   rectPanelHandphone: {fileID: 1430582223}
 --- !u!1 &1777288248
@@ -34418,7 +34418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 95a21ef8efa20994da51fb948a112b36, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b73dcea3907cda64685edc8022e02748, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
