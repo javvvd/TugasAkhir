@@ -477,6 +477,7 @@ Raka: Uang kos dan tabunganku nyangkut semua di pucuk...
 <<munculkan_teks Manager "5 Hari Kemudian...">>
 <<wait 3>>
 <<hapus_teks Manager>>
+<<set_kamera_instan PLAYER kasur>>
 <<fade_in Manager>>
 <<wait 1.5>>
 
@@ -608,6 +609,7 @@ position: 106,936
 <<munculkan_teks Manager "Keesokan Harinya... (Pukul 09.00 WIB)">>
 <<wait 3>>
 <<hapus_teks Manager>>
+<<set_kamera_instan PLAYER kasur>>
 <<fade_in Manager>>
 <<wait 1>>
 
@@ -649,6 +651,7 @@ Raka: Gila, tanganku sampai gemetar. Tolonglah besok pagi langsung laku...
 <<munculkan_teks Manager "Keesokan Harinya... Pukul 09.00 WIB (Bursa Buka)">>
 <<wait 3>>
 <<hapus_teks Manager>>
+<<set_kamera_instan PLAYER kasur>>
 <<fade_in Manager>>
 <<wait 1>>
 

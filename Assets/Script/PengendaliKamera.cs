@@ -13,6 +13,9 @@ public class PengendaliKamera : MonoBehaviour
     [Tooltip("Kamera di meja belajar (perspektif saat duduk menghadap laptop/HP)")]
     public Camera kameraMeja;
 
+    [Tooltip("Kamera di kasur (perspektif saat rebahan/depresi menatap plafon)")]
+    public Camera kameraKasur;
+
     [Header("Referensi Sistem Interaksi")]
     public SistemInteraksi sistemInteraksi;
 
@@ -21,6 +24,7 @@ public class PengendaliKamera : MonoBehaviour
     [SerializeField] private bool mulaiDariPintu = true;
 
     private Coroutine coroutineTransisi;
+    private Coroutine coroutineShake;
 
     void Awake()
     {
@@ -39,6 +43,12 @@ public class PengendaliKamera : MonoBehaviour
             if (t != null) kameraPintu = t.GetComponent<Camera>();
         }
 
+        if (kameraKasur == null)
+        {
+            Transform t = transform.Find("Main Camera (2)");
+            if (t != null) kameraKasur = t.GetComponent<Camera>();
+        }
+
         if (sistemInteraksi == null)
         {
             sistemInteraksi = Object.FindObjectOfType<SistemInteraksi>();
@@ -49,21 +59,33 @@ public class PengendaliKamera : MonoBehaviour
     {
         if (mulaiDariPintu && kameraPintu != null)
         {
-            AktifkanKameraLangsung(kameraPintu, kameraMeja);
+            AktifkanSatuKamera(kameraPintu);
         }
         else if (kameraMeja != null)
         {
-            AktifkanKameraLangsung(kameraMeja, kameraPintu);
+            AktifkanSatuKamera(kameraMeja);
         }
     }
 
-    private void AktifkanKameraLangsung(Camera targetAktif, Camera targetNonaktif)
+    public Camera GetKameraAktif()
     {
-        if (targetNonaktif != null)
+        if (kameraMeja != null && kameraMeja.gameObject.activeInHierarchy) return kameraMeja;
+        if (kameraKasur != null && kameraKasur.gameObject.activeInHierarchy) return kameraKasur;
+        if (kameraPintu != null && kameraPintu.gameObject.activeInHierarchy) return kameraPintu;
+        return Camera.main;
+    }
+
+    private void AktifkanSatuKamera(Camera targetAktif)
+    {
+        Camera[] allCams = { kameraPintu, kameraMeja, kameraKasur };
+        foreach (var c in allCams)
         {
-            targetNonaktif.gameObject.SetActive(false);
-            AudioListener al = targetNonaktif.GetComponent<AudioListener>();
-            if (al != null) al.enabled = false;
+            if (c != null && c != targetAktif)
+            {
+                c.gameObject.SetActive(false);
+                AudioListener al = c.GetComponent<AudioListener>();
+                if (al != null) al.enabled = false;
+            }
         }
 
         if (targetAktif != null)
@@ -91,18 +113,34 @@ public class PengendaliKamera : MonoBehaviour
         TransisiKePintu(durasiTransisiDefault);
     }
 
+    [YarnCommand("ganti_kamera_kasur")]
+    public void GantiKameraKasur()
+    {
+        AktifkanSatuKamera(kameraKasur);
+    }
+
     [YarnCommand("pindah_ke_meja")]
     public void TransisiKeMeja(float durasi = 2.0f)
     {
         if (coroutineTransisi != null) StopCoroutine(coroutineTransisi);
-        coroutineTransisi = StartCoroutine(ProsesTransisiKamera(kameraPintu, kameraMeja, durasi, true));
+        Camera camAwal = GetKameraAktif();
+        coroutineTransisi = StartCoroutine(ProsesTransisiKamera(camAwal, kameraMeja, durasi, true));
     }
 
     [YarnCommand("pindah_ke_pintu")]
     public void TransisiKePintu(float durasi = 2.0f)
     {
         if (coroutineTransisi != null) StopCoroutine(coroutineTransisi);
-        coroutineTransisi = StartCoroutine(ProsesTransisiKamera(kameraMeja, kameraPintu, durasi, false));
+        Camera camAwal = GetKameraAktif();
+        coroutineTransisi = StartCoroutine(ProsesTransisiKamera(camAwal, kameraPintu, durasi, false));
+    }
+
+    [YarnCommand("pindah_ke_kasur")]
+    public void TransisiKeKasur(float durasi = 2.0f)
+    {
+        if (coroutineTransisi != null) StopCoroutine(coroutineTransisi);
+        Camera camAwal = GetKameraAktif();
+        coroutineTransisi = StartCoroutine(ProsesTransisiKamera(camAwal, kameraKasur, durasi, false));
     }
 
     [YarnCommand("set_kamera_instan")]
@@ -111,18 +149,19 @@ public class PengendaliKamera : MonoBehaviour
         if (coroutineTransisi != null) StopCoroutine(coroutineTransisi);
 
         string target = namaKamera != null ? namaKamera.ToLower().Trim() : "";
-        if (target.Contains("meja") || target.Contains("desk"))
+        if (target.Contains("kasur") || target.Contains("bed") || target.Contains("rebahan"))
         {
-            AktifkanKameraLangsung(kameraMeja, kameraPintu);
+            AktifkanSatuKamera(kameraKasur);
+        }
+        else if (target.Contains("meja") || target.Contains("desk"))
+        {
+            AktifkanSatuKamera(kameraMeja);
         }
         else
         {
-            AktifkanKameraLangsung(kameraPintu, kameraMeja);
+            AktifkanSatuKamera(kameraPintu);
         }
     }
-
-    [Header("Pengaturan Efek Shake Kamera")]
-    private Coroutine coroutineShake;
 
     [YarnCommand("shake_kamera")]
     public void TriggerShakeKamera(float durasi = 0.6f, float kekuatan = 0.08f)
@@ -133,7 +172,7 @@ public class PengendaliKamera : MonoBehaviour
 
     private IEnumerator ProsesShakeKamera(float durasi, float kekuatan)
     {
-        Camera camAktif = (kameraMeja != null && kameraMeja.gameObject.activeInHierarchy) ? kameraMeja : kameraPintu;
+        Camera camAktif = GetKameraAktif();
         if (camAktif == null) yield break;
 
         Vector3 posAwal = camAktif.transform.localPosition;
@@ -157,16 +196,18 @@ public class PengendaliKamera : MonoBehaviour
 
     private IEnumerator ProsesTransisiKamera(Camera camAwal, Camera camTujuan, float durasi, bool menujuMeja)
     {
-        if (camAwal == null || camTujuan == null) yield break;
-
-        // Jika durasi kecil, langsung ganti instan
-        if (durasi <= 0.05f)
+        if (camAwal == null || camTujuan == null || camAwal == camTujuan)
         {
-            AktifkanKameraLangsung(camTujuan, camAwal);
+            AktifkanSatuKamera(camTujuan);
             yield break;
         }
 
-        // Nonaktifkan putar kamera sementara agar tidak bertabrakan dengan pergerakan otomatis
+        if (durasi <= 0.05f)
+        {
+            AktifkanSatuKamera(camTujuan);
+            yield break;
+        }
+
         KameraMobile kmAwal = camAwal.GetComponent<KameraMobile>();
         if (kmAwal != null) kmAwal.enabled = false;
 
@@ -186,7 +227,6 @@ public class PengendaliKamera : MonoBehaviour
 
             Vector3 targetPos = Vector3.Lerp(posAwal, posTujuan, smoothT);
 
-            // Sedikit efek langkah kaki/head bobbing saat berjalan menuju meja
             if (menujuMeja && t < 0.85f)
             {
                 float bobbing = Mathf.Sin(t * Mathf.PI * 4f) * 0.02f;
@@ -199,13 +239,11 @@ public class PengendaliKamera : MonoBehaviour
             yield return null;
         }
 
-        // Kembalikan posisi awal camAwal ke posisi aslinya
         camAwal.transform.position = posAwal;
         camAwal.transform.rotation = rotAwal;
         if (kmAwal != null) kmAwal.enabled = true;
 
-        // Aktifkan kamera tujuan dan matikan kamera awal
-        AktifkanKameraLangsung(camTujuan, camAwal);
+        AktifkanSatuKamera(camTujuan);
 
         KameraMobile kmTujuan = camTujuan.GetComponent<KameraMobile>();
         if (kmTujuan != null) kmTujuan.enabled = true;
