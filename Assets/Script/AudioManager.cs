@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
@@ -10,6 +11,12 @@ public class AudioManager : MonoBehaviour
     public AudioSource sfxSource;
     public AudioSource loopSource;
     public AudioSource typingSource;
+    public AudioSource bgmSource;
+
+    [Header("Background Music (BGM)")]
+    public AudioClip clipBgmSantai;
+    [Range(0f, 1f)]
+    public float volumeBgm = 0.25f;
 
     [Header("Daftar Klip Suara (SFX)")]
     public AudioClip clipNotifChat;
@@ -21,6 +28,8 @@ public class AudioManager : MonoBehaviour
     public AudioClip clipKlikTelepon;
     public AudioClip clipDramatisARB;
     public AudioClip clipMinum;
+
+    private Coroutine coroutineBgm;
 
     void Awake()
     {
@@ -49,6 +58,100 @@ public class AudioManager : MonoBehaviour
             typingSource.playOnAwake = false;
             typingSource.loop = true;
         }
+
+        if (bgmSource == null)
+        {
+            bgmSource = gameObject.AddComponent<AudioSource>();
+            bgmSource.playOnAwake = false;
+            bgmSource.loop = true;
+        }
+    }
+
+    [YarnCommand("putar_bgm")]
+    public void PutarBGM(string namaBgm = "santai")
+    {
+        AudioClip target = null;
+        string key = namaBgm != null ? namaBgm.ToLower().Trim() : "";
+
+        switch (key)
+        {
+            case "santai":
+            case "calm":
+            case "kamar":
+            case "lofi":
+            default:
+                target = clipBgmSantai;
+                break;
+        }
+
+        if (target != null)
+        {
+            if (coroutineBgm != null) StopCoroutine(coroutineBgm);
+            coroutineBgm = StartCoroutine(ProsesFadeInBGM(target, 1.5f));
+        }
+        else
+        {
+            Debug.LogWarning($"[AudioManager] BGM '{namaBgm}' belum diatur klip audionya!");
+        }
+    }
+
+    [YarnCommand("stop_bgm")]
+    public void StopBGM()
+    {
+        if (coroutineBgm != null) StopCoroutine(coroutineBgm);
+        coroutineBgm = StartCoroutine(ProsesFadeOutBGM(1.0f));
+    }
+
+    [YarnCommand("set_volume_bgm")]
+    public void SetVolumeBGM(float vol)
+    {
+        volumeBgm = Mathf.Clamp01(vol);
+        if (bgmSource != null && bgmSource.isPlaying)
+        {
+            bgmSource.volume = volumeBgm;
+        }
+    }
+
+    private IEnumerator ProsesFadeInBGM(AudioClip clip, float durasiFade)
+    {
+        if (bgmSource == null) yield break;
+
+        if (bgmSource.isPlaying && bgmSource.clip == clip)
+        {
+            yield break;
+        }
+
+        bgmSource.clip = clip;
+        bgmSource.loop = true;
+        bgmSource.volume = 0f;
+        bgmSource.Play();
+
+        float t = 0f;
+        while (t < durasiFade)
+        {
+            t += Time.deltaTime;
+            bgmSource.volume = Mathf.Lerp(0f, volumeBgm, t / durasiFade);
+            yield return null;
+        }
+        bgmSource.volume = volumeBgm;
+        coroutineBgm = null;
+    }
+
+    private IEnumerator ProsesFadeOutBGM(float durasiFade)
+    {
+        if (bgmSource == null || !bgmSource.isPlaying) yield break;
+
+        float startVol = bgmSource.volume;
+        float t = 0f;
+        while (t < durasiFade)
+        {
+            t += Time.deltaTime;
+            bgmSource.volume = Mathf.Lerp(startVol, 0f, t / durasiFade);
+            yield return null;
+        }
+        bgmSource.Stop();
+        bgmSource.volume = volumeBgm;
+        coroutineBgm = null;
     }
 
     [YarnCommand("putar_sfx")]

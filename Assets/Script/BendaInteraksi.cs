@@ -18,6 +18,12 @@ public class BendaInteraktif : MonoBehaviour
     [Tooltip("Objek visual/lampu yang menyala ketika ada panggilan masuk (misal: Point Light atau Plane di layar HP)")]
     public GameObject efekLayar;
 
+    [Header("Materi Layar HP (Opsional)")]
+    [Tooltip("Material lockscreen wallpaper saat ada notifikasi chat masuk")]
+    public Material matLockscreen;
+    [Tooltip("Material panggilan masuk saat ada telepon")]
+    public Material matPanggilan;
+
     [Tooltip("Jika dicentang, efek layar akan berkedip-kedip saat menyala seperti telepon berdering")]
     public bool kedipSaatMenyala = true;
     public float intervalKedip = 0.5f;
@@ -87,16 +93,32 @@ public class BendaInteraktif : MonoBehaviour
         teksTombolInteraksi = teksBaru;
     }
 
-    // Menyalakan efek layar HP (misal ada panggilan masuk)
+    // Menyalakan efek layar HP (misal ada panggilan masuk atau chat masuk)
     [YarnCommand("nyalakan_layar")]
-    public void NyalakanLayar()
+    public void NyalakanLayar(string tipe = "lockscreen")
     {
-        sedangMenyala = true;
-        timerKedip = intervalKedip;
+        string t = tipe != null ? tipe.ToLower().Trim() : "";
+        bool isTelepon = t.Contains("tel") || t.Contains("panggilan") || t.Contains("call");
+
         if (efekLayar != null)
         {
+            var mr = efekLayar.GetComponent<Renderer>();
+            if (mr != null)
+            {
+                if (isTelepon && matPanggilan != null)
+                {
+                    mr.sharedMaterial = matPanggilan;
+                }
+                else if (matLockscreen != null)
+                {
+                    mr.sharedMaterial = matLockscreen;
+                }
+            }
             efekLayar.SetActive(true);
         }
+
+        sedangMenyala = isTelepon && kedipSaatMenyala;
+        timerKedip = intervalKedip;
     }
 
     // Mematikan efek layar HP

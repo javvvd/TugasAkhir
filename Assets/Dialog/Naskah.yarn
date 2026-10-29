@@ -4,6 +4,7 @@ position: 228,-115
 <<set_kamera_instan PLAYER pintu>>
 <<fade_in Manager>>
 <<putar_sfx AudioManager tutup_pintu>>
+<<putar_bgm AudioManager santai>>
 <<wait 1>>
 Raka: (Cklek... Pintu tertutup)
 Raka: Haaah... akhirnya sampai juga di kosan.
@@ -32,6 +33,7 @@ position: 230,-20
 Raka: Ahh... seger.
 <<wait 1.5>>
 <<putar_sfx AudioManager notif>>
+<<nyalakan_layar Handphone lockscreen>>
 <<wait 1.5>>
 Raka: Ada notif chat masuk... Coba kucek dulu.
 <<aktifkan_interaksi Handphone>>
@@ -43,6 +45,7 @@ position: 233,77
 ---
 <<sembunyikan_tugas BoxTugasManager>>
 <<matikan_interaksi Handphone>>
+<<matikan_layar Handphone>>
 <<munculkan_hp HPmanager>>
 <<buka_chat AppChatManager>>
 
@@ -198,6 +201,7 @@ Raka: Hhh... ngoding pakai laptop lemot gini emang butuh kesabaran ekstra.
 
 <<wait 5>>
 <<fade_out Manager>>
+<<stop_bgm AudioManager>>
 <<wait 2>>
 <<stop_ngetik AudioManager>>
 <<tutup_laptop LayarLaptop>>
@@ -306,6 +310,7 @@ Raka: Mending aku lanjut nugas dulu deh.
 // BAGIAN 2: EVENT - HARGA MEROKET, TEMAN PAMER
 // ==========================================
 <<fade_out Manager>>
+<<stop_bgm AudioManager>>
 <<wait 2>>
 <<stop_ngetik AudioManager>>
 <<munculkan_teks Manager "Beberapa Jam Kemudian... Pukul 15.00 WIB">>
@@ -321,7 +326,7 @@ Raka: Mending aku lanjut nugas dulu deh.
 Raka: Haaah, akhirnya beres juga tugasnya.
 
 // Telepon masuk: HP di meja menyala layarnya dan interaksi diaktifkan
-<<nyalakan_layar Handphone>>
+<<nyalakan_layar Handphone telepon>>
 <<ubah_node Handphone "Fase_Rasional_Telepon">>
 <<aktifkan_interaksi Handphone>>
 <<ubah_tugas BoxTugasManager "Angkat Telepon Bima">>
@@ -410,6 +415,7 @@ position: -18,623
 // Waktu menunjukkan menjelang penutupan bursa (sekitar 15.30 WIB)
 
 <<fade_out Manager>>
+<<stop_bgm AudioManager>>
 <<wait 2>>
 <<munculkan_teks Manager "Pukul 15.30 WIB (Menjelang Penutupan Bursa)">>
 <<wait 3>>
