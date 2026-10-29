@@ -290,10 +290,14 @@ position: 604,281
 Raka: ...Omongan Heri tadi ada benarnya juga.
 Raka: Coba kucek sekilas laporan keuangannya di aplikasi...
 <<munculkan_hp HPmanager>>
-<<wait 2>>
-Raka: Lho... laba bersihnya minus berturut-turut tiap kuartal?
-Raka: Utangnya numpuk, penjualannya juga turun terus...
-Raka: Fundamentalnya jelek banget. Perusahaan rugi begini kok harganya bisa naik? Jelas digoreng ini.
+<<buka_AppSaham AppSahamManager>>
+<<ganti_layar_saham AppSahamManager 9>>
+<<wait 1.5>>
+Raka: Lho... laba bersihnya minus berturut-turut tiap kuartal dari 2024 sampai sekarang?
+Raka: Nilai kapitalisasinya cuma 42 Miliar... kecil banget. Saham lapis tiga yang gampang disetir bandar ini mah.
+Raka: Rasio utangnya (DER) juga sampai 2.2, berarti utang perusahaannya lebih dari dua kali lipat modalnya!
+Raka: Fundamentalnya seburuk ini, kok harganya bisa terbang sampai ARA 35%? Jelas digoreng habis-habisan.
+<<tutup_AppSaham AppSahamManager>>
 <<tutup_hp HPmanager>>
 Raka: Untung aku nggak langsung ikut-ikutan. Investasi tanpa riset itu sama aja kayak judi tebak angka.
 Raka: Uang 5 juta ini tabungan buat beli laptop baru supaya skripsiku lancar. 
@@ -656,32 +660,34 @@ Raka: Gila, tanganku sampai gemetar. Tolonglah besok pagi langsung laku...
 <<wait 1>>
 
 // SPRITE: Raka, bangun tidur langsung mengecek HP
-Raka: (Menelan ludah) Jam 9 pas. Ayo kita lihat...
+Raka: Jam 9 pas. Bursa baru aja buka... Ayo kita lihat nasib order jualku...
 
 <<munculkan_hp HPmanager>>
 <<buka_AppSaham AppSahamManager>>
-<<ganti_layar_saham AppSahamManager 5>>
+<<ganti_layar_saham AppSahamManager 10>>
 <<wait 2>>
 
 // SFX: Bunyi notifikasi berhasil (Ting!)
+<<putar_sfx AudioManager notif>>
 Raka: ...Status order: MATCHED!
-Raka: Laku! Sahamku berhasil kejual di harga bawah sebelum ARB berjilid-jilid!
+Raka: Laku! Saham 200 lot-ku berhasil kejual tepat saat pembukaan bursa!
 
 // SPRITE: Raka, menghela napas sangat panjang, memegang dada (lega)
 Raka: Haaaaaah..... Syukurlah!
-Raka: Sisa uangku yang di saham berhasil kutarik 1,7 juta, ditambah uang kos yang 3 juta... 
-Raka: Total uangku sekarang sisa 4,7 juta. 
+Raka: Sisa uangku yang di saham berhasil kutarik 1,7 juta, ditambah uang kos 3 juta yang masih utuh...
+Raka: Total uangku sekarang aman di 4,7 juta.
 <<set_saldo GameManager 4700000>>
 Raka: Tabungan beli laptopku memang berkurang 300 ribu, tapi setidaknya aku nggak bangkrut!
 
-Raka: Coba kulihat pergerakan saham DUIT hari ini...
-<<wait 1>>
+// SPRITE: Raka, menatap grafik saham yang langsung anjlok
+Raka: (Menelan ludah) Liat tuh grafiknya... Begitu orderku laku, harganya langsung terjun bebas ke 87!
+Raka: Anjlok minus 6,45% dan langsung ARB terkunci! Antrean jual jutaan lot numpuk di bawah, nggak ada yang mau beli lagi.
+Raka: Gila... Kalau aja kemarin sore aku nggak buru-buru pasang antrean jual di harga pasar...
+Raka: Sahamku pasti ikut nyangkut di ARB hari ini dan nggak bakal bisa kejual sama sekali! Aku bener-bener berhasil keluar tepat waktu sebelum pintunya ditutup.
 
-// SPRITE: Raka, ekspresi merinding / ngeri
-Raka: Astaga... harganya langsung terjun bebas lagi ke batas bawah dan nyangkut ARB.
-Raka: Grup Telegram Master Trading juga udah dihapus pagi ini. Fix, ini penipuan.
-Raka: Seandainya... seandainya kemarin sore aku serakah dan nekat pakai sisa uang 3 jutaku buat *Average Down*...
-Raka: Semua uang 5 jutaku pasti hari ini ikut nyangkut dan nilainya makin hancur. Aku nggak bakal bisa bayar kos.
+Raka: Grup Telegram Master Trading juga pagi ini udah dihapus. Fix, ini penipuan.
+Raka: Seandainya kemarin sore aku serakah dan nekat pakai sisa uang 3 jutaku buat *Average Down*...
+Raka: Semua uang 5 jutaku pasti hari ini ikut terkunci dan nilainya makin hancur. Aku nggak bakal bisa bayar kos.
 
 <<tutup_AppSaham AppSahamManager>>
 <<tutup_hp HPmanager>>
