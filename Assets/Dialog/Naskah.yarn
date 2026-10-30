@@ -218,6 +218,7 @@ Raka: Hhh... ngoding pakai laptop lemot gini emang butuh kesabaran ekstra.
 <<hapus_teks Manager>>
 
 <<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
 <<wait 4>>
 
 
@@ -325,6 +326,7 @@ Raka: Mending aku lanjut nugas dulu deh.
 <<wait 3>>
 <<hapus_teks Manager>>
 <<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
 <<wait 1>>
 
 // Raka selesai nugas
@@ -427,6 +429,7 @@ position: -18,623
 <<wait 3>>
 <<hapus_teks Manager>>
 <<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
 <<wait 1>>
 
 Raka: Haaah, mantap. Uang tabungan 5 juta udah masuk semua ke saham DUIT.
@@ -467,8 +470,8 @@ Raka: Nggak, Ayo jual! Jual semuanya sekarang juga!!
 -> Jual Semua Saham Sekarang! (472 Lot)
     <<efek_gagal_jual AppSahamManager>>
 <<wait 1>>
-Raka: ...Gagal?  Kenapa nggak "Matched"?!
-Raka: Nggak ada yang antre beli saham ini... Bursa juga udah mau tutup!
+Raka: ...Gagal?! Kenapa order jualku nggak ada yang nampung sama sekali?!
+Raka: Nggak ada antrean beli di bawah... Semua orang mau jualan dan bursa juga udah mau tutup!
 Raka: Seluruh uang tabunganku nyangkut di pucuk...
 
 <<tutup_AppSaham AppSahamManager>>
@@ -485,6 +488,7 @@ Raka: Seluruh uang tabunganku nyangkut di pucuk...
 <<hapus_teks Manager>>
 <<set_kamera_instan PLAYER kasur>>
 <<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
 <<wait 1.5>>
 
 // SPRITE: Raka, ekspresi sangat lelah / mata panda / pucat
@@ -531,6 +535,7 @@ position: 313,620
 <<wait 3>>
 <<hapus_teks Manager>>
 <<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
 <<wait 1>>
 
 Raka: Haaah, ngantuk juga merhatiin pergerakan harga dari tadi.
@@ -635,6 +640,7 @@ position: 106,936
 <<hapus_teks Manager>>
 <<set_kamera_instan PLAYER kasur>>
 <<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
 <<wait 1>>
 
 // SPRITE: Raka, wajah sangat pucat dan putus asa
@@ -673,6 +679,7 @@ Raka: Tolonglah besok pagi langsung laku...
 <<hapus_teks Manager>>
 <<set_kamera_instan PLAYER kasur>>
 <<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
 <<wait 1>>
 
 // SPRITE: Raka, bangun tidur langsung mengecek HP
@@ -792,6 +799,7 @@ Raka: Mending aku lanjut istirahat dan siap-siap nanti malam.
 <<wait 3>>
 <<hapus_teks Manager>>
 <<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
 <<wait 1>>
 
 // Raka meregangkan badan
@@ -905,6 +913,7 @@ Raka: Nggak perlu lagi deh ngirit-ngirit berbulan-bulan!
 <<wait 3>>
 <<hapus_teks Manager>>
 <<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
 <<wait 1>>
 
 // SPRITE: Raka, santai / tersenyum

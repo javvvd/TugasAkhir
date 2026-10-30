@@ -27,10 +27,7 @@ public class AppSahamManager : MonoBehaviour
     [Tooltip("Layar awal sebelum Raka membeli (AppSaham_Fase0). Jika kosong, diambil dari sprite awal Image.")]
     public Sprite layarAwal;
 
-    [Header("Efek Dramatis ARB / Gagal Jual")]
-    [Tooltip("Pop-up notifikasi merah bahwa order jual gagal karena ARB")]
-    public GameObject bannerGagalJual;
-
+    [Header("Efek Gagal Jual")]
     [Tooltip("Transform Panel Handphone untuk efek getaran saat gagal eksekusi")]
     public RectTransform rectPanelHandphone;
 
@@ -85,7 +82,6 @@ public class AppSahamManager : MonoBehaviour
     public void TutupAppSaham()
     {
         if (appSaham != null) appSaham.SetActive(false);
-        if (bannerGagalJual != null) bannerGagalJual.SetActive(false);
         if (rectPanelHandphone != null && posisiAwalPanel != Vector2.zero)
         {
             rectPanelHandphone.anchoredPosition = posisiAwalPanel;
@@ -112,8 +108,6 @@ public class AppSahamManager : MonoBehaviour
     [YarnCommand("reset_layar_saham")]
     public void ResetLayarSaham()
     {
-        if (bannerGagalJual != null) bannerGagalJual.SetActive(false);
-
         if (gambarLayarSaham != null && layarAwal != null)
         {
             gambarLayarSaham.sprite = layarAwal;
@@ -134,17 +128,10 @@ public class AppSahamManager : MonoBehaviour
             posisiAwalPanel = rectPanelHandphone.anchoredPosition;
         }
 
-        // 1. Tampilkan banner pop-up
-        if (bannerGagalJual != null)
-        {
-            bannerGagalJual.SetActive(true);
-            bannerGagalJual.transform.localScale = Vector3.one * 0.7f;
-        }
-
         // Suara klik panik
         AudioManager.Instance?.PutarSFX("klik");
 
-        // 2. Animasi Scale Pop-in & Getar Panel HP (Vibration haptic feedback)
+        // Getar Panel HP (Simulasi feedback tombol reject)
         float durasi = 0.5f;
         float elapsed = 0f;
 
@@ -153,20 +140,6 @@ public class AppSahamManager : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = Mathf.Clamp01(elapsed / durasi);
 
-            // Pop-in scale dengan bounce overshoot
-            if (bannerGagalJual != null && t < 0.6f)
-            {
-                float scaleT = t / 0.6f;
-                float currentScale = Mathf.Lerp(0.7f, 1.05f, Mathf.Sin(scaleT * Mathf.PI * 0.5f));
-                bannerGagalJual.transform.localScale = Vector3.one * currentScale;
-            }
-            else if (bannerGagalJual != null)
-            {
-                float settleT = (t - 0.6f) / 0.4f;
-                bannerGagalJual.transform.localScale = Vector3.Lerp(Vector3.one * 1.05f, Vector3.one, settleT);
-            }
-
-            // Getaran HP (Simulasi feedback tombol reject)
             if (rectPanelHandphone != null)
             {
                 float decay = 1f - t;
