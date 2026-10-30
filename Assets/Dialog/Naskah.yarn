@@ -7,6 +7,7 @@ position: 228,-115
 <<putar_bgm AudioManager santai>>
 <<wait 1>>
 Raka: (Cklek... Pintu tertutup)
+<<putar_sfx AudioManager sigh>>
 Raka: Haaah... akhirnya sampai juga di kos.
 Raka: Capek banget... Seharian kuliah dan praktikum coding di kampus bener-bener nguras energi.
 Raka: Mana komputer lab kampus tadi lemotnya minta ampun, rebutan pula sama yang lain.
@@ -184,9 +185,10 @@ Raka: Aku masukin Rp 2.000.000 aja dulu, dapet 200 Lot. Sisa 3 juta buat jaga-ja
 // SFX: Bunyi "cha-ching" - order masuk
 Raka: ...
 Raka: Kalau nggak dicoba, nggak bakal tau hasilnya. Siapa tau untung
-<<potong_uang GameManager 2000000>>
-<<putar_sfx AudioManager order>>
-<<ganti_layar_saham AppSahamManager 0>>
+-> Beli Saham DUIT (200 Lot - Rp 2.000.000)
+    <<potong_uang GameManager 2000000>>
+    <<putar_sfx AudioManager order>>
+    <<ganti_layar_saham AppSahamManager 0>>
 Raka: Oke, order *Matched*! 2 Juta udah masuk ke saham DUIT.
 Raka: Sekarang sisa tabunganku 3 Juta. 
 
@@ -328,7 +330,6 @@ Raka: Mending aku lanjut nugas dulu deh.
 // Raka selesai nugas
 <<tutup_laptop LayarLaptop>>
 <<wait 1.5>>
-
 Raka: Haaah, akhirnya beres juga tugasnya.
 
 // Telepon masuk: HP di meja menyala layarnya dan interaksi diaktifkan
@@ -463,7 +464,8 @@ Raka: Nilai investasiku tinggal 4 juta... Lenyap hampir 700 ribu dalam hitungan 
 Raka: Nggak, Ayo jual! Jual semuanya sekarang juga!! 
 
 // Animasi/Dialog Raka panik menekan tombol jual tapi gagal (Tidak ada match)
-<<efek_gagal_jual AppSahamManager>>
+-> Jual Semua Saham Sekarang! (472 Lot)
+    <<efek_gagal_jual AppSahamManager>>
 <<wait 1>>
 Raka: ...Gagal?  Kenapa nggak "Matched"?!
 Raka: Nggak ada yang antre beli saham ini... Bursa juga udah mau tutup!
@@ -486,6 +488,7 @@ Raka: Seluruh uang tabunganku nyangkut di pucuk...
 <<wait 1.5>>
 
 // SPRITE: Raka, ekspresi sangat lelah / mata panda / pucat
+<<putar_sfx AudioManager sigh>>
 Raka: ... tiap hari ARB terus...
 Raka: Mari kita lihat sisa nyawaku hari ini...
 
@@ -572,36 +575,53 @@ Raka: Tapi kalau aku ikutin Master masukin sisa 3 jutaku... dan besok harganya b
 // PILIHAN 3: AVERAGE DOWN ATAU CUT LOSS
 // ========================================
 -> Ikut Influencer! Serok Bawah (Average Down sisa 3 Juta)
-    Raka: Bener kata Master, ini harga diskon! Kesempatan buat balik modal!
-    Raka: Aku masukin semua sisa tabunganku yang 3 juta di antrean!
-    <<potong_uang GameManager 3000000>>
-    <<tutup_chat AppChatManager>>
-    <<buka_AppSaham AppSahamManager>>
-    <<ganti_layar_saham AppSahamManager 11>>
-    <<wait 1>>
-    Raka: Order Matched! Total kepemilikanku sekarang bertambah jadi 522 Lot!
-    Raka: Harga modal rata-rataku beneran turun jadi Rp 96 per lembar... Tapi saldo tabunganku sekarang ludes 0 Rupiah.
-    Raka: Tolonglah... besok harus mantul naik biar uangku selamat.
-    <<wait 1>>
-    <<tutup_AppSaham AppSahamManager>>
-    <<tutup_hp HPmanager>>
-    <<jump Transisi_Average_Down_Bangkrut>>
+    <<jump Fase_Pilih_Average_Down>>
 -> Jangan gila! Cut loss sekarang, terima rugi.
-    Raka: Nggak, nggak! Jangan langsung kemakan omongan Master Trading lagi...
-    Raka: Sebelum aku nekat serok bawah pakai sisa tabunganku, coba cek perusahaannya di aplikasi.
-    <<tutup_chat AppChatManager>>
-    <<buka_AppSaham AppSahamManager>>
-    <<ganti_layar_saham AppSahamManager 9>>
-    <<wait 1.5>>
-    Raka: Laba bersihnya minus terus tiap kuartal dari 2024 sampai sekarang!
-    Raka: Sepertinya ini bukan perusahaan yang baik. Rela rugi sekarang daripada uangku musnah!
-    <<ganti_layar_saham AppSahamManager 5>>
-    <<wait 1>>
-    Raka: Aku pasang antrean jual... Biar langsung laku begitu bursa buka
-    <<wait 1>>
-    <<tutup_AppSaham AppSahamManager>>
-    <<tutup_hp HPmanager>>
-    <<jump Ending_Rugi_Ringan>>
+    <<jump Fase_Pilih_Cut_Loss>>
+===
+
+title: Fase_Pilih_Average_Down
+position: 50,850
+---
+Raka: Bener kata Master, ini harga diskon! Kesempatan buat balik modal!
+Raka: Aku masukin semua sisa tabunganku yang 3 juta di antrean!
+<<tutup_chat AppChatManager>>
+<<buka_AppSaham AppSahamManager>>
+<<ganti_layar_saham AppSahamManager 5>>
+-> Beli Average Down (322 Lot - Rp 3.000.000)
+    <<potong_uang GameManager 3000000>>
+    <<putar_sfx AudioManager order>>
+    <<ganti_layar_saham AppSahamManager 11>>
+<<wait 1>>
+Raka: Order Matched! Total kepemilikanku sekarang bertambah jadi 522 Lot!
+Raka: Harga modal rata-rataku beneran turun jadi Rp 96 per lembar... Tapi saldo tabunganku sekarang ludes 0 Rupiah.
+Raka: Tolonglah... besok harus mantul naik biar uangku selamat.
+<<wait 1>>
+<<tutup_AppSaham AppSahamManager>>
+<<tutup_hp HPmanager>>
+<<jump Transisi_Average_Down_Bangkrut>>
+===
+
+title: Fase_Pilih_Cut_Loss
+position: 250,850
+---
+Raka: Nggak, nggak! Jangan langsung kemakan omongan Master Trading lagi...
+Raka: Sebelum aku nekat serok bawah pakai sisa tabunganku, coba cek perusahaannya di aplikasi.
+<<tutup_chat AppChatManager>>
+<<buka_AppSaham AppSahamManager>>
+<<ganti_layar_saham AppSahamManager 9>>
+<<wait 1.5>>
+Raka: Laba bersihnya minus terus tiap kuartal dari 2024 sampai sekarang!
+Raka: Sepertinya ini bukan perusahaan yang baik. Rela rugi sekarang daripada uangku musnah!
+<<ganti_layar_saham AppSahamManager 5>>
+<<wait 1>>
+Raka: Aku pasang antrean jual... Biar langsung laku begitu bursa buka
+-> Pasang Order Jual / Cut Loss (200 Lot)
+    <<putar_sfx AudioManager order>>
+<<wait 1>>
+<<tutup_AppSaham AppSahamManager>>
+<<tutup_hp HPmanager>>
+<<jump Ending_Rugi_Ringan>>
 ===
 
 title: Transisi_Average_Down_Bangkrut
@@ -669,6 +689,7 @@ Raka: ...Status order: MATCHED!
 Raka: Laku! Saham 200 lot-ku berhasil kejual tepat saat pembukaan bursa!
 
 // SPRITE: Raka, menghela napas sangat panjang, memegang dada (lega)
+<<putar_sfx AudioManager sigh>>
 Raka: Haaaaaah..... Syukurlah!
 Raka: Sisa uangku yang di saham berhasil kutarik 1,7 juta, ditambah sisa tabunganku 3 juta yang masih utuh...
 Raka: Total uangku sekarang aman di 4,7 juta.
@@ -733,7 +754,7 @@ Raka: Pada akhirnya, aku sendiri yang serakah dan nekat masukin semua uangku.
 <<tutup_hp HPmanager>>
 
 // SPRITE: Raka, memegang kepala dengan tatapan kosong
-Raka: (Napasnya tercekat)
+<<putar_sfx AudioManager sigh>>
 Raka: ..Kenapa aku bisa sebodoh ini?!
 Raka: Berbulan-bulan aku berhemat, nahan jajan, nabung sedikit demi sedikit buat beli laptop baru...
 Raka: Semuanya lenyap dalam sekejap cuma gara-gara termakan omong kosong orang di internet.
@@ -783,7 +804,6 @@ Raka: Hmm. Nggak apa-apa deh, nggak usah dibuka.
 Raka: Kalau naik ya syukur buat yang beli. Kalau turun... itu bukan urusanku.
 
 // SFX: Raka hampir meraih HP, tapi menahan tangannya sendiri
-Raka: (Menarik napas panjang)
 Raka: Nggak. Nggak perlu. Aku udah mutusin dari tadi siang. Pegang teguh itu.
 
 // SFX: Suara ketukan pintu

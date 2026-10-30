@@ -28,6 +28,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip clipKlikTelepon;
     public AudioClip clipDramatisARB;
     public AudioClip clipMinum;
+    public AudioClip clipSigh;
 
     private Coroutine coroutineBgm;
 
@@ -220,6 +221,14 @@ public class AudioManager : MonoBehaviour
             case "gelas":
             case "drink":
                 targetClip = clipMinum;
+                break;
+
+            case "sigh":
+            case "hela":
+            case "helanafas":
+            case "hela_nafas":
+            case "desah":
+                targetClip = clipSigh;
                 break;
         }
 
