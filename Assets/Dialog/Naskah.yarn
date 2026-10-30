@@ -467,7 +467,7 @@ Raka: Nggak, Ayo jual! Jual semuanya sekarang juga!!
 <<wait 1>>
 Raka: ...Gagal?  Kenapa nggak "Matched"?!
 Raka: Nggak ada yang antre beli saham ini... Bursa juga udah mau tutup!
-Raka: Uang kos dan tabunganku nyangkut semua di pucuk...
+Raka: Seluruh uang tabunganku nyangkut di pucuk...
 
 <<tutup_AppSaham AppSahamManager>>
 <<tutup_hp HPmanager>>
@@ -559,7 +559,7 @@ Raka: Eh, Master Trading nge-tag semua member di grup!
 <<wait 2>>
 
 Raka: Serok bawah? Average down?
-Raka: Berarti... dia nyuruh aku pakai sisa uang kosku yang 3 juta ini buat beli sahamnya lagi di harga bawah sekarang?
+Raka: Berarti... dia nyuruh aku pakai sisa tabunganku yang 3 juta ini buat beli sahamnya lagi di harga bawah sekarang?
 Raka: Kata Master, kalau aku beli sekarang, harga rata-rataku bakal turun. Kalau besok naik dikit aja, aku udah langsung balik modal...
 
 // EDUKASI: Bahaya Average Down
@@ -573,25 +573,31 @@ Raka: Tapi kalau aku ikutin Master masukin sisa 3 jutaku... dan besok harganya b
 // ========================================
 -> Ikut Influencer! Serok Bawah (Average Down sisa 3 Juta)
     Raka: Bener kata Master, ini harga diskon! Kesempatan buat balik modal!
-    Raka: Aku masukin semua sisa uang makanku yang 3 juta di antrean!
+    Raka: Aku masukin semua sisa tabunganku yang 3 juta di antrean!
     <<potong_uang GameManager 3000000>>
     <<tutup_chat AppChatManager>>
     <<buka_AppSaham AppSahamManager>>
-    <<ganti_layar_saham AppSahamManager 3>>
-    Raka: Order Matched! Selesai... Saldo di rekeningku beneran habis 0 Rupiah sekarang.
-    Raka: Tolong... besok harus mantul naik. Kalau nggak, aku bener-bener mati.
+    <<ganti_layar_saham AppSahamManager 11>>
+    <<wait 1>>
+    Raka: Order Matched! Total kepemilikanku sekarang bertambah jadi 522 Lot!
+    Raka: Harga modal rata-rataku beneran turun jadi Rp 96 per lembar... Tapi saldo tabunganku sekarang ludes 0 Rupiah.
+    Raka: Tolonglah... besok harus mantul naik biar uangku selamat.
     <<wait 1>>
     <<tutup_AppSaham AppSahamManager>>
     <<tutup_hp HPmanager>>
     <<jump Transisi_Average_Down_Bangkrut>>
 -> Jangan gila! Cut loss sekarang, terima rugi.
-    Raka: Nggak, nggak! Ini pasti jebakan! 
-    Raka: Kalau besok harganya makin longsor, uang kosku yang 3 juta bakal ikutan hancur!
-    Raka: Pasang antrean jual sekarang di harga pasar! Biar besok pagi langsung laku sebelum ARB lagi!
+    Raka: Nggak, nggak! Jangan langsung kemakan omongan Master Trading lagi...
+    Raka: Sebelum aku nekat serok bawah pakai sisa tabunganku, coba cek perusahaannya di aplikasi.
     <<tutup_chat AppChatManager>>
     <<buka_AppSaham AppSahamManager>>
+    <<ganti_layar_saham AppSahamManager 9>>
+    <<wait 1.5>>
+    Raka: Laba bersihnya minus terus tiap kuartal dari 2024 sampai sekarang!
+    Raka: Sepertinya ini bukan perusahaan yang baik. Rela rugi sekarang daripada uangku musnah!
     <<ganti_layar_saham AppSahamManager 5>>
-    Raka: Order jual 200 lot sudah dipasang... Semoga besok pagi langsung tereksekusi dan sisa uangku selamat.
+    <<wait 1>>
+    Raka: Aku pasang antrean jual... Biar langsung laku begitu bursa buka
     <<wait 1>>
     <<tutup_AppSaham AppSahamManager>>
     <<tutup_hp HPmanager>>
@@ -614,7 +620,7 @@ position: 106,936
 // SPRITE: Raka, wajah sangat pucat dan putus asa
 <<munculkan_hp HPmanager>>
 <<buka_AppSaham AppSahamManager>>
-<<ganti_layar_saham AppSahamManager 3>>
+<<ganti_layar_saham AppSahamManager 11>>
 <<wait 1>>
 Raka: (Gemetar melihat layar HP)
 Raka: ARB lagi... Harganya terus longsor ke bawah...
@@ -634,14 +640,10 @@ position: 450,1013
 // JALUR B: CUT LOSS / TERIMA RUGI (ENDING B)
 // Lanjutan setelah Raka menolak rayuan Average Down dan memilih antre jual (Cut Loss)
 
-<<tutup_chat AppChatManager>>
-<<wait 1>>
-
 // SPRITE: Raka, ekspresi tegang dan cemas
 Raka: Haaah... antrean jual udah kupasang untuk besok pagi.
-Raka: Gila, tanganku sampai gemetar. Tolonglah besok pagi langsung laku...
-
-<<tutup_hp HPmanager>>
+Raka: Gila, tanganku sampai gemetar. Untung tadi aku sempat cek laporan keuangannya... Kalau nggak, pasti aku udah kemakan rayuan serok bawah si Master.
+Raka: Tolonglah besok pagi langsung laku...
 
 // Transisi waktu ke keesokan paginya saat bursa baru buka
 <<fade_out Manager>>
@@ -668,7 +670,7 @@ Raka: Laku! Saham 200 lot-ku berhasil kejual tepat saat pembukaan bursa!
 
 // SPRITE: Raka, menghela napas sangat panjang, memegang dada (lega)
 Raka: Haaaaaah..... Syukurlah!
-Raka: Sisa uangku yang di saham berhasil kutarik 1,7 juta, ditambah uang kos 3 juta yang masih utuh...
+Raka: Sisa uangku yang di saham berhasil kutarik 1,7 juta, ditambah sisa tabunganku 3 juta yang masih utuh...
 Raka: Total uangku sekarang aman di 4,7 juta.
 <<set_saldo GameManager 4700000>>
 Raka: Tabungan beli laptopku memang berkurang 300 ribu, tapi setidaknya aku nggak bangkrut!
@@ -681,14 +683,14 @@ Raka: Sahamku pasti ikut nyangkut di ARB hari ini dan nggak bakal bisa kejual sa
 
 Raka: Grup Telegram Master Trading juga pagi ini udah dihapus. Fix, ini penipuan.
 Raka: Seandainya kemarin sore aku serakah dan nekat pakai sisa uang 3 jutaku buat *Average Down*...
-Raka: Semua uang 5 jutaku pasti hari ini ikut terkunci dan nilainya makin hancur. Aku nggak bakal bisa bayar kos.
+Raka: Semua uang 5 jutaku pasti hari ini ikut terkunci dan nilainya makin hancur.
 
 <<tutup_AppSaham AppSahamManager>>
 <<tutup_hp HPmanager>>
 <<wait 1>>
 
 // SPRITE: Raka, tersenyum getir tapi ikhlas (mendapat pelajaran)
-Raka: Rugi 300 ribu emang nyesek sih... tapi setidaknya kebutuhan pokok dan uang kosku tetap aman.
+Raka: Rugi 300 ribu emang nyesek sih... tapi setidaknya sisa uang tabunganku tetap aman.
 Raka: Lebih baik kehilangan satu jari daripada kehilangan seluruh lengan.
 Raka: Anggap aja 300 ribu ini biaya belajar paling berharga buat memahami risiko investasi.
 Raka: Lain kali, aku nggak akan pernah sentuh saham tanpa riset laporan keuangan perusahaannya dulu.
@@ -712,50 +714,37 @@ position: -121,1223
 <<set_bangkrut GameManager>>
 <<wait 1>>
 
-Raka: (Terdiam menatap layar HP yang masih merah)
+Raka: (Terdiam kaku menatap layar HP)
 Raka: Habis... 
-Raka: Uang bayar kos, uang makan bulan ini... amblas semua.
-
-// SFX: Notifikasi WhatsApp
-<<munculkan_hp HPmanager>>
-<<buka_chat AppChatManager mama>>
-
-// WhatsApp dari Mama
-Mama (WhatsApp): Nak, uang kos bulan ini sudah ditransfer belum? Ibu belum lihat bukti transfernya.
-<<wait 1>>
-Mama (WhatsApp): (Voice Note 0:22) Nak, jangan lupa makan ya. Jangan begadang terus. Bapak lagi kerja lembur buat nambahin uang semester depan. Kamu fokus kuliah aja ya.
-
-Raka: (Membaca chat Mama)
-Raka: ...
-
-// SPRITE: Raka, ekspresi ingin menangis
-Raka: ...Bapak lembur buat nambahin uang kuliahku.
-Raka: Dan aku... habiskan dalam sekejap karena ikut-ikutan sinyal di Telegram.
+Raka: Uang tabunganku 5 juta... lenyap.
 
 // SFX: Notifikasi WhatsApp satu kali
+<<munculkan_hp HPmanager>>
 <<wait 1>>
 <<putar_sfx AudioManager notif>>
 <<buka_chat AppChatManager bima_bangkrut>>
-Bima (WhatsApp): Rak, kau liat beritanya? Grup dihapus. Aku nyangkut juga. Kau gimana?
 
-// SPRITE: Raka, ekspresi getir
-Raka: (Tertawa pahit pelan)
-Raka: Bima... kau yang ngenalin semua ini ke aku.
-Raka: Kita sama-sama jadi korban.
+// SPRITE: Raka, ekspresi hampa dan muak
+Raka: ...
+Raka: Nggak ada gunanya dibalas. Nggak ada gunanya juga nyalahin Bima.
+Raka: Pada akhirnya, aku sendiri yang serakah dan nekat masukin semua uangku.
 
 <<tutup_chat AppChatManager>>
 <<tutup_hp HPmanager>>
 
-Raka: (Menunduk)
-Raka: Ternyata benar kata orang bijak...
-Raka: "Di pasar modal, uang orang yang tidak sabar akan mengalir ke kantong orang yang sabar."
-Raka: Aku terlalu termakan FOMO.
-Raka: Screenshot profit Bima... pameran cuan di grup... janji manis Master Trading...
-Raka: Semuanya cuma pancingan.
+// SPRITE: Raka, memegang kepala dengan tatapan kosong
+Raka: (Napasnya tercekat)
+Raka: ..Kenapa aku bisa sebodoh ini?!
+Raka: Berbulan-bulan aku berhemat, nahan jajan, nabung sedikit demi sedikit buat beli laptop baru...
+Raka: Semuanya lenyap dalam sekejap cuma gara-gara termakan omong kosong orang di internet.
+Raka: Sakit banget rasanya... Dadaku sampai sesak.
 
-// Beat - jeda panjang
+<<wait 1>>
 
-Raka: Dan aku... ikan yang makan umpannya.
+Raka: Kapok. Aku bener-bener kapok.
+Raka: Nggak akan pernah lagi aku mau sentuh yang namanya saham atau investasi seumur hidupku.
+Raka: Dengar kata 'saham' atau 'cuan' aja rasanya udah bikin mual.
+Raka: Laptop impian hilang... Tabungan ludes... Yang tersisa cuma penyesalan.
 
 <<fade_out Manager>>
 <<wait 3>>
@@ -969,7 +958,7 @@ Heri: Astaga, Rak...
 Heri: Kau kemakan FOMO di menit-menit akhir. Itu namanya kau dijadiin *exit liquidity*. 
 Heri: Bandar sengaja mancing euforia biar ritel kayak kau berani beli di pucuk, supaya mereka bisa jualan barangnya dengan untung besar.
 
-Raka: (Suara bergetar) Nyangkut hampir dua juta dalam sekejap, Her... Uang kos dan makanku...
+Raka: (Suara bergetar) Nyangkut hampir dua juta dalam sekejap, Her... Uang tabunganku...
 
 Heri: Aku turut prihatin, Rak. Tapi saham yang udah di-guyur sampai ARB begitu, susah banget baliknya. 
 Heri: Anggap ini biaya belajar paling mahal buat kau. Jangan pernah naruh uang pakai emosi dan tanpa ilmu lagi.
