@@ -1125,7 +1125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <color=#FEF08A><b>WEALTH PATH</b></color>
+  m_text: WEALTH PATH
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1134,8 +1134,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4287295742
+  m_fontColor: {r: 0.99607843, g: 0.9411765, b: 0.5411765, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1544,6 +1544,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254170166}
   m_CullTransparentMesh: 1
+--- !u!1 &280395623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 280395624}
+  m_Layer: 0
+  m_Name: ParticleContainer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &280395624
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 280395623}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1817423848}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &293127744
 GameObject:
   m_ObjectHideFlags: 0
@@ -4302,6 +4337,7 @@ GameObject:
   - component: {fileID: 1032451454}
   - component: {fileID: 1032451456}
   - component: {fileID: 1032451457}
+  - component: {fileID: 1032451458}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -4373,6 +4409,28 @@ MonoBehaviour:
   btnSetting: {fileID: 2062160191}
   btnCredit: {fileID: 2113527025}
   btnAbout: {fileID: 293127746}
+--- !u!114 &1032451458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1032451453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 675f63ad9433d5b42b26d08fcc58d3fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleTransform: {fileID: 223132630}
+  titleFloatDistance: 7
+  titleFloatSpeed: 1.6
+  playBtnTransform: {fileID: 42268879}
+  pulseMinScale: 0.98
+  pulseMaxScale: 1.04
+  pulseSpeed: 2.2
+  particleContainer: {fileID: 280395624}
+  particleSprite: {fileID: 0}
+  particleCount: 20
 --- !u!1 &1090989358
 GameObject:
   m_ObjectHideFlags: 0
@@ -6490,6 +6548,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 806521081}
+  - {fileID: 280395624}
   - {fileID: 223132630}
   - {fileID: 1906982752}
   - {fileID: 922476733}
