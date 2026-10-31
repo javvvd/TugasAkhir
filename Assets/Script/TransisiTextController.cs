@@ -101,60 +101,59 @@ public class TransisiTextController : MonoBehaviour
         string subjudulStr = "";
         string narasiStr = "";
         string edukasiStr = "";
-        Color badgeColor = new Color(1f, 0.32f, 0.32f); // Default red
+        Color accentColor = new Color(0.99f, 0.94f, 0.54f); // Default warm gold (#FEF08A)
 
         if (upper.Contains("ENDING A"))
         {
             PlayerPrefs.SetInt("Ending_A_Unlocked", 1);
             PlayerPrefs.Save();
 
-            badgeStr = "[ BAD ENDING - KEBANGKRUTAN ]";
-            badgeColor = new Color(1f, 0.32f, 0.32f); // Merah (#FF5252)
-            judulStr = "ENDING A: KEBANGKRUTAN TOTAL";
-            subjudulStr = "Jebakan Saham Gocap & Uang Panas";
-            narasiStr = "Raka kehilangan seluruh tabungannya karena tergiur ilusi cuan instan di grup influencer tanpa analisis mandiri. Nekat menggunakan uang kos dan biaya hidup membuatnya terjebak di saham likuiditas mati (gocap Rp50) tanpa bisa ditarik kembali.";
-            edukasiStr = "Jangan pernah berinvestasi menggunakan 'uang panas' atau dana kebutuhan pokok. Di pasar modal, keserakahan tanpa literasi finansial hanya akan berujung pada kehancuran.";
+            badgeStr = "ENDING 1 DARI 4";
+            ColorUtility.TryParseHtmlString("#FCA5A5", out accentColor); // Coral lembut
+            judulStr = "KEBANGKRUTAN TOTAL";
+            subjudulStr = "Terjebak Saham Gocap & Uang Panas";
+            narasiStr = "Raka kehilangan seluruh tabungannya, termasuk uang kos dan biaya hidup, karena nekat membeli saham gorengan yang akhirnya mati di harga Rp50.";
+            edukasiStr = "Jangan pernah berinvestasi menggunakan uang kebutuhan pokok (uang panas).";
         }
         else if (upper.Contains("ENDING B"))
         {
             PlayerPrefs.SetInt("Ending_B_Unlocked", 1);
             PlayerPrefs.Save();
 
-            badgeStr = "[ REALISTIC ENDING - DISIPLIN ]";
-            badgeColor = new Color(1f, 0.70f, 0f); // Kuning (#FFB300)
-            judulStr = "ENDING B: REALITA TRADER";
-            subjudulStr = "Disiplin Manajemen Risiko (Cut Loss)";
-            narasiStr = "Raka menelan kerugian 5%, namun ia memilih berlapang dada dan segera melakukan Cut Loss sebelum penurunan semakin parah. Keputusan pahit ini berhasil menyelamatkan sebagian besar tabungan laptopnya.";
-            edukasiStr = "Mengakui kesalahan dan membatasi risiko adalah tanda kedewasaan investor. Cut loss bukan kegagalan, melainkan benteng pertahanan terbaik dari kebangkrutan total.";
+            badgeStr = "ENDING 2 DARI 4";
+            ColorUtility.TryParseHtmlString("#FDE047", out accentColor); // Kuning emas hangat
+            judulStr = "BERANI CUT LOSS";
+            subjudulStr = "Disiplin Membatasi Kerugian";
+            narasiStr = "Meski sempat rugi sedikit karena ikut-ikutan membeli saham, Raka sadar tepat waktu dan segera menjual sahamnya sebelum harga anjlok lebih dalam.";
+            edukasiStr = "Membatasi kerugian (cut loss) bukan kegagalan, melainkan cara melindungi modal dari kehancuran.";
         }
         else if (upper.Contains("ENDING C"))
         {
             PlayerPrefs.SetInt("Ending_C_Unlocked", 1);
             PlayerPrefs.Save();
 
-            badgeStr = "[ TRAP ENDING - EXIT LIQUIDITY ]";
-            badgeColor = new Color(1f, 0.44f, 0.26f); // Oranye (#FF7043)
-            judulStr = "ENDING C: KORBAN CUCI PIRING";
-            subjudulStr = "Terjebak Skema Pump & Dump di Pucuk";
-            narasiStr = "Terpancing euforia profit di menit-menit akhir bursa, Raka membeli saham di harga tertinggi. Ia tidak sadar telah menjadi Exit Liquidity bagi para bandar yang langsung mengguyur pasar (Dump) hingga modalnya habis.";
-            edukasiStr = "Waspadai euforia kelompok (Herding Behavior) di media sosial. Membeli saham yang sedang terbang tanpa riset hanya akan menjadikanmu tumbal para manipulator pasar.";
+            badgeStr = "ENDING 3 DARI 4";
+            ColorUtility.TryParseHtmlString("#FDBA74", out accentColor); // Amber lembut
+            judulStr = "TERJEBAK DI PUCUK";
+            subjudulStr = "Tergiur Janji Manis saat Harga Tinggi";
+            narasiStr = "Raka awalnya sudah berhati-hati, namun akhirnya goyah saat melihat harga saham terbang tinggi. Begitu ia membeli di harga pucuk, harga langsung anjlok drastis.";
+            edukasiStr = "Jangan membeli saham hanya karena takut ketinggalan (FOMO) saat harganya sudah naik tinggi.";
         }
         else if (upper.Contains("ENDING D"))
         {
             PlayerPrefs.SetInt("Ending_D_Unlocked", 1);
             PlayerPrefs.Save();
 
-            badgeStr = "[ BEST ENDING - INVESTOR BIJAK ]";
-            badgeColor = new Color(0.40f, 0.73f, 0.42f); // Hijau (#66BB6A)
-            judulStr = "ENDING D: INVESTOR RASIONAL";
-            subjudulStr = "Kemenangan Literasi Atas Godaan FOMO";
-            narasiStr = "Raka berhasil menahan diri dari godaan euforia sesaat dan tetap teguh pada rencana keuangannya. Seluruh tabungan laptopnya aman, sementara trader yang panik menelan kerugian parah.";
-            edukasiStr = "Kunci sukses investasi bukanlah kecepatan mengejar keuntungan sesaat, melainkan kedisiplinan mengelola risiko dan menjaga kepala dingin di tengah hiruk-pikuk pasar.";
+            badgeStr = "ENDING 4 DARI 4";
+            ColorUtility.TryParseHtmlString("#86EFAC", out accentColor); // Hijau mint cerah
+            judulStr = "INVESTOR BIJAK";
+            subjudulStr = "Tenang & Disiplin Menjaga Tabungan";
+            narasiStr = "Raka berhasil menahan diri dari ajakan grup maupun godaan keuntungan instan. Tabungan laptopnya tetap utuh dan aman hingga akhir.";
+            edukasiStr = "Kunci utama mengelola keuangan adalah kepala dingin, riset mandiri, dan disiplin pada tujuan.";
         }
         else
         {
-            badgeStr = "[ ENDING ]";
-            badgeColor = Color.white;
+            badgeStr = "ENDING CERITA";
             judulStr = rawText;
             subjudulStr = "";
             narasiStr = "";
@@ -165,23 +164,24 @@ public class TransisiTextController : MonoBehaviour
         if (textBadge != null)
         {
             textBadge.text = badgeStr;
-            textBadge.color = badgeColor;
+            textBadge.color = accentColor;
         }
 
         if (textJudul != null)
         {
             textJudul.text = judulStr;
-            textJudul.color = badgeColor;
+            textJudul.color = Color.white;
         }
 
         if (textSubjudul != null)
         {
             textSubjudul.text = subjudulStr;
+            textSubjudul.color = accentColor;
         }
 
         if (garisPemisah != null)
         {
-            garisPemisah.color = new Color(badgeColor.r, badgeColor.g, badgeColor.b, 0.5f);
+            garisPemisah.gameObject.SetActive(false);
         }
 
         if (textNarasi != null)
@@ -191,7 +191,7 @@ public class TransisiTextController : MonoBehaviour
 
         if (textEdukasi != null)
         {
-            textEdukasi.text = $"<b>PESAN EDUKASI FINANSIAL:</b>\n<i>\"{edukasiStr}\"</i>";
+            textEdukasi.text = $"<b>Pelajaran Penting:</b>\n{edukasiStr}";
         }
 
         panelEndingCard.SetActive(true);

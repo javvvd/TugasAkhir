@@ -115,27 +115,34 @@ public class MainMenuEndingManager : MonoBehaviour
             TextMeshProUGUI tmpC = tCount.GetComponent<TextMeshProUGUI>();
             if (tmpC != null)
             {
-                tmpC.text = $"<size=36><b><color=#38BDF8>{total}</color></b></size> <size=22><color=#94A3B8>/ 4</color></size> <size=18><color=#E2E8F0>Ending Terbuka</color></size>";
+                tmpC.text = $"{total} / 4";
             }
         }
 
-        // Update TextHint
+        // Update TextHint (jika ada)
         Transform tHint = card.transform.Find("TextHint");
         if (tHint != null)
         {
-            TextMeshProUGUI tmpH = tHint.GetComponent<TextMeshProUGUI>();
-            if (tmpH != null)
-            {
-                if (total >= 1)
-                {
-                    tmpH.text = "<i>Shortcut Babak Terbuka! Klik 'Pilih Babak' untuk mencoba cabang lain.</i>";
-                }
-                else
-                {
-                    tmpH.text = "<i>Selesaikan minimal 1 ending untuk membuka fitur Pilih Babak (Shortcut).</i>";
-                }
-            }
+            tHint.gameObject.SetActive(false);
         }
+    }
+
+    public void MainkanBabak1()
+    {
+        if (MainMenuController.Instance != null) MainMenuController.Instance.PlaySFXClick();
+        LompatKeBabak("Fase_Heri_Datang", 5000000);
+    }
+
+    public void MainkanBabak2()
+    {
+        if (MainMenuController.Instance != null) MainMenuController.Instance.PlaySFXClick();
+        LompatKeBabak("Fase_Rasional_Telepon", 5000000);
+    }
+
+    public void MainkanBabak3()
+    {
+        if (MainMenuController.Instance != null) MainMenuController.Instance.PlaySFXClick();
+        LompatKeBabak("Fase_Anjlok_Hold", 3000000);
     }
 
     private void HubungkanListenerModalBabak(GameObject modal)
@@ -160,21 +167,18 @@ public class MainMenuEndingManager : MonoBehaviour
         Transform container = cardModal.Find("ContainerBabak");
         if (container != null)
         {
-            // Percabangan 1: Pertimbangan Awal (Kata Heri vs Beli FOMO)
             Transform c1 = container.Find("CardBabak_1");
-            if (c1 != null) PasangListenerBtnMainkan(c1, "Fase_Heri_Datang", 5000000);
+            if (c1 != null) PasangListenerBtn(c1, MainkanBabak1);
 
-            // Percabangan 2: Ujian Telepon Bima (ARA 135 vs Tetap Nabung)
             Transform c2 = container.Find("CardBabak_2");
-            if (c2 != null) PasangListenerBtnMainkan(c2, "Fase_Rasional_Telepon", 5000000);
+            if (c2 != null) PasangListenerBtn(c2, MainkanBabak2);
 
-            // Percabangan 3: Krisis Penurunan Saham (Average Down vs Cut Loss)
             Transform c3 = container.Find("CardBabak_3");
-            if (c3 != null) PasangListenerBtnMainkan(c3, "Fase_Anjlok_Hold", 3000000);
+            if (c3 != null) PasangListenerBtn(c3, MainkanBabak3);
         }
     }
 
-    private void PasangListenerBtnMainkan(Transform cardBabak, string targetNode, int saldo)
+    private void PasangListenerBtn(Transform cardBabak, UnityEngine.Events.UnityAction aksi)
     {
         Transform btnT = cardBabak.Find("BtnMainkan");
         if (btnT != null)
@@ -182,14 +186,15 @@ public class MainMenuEndingManager : MonoBehaviour
             Button btn = btnT.GetComponent<Button>();
             if (btn != null)
             {
-                btn.onClick.RemoveListener(() => LompatKeBabak(targetNode, saldo));
-                btn.onClick.AddListener(() => LompatKeBabak(targetNode, saldo));
+                btn.onClick.RemoveListener(aksi);
+                btn.onClick.AddListener(aksi);
             }
         }
     }
 
     public void BukaModalPilihBabak()
     {
+        if (MainMenuController.Instance != null) MainMenuController.Instance.PlaySFXClick();
         if (panelModalBabak != null)
         {
             panelModalBabak.SetActive(true);
@@ -199,6 +204,7 @@ public class MainMenuEndingManager : MonoBehaviour
 
     public void TutupModalPilihBabak()
     {
+        if (MainMenuController.Instance != null) MainMenuController.Instance.PlaySFXClick();
         if (panelModalBabak != null) panelModalBabak.SetActive(false);
     }
 
