@@ -10,6 +10,11 @@ public class TransisiTextController : MonoBehaviour
     [Tooltip("Text transisi waktu / jam di atas layar hitam")]
     public TextMeshProUGUI teksLayarHitam;
 
+    [Header("Pengaturan Efek Ketikan (Typewriter)")]
+    [Tooltip("Kecepatan ketikan teks prolog (detik per karakter)")]
+    public float kecepatanKetik = 0.018f;
+    private Coroutine coroutineKetik;
+
     [Header("Referensi Objek Panel Ending")]
     [Tooltip("Panel utama kartu ending")]
     public GameObject panelEndingCard;
@@ -26,6 +31,7 @@ public class TransisiTextController : MonoBehaviour
         // Menyembunyikan teks & kartu ending saat gameplay dimulai
         if (teksLayarHitam != null)
         {
+            teksLayarHitam.maxVisibleCharacters = int.MaxValue;
             teksLayarHitam.gameObject.SetActive(false);
         }
 
@@ -48,12 +54,23 @@ public class TransisiTextController : MonoBehaviour
         // Bersihkan escape newline dari yarn string
         kalimat = kalimat.Replace("\\n", "\n").Trim();
 
+        // Hentikan efek ketik sebelumnya jika masih berjalan
+        if (coroutineKetik != null)
+        {
+            StopCoroutine(coroutineKetik);
+            coroutineKetik = null;
+        }
+
         bool isEnding = kalimat.ToUpper().Contains("ENDING ");
 
         if (isEnding)
         {
             // Sembunyikan teks subtitle biasa
-            if (teksLayarHitam != null) teksLayarHitam.gameObject.SetActive(false);
+            if (teksLayarHitam != null)
+            {
+                teksLayarHitam.maxVisibleCharacters = int.MaxValue;
+                teksLayarHitam.gameObject.SetActive(false);
+            }
 
             // Tampilkan kartu ending fisik
             TampilkanEndingCard(kalimat);
@@ -72,24 +89,95 @@ public class TransisiTextController : MonoBehaviour
                     // Tampilan paragraf prolog (lega, ukuran font nyaman, jarak baris pas)
                     rt.sizeDelta = new Vector2(1100f, 480f);
                     teksLayarHitam.text = $"<align=center><line-height=150%><size=24>{kalimat}</size></line-height></align>";
+
+                    // Jalankan efek ketikan tanpa alokasi memori (Zero GC Alloc)
+                    coroutineKetik = StartCoroutine(ProsesKetikProlog(kecepatanKetik));
                 }
                 else
                 {
                     // Tampilan judul transisi waktu pendek (misal: "3 Jam Kemudian...")
                     rt.sizeDelta = new Vector2(1000f, 200f);
                     teksLayarHitam.text = $"<align=center><size=34><b>{kalimat}</b></size></align>";
+                    teksLayarHitam.maxVisibleCharacters = int.MaxValue;
+                    teksLayarHitam.gameObject.SetActive(true);
                 }
-                teksLayarHitam.gameObject.SetActive(true);
             }
         }
+    }
+
+    // Coroutine efisien (Zero GC Allocation & Frame-rate Independent) untuk efek ketikan
+    private System.Collections.IEnumerator ProsesKetikProlog(float delayPerChar)
+    {
+        if (teksLayarHitam == null) yield break;
+
+        teksLayarHitam.gameObject.SetActive(true);
+        teksLayarHitam.maxVisibleCharacters = 0;
+        teksLayarHitam.ForceMeshUpdate();
+
+        TMP_TextInfo textInfo = teksLayarHitam.textInfo;
+        int totalCharacters = textInfo.characterCount;
+        int currentChar = 0;
+        float timer = 0f;
+        float currentDelay = delayPerChar;
+
+        // Tunggu 1 frame awal agar input klik dari scene/tombol sebelumnya tidak memicu skip
+        yield return null;
+
+        while (currentChar < totalCharacters)
+        {
+            // Fitur skip: jika pemain klik layar / tekan Spasi saat mengetik, langsung munculkan penuh
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            {
+                break;
+            }
+
+            timer += Time.deltaTime;
+            while (timer >= currentDelay && currentChar < totalCharacters)
+            {
+                timer -= currentDelay;
+                currentChar++;
+                teksLayarHitam.maxVisibleCharacters = currentChar;
+
+                // Variasi jeda alami untuk tanda baca
+                currentDelay = delayPerChar;
+                if (currentChar - 1 < textInfo.characterInfo.Length)
+                {
+                    char c = textInfo.characterInfo[currentChar - 1].character;
+                    if (c == '.' || c == '!' || c == '?')
+                    {
+                        currentDelay = delayPerChar * 4f; // Jeda akhir kalimat
+                    }
+                    else if (c == ',' || c == ';')
+                    {
+                        currentDelay = delayPerChar * 2.5f; // Jeda koma
+                    }
+                    else if (c == '\n')
+                    {
+                        currentDelay = delayPerChar * 3f; // Jeda baris baru
+                    }
+                }
+            }
+
+            yield return null;
+        }
+
+        teksLayarHitam.maxVisibleCharacters = int.MaxValue;
+        coroutineKetik = null;
     }
 
     // Perintah Yarn untuk menyembunyikan teks kembali
     [YarnCommand("hapus_teks")]
     public void HapusTeks()
     {
+        if (coroutineKetik != null)
+        {
+            StopCoroutine(coroutineKetik);
+            coroutineKetik = null;
+        }
+
         if (teksLayarHitam != null)
         {
+            teksLayarHitam.maxVisibleCharacters = int.MaxValue;
             teksLayarHitam.gameObject.SetActive(false);
         }
 
@@ -144,10 +232,10 @@ public class TransisiTextController : MonoBehaviour
 
             badgeStr = "ENDING 3 DARI 4";
             ColorUtility.TryParseHtmlString("#FDBA74", out accentColor); // Amber lembut
-            judulStr = "TERJEBAK DI PUCUK";
-            subjudulStr = "Tergiur Janji Manis saat Harga Tinggi";
-            narasiStr = "Raka awalnya sudah berhati-hati, namun akhirnya goyah saat melihat harga saham terbang tinggi. Begitu ia membeli di harga pucuk, harga langsung anjlok drastis.";
-            edukasiStr = "Jangan membeli saham hanya karena takut ketinggalan (FOMO) saat harganya sudah naik tinggi.";
+            judulStr = "BELI DI PUNCAK";
+            subjudulStr = "Tergiur Janji Manis saat Harga Tertinggi";
+            narasiStr = "Raka sempat memeriksa laporan keuangan dan tahu perusahaan merugi. Namun saat melihat harga terbang tinggi dan mendengar pamer teman, akal sehatnya kalah oleh keserakahan. Begitu ia nekat membeli di puncak, harga langsung anjlok drastis dan terkunci ARB.";
+            edukasiStr = "Jangan pernah membeli saham di puncak hanya karena takut ketinggalan (FOMO) atau tergiur keuntungan instan.";
         }
         else if (upper.Contains("ENDING D"))
         {

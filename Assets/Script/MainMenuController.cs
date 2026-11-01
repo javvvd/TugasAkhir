@@ -25,6 +25,11 @@ public class MainMenuController : MonoBehaviour
     public Button btnAbout;
     public Button btnSayaMengerti;
 
+    [Header("Transisi Layar")]
+    public Image fadeOverlay;
+    public float durasiFade = 1.0f;
+    private bool sedangTransisi = false;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
@@ -98,6 +103,18 @@ public class MainMenuController : MonoBehaviour
                 KeluarGame();
             });
         }
+
+        if (btnSayaMengerti != null)
+        {
+            btnSayaMengerti.onClick.RemoveAllListeners();
+            btnSayaMengerti.onClick.AddListener(() =>
+            {
+                PlaySFXClick();
+                MulaiGameplay();
+            });
+        }
+
+        SetupFadeOverlay();
 
         // 3. Hubungkan Tombol di Dalam Panel Modal (Setting, About, Disclaimer)
         HubungkanTombolModal();
@@ -230,6 +247,9 @@ public class MainMenuController : MonoBehaviour
 
     public void BukaDisclaimer()
     {
+        // Pastikan ketika klik Play biasa, status lompat babak direset bersih
+        KamusManager.TargetNodeLompatan = "";
+
         if (panelDisclaimer != null)
         {
             panelDisclaimer.SetActive(true);
@@ -246,8 +266,71 @@ public class MainMenuController : MonoBehaviour
 
     public void MulaiGameplay()
     {
-        if (panelDisclaimer != null) panelDisclaimer.SetActive(false);
-        SceneManager.LoadScene("Gameplay");
+        if (sedangTransisi) return;
+        sedangTransisi = true;
+
+        StartCoroutine(ProsesFadeDanPindahScene("Gameplay"));
+    }
+
+    private System.Collections.IEnumerator ProsesFadeDanPindahScene(string sceneName)
+    {
+        if (fadeOverlay == null)
+        {
+            SetupFadeOverlay();
+        }
+
+        if (fadeOverlay != null)
+        {
+            fadeOverlay.gameObject.SetActive(true);
+            fadeOverlay.transform.SetAsLastSibling();
+            fadeOverlay.raycastTarget = true;
+
+            float waktu = 0f;
+            while (waktu < durasiFade)
+            {
+                waktu += Time.unscaledDeltaTime;
+                float t = Mathf.Clamp01(waktu / durasiFade);
+                float alpha = Mathf.SmoothStep(0f, 1f, t);
+                fadeOverlay.color = new Color(0f, 0f, 0f, alpha);
+                yield return null;
+            }
+            fadeOverlay.color = new Color(0f, 0f, 0f, 1f);
+        }
+
+        SceneManager.LoadScene(sceneName);
+    }
+
+    public void SetupFadeOverlay()
+    {
+        if (fadeOverlay != null) return;
+
+        // Cari objek FadeOverlay yang mungkin sudah ada di scene
+        GameObject existingObj = GameObject.Find("FadeOverlay");
+        if (existingObj != null)
+        {
+            fadeOverlay = existingObj.GetComponent<Image>();
+            return;
+        }
+
+        // Buat otomatis di bawah Canvas
+        Canvas canvas = UnityEngine.Object.FindFirstObjectByType<Canvas>();
+        if (canvas != null)
+        {
+            GameObject overlayObj = new GameObject("FadeOverlay");
+            overlayObj.transform.SetParent(canvas.transform, false);
+
+            fadeOverlay = overlayObj.AddComponent<Image>();
+            fadeOverlay.color = new Color(0f, 0f, 0f, 0f);
+            fadeOverlay.raycastTarget = false;
+
+            RectTransform rt = overlayObj.GetComponent<RectTransform>();
+            rt.anchorMin = Vector2.zero;
+            rt.anchorMax = Vector2.one;
+            rt.offsetMin = Vector2.zero;
+            rt.offsetMax = Vector2.zero;
+            overlayObj.transform.SetAsLastSibling();
+            overlayObj.SetActive(false);
+        }
     }
 
     public void KeluarGame()

@@ -2407,7 +2407,7 @@ GameObject:
   - component: {fileID: 123998810}
   - component: {fileID: 123998809}
   m_Layer: 0
-  m_Name: Item_Exit Liquidity (Korban Cuci Piring)
+  m_Name: Item_Exit Liquidity (Beli di Puncak)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8616,7 +8616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &497722529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8633,8 +8633,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 7.2396, y: 2.3128}
-  m_SizeDelta: {x: 2372.3, y: 1075.3745}
+  m_AnchoredPosition: {x: 7.2396, y: 8.187395}
+  m_SizeDelta: {x: 2372.3, y: 1169.367}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &497722530
 MonoBehaviour:
@@ -12549,7 +12549,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit Liquidity (Korban Cuci Piring)
+  m_text: Exit Liquidity (Beli di Puncak)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -33256,7 +33256,7 @@ MonoBehaviour:
       (Pump), lalu serempak menjual seluruh sahamnya (Dump) saat harga naik tinggi.
     edukasiSkripsi: 'Bahaya: Ritel yang termakan euforia promosi akan menanggung
       kerugian telak saat harga mendadak jatuh bebas tanpa pembeli.'
-  - judul: Exit Liquidity (Korban Cuci Piring)
+  - judul: Exit Liquidity (Beli di Puncak)
     kategori: JEBAKAN BANDAR
     warnaKategoriHex: '#DC2626'
     definisi: Sebutan bagi investor ritel awam yang membeli saham di harga puncak.
@@ -33370,7 +33370,7 @@ MonoBehaviour:
     Siang itu, setelah lelah praktikum di lab kampus, Raka
     kembali ke kamar kosnya...</size></line-height></align>'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -33434,7 +33434,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1950603612
@@ -34846,6 +34846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   teksLayarHitam: {fileID: 1950603611}
+  kecepatanKetik: 0.018
   panelEndingCard: {fileID: 685115548}
   textBadge: {fileID: 460882916}
   textJudul: {fileID: 923402713}

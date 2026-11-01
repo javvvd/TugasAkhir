@@ -210,10 +210,16 @@ public class MainMenuEndingManager : MonoBehaviour
 
     public void LompatKeBabak(string targetNode, int saldoAwal)
     {
-        PlayerPrefs.SetString("JumpTargetNode", targetNode);
-        PlayerPrefs.SetInt("JumpSaldo", saldoAwal);
-        PlayerPrefs.Save();
+        KamusManager.TargetNodeLompatan = targetNode;
+        KamusManager.SaldoLompatan = saldoAwal;
 
-        SceneManager.LoadScene("Gameplay");
+        if (MainMenuController.Instance != null)
+        {
+            MainMenuController.Instance.MulaiGameplay();
+        }
+        else
+        {
+            SceneManager.LoadScene("Gameplay");
+        }
     }
 }

@@ -35,15 +35,44 @@ public class KamusManager : MonoBehaviour
     [Header("Daftar Istilah Edukasi Saham")]
     public List<IstilahSaham> daftarIstilah = new List<IstilahSaham>();
 
+    // Data statis di RAM untuk lompatan babak (0ms, tanpa beban I/O disk PlayerPrefs)
+    public static string TargetNodeLompatan = "";
+    public static int SaldoLompatan = 5000000;
+
+    private bool sedangLompatBabak = false;
+    private string nodeTujuanAktif = "";
+    private int saldoTujuanAktif = 5000000;
+
     void Awake()
     {
         if (Instance == null) Instance = this;
+
+        // Jika ada request lompat babak dari Main Menu, alihkan startNode DialogueRunner sebelum Start() berjalan
+        if (!string.IsNullOrEmpty(TargetNodeLompatan))
+        {
+            sedangLompatBabak = true;
+            nodeTujuanAktif = TargetNodeLompatan;
+            saldoTujuanAktif = SaldoLompatan;
+
+            // Langsung bersihkan variabel statis agar sesi berikutnya kembali normal
+            TargetNodeLompatan = "";
+
+            DialogueRunner runner = FindFirstObjectByType<DialogueRunner>();
+            if (runner != null)
+            {
+                runner.startNode = nodeTujuanAktif;
+            }
+        }
     }
 
     void Start()
     {
         InisialisasiUI();
-        CekEksekusiLompatanBabak();
+
+        if (sedangLompatBabak)
+        {
+            StartCoroutine(TerapkanKondisiAwalBabak());
+        }
     }
 
     private void InisialisasiUI()
@@ -137,59 +166,26 @@ public class KamusManager : MonoBehaviour
     }
 
     // ================= LOGIKA LOMPATAN PERCABANGAN CERITA =================
-    private void CekEksekusiLompatanBabak()
+    private IEnumerator TerapkanKondisiAwalBabak()
     {
-        if (PlayerPrefs.HasKey("JumpTargetNode"))
-        {
-            string targetNode = PlayerPrefs.GetString("JumpTargetNode", "");
-            int saldo = PlayerPrefs.GetInt("JumpSaldo", 5000000);
-
-            PlayerPrefs.DeleteKey("JumpTargetNode");
-            PlayerPrefs.DeleteKey("JumpSaldo");
-            PlayerPrefs.Save();
-
-            if (!string.IsNullOrEmpty(targetNode))
-            {
-                StartCoroutine(ProsesLompatanRoutine(targetNode, saldo));
-            }
-        }
-    }
-
-    private IEnumerator ProsesLompatanRoutine(string targetNode, int saldo)
-    {
-        // Tunggu satu frame agar seluruh sistem scene & DialogueRunner siap
+        // Tunggu 1 frame agar seluruh Start() manager lain selesai dieksekusi
         yield return null;
 
         // 1. Sesuaikan Saldo Tabungan
-        UangManager uangMgr = FindFirstObjectByType<UangManager>();
-        if (uangMgr != null)
-        {
-            uangMgr.SetSaldo(saldo);
-        }
+        FindFirstObjectByType<UangManager>()?.SetSaldo(saldoTujuanAktif);
 
         // 2. Set Kamera langsung ke Meja menghadap Laptop/HP
         PengendaliKamera camMgr = PengendaliKamera.Instance != null ? PengendaliKamera.Instance : FindFirstObjectByType<PengendaliKamera>();
-        if (camMgr != null)
-        {
-            camMgr.SetKameraInstan("meja");
-        }
+        camMgr?.SetKameraInstan("meja");
 
-        // 3. Sembunyikan Tugas Pembuka jika melompat
-        TugasManager tugasMgr = FindFirstObjectByType<TugasManager>();
-        if (tugasMgr != null)
-        {
-            tugasMgr.SembunyikanTugas();
-        }
+        // 3. Sembunyikan Tugas Pembuka
+        FindFirstObjectByType<TugasManager>()?.SembunyikanTugas();
 
-        // 4. Jalankan DialogueRunner langsung ke targetNode
-        DialogueRunner runner = FindFirstObjectByType<DialogueRunner>();
-        if (runner != null)
+        // 4. Terangkan layar (Fade In) jika node tujuan tidak memulai dengan fade_out sendiri
+        if (nodeTujuanAktif != "Fase_Anjlok_Hold")
         {
-            if (runner.IsDialogueRunning)
-            {
-                runner.Stop();
-            }
-            runner.StartDialogue(targetNode);
+            FindFirstObjectByType<TransisiLayar>()?.FadeIn();
+            AudioManager.Instance?.PutarBGM("santai");
         }
     }
 }
