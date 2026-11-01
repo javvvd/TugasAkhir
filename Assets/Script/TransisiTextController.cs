@@ -210,8 +210,11 @@ public class TransisiTextController : MonoBehaviour
             ColorUtility.TryParseHtmlString("#FCA5A5", out accentColor); // Coral lembut
             judulStr = "KEBANGKRUTAN TOTAL";
             subjudulStr = "Terjebak Saham Gocap & Uang Panas";
-            narasiStr = "Raka kehilangan seluruh tabungannya, termasuk uang kos dan biaya hidup, karena nekat membeli saham gorengan yang akhirnya mati di harga Rp50.";
-            edukasiStr = "Jangan pernah berinvestasi menggunakan uang kebutuhan pokok (uang panas).";
+            narasiStr = "<b>Poin Tindakan FOMO yang Dilakukan Raka:</b>\n" +
+                        "• <b>Herding Behavior:</b> Ikut-ikutan kerumunan grup Telegram & teman tanpa riset mandiri.\n" +
+                        "• <b>Spekulatif & Uang Panas:</b> Memakai seluruh tabungan laptop & biaya kos untuk berspekulasi.\n" +
+                        "• <b>Tanpa Manajemen Risiko:</b> Menolak <i>Cut Loss</i> dan nekat <i>Average Down</i> saat harga anjlok.";
+            edukasiStr = "<b>Kesimpulan & Bahaya:</b>\nKombinasi FOMO, uang panas, dan ketiadaan manajemen risiko membuat seluruh tabungan Rp5 juta Raka terkunci mati di saham Rp50 (<i>Gocap</i>) hingga bangkrut total.";
         }
         else if (upper.Contains("ENDING B"))
         {
@@ -222,8 +225,11 @@ public class TransisiTextController : MonoBehaviour
             ColorUtility.TryParseHtmlString("#FDE047", out accentColor); // Kuning emas hangat
             judulStr = "BERANI CUT LOSS";
             subjudulStr = "Disiplin Membatasi Kerugian";
-            narasiStr = "Meski sempat rugi sedikit karena ikut-ikutan membeli saham, Raka sadar tepat waktu dan segera menjual sahamnya sebelum harga anjlok lebih dalam.";
-            edukasiStr = "Membatasi kerugian (cut loss) bukan kegagalan, melainkan cara melindungi modal dari kehancuran.";
+            narasiStr = "<b>Poin Tindakan yang Dilakukan Raka:</b>\n" +
+                        "• <b>Herding Behavior & Spekulatif:</b> Awalnya tergoda ikut-ikutan membeli saham pompom Rp2 juta.\n" +
+                        "• <b>Evaluasi Fundamental:</b> Menyadari kesalahan setelah mengecek laporan keuangan yang merugi.\n" +
+                        "• <b>Manajemen Risiko (Cut Loss):</b> Berani memotong kerugian lebih awal sebelum harga hancur.";
+            edukasiStr = "<b>Kesimpulan & Bahaya FOMO:</b>\nTanpa manajemen risiko (<i>Cut Loss</i>), FOMO akan menghancurkan modal di harga Rp50. Keberanian menerima rugi Rp300 ribu berhasil menyelamatkan Rp4,7 juta tabungan Raka.";
         }
         else if (upper.Contains("ENDING C"))
         {
@@ -234,8 +240,11 @@ public class TransisiTextController : MonoBehaviour
             ColorUtility.TryParseHtmlString("#FDBA74", out accentColor); // Amber lembut
             judulStr = "BELI DI PUNCAK";
             subjudulStr = "Tergiur Janji Manis saat Harga Tertinggi";
-            narasiStr = "Raka sempat memeriksa laporan keuangan dan tahu perusahaan merugi. Namun saat melihat harga terbang tinggi dan mendengar pamer teman, akal sehatnya kalah oleh keserakahan. Begitu ia nekat membeli di puncak, harga langsung anjlok drastis dan terkunci ARB.";
-            edukasiStr = "Jangan pernah membeli saham di puncak hanya karena takut ketinggalan (FOMO) atau tergiur keuntungan instan.";
+            narasiStr = "<b>Poin Tindakan FOMO yang Dilakukan Raka:</b>\n" +
+                        "• <b>Buying at Peak:</b> Raka tergoda pamer profit Bima sehingga nekat membeli di harga puncak (Rp135).\n" +
+                        "• <b>Abaikan Fundamental:</b> Sengaja menutup mata meski sudah melihat laporan keuangan yang merugi.\n" +
+                        "• <b>Spekulatif & Tanpa Manajemen Risiko:</b> Masukin seluruh Rp5 juta demi mengejar untung instan.";
+            edukasiStr = "<b>Kesimpulan & Bahaya:</b>\nMembeli di puncak harga karena FOMO menjadikan Raka sasaran buangan bandar (<i>Exit Liquidity</i>). Harga langsung anjlok ke Rp93 (<i>ARB</i>) dan tabungan laptopnya nyangkut parah.";
         }
         else if (upper.Contains("ENDING D"))
         {
@@ -246,8 +255,11 @@ public class TransisiTextController : MonoBehaviour
             ColorUtility.TryParseHtmlString("#86EFAC", out accentColor); // Hijau mint cerah
             judulStr = "INVESTOR BIJAK";
             subjudulStr = "Tenang & Disiplin Menjaga Tabungan";
-            narasiStr = "Raka berhasil menahan diri dari ajakan grup maupun godaan keuntungan instan. Tabungan laptopnya tetap utuh dan aman hingga akhir.";
-            edukasiStr = "Kunci utama mengelola keuangan adalah kepala dingin, riset mandiri, dan disiplin pada tujuan.";
+            narasiStr = "<b>Poin Sikap Rasional yang Dilakukan Raka:</b>\n" +
+                        "• <b>Tolak Herding Behavior:</b> Tidak latah mengikuti euforia grup pompom maupun ajakan influencer.\n" +
+                        "• <b>Patuhi Fundamental:</b> Memeriksa laporan keuangan dan menghindari saham perusahaan yang rugi.\n" +
+                        "• <b>Hindari Buying at Peak & Spekulasi:</b> Menolak beli di pucuk (Rp135) demi menjaga uang kuliah.";
+            edukasiStr = "<b>Kesimpulan & Bahaya yang Dihindari:</b>\nDisiplin pada analisis fundamental dan manajemen risiko menyelamatkan Raka dari jebakan manipulasi <i>Pump & Dump</i>. Tabungan Rp5 juta tetap aman 100%.";
         }
         else
         {
@@ -279,24 +291,31 @@ public class TransisiTextController : MonoBehaviour
 
         if (garisPemisah != null)
         {
-            garisPemisah.gameObject.SetActive(false);
+            garisPemisah.gameObject.SetActive(true);
+            garisPemisah.color = new Color(accentColor.r, accentColor.g, accentColor.b, 0.3f);
         }
 
         if (textNarasi != null)
         {
-            textNarasi.text = narasiStr;
+            textNarasi.text = $"<line-height=135%>{narasiStr}</line-height>";
         }
 
         if (textEdukasi != null)
         {
-            textEdukasi.text = $"<b>Pelajaran Penting:</b>\n{edukasiStr}";
+            textEdukasi.text = $"<line-height=130%>{edukasiStr}</line-height>";
         }
+
+        PauseManager.Instance?.SembunyikanTombolPause();
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         panelEndingCard.SetActive(true);
     }
 
     public void KembaliKeMenu()
     {
+        Time.timeScale = 1f;
         SceneManager.LoadScene("MainMenu");
     }
 }

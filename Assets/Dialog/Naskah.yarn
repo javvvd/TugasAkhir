@@ -543,7 +543,6 @@ position: 313,620
 <<putar_bgm AudioManager santai>>
 <<wait 1>>
 
-Raka: Haaah, ngantuk juga merhatiin pergerakan harga dari tadi.
 Raka: Coba cek grup Telegram ah, biasanya jam segini Master Trading ngasih aba-aba.
 
 <<munculkan_hp HPmanager>>
@@ -565,7 +564,8 @@ Raka: Tadi modalku 2 juta di harga 100... sekarang nilainya sisa 1,86 juta!
 Raka: Aku langsung boncos 140 ribu dalam sekejap!
 
 // SFX: Notifikasi Penting Telegram
-Raka: Eh, Master Trading nge-tag semua member di grup!
+<<putar_sfx AudioManager notif>>
+Raka: Eh, Master Trading kirim pesan di grup!
 
 <<tutup_AppSaham AppSahamManager>>
 <<buka_chat AppChatManager grup_hold>>
@@ -730,14 +730,8 @@ Raka: Lain kali, aku nggak akan pernah sentuh saham tanpa riset laporan keuangan
 <<fade_out Manager>>
 <<wait 3>>
 
-// EDUKASI: Kesimpulan Moral Pop-Up
+// EDUKASI: Kesimpulan Moral Pop-Up (Menunggu pemain klik tombol Kembali ke Menu)
 <<munculkan_teks Manager "ENDING B: RUGI RINGAN (CUT LOSS)">>
-<<wait 10>>
-<<hapus_teks Manager>>
-
-// Panggil fungsi untuk kembali ke Scene Main Menu
-<<kembali_ke_menu GameManager>>
-
 ===
 title: Ending_Bangkrut
 position: -121,1223
@@ -781,9 +775,6 @@ Raka: Laptop impian hilang... Tabungan ludes... Yang tersisa cuma penyesalan.
 <<fade_out Manager>>
 <<wait 3>>
 <<munculkan_teks Manager "ENDING A: KEBANGKRUTAN TOTAL (SAHAM GOCAP)">>
-<<wait 10>>
-<<hapus_teks Manager>>
-<<kembali_ke_menu GameManager>>
 ===
 
 title: Ending_D_Tujuan_Tercapai
@@ -892,11 +883,6 @@ Raka: Pelajaran berharga hari ini: Kesabaran dan ilmu adalah pelindung aset terb
 <<fade_out Manager>>
 <<wait 3>>
 <<munculkan_teks Manager "ENDING D: AWAL INVESTOR CERDAS">>
-<<wait 10>>
-<<hapus_teks Manager>>
-<<kembali_ke_menu GameManager>>
-
-
 ===
 title: Ending_C_Rugi_Puncak
 position: 941,664
@@ -1011,9 +997,4 @@ Raka: Aku yang beli di pucuk... aku yang jadi jalan keluar mereka.
 <<fade_out Manager>>
 <<wait 3>>
 <<munculkan_teks Manager "ENDING C: BELI DI PUNCAK">>
-<<wait 10>>
-<<hapus_teks Manager>>
-
-// Panggil fungsi untuk kembali ke Scene Main Menu
-<<kembali_ke_menu GameManager>>
 ===
