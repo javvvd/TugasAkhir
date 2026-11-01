@@ -8616,7 +8616,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &497722529
 RectTransform:
   m_ObjectHideFlags: 0
@@ -10099,7 +10099,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576383162}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &576383166
 Camera:
   m_ObjectHideFlags: 0
@@ -11895,8 +11895,8 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
+  m_Camera: {fileID: 180508611}
+  m_PlaneDistance: 0.25
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -13845,8 +13845,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8150228081625468094, guid: 52571f68872914e24837210513edea1d, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 576383166}
+    - target: {fileID: 8150228081625468094, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150228081625468094, guid: 52571f68872914e24837210513edea1d, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 8309902628685535410, guid: 52571f68872914e24837210513edea1d, type: 3}
       propertyPath: autoStart
@@ -25752,7 +25760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbc9704879cffe45b1e63e7c48f30e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kameraPemain: {fileID: 576383166}
+  kameraPemain: {fileID: 180508611}
   tombolUI: {fileID: 1337565173}
   teksTombol: {fileID: 1130365773}
   mesinCerita: {fileID: 1068897607}
@@ -29540,6 +29548,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 02f16a06774ae094097ae0d0a641a5e9, type: 3}
   - {fileID: 21300000, guid: 81704e1f12d4ff34d9c323b12d226a12, type: 3}
   - {fileID: 21300000, guid: 93ae4651aeef8ee4ab9ea2c6585a6a87, type: 3}
+  - {fileID: 21300000, guid: 7647f8a64a890104a86c3cb0f50a77ab, type: 3}
   layarAwal: {fileID: 21300000, guid: b73dcea3907cda64685edc8022e02748, type: 3}
   rectPanelHandphone: {fileID: 1430582223}
 --- !u!1 &1777288248
@@ -30908,7 +30917,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b73dcea3907cda64685edc8022e02748, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7647f8a64a890104a86c3cb0f50a77ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -33349,7 +33358,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: ...
+  m_text: '<align=center><line-height=150%><size=24>Raka adalah seorang mahasiswa
+    yang sedang berjuang menyelesaikan kuliahnya.
+
+
+    Berbulan-bulan ia menyisihkan
+    uang hingga terkumpul tabungan Rp 5.000.000 untuk membeli laptop impian demi
+    tugas akhirnya.
+
+
+    Siang itu, setelah lelah praktikum di lab kampus, Raka
+    kembali ke kamar kosnya...</size></line-height></align>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -33443,7 +33462,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1050, y: 620}
+  m_SizeDelta: {x: 1100, y: 480}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1951987120
 GameObject:

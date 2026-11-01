@@ -63,12 +63,22 @@ public class TransisiTextController : MonoBehaviour
             // Sembunyikan panel ending jika sebelumnya aktif
             if (panelEndingCard != null) panelEndingCard.SetActive(false);
 
-            // Untuk transisi subtitle biasa (misal: "3 Jam Kemudian...")
+            // Untuk transisi subtitle biasa atau prolog cerita
             if (teksLayarHitam != null)
             {
                 RectTransform rt = teksLayarHitam.rectTransform;
-                rt.sizeDelta = new Vector2(1000f, 200f);
-                teksLayarHitam.text = $"<align=center><size=34><b>{kalimat}</b></size></align>";
+                if (kalimat.Length > 60 || kalimat.Contains("\n"))
+                {
+                    // Tampilan paragraf prolog (lega, ukuran font nyaman, jarak baris pas)
+                    rt.sizeDelta = new Vector2(1100f, 480f);
+                    teksLayarHitam.text = $"<align=center><line-height=150%><size=24>{kalimat}</size></line-height></align>";
+                }
+                else
+                {
+                    // Tampilan judul transisi waktu pendek (misal: "3 Jam Kemudian...")
+                    rt.sizeDelta = new Vector2(1000f, 200f);
+                    teksLayarHitam.text = $"<align=center><size=34><b>{kalimat}</b></size></align>";
+                }
                 teksLayarHitam.gameObject.SetActive(true);
             }
         }

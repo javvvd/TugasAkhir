@@ -22,6 +22,7 @@ public class AppSahamManager : MonoBehaviour
     // 9 = AppSaham_LaporanKeuangan   (laporan keuangan minus & market cap kecil)
     // 10 = AppSahamRugi_CutlossJual  (harga 87 ARB, portofolio kosong/terjual, tombol Beli)
     // 11 = AppSahamRugi_AvgDown      (harga 93 ARB, 522 lot, avg 96, modal 5 jt)
+    // 12 = AppSahamRugi_Bangkrut_AvgDown (harga 50 gocap, 522 lot, modal 5 jt)
     public Sprite[] daftarLayarSaham;
 
     [Tooltip("Layar awal sebelum Raka membeli (AppSaham_Fase0). Jika kosong, diambil dari sprite awal Image.")]

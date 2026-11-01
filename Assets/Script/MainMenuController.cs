@@ -14,6 +14,7 @@ public class MainMenuController : MonoBehaviour
     [Header("Panel Modal")]
     public GameObject panelSetting;
     public GameObject panelAbout;
+    public GameObject panelDisclaimer;
     public Slider sliderVolume;
     public TextMeshProUGUI textVolumeValue;
 
@@ -22,6 +23,7 @@ public class MainMenuController : MonoBehaviour
     public Button btnSetting;
     public Button btnCredit;
     public Button btnAbout;
+    public Button btnSayaMengerti;
 
     void Awake()
     {
@@ -63,7 +65,7 @@ public class MainMenuController : MonoBehaviour
             btnPlay.onClick.AddListener(() =>
             {
                 PlaySFXClick();
-                SceneManager.LoadScene("Gameplay");
+                BukaDisclaimer();
             });
         }
 
@@ -97,7 +99,7 @@ public class MainMenuController : MonoBehaviour
             });
         }
 
-        // 3. Hubungkan Tombol di Dalam Panel Modal (Setting & About)
+        // 3. Hubungkan Tombol di Dalam Panel Modal (Setting, About, Disclaimer)
         HubungkanTombolModal();
     }
 
@@ -140,6 +142,34 @@ public class MainMenuController : MonoBehaviour
                 }
             }
         }
+
+        // Panel Disclaimer
+        if (panelDisclaimer != null)
+        {
+            Button[] disclaimerButtons = panelDisclaimer.GetComponentsInChildren<Button>(true);
+            foreach (var b in disclaimerButtons)
+            {
+                string n = b.name.ToLower();
+                if (n.Contains("close") || n.Contains("tutup") || n.Contains("btnclose") || n.Contains("backdrop"))
+                {
+                    b.onClick.RemoveAllListeners();
+                    b.onClick.AddListener(() =>
+                    {
+                        PlaySFXClick();
+                        TutupDisclaimer();
+                    });
+                }
+                else if (n.Contains("mengerti") || n.Contains("lanjut") || n.Contains("setuju") || n.Contains("start"))
+                {
+                    b.onClick.RemoveAllListeners();
+                    b.onClick.AddListener(() =>
+                    {
+                        PlaySFXClick();
+                        MulaiGameplay();
+                    });
+                }
+            }
+        }
     }
 
     public void PlaySFXClick()
@@ -174,6 +204,7 @@ public class MainMenuController : MonoBehaviour
             HubungkanTombolModal();
         }
         if (panelAbout != null) panelAbout.SetActive(false);
+        if (panelDisclaimer != null) panelDisclaimer.SetActive(false);
     }
 
     public void TutupSetting()
@@ -189,11 +220,34 @@ public class MainMenuController : MonoBehaviour
             HubungkanTombolModal();
         }
         if (panelSetting != null) panelSetting.SetActive(false);
+        if (panelDisclaimer != null) panelDisclaimer.SetActive(false);
     }
 
     public void TutupAbout()
     {
         if (panelAbout != null) panelAbout.SetActive(false);
+    }
+
+    public void BukaDisclaimer()
+    {
+        if (panelDisclaimer != null)
+        {
+            panelDisclaimer.SetActive(true);
+            HubungkanTombolModal();
+        }
+        if (panelSetting != null) panelSetting.SetActive(false);
+        if (panelAbout != null) panelAbout.SetActive(false);
+    }
+
+    public void TutupDisclaimer()
+    {
+        if (panelDisclaimer != null) panelDisclaimer.SetActive(false);
+    }
+
+    public void MulaiGameplay()
+    {
+        if (panelDisclaimer != null) panelDisclaimer.SetActive(false);
+        SceneManager.LoadScene("Gameplay");
     }
 
     public void KeluarGame()

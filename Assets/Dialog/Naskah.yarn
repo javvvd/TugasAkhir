@@ -2,6 +2,10 @@ title: Start
 position: 228,-115
 ---
 <<set_kamera_instan PLAYER pintu>>
+<<munculkan_teks Manager "Raka adalah seorang mahasiswa yang sedang berjuang menyelesaikan kuliahnya.\n\nBerbulan-bulan ia menyisihkan uang hingga terkumpul tabungan Rp 5.000.000 untuk membeli laptop impian demi tugas akhirnya.\n\nSiang itu, setelah lelah praktikum di lab kampus, Raka kembali ke kamar kosnya...">>
+<<wait 8>>
+<<hapus_teks Manager>>
+<<wait 1>>
 <<fade_in Manager>>
 <<putar_sfx AudioManager tutup_pintu>>
 <<putar_bgm AudioManager santai>>
@@ -125,6 +129,7 @@ Raka: Kalau Bima aja berani dan bisa untung sebesar itu, masa aku ngelewatin kes
 <<tutup_AppSaham AppSahamManager>>
 <<tutup_hp HPmanager>>
 <<wait 1>>
+<<matikan_interaksi Handphone>>
 Raka: Suara ketok pintu... Coba kubuka dulu pintunya.
 <<ubah_node Pintu Fase_Heri_Datang>>
 <<aktifkan_interaksi Pintu>>
@@ -146,16 +151,15 @@ Raka: Her, si Bima untung besar main saham! Aku mau ikut beli juga nih.
 Heri: Hah? Saham apa?
 Raka: Itu saham DUIT yang lagi rame karena naik terus.
 Heri: Rak... Kau yakin? Udah pernah cek perusahaannya dulu belum?
-Raka: blum sih. Tapi katanya influencer udah analisis, follower-nya ratusan ribu lho.
+Raka: Belum sih. Tapi katanya influencer udah analisis, follower-nya ratusan ribu lho.
 Heri: Hmm... follower banyak nggak otomatis analisanya bener, Rak.
 Heri: Aku pernah baca kasus kayak gini. Ada influencer yang nyuruh orang beli saham biar harganya naik, terus jualan di pucuk. Yang rugi ya yang ikut-ikutan.
 Heri: Namanya skema Pump and Dump. Aku nggak bilang Bima salah, tapi hati-hati aja.
 Heri: Udah, mending dipikir-pikir lagi deh. Aku balik kamar dulu ya.
-Raka: [speed=0.2]Oh...oke, Her[/speed]
+Raka: Oh... oke, Her...
 <<tutup_pintu EngselPintu>>
-<<matikan_interaksi Handphone>>
 
-<<wait 5>>
+<<wait 4>>
 Raka: ...hmmm..
 // Muncul pilihan di layar pemain
 -> Buka HP lagi dan beli saham. 'Beli'
@@ -366,7 +370,7 @@ Raka: Halo, Bim? Kenapa nelepon?
 Bima: RAK!! KAU LIHAT SAHAM DUIT SEKARANG
 Raka: Ada apaan sih heboh amat
 Bima: SAHAM DUIT TERBANG KE 135 BRO!! NAIK 35% hari ini!!
-Bima: keuntunganku jutaan ngalir deras dalam sehari!! sinyal VIP Master Trading ga ada lawan!
+Bima: Keuntunganku jutaan ngalir deras dalam sehari!! Ikut VIP Master Trading ga ada lawan!
 Bima: Makanya aku langsung telepon kau, mumpung bursa belum tutup jam 4! arahan dari Master Trading, HAKA sebelum kehabisan antrean!
 Raka: Tapi Bim... perusahaannya merugi loh.
 Bima: Alah, besok juga ditarik terbang lagi sahamnya kau menyesal! Jangan banyak mikir, ini kesempatan emas.
@@ -393,7 +397,7 @@ Raka: Beli sekarang aja kali ya?! Masih ada waktu sebelum bursa tutup!
 // ----------------------------------------------------
 // BAGIAN 3: PILIHAN (UJIAN TERAKHIR)
 // ----------------------------------------------------
--> Jangan mau menyesal 2x(Beli di 5 Juta)
+-> Jangan mau menyesal 2x (Beli di 5 Juta)
     Raka: Bodo amat lah sama analisa! Si Bima udah buktiin sendiri!
     Raka: Buka aplikasi, masukin semua 5 juta! 
     <<potong_uang GameManager 5000000>>
@@ -457,13 +461,13 @@ Raka: Buruan buka aplikasinya!!
 <<wait 1.5>>
 
 // SPRITE: Raka, ekspresi syok berat / pucat
-Raka: tidak mungkin...
-Raka: KOK MERAH?!
+
+Raka: loh KOK MERAH?!
 
 // EDUKASI: Pop-Up Merah - Fase Dump & ARB
 
 Raka: Harganya... harganya anjlok parah dari 110 dibanting ke 93 per lembar?! 
-Raka: Nilai investasiku tinggal 4 juta... Lenyap hampir 700 ribu dalam hitungan menit?!
+Raka: Nilai investasiku tinggal 4,3 juta... Lenyap 600 ribu dalam hitungan menit?!
 Raka: Nggak, Ayo jual! Jual semuanya sekarang juga!! 
 
 // Animasi/Dialog Raka panik menekan tombol jual tapi gagal (Tidak ada match)
@@ -646,9 +650,8 @@ position: 106,936
 // SPRITE: Raka, wajah sangat pucat dan putus asa
 <<munculkan_hp HPmanager>>
 <<buka_AppSaham AppSahamManager>>
-<<ganti_layar_saham AppSahamManager 11>>
+<<ganti_layar_saham AppSahamManager 12>>
 <<wait 1>>
-Raka: (Gemetar melihat layar HP)
 Raka: ARB lagi... Harganya terus longsor ke bawah...
 Raka: Nggak ada pantulan sama sekali. Master Trading-nya hilang... akun Telegramnya dihapus.
 Raka: Uang 5 jutaku nyangkut semua...
@@ -842,7 +845,7 @@ Raka: Aku mending fokus nabung aja buat beli laptop. Bahaya kalau uang darurat d
 
 Heri: Syukurlah kalau gitu, Rak. Keputusanmu tepat banget.
 Heri: Kau belum cek berita ya? Saham DUIT barusan hancur lebur menjelang bursa tutup.
-Heri: Dibanting parah sampai ARB ke 85. Di forum saham lagi rame banget pada nangis uangnya nyangkut di pucuk karena Master Trading-nya kabur.
+Heri: Dibanting parah sampai ARB ke 93. Di forum saham lagi rame banget pada nangis uangnya nyangkut di pucuk karena Master Trading-nya kabur.
 
 // SPRITE: Raka, ekspresi kaget bercampur lega
 Raka: Astaga... Serius, Her?!
@@ -871,9 +874,7 @@ Raka: Eh, Bima ngechat lagi?
 
 <<munculkan_hp HPmanager>>
 <<buka_chat AppChatManager bima_selamat>>
-<<wait 1>>
-
-<<wait 1>>
+<<wait 1.5>>
 
 // SPRITE: Raka, ekspresi prihatin tapi juga merenung dalam
 Raka: (Membaca chat Bima)
@@ -884,7 +885,7 @@ Raka: Ternyata yang untung beneran cuma bandarnya. Semua yang lain, termasuk yan
 <<tutup_hp HPmanager>>
 <<wait 1>>
 
-Raka: Tabunganku aman. Bulan depan, laptop baru akhirnya bisa kebeli juga.
+Raka: Tabunganku aman.
 Raka: Pelajaran berharga hari ini: Kesabaran dan ilmu adalah pelindung aset terbaik.
 
 <<fade_out Manager>>
@@ -970,15 +971,15 @@ title: Ending_C_Buka_Pintu
 <<wait 1>>
 
 // SPRITE: Heri muncul dengan ekspresi panik
-Heri: Rak 
+Heri: Rak...
 Heri: Kau nggak jadi beli saham DUIT yang tadi siang itu kan? Di berita lagi heboh harganya dibanting bandar sampai ARB parah!
 
 // SPRITE: Raka menatap Heri dengan tatapan kosong dan pucat
-Raka: Uangku nyangkut semua
+Raka: Uangku nyangkut semua...
 
 Heri: Hah?! Bukannya tadi siang kau mutusin buat nahan diri?!
 
-Raka: Tadi... tadi Bima nge-chat pamer profit lagi karena harganya meroket ke 135.
+Raka: Tadi... tadi Bima nelepon pamer profit lagi karena harganya meroket ke 135.
 Raka: Aku salah. Aku masukin semua uang 5 jutaku di harga pucuk itu...
 Raka: Niatnya cuma mau cari tambahan dikit buat beli laptop... tapi nggak sampai sejam kemudian harganya langsung dibanting ke 93... 
 
