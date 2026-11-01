@@ -114,6 +114,14 @@ public class KamusManager : MonoBehaviour
         {
             panelKamusModal.SetActive(true);
             PasangListenerTombolTutup(panelKamusModal);
+
+            ScrollRect sr = panelKamusModal.GetComponentInChildren<ScrollRect>(true);
+            if (sr != null)
+            {
+                Canvas.ForceUpdateCanvases();
+                sr.verticalNormalizedPosition = 1f;
+            }
+
             AudioManager.Instance?.PutarSFX("klik");
         }
     }
