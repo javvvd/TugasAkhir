@@ -50,6 +50,15 @@ public class UangManager : MonoBehaviour
         if (rectBoxPorto != null)
         {
             posisiAwalBoxPorto = rectBoxPorto.anchoredPosition;
+            foreach (var g in rectBoxPorto.GetComponentsInChildren<Graphic>(true))
+            {
+                g.raycastTarget = false;
+                if (g is TextMeshProUGUI tmp)
+                {
+                    tmp.margin = Vector4.zero;
+                    tmp.enableWordWrapping = false;
+                }
+            }
         }
 
         if (teksFloatingMinus == null)

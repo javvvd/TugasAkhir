@@ -370,9 +370,9 @@ public class TransisiTextController : MonoBehaviour
             subjudulStr = "Korban Euforia & Pintu Keluar Bandar";
             narasiStr = "<b>Evaluasi Keputusanmu:</b>\n" +
                         "• <b>Buying at Peak (FOMO):</b> Rasa takut tertinggal melihat pamer profit membuatmu nekat membeli di harga tertinggi (Rp135).\n" +
-                        "• <b>Abaikan Fundamental:</b> Kamu menutup mata terhadap kondisi riil perusahaan demi mengejar keuntungan instan.\n" +
+                        "• <b>Abaikan Fundamental:</b> Kamu menutup mata terhadap kondisi perusahaan demi mengejar keuntungan instan.\n" +
                         "• <b>Exit Liquidity Bandar:</b> Pembelian impulsifmu dijadikan alat buangan bandar untuk merealisasikan keuntungan (*Pump and Dump*).";
-            edukasiStr = "<b>Bahaya FOMO dalam Investasi:</b>\nModalmu Rp5.000.000 terkunci di batas <i>Auto Rejection Bawah (ARB)</i> Rp93 tanpa ada antrean beli. Membeli karena FOMO hanya menjadikanmu tumbal pasar.";
+            edukasiStr = "<b>Bahaya FOMO dalam Investasi:</b>\nTindakan Spekulatif didorong oleh rasa takut ketinggalan keuntungan. Akhirnya kamu terjebak di harga tinggi.";
         }
         else if (upper.Contains("ENDING D"))
         {
@@ -465,7 +465,16 @@ public class TransisiTextController : MonoBehaviour
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
 
-        panelEndingCard.SetActive(true);
+        // Pastikan seluruh parent (termasuk CanvasEnding) ikut aktif
+        Transform p = panelEndingCard.transform;
+        while (p != null)
+        {
+            if (!p.gameObject.activeSelf)
+            {
+                p.gameObject.SetActive(true);
+            }
+            p = p.parent;
+        }
     }
 
     public void KembaliKeMenu()
