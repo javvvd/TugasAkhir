@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -24,11 +23,6 @@ public class BendaInteraktif : MonoBehaviour
     public Material matLockscreen;
     [Tooltip("Material panggilan masuk saat ada telepon")]
     public Material matPanggilan;
-
-    [Tooltip("Jika dicentang, efek layar akan berkedip-kedip saat menyala seperti telepon berdering")]
-    public bool kedipSaatMenyala = true;
-    public float intervalKedip = 0.5f;
-    private Coroutine coroutineKedip;
 
     void Awake()
     {
@@ -76,12 +70,6 @@ public class BendaInteraktif : MonoBehaviour
     [YarnCommand("nyalakan_layar")]
     public void NyalakanLayar(string tipe = "lockscreen")
     {
-        if (coroutineKedip != null)
-        {
-            StopCoroutine(coroutineKedip);
-            coroutineKedip = null;
-        }
-
         string t = tipe != null ? tipe.ToLower().Trim() : "";
         bool isTelepon = t.Contains("tel") || t.Contains("panggilan") || t.Contains("call");
 
@@ -100,25 +88,6 @@ public class BendaInteraktif : MonoBehaviour
                 }
             }
             efekLayar.SetActive(true);
-
-            if (isTelepon && kedipSaatMenyala && gameObject.activeInHierarchy)
-            {
-                coroutineKedip = StartCoroutine(ProsesKedipLayar());
-            }
-        }
-    }
-
-    private IEnumerator ProsesKedipLayar()
-    {
-        float jeda = Mathf.Max(0.05f, intervalKedip);
-        WaitForSeconds tunggu = new WaitForSeconds(jeda);
-        while (efekLayar != null)
-        {
-            yield return tunggu;
-            if (efekLayar != null)
-            {
-                efekLayar.SetActive(!efekLayar.activeSelf);
-            }
         }
     }
 
@@ -126,11 +95,6 @@ public class BendaInteraktif : MonoBehaviour
     [YarnCommand("matikan_layar")]
     public void MatikanLayar()
     {
-        if (coroutineKedip != null)
-        {
-            StopCoroutine(coroutineKedip);
-            coroutineKedip = null;
-        }
         if (efekLayar != null)
         {
             efekLayar.SetActive(false);

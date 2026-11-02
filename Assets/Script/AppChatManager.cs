@@ -227,4 +227,4 @@ public class ChatManager : MonoBehaviour
             if (pesan != null) pesan.SetActive(false);
         }
     }
-}
+}

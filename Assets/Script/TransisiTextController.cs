@@ -15,6 +15,13 @@ public class TransisiTextController : MonoBehaviour
     public float kecepatanKetik = 0.018f;
     private Coroutine coroutineKetik;
 
+    [Header("Referensi Gambar Panduan")]
+    [Tooltip("CanvasGroup panel gambar panduan bermain")]
+    public CanvasGroup gambarPanduan;
+    [Tooltip("Durasi default munculnya panduan (detik)")]
+    public float durasiPanduanDefault = 8f;
+    private Coroutine coroutinePanduan;
+
     [Header("Referensi Objek Panel Ending")]
     [Tooltip("Panel utama kartu ending")]
     public GameObject panelEndingCard;
@@ -38,6 +45,13 @@ public class TransisiTextController : MonoBehaviour
         if (panelEndingCard != null)
         {
             panelEndingCard.SetActive(false);
+        }
+
+        if (gambarPanduan != null)
+        {
+            gambarPanduan.alpha = 0f;
+            gambarPanduan.blocksRaycasts = false;
+            gambarPanduan.gameObject.SetActive(false);
         }
 
         if (tombolKembaliMenu != null)
@@ -84,6 +98,9 @@ public class TransisiTextController : MonoBehaviour
     [YarnCommand("munculkan_teks")]
     public void MunculkanTeks(string kalimat)
     {
+        // Pastikan panduan selesai/tersembunyi jika teks mulai muncul
+        HentikanPanduan();
+
         // Bersihkan escape newline dari yarn string
         kalimat = kalimat.Replace("\\n", "\n").Trim();
 
@@ -202,6 +219,8 @@ public class TransisiTextController : MonoBehaviour
     [YarnCommand("hapus_teks")]
     public void HapusTeks()
     {
+        HentikanPanduan();
+
         if (coroutineKetik != null)
         {
             StopCoroutine(coroutineKetik);
@@ -217,6 +236,82 @@ public class TransisiTextController : MonoBehaviour
         if (panelEndingCard != null)
         {
             panelEndingCard.SetActive(false);
+        }
+    }
+
+    // Perintah Yarn untuk menampilkan gambar panduan sebelum prolog
+    [YarnCommand("tampilkan_panduan")]
+    public void TampilkanPanduan(float durasi = 8f)
+    {
+        if (gambarPanduan == null) return;
+        if (coroutinePanduan != null) StopCoroutine(coroutinePanduan);
+        coroutinePanduan = StartCoroutine(ProsesTampilkanPanduan(durasi));
+    }
+
+    private System.Collections.IEnumerator ProsesTampilkanPanduan(float totalDurasi)
+    {
+        if (gambarPanduan == null) yield break;
+
+        float durasiFadeIn = 1.0f;
+        float durasiFadeOut = 1.0f;
+        float holdDurasi = Mathf.Max(0.5f, totalDurasi - durasiFadeIn - durasiFadeOut);
+
+        gambarPanduan.alpha = 0f;
+        gambarPanduan.blocksRaycasts = true;
+        gambarPanduan.gameObject.SetActive(true);
+
+        // 1. Fade In
+        float waktu = 0f;
+        while (waktu < durasiFadeIn)
+        {
+            waktu += Time.deltaTime;
+            gambarPanduan.alpha = Mathf.Clamp01(waktu / durasiFadeIn);
+            yield return null;
+        }
+        gambarPanduan.alpha = 1f;
+
+        // 2. Durasi Tampil (Dapat di-skip jika pemain menekan klik / Spasi)
+        float timerHold = 0f;
+        yield return new WaitForSeconds(0.2f);
+        timerHold += 0.2f;
+
+        while (timerHold < holdDurasi)
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
+            {
+                break;
+            }
+            timerHold += Time.deltaTime;
+            yield return null;
+        }
+
+        // 3. Fade Out
+        waktu = 0f;
+        while (waktu < durasiFadeOut)
+        {
+            waktu += Time.deltaTime;
+            gambarPanduan.alpha = Mathf.Clamp01(1f - (waktu / durasiFadeOut));
+            yield return null;
+        }
+
+        gambarPanduan.alpha = 0f;
+        gambarPanduan.blocksRaycasts = false;
+        gambarPanduan.gameObject.SetActive(false);
+        coroutinePanduan = null;
+    }
+
+    private void HentikanPanduan()
+    {
+        if (coroutinePanduan != null)
+        {
+            StopCoroutine(coroutinePanduan);
+            coroutinePanduan = null;
+        }
+        if (gambarPanduan != null)
+        {
+            gambarPanduan.alpha = 0f;
+            gambarPanduan.blocksRaycasts = false;
+            gambarPanduan.gameObject.SetActive(false);
         }
     }
 
@@ -242,12 +337,12 @@ public class TransisiTextController : MonoBehaviour
             badgeStr = "ENDING 1 DARI 4";
             ColorUtility.TryParseHtmlString("#FCA5A5", out accentColor); // Coral lembut
             judulStr = "KEBANGKRUTAN TOTAL";
-            subjudulStr = "Terjebak Saham 'Gorengan' & Uang Panas";
-            narasiStr = "<b>Tindakan FOMO Raka:</b>\n" +
-                        "• <b>Herding Behavior:</b> Ikut hasutan grup pompom & teman tanpa riset.\n" +
-                        "• <b>Spekulatif & Uang Panas:</b> Pakai tabungan laptop & kos untuk judi saham.\n" +
-                        "• <b>Tanpa Manajemen Risiko:</b> Menolak <i>Cut Loss</i> dan nekat <i>Average Down</i>.";
-            edukasiStr = "<b>Kesimpulan & Bahaya:</b>\nTabungan Rp5 juta Raka terkunci dan terus anjlok tanpa ada antrean beli hingga modalnya musnah tak bersisa.";
+            subjudulStr = "Uang Terjebak";
+            narasiStr = "<b>Evaluasi:</b>\n" +
+                        "• <b>Herding Behavior & FOMO:</b> Kamu terbuai ajakan teman dan euforia grup tanpa melakukan riset mandiri.\n" +
+                        "• <b>Spekulasi Uang Panas:</b> Kamu mempertaruhkan uang kos dan tabungan laptop impianmu ke saham gorengan.\n" +
+                        "• <b>Tanpa Manajemen Risiko:</b> Egumu menolak <i>Cut Loss</i> dan nekat <i>Average Down</i> saat harga terus ambruk.";
+            edukasiStr = "<b>Bahaya FOMO dalam Investasi:</b>\nTabunganmu Rp5.000.000 musnah tak bersisa. FOMO melumpuhkan logika dan mengubah investasimu menjadi judi spekulatif yang berujung kebangkrutan.";
         }
         else if (upper.Contains("ENDING B"))
         {
@@ -258,11 +353,11 @@ public class TransisiTextController : MonoBehaviour
             ColorUtility.TryParseHtmlString("#FDE047", out accentColor); // Kuning emas hangat
             judulStr = "BERANI CUT LOSS";
             subjudulStr = "Disiplin Membatasi Kerugian";
-            narasiStr = "<b>Tindakan Raka:</b>\n" +
-                        "• <b>Herding Behavior:</b> Sempat latah membeli saham pompom Rp2 juta.\n" +
-                        "• <b>Cek Fundamental:</b> Sadar setelah melihat laporan keuangan yang merugi.\n" +
-                        "• <b>Manajemen Risiko:</b> Disiplin <i>Cut Loss</i> sebelum harga anjlok semakin dalam.";
-            edukasiStr = "<b>Kesimpulan & Bahaya:</b>\nTanpa <i>Cut Loss</i>, FOMO akan menguras seluruh modal. Rela rugi Rp300 ribu berhasil menyelamatkan Rp4,7 juta tabungan Raka.";
+            narasiStr = "<b>Evaluasi Keputusanmu:</b>\n" +
+                        "• <b>Sadar dari Herding Behavior:</b> Kamu sempat terbawa FOMO membeli saham pom-pom Rp2 juta, namun segera sadar dari laporan keuangannya.\n" +
+                        "• <b>Disiplin Manajemen Risiko:</b> Kamu berani mengakui kesalahan dan disiplin <i>Cut Loss</i> sebelum harga anjlok lebih parah.\n" +
+                        "• <b>Tolak Spekulasi:</b> Kamu menolak godaan <i>Average Down</i> yang berisiko menenggelamkan sisa modalmu.";
+            edukasiStr = "<b>Bahaya FOMO dalam Investasi:</b>\nTanpa keberanian <i>Cut Loss</i>, siklus FOMO akan menelan seluruh modalmu. Rela rugi Rp300 ribu berhasil menyelamatkan sisa Rp4.700.000 tabunganmu.";
         }
         else if (upper.Contains("ENDING C"))
         {
@@ -272,12 +367,12 @@ public class TransisiTextController : MonoBehaviour
             badgeStr = "ENDING 3 DARI 4";
             ColorUtility.TryParseHtmlString("#FDBA74", out accentColor); // Amber lembut
             judulStr = "BELI DI PUNCAK";
-            subjudulStr = "Tergiur Janji Manis saat Harga Tertinggi";
-            narasiStr = "<b>Tindakan FOMO Raka:</b>\n" +
-                        "• <b>Buying at Peak:</b> Tergoda pamer profit Bima lalu nekat beli di pucuk (Rp135).\n" +
-                        "• <b>Abaikan Fundamental:</b> Tutup mata meski tahu laporan keuangannya rugi.\n" +
-                        "• <b>Spekulatif:</b> Masukin seluruh Rp5 juta demi mengejar untung instan.";
-            edukasiStr = "<b>Kesimpulan & Bahaya:</b>\nBeli di puncak menjadikan Raka sasaran buangan bandar (<i>Exit Liquidity</i>). Harga anjlok ke Rp93 (<i>ARB</i>) dan modalnya nyangkut.";
+            subjudulStr = "Korban Euforia & Pintu Keluar Bandar";
+            narasiStr = "<b>Evaluasi Keputusanmu:</b>\n" +
+                        "• <b>Buying at Peak (FOMO):</b> Rasa takut tertinggal melihat pamer profit membuatmu nekat membeli di harga tertinggi (Rp135).\n" +
+                        "• <b>Abaikan Fundamental:</b> Kamu menutup mata terhadap kondisi riil perusahaan demi mengejar keuntungan instan.\n" +
+                        "• <b>Exit Liquidity Bandar:</b> Pembelian impulsifmu dijadikan alat buangan bandar untuk merealisasikan keuntungan (*Pump and Dump*).";
+            edukasiStr = "<b>Bahaya FOMO dalam Investasi:</b>\nModalmu Rp5.000.000 terkunci di batas <i>Auto Rejection Bawah (ARB)</i> Rp93 tanpa ada antrean beli. Membeli karena FOMO hanya menjadikanmu tumbal pasar.";
         }
         else if (upper.Contains("ENDING D"))
         {
@@ -287,12 +382,12 @@ public class TransisiTextController : MonoBehaviour
             badgeStr = "ENDING 4 DARI 4";
             ColorUtility.TryParseHtmlString("#86EFAC", out accentColor); // Hijau mint cerah
             judulStr = "INVESTOR BIJAK";
-            subjudulStr = "Tenang & Disiplin Menjaga Tabungan";
-            narasiStr = "<b>Sikap Rasional Raka:</b>\n" +
-                        "• <b>Tolak Herding Behavior:</b> Tidak ikut-ikutan euforia grup & influencer.\n" +
-                        "• <b>Patuhi Fundamental:</b> Cek laporan keuangan & hindari perusahaan rugi.\n" +
-                        "• <b>Hindari Spekulasi:</b> Menolak beli di pucuk (Rp135) demi menjaga tabungan.";
-            edukasiStr = "<b>Kesimpulan & Bahaya yang Dihindari:</b>\nDisiplin riset dan manajemen risiko menyelamatkan Raka dari jebakan <i>Pump & Dump</i>. Tabungan Rp5 juta tetap aman 100%.";
+            subjudulStr = "Menang Melawan Jebakan Emosi";
+            narasiStr = "<b>Evaluasi Keputusanmu:</b>\n" +
+                        "• <b>Kendalikan FOMO:</b> Kamu berhasil menahan nafsu serakah dan tidak tergiur pamer profit sesaat di grup saham.\n" +
+                        "• <b>Patuhi Fundamental:</b> Kamu mengutamakan data kinerja keuangan perusahaan di atas rumor dan bisikan spekulatif.\n" +
+                        "• <b>Disiplin Finansial:</b> Kamu memegang teguh komitmen menjaga tabungan laptop demi masa depan kuliahmu.";
+            edukasiStr = "<b>Bahaya FOMO yang Dihindari:</b>\nKedisiplinanmu menyelamatkan modal Rp5.000.000 tetap utuh 100% dari jebakan <i>Pump and Dump</i>. Kemenangan sejati investor adalah mampu mengendalikan emosinya sendiri.";
         }
         else
         {

@@ -2,7 +2,8 @@ title: Start
 position: 228,-115
 ---
 <<set_kamera_instan PLAYER pintu>>
-<<wait 5>>
+<<tampilkan_panduan Manager 8>>
+<<wait 8>>
 <<munculkan_teks Manager "Raka adalah seorang mahasiswa yang sedang berjuang menyelesaikan kuliahnya.\n\nBerbulan-bulan ia menyisihkan uang hingga terkumpul tabungan Rp 5.000.000 untuk membeli laptop impian demi tugas akhirnya.\n\nSiang itu, setelah lelah praktikum di lab kampus, Raka kembali ke kamar kosnya...">>
 <<wait 10>>
 <<hapus_teks Manager>>
