@@ -21,8 +21,19 @@ public class ChatManager : MonoBehaviour
 
     void Awake()
     {
-        // Cari otomatis jika referensi belum dipasang di Inspector
-        GameObject panelHp = GameObject.Find("PanelHandphone");
+        // Hanya cari PanelHandphone jika masih ada referensi yang belum terpasang di Inspector
+        if (appChat != null && layarTelepon != null && chatMama != null &&
+            chatBimaBangkrut != null && chatBimaSelamat != null &&
+            chatGrupAnjlok != null && chatGrupHold != null && chatGrupPuncak != null)
+        {
+            return;
+        }
+
+        HPManager hpMgr = FindFirstObjectByType<HPManager>();
+        GameObject panelHp = (hpMgr != null && hpMgr.panelHandphone != null)
+            ? hpMgr.panelHandphone
+            : GameObject.Find("PanelHandphone");
+
         if (panelHp == null)
         {
             var all = Resources.FindObjectsOfTypeAll<GameObject>();

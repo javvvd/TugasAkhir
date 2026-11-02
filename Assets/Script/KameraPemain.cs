@@ -28,6 +28,11 @@ public class KameraMobile : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
+
+        // Cegah perputaran kamera jika HP sedang dibuka
+        if (HPManager.Instance != null && HPManager.Instance.IsHpActive) return;
+
         float geserX = 0f;
         float geserY = 0f;
 

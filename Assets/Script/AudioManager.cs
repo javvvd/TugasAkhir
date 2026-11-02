@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
 
     [Header("Background Music (BGM)")]
     public AudioClip clipBgmSantai;
+    public AudioClip clipBgmCalm;
     [Range(0f, 1f)]
     public float volumeBgm = 0.25f;
 
@@ -76,8 +77,13 @@ public class AudioManager : MonoBehaviour
 
         switch (key)
         {
-            case "santai":
             case "calm":
+            case "bgmcalm":
+            case "ending":
+                target = clipBgmCalm != null ? clipBgmCalm : clipBgmSantai;
+                break;
+
+            case "santai":
             case "kamar":
             case "lofi":
             default:
@@ -115,11 +121,25 @@ public class AudioManager : MonoBehaviour
 
     private IEnumerator ProsesFadeInBGM(AudioClip clip, float durasiFade)
     {
-        if (bgmSource == null) yield break;
+        if (bgmSource == null || clip == null) yield break;
 
         if (bgmSource.isPlaying && bgmSource.clip == clip)
         {
             yield break;
+        }
+
+        // Jika lagu sebelumnya sedang bermain, lakukan fade out halus terlebih dahulu
+        if (bgmSource.isPlaying && bgmSource.volume > 0.01f)
+        {
+            float curVol = bgmSource.volume;
+            float fadeOutTime = durasiFade * 0.4f;
+            float elapsedOut = 0f;
+            while (elapsedOut < fadeOutTime)
+            {
+                elapsedOut += Time.deltaTime;
+                bgmSource.volume = Mathf.Lerp(curVol, 0f, elapsedOut / fadeOutTime);
+                yield return null;
+            }
         }
 
         bgmSource.clip = clip;

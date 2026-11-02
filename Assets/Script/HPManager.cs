@@ -3,6 +3,8 @@ using Yarn.Unity;
 
 public class HPManager : MonoBehaviour
 {
+    public static HPManager Instance { get; private set; }
+
     [Header("UI Pop-up Utama")]
     public GameObject panelHandphone;
     public GameObject latarGelap;
@@ -11,8 +13,12 @@ public class HPManager : MonoBehaviour
     [Tooltip("Objek 3D HP di meja yang disembunyikan saat HP dibuka dan dimunculkan lagi saat HP ditutup")]
     public GameObject objekHpDiMeja;
 
+    public bool IsHpActive => (panelHandphone != null && panelHandphone.activeInHierarchy) || (latarGelap != null && latarGelap.activeInHierarchy);
+
     void Awake()
     {
+        if (Instance == null) Instance = this;
+
         if (objekHpDiMeja == null)
         {
             objekHpDiMeja = GameObject.Find("Handphone");

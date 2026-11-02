@@ -22,11 +22,6 @@ public class MainMenuEndingManager : MonoBehaviour
         InisialisasiUI();
     }
 
-    void OnEnable()
-    {
-        InisialisasiUI();
-    }
-
     [ContextMenu("Segarkan Progress UI")]
     public void RefreshProgress()
     {
@@ -198,7 +193,6 @@ public class MainMenuEndingManager : MonoBehaviour
         if (panelModalBabak != null)
         {
             panelModalBabak.SetActive(true);
-            HubungkanListenerModalBabak(panelModalBabak);
         }
     }
 

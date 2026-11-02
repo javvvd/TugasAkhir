@@ -2,6 +2,7 @@ title: Start
 position: 228,-115
 ---
 <<set_kamera_instan PLAYER pintu>>
+<<wait 5>>
 <<munculkan_teks Manager "Raka adalah seorang mahasiswa yang sedang berjuang menyelesaikan kuliahnya.\n\nBerbulan-bulan ia menyisihkan uang hingga terkumpul tabungan Rp 5.000.000 untuk membeli laptop impian demi tugas akhirnya.\n\nSiang itu, setelah lelah praktikum di lab kampus, Raka kembali ke kamar kosnya...">>
 <<wait 10>>
 <<hapus_teks Manager>>
@@ -507,13 +508,10 @@ Raka: Mari kita lihat sisa nyawaku hari ini...
 <<wait 2>>
 
 Raka: ...Rp 50?
-Raka: Harganya anjlok sampai 50...
-Raka: Sekarang kan 50 udah nggak mentok lagi... Masih bisa tembus ke bawah.
-
-// EDUKASI: Pop-Up Saham Gocap
+Raka: Harganya anjlok parah... dan masih bisa terus terjun bebas ke bawah.
 
 // SPRITE: Raka, menatap layar dengan tatapan kosong
-Raka: Kalau sampai tembus ke bawah 50, uangku bener-bener musnah tak bersisa...
+Raka: Kalau harga terus turun, uangku bener-bener musnah tak bersisa...
 Raka: Dan di harga segini pun, antrean belinya masih kosong. Nggak ada yang mau nampung.
 
 Raka: Modalku 5 juta... sekarang nilainya cuma sisa 2,3 juta?!
@@ -683,7 +681,7 @@ Raka: Tolonglah besok pagi langsung laku...
 <<hapus_teks Manager>>
 <<set_kamera_instan PLAYER kasur>>
 <<fade_in Manager>>
-<<putar_bgm AudioManager santai>>
+<<putar_bgm AudioManager calm>>
 <<wait 1>>
 
 // SPRITE: Raka, bangun tidur langsung mengecek HP
@@ -738,6 +736,7 @@ position: -121,1223
 ---
 // Scene 5: Ending Bangkrut - Konsekuensi Berat
 <<set_bangkrut GameManager>>
+<<putar_bgm AudioManager calm>>
 <<wait 1>>
 
 Raka: (Terdiam kaku menatap layar HP)
@@ -774,7 +773,7 @@ Raka: Laptop impian hilang... Tabungan ludes... Yang tersisa cuma penyesalan.
 
 <<fade_out Manager>>
 <<wait 3>>
-<<munculkan_teks Manager "ENDING A: KEBANGKRUTAN TOTAL (SAHAM GOCAP)">>
+<<munculkan_teks Manager "ENDING A: KEBANGKRUTAN TOTAL">>
 ===
 
 title: Ending_D_Tujuan_Tercapai
@@ -794,7 +793,7 @@ Raka: Mending aku lanjut istirahat dan siap-siap nanti malam.
 <<wait 3>>
 <<hapus_teks Manager>>
 <<fade_in Manager>>
-<<putar_bgm AudioManager santai>>
+<<putar_bgm AudioManager calm>>
 <<wait 1>>
 
 // Raka meregangkan badan
@@ -902,7 +901,7 @@ Raka: Kalau dapet untung sejutaan lebih hari ini, lumayan buat nambahin tabungan
 <<wait 3>>
 <<hapus_teks Manager>>
 <<fade_in Manager>>
-<<putar_bgm AudioManager santai>>
+<<putar_bgm AudioManager calm>>
 <<wait 1>>
 
 // SPRITE: Raka, santai / tersenyum

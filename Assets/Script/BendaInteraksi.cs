@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -27,20 +28,11 @@ public class BendaInteraktif : MonoBehaviour
     [Tooltip("Jika dicentang, efek layar akan berkedip-kedip saat menyala seperti telepon berdering")]
     public bool kedipSaatMenyala = true;
     public float intervalKedip = 0.5f;
-    private float timerKedip = 0f;
-    private bool sedangMenyala = false;
+    private Coroutine coroutineKedip;
 
     void Awake()
     {
         areaKlik = GetComponent<Collider>();
-    }
-
-    void Start()
-    {
-        if (areaKlik == null)
-        {
-            areaKlik = GetComponent<Collider>();
-        }
 
         if (!aktifSaatMulai && areaKlik != null)
         {
@@ -50,19 +42,6 @@ public class BendaInteraktif : MonoBehaviour
         if (efekLayar != null)
         {
             efekLayar.SetActive(false);
-        }
-    }
-
-    void Update()
-    {
-        if (sedangMenyala && kedipSaatMenyala && efekLayar != null)
-        {
-            timerKedip -= Time.deltaTime;
-            if (timerKedip <= 0f)
-            {
-                efekLayar.SetActive(!efekLayar.activeSelf);
-                timerKedip = intervalKedip;
-            }
         }
     }
 
@@ -97,6 +76,12 @@ public class BendaInteraktif : MonoBehaviour
     [YarnCommand("nyalakan_layar")]
     public void NyalakanLayar(string tipe = "lockscreen")
     {
+        if (coroutineKedip != null)
+        {
+            StopCoroutine(coroutineKedip);
+            coroutineKedip = null;
+        }
+
         string t = tipe != null ? tipe.ToLower().Trim() : "";
         bool isTelepon = t.Contains("tel") || t.Contains("panggilan") || t.Contains("call");
 
@@ -115,17 +100,37 @@ public class BendaInteraktif : MonoBehaviour
                 }
             }
             efekLayar.SetActive(true);
-        }
 
-        sedangMenyala = isTelepon && kedipSaatMenyala;
-        timerKedip = intervalKedip;
+            if (isTelepon && kedipSaatMenyala && gameObject.activeInHierarchy)
+            {
+                coroutineKedip = StartCoroutine(ProsesKedipLayar());
+            }
+        }
+    }
+
+    private IEnumerator ProsesKedipLayar()
+    {
+        float jeda = Mathf.Max(0.05f, intervalKedip);
+        WaitForSeconds tunggu = new WaitForSeconds(jeda);
+        while (efekLayar != null)
+        {
+            yield return tunggu;
+            if (efekLayar != null)
+            {
+                efekLayar.SetActive(!efekLayar.activeSelf);
+            }
+        }
     }
 
     // Mematikan efek layar HP
     [YarnCommand("matikan_layar")]
     public void MatikanLayar()
     {
-        sedangMenyala = false;
+        if (coroutineKedip != null)
+        {
+            StopCoroutine(coroutineKedip);
+            coroutineKedip = null;
+        }
         if (efekLayar != null)
         {
             efekLayar.SetActive(false);

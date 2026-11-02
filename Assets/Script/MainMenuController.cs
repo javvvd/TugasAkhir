@@ -7,9 +7,13 @@ public class MainMenuController : MonoBehaviour
 {
     public static MainMenuController Instance { get; private set; }
 
-    [Header("Komponen Audio SFX UI")]
+    [Header("Komponen Audio")]
     public AudioSource sfxSource;
     public AudioClip clipClickUI;
+    public AudioSource bgmSource;
+    public AudioClip clipBGM;
+    [Range(0f, 1f)]
+    public float volumeBgm = 0.25f;
 
     [Header("Panel Modal")]
     public GameObject panelSetting;
@@ -40,6 +44,13 @@ public class MainMenuController : MonoBehaviour
             sfxSource.playOnAwake = false;
         }
 
+        if (bgmSource == null)
+        {
+            bgmSource = gameObject.AddComponent<AudioSource>();
+            bgmSource.playOnAwake = false;
+            bgmSource.loop = true;
+        }
+
         // Terapkan master volume dari PlayerPrefs
         float savedVol = PlayerPrefs.GetFloat("MasterVolume", 1f);
         AudioListener.volume = savedVol;
@@ -48,6 +59,19 @@ public class MainMenuController : MonoBehaviour
     void Start()
     {
         InisialisasiKomponen();
+        PutarBGM();
+    }
+
+    public void PutarBGM()
+    {
+        if (clipBGM != null && bgmSource != null)
+        {
+            if (bgmSource.isPlaying && bgmSource.clip == clipBGM) return;
+            bgmSource.clip = clipBGM;
+            bgmSource.loop = true;
+            bgmSource.volume = volumeBgm;
+            bgmSource.Play();
+        }
     }
 
     public void InisialisasiKomponen()
@@ -215,11 +239,7 @@ public class MainMenuController : MonoBehaviour
 
     public void BukaSetting()
     {
-        if (panelSetting != null)
-        {
-            panelSetting.SetActive(true);
-            HubungkanTombolModal();
-        }
+        if (panelSetting != null) panelSetting.SetActive(true);
         if (panelAbout != null) panelAbout.SetActive(false);
         if (panelDisclaimer != null) panelDisclaimer.SetActive(false);
     }
@@ -231,11 +251,7 @@ public class MainMenuController : MonoBehaviour
 
     public void BukaAbout()
     {
-        if (panelAbout != null)
-        {
-            panelAbout.SetActive(true);
-            HubungkanTombolModal();
-        }
+        if (panelAbout != null) panelAbout.SetActive(true);
         if (panelSetting != null) panelSetting.SetActive(false);
         if (panelDisclaimer != null) panelDisclaimer.SetActive(false);
     }
@@ -250,11 +266,7 @@ public class MainMenuController : MonoBehaviour
         // Pastikan ketika klik Play biasa, status lompat babak direset bersih
         KamusManager.TargetNodeLompatan = "";
 
-        if (panelDisclaimer != null)
-        {
-            panelDisclaimer.SetActive(true);
-            HubungkanTombolModal();
-        }
+        if (panelDisclaimer != null) panelDisclaimer.SetActive(true);
         if (panelSetting != null) panelSetting.SetActive(false);
         if (panelAbout != null) panelAbout.SetActive(false);
     }
@@ -279,6 +291,8 @@ public class MainMenuController : MonoBehaviour
             SetupFadeOverlay();
         }
 
+        float startBgmVol = (bgmSource != null && bgmSource.isPlaying) ? bgmSource.volume : 0f;
+
         if (fadeOverlay != null)
         {
             fadeOverlay.gameObject.SetActive(true);
@@ -292,6 +306,10 @@ public class MainMenuController : MonoBehaviour
                 float t = Mathf.Clamp01(waktu / durasiFade);
                 float alpha = Mathf.SmoothStep(0f, 1f, t);
                 fadeOverlay.color = new Color(0f, 0f, 0f, alpha);
+                if (bgmSource != null && startBgmVol > 0f)
+                {
+                    bgmSource.volume = Mathf.Lerp(startBgmVol, 0f, t);
+                }
                 yield return null;
             }
             fadeOverlay.color = new Color(0f, 0f, 0f, 1f);

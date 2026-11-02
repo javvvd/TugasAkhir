@@ -12,6 +12,7 @@ public class SistemInteraksi : MonoBehaviour
 
     // Sekarang kita menyimpan script BendaInteraktif, bukan GameObject-nya
     private BendaInteraktif bendaYangDitabrak;
+    private Collider colliderTerakhir;
 
     void Awake()
     {
@@ -27,6 +28,17 @@ public class SistemInteraksi : MonoBehaviour
 
     void Update()
     {
+        if (Time.timeScale == 0f) return;
+
+        // Cegah interaksi kalau HP sedang terbuka
+        if (HPManager.Instance != null && HPManager.Instance.IsHpActive)
+        {
+            if (tombolUI != null && tombolUI.activeSelf) tombolUI.SetActive(false);
+            bendaYangDitabrak = null;
+            colliderTerakhir = null;
+            return;
+        }
+
         // Cegah interaksi kalau dialog sedang jalan
         if (mesinCerita != null && mesinCerita.IsDialogueRunning)
         {
@@ -35,6 +47,7 @@ public class SistemInteraksi : MonoBehaviour
                 tombolUI.SetActive(false);
             }
             bendaYangDitabrak = null;
+            colliderTerakhir = null;
             return;
         }
 
@@ -51,49 +64,55 @@ public class SistemInteraksi : MonoBehaviour
 
         if (Physics.Raycast(laser, out dataTabrakan, jarakInteraksi))
         {
-            // Cek apakah benda yang ditabrak punya script "BendaInteraktif" (baik di objek atau parent-nya)
-            BendaInteraktif benda = dataTabrakan.collider.GetComponent<BendaInteraktif>();
-            if (benda == null)
+            // Hanya panggil GetComponent saat collider yang disorot berubah
+            if (dataTabrakan.collider != colliderTerakhir)
             {
-                benda = dataTabrakan.collider.GetComponentInParent<BendaInteraktif>();
+                colliderTerakhir = dataTabrakan.collider;
+                BendaInteraktif benda = colliderTerakhir.GetComponent<BendaInteraktif>();
+                if (benda == null)
+                {
+                    benda = colliderTerakhir.GetComponentInParent<BendaInteraktif>();
+                }
+                bendaYangDitabrak = benda;
+
+                if (bendaYangDitabrak != null)
+                {
+                    if (tombolUI != null && !tombolUI.activeSelf)
+                    {
+                        tombolUI.SetActive(true);
+                    }
+                    if (teksTombol != null)
+                    {
+                        teksTombol.text = !string.IsNullOrEmpty(bendaYangDitabrak.teksTombolInteraksi)
+                            ? bendaYangDitabrak.teksTombolInteraksi
+                            : "Interaksi";
+                    }
+                }
+                else
+                {
+                    if (tombolUI != null && tombolUI.activeSelf)
+                    {
+                        tombolUI.SetActive(false);
+                    }
+                }
             }
 
-            if (benda != null)
+            if (bendaYangDitabrak != null && Input.GetKeyDown(KeyCode.E))
             {
-                if (tombolUI != null && !tombolUI.activeSelf)
-                {
-                    tombolUI.SetActive(true); // Munculkan tombol UI
-                }
-
-                if (teksTombol != null)
-                {
-                    teksTombol.text = !string.IsNullOrEmpty(benda.teksTombolInteraksi) ? benda.teksTombolInteraksi : "Interaksi";
-                }
-
-                bendaYangDitabrak = benda; // Ingat benda yang sedang disorot
-
-                // Tambahan: bisa tekan tombol E di keyboard juga untuk PC/Editor
-                if (Input.GetKeyDown(KeyCode.E))
-                {
-                    TombolDitekan();
-                }
-            }
-            else
-            {
-                if (tombolUI != null && tombolUI.activeSelf)
-                {
-                    tombolUI.SetActive(false);
-                }
-                bendaYangDitabrak = null;
+                TombolDitekan();
             }
         }
         else
         {
-            if (tombolUI != null && tombolUI.activeSelf)
+            if (colliderTerakhir != null || bendaYangDitabrak != null)
             {
-                tombolUI.SetActive(false);
+                colliderTerakhir = null;
+                bendaYangDitabrak = null;
+                if (tombolUI != null && tombolUI.activeSelf)
+                {
+                    tombolUI.SetActive(false);
+                }
             }
-            bendaYangDitabrak = null;
         }
     }
 
@@ -110,6 +129,7 @@ public class SistemInteraksi : MonoBehaviour
 
             string nodeTarget = bendaYangDitabrak.namaNodeYarn;
             bendaYangDitabrak = null;
+            colliderTerakhir = null;
 
             // Mulai dialog sesuai nama node yang ada di benda tersebut!
             if (mesinCerita != null)

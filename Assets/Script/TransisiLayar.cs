@@ -9,28 +9,38 @@ public class TransisiLayar : MonoBehaviour
     public Image layarHitam;
     public float durasiFade = 2f;
 
-    void Start()
+    private Coroutine coroutineFade;
+
+    void Awake()
     {
-        // Saat game baru mulai, layar otomatis ditutup hitam pekat.
-        // Layar akan menunggu perintah <<fade_in>> dari Yarn Spinner untuk terbuka.
-        layarHitam.color = new Color(0, 0, 0, 1f);
-        layarHitam.gameObject.SetActive(true);
+        if (layarHitam != null)
+        {
+            // Saat game baru mulai, layar otomatis ditutup hitam pekat di Awake
+            // agar tidak berbenturan dengan perintah <<fade_in>> di Frame 0.
+            layarHitam.raycastTarget = false;
+            layarHitam.color = new Color(0, 0, 0, 1f);
+            layarHitam.gameObject.SetActive(true);
+        }
     }
 
     // Perintah untuk membuat layar terang (dari hitam ke transparan)
     [YarnCommand("fade_in")]
     public void FadeIn()
     {
+        if (layarHitam == null) return;
+        if (coroutineFade != null) StopCoroutine(coroutineFade);
         layarHitam.gameObject.SetActive(true);
-        StartCoroutine(ProsesFade(1f, 0f));
+        coroutineFade = StartCoroutine(ProsesFade(1f, 0f));
     }
 
     // Perintah untuk membuat layar gelap (dari transparan ke hitam pekat)
     [YarnCommand("fade_out")]
     public void FadeOut()
     {
+        if (layarHitam == null) return;
+        if (coroutineFade != null) StopCoroutine(coroutineFade);
         layarHitam.gameObject.SetActive(true);
-        StartCoroutine(ProsesFade(0f, 1f));
+        coroutineFade = StartCoroutine(ProsesFade(0f, 1f));
     }
 
     // Mesin utama untuk memudarkan warna

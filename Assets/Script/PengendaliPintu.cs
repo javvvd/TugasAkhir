@@ -9,10 +9,11 @@ public class PengendaliPintu : MonoBehaviour
     public float kecepatan = 2f;  // Semakin besar, semakin cepat terbuka
 
     private Quaternion rotasiAwalPintu; // Menyimpan posisi pintu saat tertutup rapat
+    private Coroutine coroutinePintu;
 
-    void Start()
+    void Awake()
     {
-        // Menyimpan posisi 0 (tertutup) saat game baru mulai
+        // Menyimpan posisi 0 (tertutup) di Awake agar aman dari perintah Yarn di Frame 0
         rotasiAwalPintu = transform.rotation;
     }
 
@@ -20,14 +21,16 @@ public class PengendaliPintu : MonoBehaviour
     [YarnCommand("buka_pintu")]
     public void BukaPintu()
     {
-        StartCoroutine(ProsesBuka());
+        if (coroutinePintu != null) StopCoroutine(coroutinePintu);
+        coroutinePintu = StartCoroutine(ProsesBuka());
     }
 
     // Perintah untuk tutup pintu
     [YarnCommand("tutup_pintu")]
     public void TutupPintu()
     {
-        StartCoroutine(ProsesTutup());
+        if (coroutinePintu != null) StopCoroutine(coroutinePintu);
+        coroutinePintu = StartCoroutine(ProsesTutup());
     }
 
     IEnumerator ProsesBuka()
