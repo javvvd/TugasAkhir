@@ -8191,7 +8191,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &414542753
 RectTransform:
   m_ObjectHideFlags: 0
@@ -8231,9 +8231,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Kecemasan atau rasa takut ketinggalan tren, obrolan, gaya hidup, atau momen
-    seru yang sedang ramai dilakukan orang lain. Di dunia saham, dorongan emosional
-    ini kerap memicu rasa panik sehingga nekat ikut membeli tanpa analisis matang.
+  m_text: Rasa takut ketinggalan sesuatu yang sedang ramai. Di dunia saham, dorongan
+    emosional ini kerap memicu pengambilan keputusan yang tidak rasional.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
