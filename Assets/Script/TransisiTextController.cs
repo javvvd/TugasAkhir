@@ -337,8 +337,8 @@ public class TransisiTextController : MonoBehaviour
             badgeStr = "ENDING 1 DARI 4";
             ColorUtility.TryParseHtmlString("#FCA5A5", out accentColor); // Coral lembut
             judulStr = "KEBANGKRUTAN TOTAL";
-            subjudulStr = "Uang Terjebak";
-            narasiStr = "<b>Evaluasi:</b>\n" +
+            subjudulStr = "Terjebak Uang Panas & Menolak Realita";
+            narasiStr = "<b>Evaluasi Keputusanmu:</b>\n" +
                         "• <b>Herding Behavior & FOMO:</b> Kamu terbuai ajakan teman dan euforia grup tanpa melakukan riset mandiri.\n" +
                         "• <b>Spekulasi Uang Panas:</b> Kamu mempertaruhkan uang kos dan tabungan laptop impianmu ke saham gorengan.\n" +
                         "• <b>Tanpa Manajemen Risiko:</b> Egumu menolak <i>Cut Loss</i> dan nekat <i>Average Down</i> saat harga terus ambruk.";
@@ -425,12 +425,12 @@ public class TransisiTextController : MonoBehaviour
 
         if (textNarasi != null)
         {
-            textNarasi.text = $"<line-height=135%>{narasiStr}</line-height>";
+            textNarasi.text = $"<line-height=125%>{narasiStr}</line-height>";
         }
 
         if (textEdukasi != null)
         {
-            textEdukasi.text = $"<line-height=130%>{edukasiStr}</line-height>";
+            textEdukasi.text = $"<line-height=120%>{edukasiStr}</line-height>";
         }
 
         PauseManager.Instance?.SembunyikanTombolPause();

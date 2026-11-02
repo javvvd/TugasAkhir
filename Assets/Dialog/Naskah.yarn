@@ -22,7 +22,7 @@ Raka: Tapi laptop impian harganya lumayan mahal... Tabunganku di bank pas-pasan 
 Raka: Hhh... ke meja dulu deh, taruh tas sama istirahat bentar.
 <<pindah_ke_meja PLAYER 2.5>>
 <<wait 2.5>>
-Raka: duduk di kursi emang paling nikmat setelah seharian capek.
+Raka: duduk di kursi emang nikmat setelah seharian capek.
 Raka: Haus juga habis dari luar... Minum dulu deh.
 <<aktifkan_interaksi Gelas>>
 <<tampilkan_tugas BoxTugasManager>>

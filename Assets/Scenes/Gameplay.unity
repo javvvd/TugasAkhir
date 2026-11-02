@@ -735,8 +735,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -130}
-  m_SizeDelta: {x: 1100, y: 38}
+  m_AnchoredPosition: {x: 0, y: -112}
+  m_SizeDelta: {x: 1220, y: 32}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &46034195
 CanvasRenderer:
@@ -793,8 +793,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 27
-  m_fontSizeBase: 27
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5223,8 +5223,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 36}
-  m_SizeDelta: {x: 360, y: 64}
+  m_AnchoredPosition: {x: 0, y: 48}
+  m_SizeDelta: {x: 380, y: 68}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!1 &249628979
 GameObject:
@@ -9184,8 +9184,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -28}
-  m_SizeDelta: {x: 1100, y: 36}
+  m_AnchoredPosition: {x: 0, y: -24}
+  m_SizeDelta: {x: 1220, y: 32}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &460882915
 CanvasRenderer:
@@ -9242,8 +9242,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -12886,7 +12886,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 1220, y: 760}
+  m_SizeDelta: {x: 1320, y: 820}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &685115551
 MonoBehaviour:
@@ -17074,8 +17074,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -68}
-  m_SizeDelta: {x: 1100, y: 58}
+  m_AnchoredPosition: {x: 0, y: -58}
+  m_SizeDelta: {x: 1220, y: 52}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &923402712
 CanvasRenderer:
@@ -17132,8 +17132,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46
-  m_fontSizeBase: 46
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -27338,8 +27338,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -31130,8 +31130,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -455}
-  m_SizeDelta: {x: 1100, y: 165}
+  m_AnchoredPosition: {x: 0, y: -380}
+  m_SizeDelta: {x: 1220, y: 145}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &1705641344
 MonoBehaviour:
@@ -33661,7 +33661,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -48, y: -24}
+  m_SizeDelta: {x: -40, y: -16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1862505221
 CanvasRenderer:
@@ -33691,10 +33691,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<line-height=130%><b>Kesimpulan & Bahaya:</b>
+  m_text: '<line-height=120%><b>Bahaya FOMO dalam Investasi:</b>
 
-    Tabungan Rp5 juta Raka
-    terkunci dan terus anjlok tanpa ada antrean beli hingga modalnya musnah tak bersisa.</line-height>'
+    Tabunganmu
+    Rp5.000.000 musnah tak bersisa. FOMO melumpuhkan logika dan mengubah investasimu
+    menjadi judi spekulatif yang berujung kebangkrutan.</line-height>'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -33721,8 +33722,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 25
-  m_fontSizeBase: 25
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -33733,7 +33734,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 5
+  m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -34976,8 +34977,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -180}
-  m_SizeDelta: {x: 1100, y: 2}
+  m_AnchoredPosition: {x: 0, y: -152}
+  m_SizeDelta: {x: 1220, y: 2}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1909875621
 CanvasRenderer:
@@ -37706,8 +37707,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -200}
-  m_SizeDelta: {x: 1100, y: 240}
+  m_AnchoredPosition: {x: 0, y: -166}
+  m_SizeDelta: {x: 1220, y: 195}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &2097822350
 CanvasRenderer:
@@ -37737,10 +37738,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<line-height=135%><b>Tindakan FOMO Raka:</b>\n\u2022 <b>Herding Behavior:</b>
-    Ikut hasutan grup pompom & teman tanpa riset.\n\u2022 <b>Spekulatif & Uang Panas:</b>
-    Pakai tabungan laptop & kos untuk judi saham.\n\u2022 <b>Tanpa Manajemen Risiko:</b>
-    Menolak <i>Cut Loss</i> dan nekat <i>Average Down</i>.</line-height>"
+  m_text: "<line-height=125%><b>Evaluasi Keputusanmu:</b>\n\u2022 <b>Kendalikan FOMO:</b>
+    Kamu berhasil menahan nafsu serakah dan tidak tergiur pamer profit sesaat di
+    grup saham.\n\u2022 <b>Patuhi Fundamental:</b> Kamu mengutamakan data kinerja
+    keuangan perusahaan di atas rumor dan bisikan spekulatif.\n\u2022 <b>Disiplin
+    Finansial:</b> Kamu memegang teguh komitmen menjaga tabungan laptop demi masa
+    depan kuliahmu.</line-height>"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -37767,8 +37770,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
-  m_fontSizeBase: 26
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -37779,7 +37782,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 8
+  m_lineSpacing: 0
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
