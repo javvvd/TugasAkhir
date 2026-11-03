@@ -22,7 +22,7 @@ Raka: Tapi laptop impian harganya lumayan mahal... Tabunganku di bank pas-pasan 
 Raka: Hhh... ke meja dulu deh, taruh tas sama istirahat bentar.
 <<pindah_ke_meja PLAYER 2.5>>
 <<wait 2.5>>
-Raka: duduk di kursi emang nikmat setelah seharian capek.
+Raka: Duduk di kursi emang nikmat setelah seharian capek.
 Raka: Haus juga habis dari luar... Minum dulu deh.
 <<aktifkan_interaksi Gelas>>
 <<tampilkan_tugas BoxTugasManager>>
@@ -469,8 +469,6 @@ Raka: Buruan buka aplikasinya!!
 
 Raka: loh KOK MERAH?!
 
-// EDUKASI: Pop-Up Merah - Fase Dump & ARB
-
 Raka: Harganya... harganya anjlok parah dari 110 dibanting ke 93 per lembar?! 
 Raka: Nilai investasiku tinggal 4,3 juta... Lenyap 600 ribu dalam hitungan menit?!
 Raka: Nggak, Ayo jual! Jual semuanya sekarang juga!! 
@@ -709,7 +707,7 @@ Raka: Anjlok minus 6,45% dan langsung ARB terkunci!
 Raka: Kalau aja kemarin sore aku nggak buru-buru pasang antrean jual di harga pasar...
 Raka: Sahamku pasti ikut nyangkut di ARB hari ini dan nggak bakal bisa kejual sama sekali! Aku bener-bener berhasil keluar tepat waktu sebelum pintunya ditutup.
 
-Raka: Master Trading di Grup Telegram juga tida bersuara.
+Raka: Master Trading di Grup Telegram juga tidak bersuara.
 Raka: Seandainya kemarin sore aku serakah dan nekat pakai sisa uang 3 jutaku buat *Average Down*...
 Raka: Semua uang 5 jutaku pasti hari ini ikut terkunci dan nilainya makin hancur.
 
@@ -941,7 +939,7 @@ title: Ending_C_Buka_Pintu
 
 // SPRITE: Heri muncul dengan ekspresi panik
 Heri: Raka...
-Heri: Kau nggak jadi beli saham DUIT yang tadi siang itu kan? barusa ku cek harganya dibanting sampai ARB!
+Heri: Kau nggak jadi beli saham DUIT yang tadi siang itu kan? barusan ku cek harganya dibanting sampai ARB!
 
 // SPRITE: Raka menatap Heri dengan tatapan kosong dan pucat
 Raka: Uangku nyangkut semua di situ...
