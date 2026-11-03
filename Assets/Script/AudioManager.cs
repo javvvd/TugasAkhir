@@ -239,6 +239,7 @@ public class AudioManager : MonoBehaviour
             case "minum":
             case "air":
             case "gelas":
+            case "botol":
             case "drink":
                 targetClip = clipMinum;
                 break;

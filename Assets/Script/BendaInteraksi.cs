@@ -101,7 +101,7 @@ public class BendaInteraktif : MonoBehaviour
         }
     }
 
-    // Menyembunyikan tampilan visual objek (misal: gelas saat diangkat/diminum)
+    // Menyembunyikan tampilan visual objek (misal: botol saat diangkat/diminum)
     [YarnCommand("sembunyikan_benda")]
     public void SembunyikanBenda()
     {
@@ -114,7 +114,7 @@ public class BendaInteraktif : MonoBehaviour
         if (areaKlik != null) areaKlik.enabled = false;
     }
 
-    // Memunculkan kembali tampilan visual objek (misal: gelas ditaruh kembali ke meja)
+    // Memunculkan kembali tampilan visual objek (misal: botol ditaruh kembali ke meja)
     [YarnCommand("munculkan_benda")]
     public void MunculkanBenda()
     {

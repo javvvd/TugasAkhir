@@ -24,7 +24,7 @@ Raka: Hhh... ke meja dulu deh, taruh tas sama istirahat bentar.
 <<wait 2.5>>
 Raka: Duduk di kursi emang nikmat setelah seharian capek.
 Raka: Haus juga habis dari luar... Minum dulu deh.
-<<aktifkan_interaksi Gelas>>
+<<aktifkan_interaksi Botol>>
 <<tampilkan_tugas BoxTugasManager>>
 <<ubah_tugas BoxTugasManager "Minum Air">>
 ===
@@ -32,11 +32,11 @@ title:Fase_Minum
 position: 230,-20
 ---
 <<sembunyikan_tugas BoxTugasManager>>
-<<matikan_interaksi Gelas>>
-<<sembunyikan_benda Gelas>>
+<<matikan_interaksi Botol>>
+<<sembunyikan_benda Botol>>
 <<putar_sfx AudioManager minum>>
 <<wait 1.5>>
-<<munculkan_benda Gelas>>
+<<munculkan_benda Botol>>
 Raka: Ahh... segar.
 <<wait 2>>
 <<putar_sfx AudioManager notif>>
