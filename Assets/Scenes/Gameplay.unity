@@ -16347,7 +16347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Grafiknya longsor parah ke 85!!
+  m_text: Grafiknya longsor parah ke 93!!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -31799,7 +31799,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: f458362374bc0c347a86e5127696991c, type: 3}
   - {fileID: 21300000, guid: c0936f7c173a9754a86a31e4f24217c3, type: 3}
   - {fileID: 21300000, guid: 0dc8a479185d6ab4784531c1de028bac, type: 3}
-  - {fileID: 21300000, guid: 86879a434ea8540479021ee8f5c497e7, type: 3}
+  - {fileID: 21300000, guid: 9d48e5dfe8b50784db9e1f6c6684dc67, type: 3}
   - {fileID: 21300000, guid: 607c06c7e341f2a4da54dcfd273b1637, type: 3}
   - {fileID: 21300000, guid: 7e00cc4cd4a17ad4fa44a627295bfceb, type: 3}
   - {fileID: 21300000, guid: df32e63c04ea1dc41bbd37eeb68387ef, type: 3}
