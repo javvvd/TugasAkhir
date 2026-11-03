@@ -405,14 +405,6 @@ Raka: Beli sekarang aja kali ya?! Masih ada waktu sebelum bursa tutup!
     Raka: Bodo amat lah sama laporan keuangan tadi! Mau perusahaannya rugi, utangnya segunung, faktanya sekarang harganya terbang!
     Raka: si Bima udah buktiin sendiri bisa dapet cuan jutaan!
     Raka: Buka aplikasi, masukin semua 5 juta! 
-    <<potong_uang GameManager 5000000>>
-    <<putar_sfx AudioManager order>>
-    <<ganti_layar_saham AppSahamManager 7>>
-    Raka: Order Matched! Dapet 370 Lot di harga 135!
-    Raka: Besok-besok pasti ditarik terbang lagi ke atas 200!
-    <<wait 1>>
-    <<tutup_AppSaham AppSahamManager>>
-    <<tutup_hp HPmanager>>
     <<jump Ending_C_Rugi_Puncak>>
 -> Tetap pada rencana menabung. (Abaikan Bima)
     <<tutup_AppSaham AppSahamManager>>
@@ -864,7 +856,15 @@ Raka: Pelajaran berharga hari ini: Menahan diri dari rasa FOMO jauh lebih menyel
 title: Ending_C_Rugi_Puncak
 position: 941,664
 ---
-
+-> Beli saham DUIT 5.000.000
+<<potong_uang GameManager 5000000>>
+<<putar_sfx AudioManager order>>
+<<ganti_layar_saham AppSahamManager 7>>
+Raka: Order Matched! Dapet 370 Lot di harga 135!
+Raka: Besok-besok pasti ditarik terbang lagi ke atas 200!
+<<wait 1>>
+<<tutup_AppSaham AppSahamManager>>
+<<tutup_hp HPmanager>>
 // SPRITE: Raka, ekspresi sangat antusias / senyum lebar
 Raka: Hahaha, mantap! Orderku langsung *Matched* di harga 135.
 Raka: Uang 5 juta masuk semua dapet 370 Lot.
@@ -963,6 +963,7 @@ Raka: Rugi hampir dua juta dalam sekejap, Her... Uang tabunganku...
 Heri: Aku turut prihatin, Rak. Tapi saham gorengan yang fundamental buruk terus diguyur sampai ARB begitu, susah banget baliknya. 
 Heri: Anggap ini pelajaran mahal buat kau. Jangan pernah abaikan data fundamental cuma demi ilusi untung cepat lagi.
 <<tutup_pintu EngselPintu>>
+<<wait 2>>
 // EDUKASI - Pop Up Box Merah
 
 // SPRITE: Raka, wajah pucat - baru mengerti apa yang terjadi
