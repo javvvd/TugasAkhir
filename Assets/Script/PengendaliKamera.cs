@@ -19,6 +19,10 @@ public class PengendaliKamera : MonoBehaviour
     [Tooltip("Kamera di warkop (perspektif saat nongkrong bersama Bima)")]
     public Camera kameraWarkop;
 
+    [Header("Optimasi Lingkungan")]
+    [Tooltip("Root objek AreaWarkop yang akan dimatikan otomatis saat pemain berada di kamar kos untuk menghemat resource.")]
+    public GameObject areaWarkop;
+
     [Header("Referensi Sistem Interaksi")]
     public SistemInteraksi sistemInteraksi;
 
@@ -59,6 +63,24 @@ public class PengendaliKamera : MonoBehaviour
             if (t != null) kameraWarkop = t.GetComponent<Camera>();
         }
 
+        if (areaWarkop == null)
+        {
+            areaWarkop = GameObject.Find("AreaWarkop");
+            if (areaWarkop == null)
+            {
+                // Jika AreaWarkop sedang nonaktif di scene, cari dengan Resources.FindObjectsOfTypeAll
+                var allAreas = Resources.FindObjectsOfTypeAll<Transform>();
+                foreach (var tr in allAreas)
+                {
+                    if (tr.gameObject.name == "AreaWarkop" && tr.parent == null)
+                    {
+                        areaWarkop = tr.gameObject;
+                        break;
+                    }
+                }
+            }
+        }
+
         if (sistemInteraksi == null)
         {
             sistemInteraksi = Object.FindObjectOfType<SistemInteraksi>();
@@ -96,6 +118,8 @@ public class PengendaliKamera : MonoBehaviour
                 c.gameObject.SetActive(false);
                 AudioListener al = c.GetComponent<AudioListener>();
                 if (al != null) al.enabled = false;
+                KameraMobile km = c.GetComponent<KameraMobile>();
+                if (km != null) km.enabled = false;
             }
         }
 
@@ -105,9 +129,22 @@ public class PengendaliKamera : MonoBehaviour
             AudioListener al = targetAktif.GetComponent<AudioListener>();
             if (al != null) al.enabled = true;
 
+            KameraMobile km = targetAktif.GetComponent<KameraMobile>();
+            if (km != null) km.enabled = true;
+
             if (sistemInteraksi != null)
             {
                 sistemInteraksi.kameraPemain = targetAktif;
+            }
+        }
+
+        // Optimasi: Matikan AreaWarkop jika sedang di kamar kos, nyalakan hanya saat kamera Warkop aktif
+        if (areaWarkop != null)
+        {
+            bool diWarkop = (targetAktif == kameraWarkop);
+            if (areaWarkop.activeSelf != diWarkop)
+            {
+                areaWarkop.SetActive(diWarkop);
             }
         }
     }

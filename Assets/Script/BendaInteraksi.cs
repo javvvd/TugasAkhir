@@ -29,6 +29,7 @@ public class BendaInteraktif : MonoBehaviour
     void Awake()
     {
         areaKlik = GetComponent<Collider>();
+        if (areaKlik == null) areaKlik = GetComponentInChildren<Collider>();
 
         if (!aktifSaatMulai && areaKlik != null)
         {
@@ -50,6 +51,7 @@ public class BendaInteraktif : MonoBehaviour
     public void MatikanInteraksi()
     {
         if (areaKlik == null) areaKlik = GetComponent<Collider>();
+        if (areaKlik == null) areaKlik = GetComponentInChildren<Collider>();
         if (areaKlik != null) areaKlik.enabled = false;
     }
 
@@ -57,6 +59,7 @@ public class BendaInteraktif : MonoBehaviour
     public void AktifkanInteraksi()
     {
         if (areaKlik == null) areaKlik = GetComponent<Collider>();
+        if (areaKlik == null) areaKlik = GetComponentInChildren<Collider>();
         if (areaKlik != null) areaKlik.enabled = true;
     }
 
@@ -118,6 +121,7 @@ public class BendaInteraktif : MonoBehaviour
             r.enabled = false;
         }
         if (areaKlik == null) areaKlik = GetComponent<Collider>();
+        if (areaKlik == null) areaKlik = GetComponentInChildren<Collider>();
         if (areaKlik != null) areaKlik.enabled = false;
     }
 

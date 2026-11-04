@@ -370,12 +370,12 @@ position: 604,450
 
 Raka: (Klik... Telepon terhubung)
 Raka: Halo, Bim? Kenapa nelepon?
-Bima: Woi Rak!! Lu masih di kosan kan?!
-Raka: Iya, baru kelar nugas nih. Ada apa, Bim?
-Bima: Buruan keluar, nyeberang ke warkop depan kosan sekarang!!
-Bima: Gue lagi di sini nongkrong, ada hal gila banget yang mau gue tunjukin ke lu!!
+Bima: Rak!! kau masih di kosan kan?
+Raka: Iya, Ada apa, Bim?
+Bima: Buruan keluar, nyeberang ke warkop depan kosan sekarang
+Bima: Aku lagi di sini nongkrong, ada hal gila banget yang mau ku tunjukin!!
 Raka: Hal gila apaan sih? Tumben banget heboh ngajak ketemuan mendadak gini.
-Bima: Udah jangan banyak tanya, buruan ke sini sekarang! Gue traktir kopi dah! Ini menyangkut masa depan finansial lu! Gue tunggu ya!
+Bima: Udah jangan banyak tanya, buruan ke sini sekarang!
 Raka: Lah, langsung dimatiin... Yaudah deh, mumpung sumpek juga habis nugas, samperin bentar ke warkop depan.
 
 // Telepon dimatikan
@@ -386,7 +386,7 @@ Raka: Lah, langsung dimatiin... Yaudah deh, mumpung sumpek juga habis nugas, sam
 <<fade_out Manager>>
 <<stop_bgm AudioManager>>
 <<wait 2>>
-<<munculkan_teks Manager "Raka pun keluar dari kamar kos dan menyeberang jalan menuju warkop depan...">>
+<<munculkan_teks Manager "Raka pun keluar dari kamar kos dan menuju warkop depan...">>
 <<wait 3>>
 <<hapus_teks Manager>>
 <<set_kamera_instan PLAYER warkop>>
@@ -395,8 +395,8 @@ Raka: Lah, langsung dimatiin... Yaudah deh, mumpung sumpek juga habis nugas, sam
 <<putar_bgm AudioManager santai>>
 <<wait 1>>
 
-Raka: Haaah... Panas juga di luar.
-Raka: Minum es kopi dulu deh biar seger sambil nunggu Bima ngomong.
+Raka: Haaah... Panas juga dari luar.
+Raka: Minum kopi dulu deh biar seger.
 <<aktifkan_interaksi KopiRaka>>
 <<tampilkan_tugas BoxTugasManager>>
 <<ubah_tugas BoxTugasManager "Minum Kopi">>
@@ -412,11 +412,11 @@ position: 604,520
 <<wait 1.5>>
 <<munculkan_benda KopiRaka>>
 
-Raka: Slurrpp... Ahh, mantap kopinya.
+Raka: ...Ahh, mantap kopinya.
 Raka: Jadi ada apaan sih, Bim? Heboh banget nyuruh aku buru-buru nyeberang ke warkop.
 Bima: RAK!! KAU LIHAT SAHAM DUIT SEKARANG!!
-Bima: SAHAM DUIT TERBANG KE 135 BRO!! NAIK 35% HARI INI!!
-Bima: Nih, liat sendiri di HP gue! Keuntungan jutaan ngalir deras dalam sehari!! Ikut VIP Master Trading ga ada lawan!
+Bima: SAHAM DUIT TERBANG KE 135!! NAIK 35% HARI INI!!
+Bima: Nih, liat sendiri di HP ku! Keuntungan jutaan ngalir deras dalam sehari!! Ikut VIP Master Trading ga ada lawan!
 <<putar_sfx AudioManager notif>>
 <<munculkan_benda HandphoneBima>>
 <<aktifkan_interaksi HandphoneBima>>
@@ -430,21 +430,17 @@ position: 604,600
 <<sembunyikan_tugas BoxTugasManager>>
 <<matikan_interaksi HandphoneBima>>
 
-Raka: Buset! Beneran Rp 135?!
-Raka: Portofoliomu untung ratusan persen... Grafiknya naik vertikal mentok batas atas (ARA)!
-Bima: Gue bilang juga apa! Makanya gue suruh lu ke sini sekarang mumpung bursa belum tutup jam 4!
-Bima: Barusan ada arahan resmi langsung dari Master Trading di grup VIP: HAKA (Hajar Kanan) sebelum kehabisan antrean!!
-Raka: Tapi Bim... tadi siang temenku Heri ngingetin kalau laporan keuangannya rugi, takutnya ini jebakan pump and dump bandar...
-Bima: Alah! Heri tuh kebanyakan teori kuno! Mau perusahaan rugi kek, utang segunung kek, faktanya sekarang bandar lagi naikin harganya gila-gilaan!
-Bima: Besok juga ditarik terbang lagi sahamnya! Kalau lu nggak beli sekarang, besok lu bakal menyesal seumur hidup gigit jari liat kita pesta cuan!
-Bima: Tabungan 5 juta lu kalau lu puterin sekarang, besok lu udah bisa beli laptop baru cash tanpa mikir cicilan!
-Bima: Udah, bursa bentar lagi jam 4 tutup! Buruan balik ke kosan lu sekarang dan ambil keputusan!!
-Raka: Gila... 5 jutaku kalau beneran berlipat ganda kayak gitu...
+Raka: Grafiknya naik vertikal!
+Bima: Makanya aku suruh kau ke sini sekarang mumpung bursa belum tutup jam 4!
+Bima: Barusan ada arahan dari Master Trading di grup VIP: HAKA (Hajar Kanan) sebelum kehabisan antrean!!
+Raka: Tapi Bim... tadi siang aku cek laporan keuangannya rugi, takutnya ini jebakan.
+Bima: Kau terlalu banyak mikir.
+Bima: Bursa bentar lagi jam 4 tutup! ambil keputusan!!
 
 <<fade_out Manager>>
 <<stop_bgm AudioManager>>
 <<wait 2>>
-<<munculkan_teks Manager "Dengan pikiran berkecamuk dan terbakar rasa FOMO, Raka pun bergegas kembali ke kamar kosnya...">>
+<<munculkan_teks Manager "Dengan pikiran takut ketinggalan, Raka pun bergegas kembali ke kamar kosnya...">>
 <<wait 3>>
 <<hapus_teks Manager>>
 <<set_kamera_instan PLAYER meja>>
@@ -453,19 +449,15 @@ Raka: Gila... 5 jutaku kalau beneran berlipat ganda kayak gitu...
 <<putar_bgm AudioManager santai>>
 <<wait 1>>
 
-Raka: Hah... hah... Sampai kosan juga. Napasku masih ngos-ngosan.
-Raka: Kata Bima tadi saham DUIT beneran terbang ke 135... Dan Master Trading nyuruh HAKA sebelum bursa tutup jam 4.
-Raka: Coba kucek aplikasiku sendiri langsung...
-
 <<munculkan_hp HPmanager>>
 <<buka_AppSaham AppSahamManager>>
 <<ganti_layar_saham AppSahamManager 6>>
 <<wait 3>>
 
-Raka: ... Beneran Rp 135 per lembar! Grafiknya bener-bener mentok batas atas (ARA)!
-Raka: Uang 5 jutaku... kalau tadi siang aku beliin DUIT, sekarang pasti udah untung hampir 2 juta...
+Raka: ...hmmm
+Raka: Tabungan 5 jutaku... kalau tadi siang aku beliin DUIT, sekarang pasti udah untung hampir 2 juta...
 Raka: Hadeh, nyesel banget aku nggak beli tadi siang.
-Raka: Waktu sebelum bursa tutup tinggal sedikit lagi... Beli sekarang aja kali ya?!
+Raka: ...Beli sekarang aja kali ya?!
 
 // ----------------------------------------------------
 // BAGIAN 3: PILIHAN (UJIAN TERAKHIR)

@@ -3522,7 +3522,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 180508607}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &180508611
 Camera:
   m_ObjectHideFlags: 0
@@ -8105,7 +8105,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &361618184
 Transform:
   m_ObjectHideFlags: 0
@@ -11884,8 +11884,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576383162}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.044074256, y: 0.3227125, z: -0.015045546, w: 0.9453506}
-  m_LocalPosition: {x: -1.148, y: -0.253, z: -0.293}
+  m_LocalRotation: {x: 0.049775455, y: 0.24335381, z: -0.012506, w: 0.9685788}
+  m_LocalPosition: {x: -1.1015556, y: -0.2504202, z: -0.17737037}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11912,7 +11912,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576383162}
-  m_Enabled: 0
+  m_Enabled: 1
 --- !u!20 &576383166
 Camera:
   m_ObjectHideFlags: 0
@@ -12671,21 +12671,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d55f68cff1c0454e9e460cc1256ceee, type: 3}
       insertIndex: -1
       addedObject: {fileID: 600307215}
-    - targetCorrespondingSourceObject: {fileID: 5614993216434561473, guid: 4d55f68cff1c0454e9e460cc1256ceee, type: 3}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d55f68cff1c0454e9e460cc1256ceee, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 600307214}
-    - targetCorrespondingSourceObject: {fileID: 5614993216434561473, guid: 4d55f68cff1c0454e9e460cc1256ceee, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 600307213}
+      addedObject: {fileID: 600307216}
   m_SourcePrefab: {fileID: 100100000, guid: 4d55f68cff1c0454e9e460cc1256ceee, type: 3}
 --- !u!4 &600307210 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4d55f68cff1c0454e9e460cc1256ceee, type: 3}
-  m_PrefabInstance: {fileID: 600307209}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &600307211 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5614993216434561473, guid: 4d55f68cff1c0454e9e460cc1256ceee, type: 3}
   m_PrefabInstance: {fileID: 600307209}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &600307212 stripped
@@ -12693,46 +12685,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 4d55f68cff1c0454e9e460cc1256ceee, type: 3}
   m_PrefabInstance: {fileID: 600307209}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &600307213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600307211}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5336c19e17565449ab56dede9f37b86, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  namaNodeYarn: Prolog_Minum_Kopi
-  teksTombolInteraksi: Minum Kopi
-  aktifSaatMulai: 1
-  sembunyikanSaatMulai: 0
-  efekLayar: {fileID: 0}
-  matLockscreen: {fileID: 0}
-  matPanggilan: {fileID: 0}
---- !u!65 &600307214
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 600307211}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.015, y: 0.015, z: 0.015}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &600307215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12752,6 +12704,27 @@ MonoBehaviour:
   efekLayar: {fileID: 0}
   matLockscreen: {fileID: 0}
   matPanggilan: {fileID: 0}
+--- !u!65 &600307216
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 600307212}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.015, y: 0.015, z: 0.02}
+  m_Center: {x: 0, y: 0, z: 0.005}
 --- !u!1 &600758469
 GameObject:
   m_ObjectHideFlags: 0
@@ -13515,7 +13488,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653606336}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &653606338
 Camera:
   m_ObjectHideFlags: 0
@@ -13575,8 +13548,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653606336}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.010926195, y: 0.9890738, z: -0.10395585, w: 0.103955805}
-  m_LocalPosition: {x: 25.187183, y: -0.14579082, z: 0.38066864}
+  m_LocalRotation: {x: 0.004310152, y: 0.9935237, z: -0.10613263, w: 0.04034799}
+  m_LocalPosition: {x: 25.151, y: -0.151, z: 0.556}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21844,7 +21817,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085192215}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.10096221, y: -0.712248, z: 0.096317515, w: 0.68791884}
+  m_LocalRotation: {x: -0.0967723, y: 0.71282953, z: -0.10036097, w: -0.68734044}
   m_LocalPosition: {x: -0.521, y: -0.452, z: 1.268}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -27110,6 +27083,7 @@ MonoBehaviour:
   kameraMeja: {fileID: 1085192217}
   kameraKasur: {fileID: 180508611}
   kameraWarkop: {fileID: 653606338}
+  areaWarkop: {fileID: 361618183}
   sistemInteraksi: {fileID: 1562943280}
   durasiTransisiDefault: 2
   mulaiDariPintu: 1
@@ -30059,7 +30033,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1dbc9704879cffe45b1e63e7c48f30e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  kameraPemain: {fileID: 180508611}
+  kameraPemain: {fileID: 576383166}
   tombolUI: {fileID: 1337565173}
   teksTombol: {fileID: 1130365773}
   mesinCerita: {fileID: 1068897607}
@@ -34186,8 +34160,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 9d48e5dfe8b50784db9e1f6c6684dc67, type: 3}
   - {fileID: 21300000, guid: 607c06c7e341f2a4da54dcfd273b1637, type: 3}
   - {fileID: 21300000, guid: 7e00cc4cd4a17ad4fa44a627295bfceb, type: 3}
-  - {fileID: 21300000, guid: df32e63c04ea1dc41bbd37eeb68387ef, type: 3}
-  - {fileID: 21300000, guid: cde4fe6e8f2347a42b563ac075e1a543, type: 3}
+  - {fileID: 21300000, guid: 985f7590084e7bc41be0acfe36504c94, type: 3}
+  - {fileID: 21300000, guid: 917ea24e6b3885e4fb38eef95adca642, type: 3}
   - {fileID: 21300000, guid: ea6db756487944c4a939d397c3ba6275, type: 3}
   - {fileID: 21300000, guid: 02f16a06774ae094097ae0d0a641a5e9, type: 3}
   - {fileID: 21300000, guid: 81704e1f12d4ff34d9c323b12d226a12, type: 3}
@@ -36867,8 +36841,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.03, y: 0.03, z: 0.02}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.03, y: 0.04, z: 0.15}
+  m_Center: {x: 0, y: 0, z: 0.05}
 --- !u!23 &1884934167
 MeshRenderer:
   m_ObjectHideFlags: 0
