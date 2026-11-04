@@ -339,10 +339,10 @@ public class TransisiTextController : MonoBehaviour
             judulStr = "KEBANGKRUTAN TOTAL";
             subjudulStr = "Terjebak Uang Panas & Menolak Realita";
             narasiStr = "<b>Evaluasi Keputusanmu:</b>\n" +
-                        "• <b>Herding Behavior & FOMO:</b> Kamu terbuai ajakan teman dan euforia grup tanpa melakukan riset mandiri.\n" +
-                        "• <b>Spekulasi Uang Panas:</b> Kamu mempertaruhkan uang kos dan tabungan laptop impianmu ke saham gorengan.\n" +
-                        "• <b>Tanpa Manajemen Risiko:</b> Egumu menolak <i>Cut Loss</i> dan nekat <i>Average Down</i> saat harga terus ambruk.";
-            edukasiStr = "<b>Bahaya FOMO dalam Investasi:</b>\nTabunganmu Rp5.000.000 musnah tak bersisa. FOMO melumpuhkan logika dan mengubah investasimu menjadi judi spekulatif yang berujung kebangkrutan.";
+                        "• <b>Herding Behavior & FOMO:</b> Kamu terbuai ajakan teman dan kerumunan orang tanpa melakukan riset mandiri.\n" +
+                        "• <b>Spekulasi Uang Panas:</b> Kamu mempertaruhkan tabungan laptop impianmu ke aset yang tidak dimengerti.\n" +
+                        "• <b>Tanpa Manajemen Risiko:</b> Hanya terfokus pada keuntungan sampai melupakan resiko yang bisa terjadi.";
+            edukasiStr = "FOMO melumpuhkan logika rasional dan mengubah investasi menjadi judi spekulatif. Tanpa kontrol emosi dan manajemen risiko, modal serta kerja keras dapat musnah dalam sekejap.";
         }
         else if (upper.Contains("ENDING B"))
         {
@@ -354,10 +354,10 @@ public class TransisiTextController : MonoBehaviour
             judulStr = "BERANI CUT LOSS";
             subjudulStr = "Disiplin Membatasi Kerugian";
             narasiStr = "<b>Evaluasi Keputusanmu:</b>\n" +
-                        "• <b>Sadar dari Herding Behavior:</b> Kamu sempat terbawa FOMO membeli saham pom-pom Rp2 juta, namun segera sadar dari laporan keuangannya.\n" +
-                        "• <b>Disiplin Manajemen Risiko:</b> Kamu berani mengakui kesalahan dan disiplin <i>Cut Loss</i> sebelum harga anjlok lebih parah.\n" +
-                        "• <b>Tolak Spekulasi:</b> Kamu menolak godaan <i>Average Down</i> yang berisiko menenggelamkan sisa modalmu.";
-            edukasiStr = "<b>Bahaya FOMO dalam Investasi:</b>\nTanpa keberanian <i>Cut Loss</i>, siklus FOMO akan menelan seluruh modalmu. Rela rugi Rp300 ribu berhasil menyelamatkan sisa Rp4.700.000 tabunganmu.";
+                        "• <b>Sadar dari Herding Behavior:</b> Kamu sempat terbawa emosi FOMO membeli saham viral, namun segera sadar setelah memeriksa kinerja laporan keuangannya.\n" +
+                        "• <b>Disiplin Manajemen Risiko:</b> Kamu berani mengakui kesalahan dan disiplin <i>Cut Loss</i> dan membatasi risiko sebelum membesar.\n" +
+                        "• <b>Tolak Spekulasi:</b> Menolak godaan <i>Average Down</i> spekulatif yang berpotensi menenggelamkan sisa modalmu.\n";
+            edukasiStr = "Kesadaran diri dan disiplin membatasi kerugian adalah benteng utama investor. Mengakui kesalahan lebih awal dapat menyelamatkan sisa portofolio dari kehancuran total.";
         }
         else if (upper.Contains("ENDING C"))
         {
@@ -369,10 +369,10 @@ public class TransisiTextController : MonoBehaviour
             judulStr = "BELI DI PUNCAK";
             subjudulStr = "Korban Euforia & Pintu Keluar Bandar";
             narasiStr = "<b>Evaluasi Keputusanmu:</b>\n" +
-                        "• <b>Buying at Peak (FOMO):</b> Rasa takut tertinggal melihat pamer profit membuatmu nekat membeli di harga tertinggi (Rp135).\n" +
-                        "• <b>Abaikan Fundamental:</b> Kamu menutup mata terhadap kondisi perusahaan demi mengejar keuntungan instan.\n" +
-                        "• <b>Exit Liquidity Bandar:</b> Pembelian impulsifmu dijadikan alat buangan bandar untuk merealisasikan keuntungan (*Pump and Dump*).";
-            edukasiStr = "<b>Bahaya FOMO dalam Investasi:</b>\nTindakan Spekulatif didorong oleh rasa takut ketinggalan keuntungan. Akhirnya kamu terjebak di harga tinggi.";
+                        "• <b>Buying at Peak (FOMO):</b> Rasa takut tertinggal keuntungan membuatmu nekat membeli di harga tertinggi.\n" +
+                        "• <b>Abaikan Fundamental:</b> Kamu menutup mata terhadap kinerja perusahaan demi mengejar keuntungan instan.\n" +
+                        "• <b>Exit Liquidity Bandar:</b> Pembelian impulsifmu dijadikan bandar untuk merealisasikan keuntungan (*Pump and Dump*).";
+            edukasiStr = "Tindakan Spekulatif didorong oleh rasa takut ketinggalan keuntungan. Akhirnya kamu terjebak di harga tinggi.";
         }
         else if (upper.Contains("ENDING D"))
         {
@@ -386,8 +386,8 @@ public class TransisiTextController : MonoBehaviour
             narasiStr = "<b>Evaluasi Keputusanmu:</b>\n" +
                         "• <b>Kendalikan FOMO:</b> Kamu berhasil menahan nafsu serakah dan tidak tergiur pamer profit sesaat di grup saham.\n" +
                         "• <b>Patuhi Fundamental:</b> Kamu mengutamakan data kinerja keuangan perusahaan di atas rumor dan bisikan spekulatif.\n" +
-                        "• <b>Disiplin Finansial:</b> Kamu memegang teguh komitmen menjaga tabungan laptop demi masa depan kuliahmu.";
-            edukasiStr = "<b>Bahaya FOMO yang Dihindari:</b>\nKedisiplinanmu menyelamatkan modal Rp5.000.000 tetap utuh 100% dari jebakan <i>Pump and Dump</i>. Kemenangan sejati investor adalah mampu mengendalikan emosinya sendiri.";
+                        "• <b>Disiplin Finansial:</b> Kamu memegang teguh komitmen menjaga tabungan laptop demi masa depan kuliahmu.\n";
+            edukasiStr = "Kedisiplinan dan literasi adalah perisai terkuat melawan manipulasi pasar. Kemenangan sejati seorang investor adalah kemampuannya mengendalikan emosi dan melindungi modal berharga.";
         }
         else
         {
