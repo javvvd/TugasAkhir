@@ -69,8 +69,12 @@ public class TransisiLayar : MonoBehaviour
 
     // Perintah untuk memudarkan layar ke hitam lalu berpindah scene
     [YarnCommand("pindah_scene")]
-    public void PindahScene(string namaScene)
+    public void PindahScene(string namaScene, string targetNode = "")
     {
+        if (!string.IsNullOrEmpty(targetNode))
+        {
+            KamusManager.TargetNodeLompatan = targetNode;
+        }
         if (coroutineFade != null) StopCoroutine(coroutineFade);
         StartCoroutine(ProsesPindahScene(namaScene));
     }

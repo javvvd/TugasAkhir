@@ -16,6 +16,9 @@ public class PengendaliKamera : MonoBehaviour
     [Tooltip("Kamera di kasur (perspektif saat rebahan/depresi menatap plafon)")]
     public Camera kameraKasur;
 
+    [Tooltip("Kamera di warkop (perspektif saat nongkrong bersama Bima)")]
+    public Camera kameraWarkop;
+
     [Header("Referensi Sistem Interaksi")]
     public SistemInteraksi sistemInteraksi;
 
@@ -49,6 +52,13 @@ public class PengendaliKamera : MonoBehaviour
             if (t != null) kameraKasur = t.GetComponent<Camera>();
         }
 
+        if (kameraWarkop == null)
+        {
+            Transform t = transform.Find("KameraWarkop");
+            if (t == null) t = transform.Find("Main Camera (3)");
+            if (t != null) kameraWarkop = t.GetComponent<Camera>();
+        }
+
         if (sistemInteraksi == null)
         {
             sistemInteraksi = Object.FindObjectOfType<SistemInteraksi>();
@@ -72,12 +82,13 @@ public class PengendaliKamera : MonoBehaviour
         if (kameraMeja != null && kameraMeja.gameObject.activeInHierarchy) return kameraMeja;
         if (kameraKasur != null && kameraKasur.gameObject.activeInHierarchy) return kameraKasur;
         if (kameraPintu != null && kameraPintu.gameObject.activeInHierarchy) return kameraPintu;
+        if (kameraWarkop != null && kameraWarkop.gameObject.activeInHierarchy) return kameraWarkop;
         return Camera.main;
     }
 
     private void AktifkanSatuKamera(Camera targetAktif)
     {
-        Camera[] allCams = { kameraPintu, kameraMeja, kameraKasur };
+        Camera[] allCams = { kameraPintu, kameraMeja, kameraKasur, kameraWarkop };
         foreach (var c in allCams)
         {
             if (c != null && c != targetAktif)
@@ -119,6 +130,12 @@ public class PengendaliKamera : MonoBehaviour
         AktifkanSatuKamera(kameraKasur);
     }
 
+    [YarnCommand("ganti_kamera_warkop")]
+    public void GantiKameraWarkop()
+    {
+        AktifkanSatuKamera(kameraWarkop);
+    }
+
     [YarnCommand("pindah_ke_meja")]
     public void TransisiKeMeja(float durasi = 2.0f)
     {
@@ -149,7 +166,11 @@ public class PengendaliKamera : MonoBehaviour
         if (coroutineTransisi != null) StopCoroutine(coroutineTransisi);
 
         string target = namaKamera != null ? namaKamera.ToLower().Trim() : "";
-        if (target.Contains("kasur") || target.Contains("bed") || target.Contains("rebahan"))
+        if (target.Contains("warkop") || target.Contains("kafe") || target.Contains("kopi"))
+        {
+            AktifkanSatuKamera(kameraWarkop);
+        }
+        else if (target.Contains("kasur") || target.Contains("bed") || target.Contains("rebahan"))
         {
             AktifkanSatuKamera(kameraKasur);
         }
