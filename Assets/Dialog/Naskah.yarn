@@ -1,3 +1,64 @@
+title: Prolog_Warkop
+position: 0,-400
+---
+<<fade_in Manager>>
+<<putar_bgm AudioManager santai>>
+<<wait 1>>
+
+Raka: Haaah... Panas banget hari ini.
+Raka: Minum kopi dulu deh biar seger sebelum mulai ngobrol.
+<<aktifkan_interaksi KopiRaka>>
+<<tampilkan_tugas BoxTugasManager>>
+<<ubah_tugas BoxTugasManager "Minum Kopi">>
+===
+
+title: Prolog_Minum_Kopi
+position: 0,-250
+---
+<<sembunyikan_tugas BoxTugasManager>>
+<<matikan_interaksi KopiRaka>>
+<<sembunyikan_benda KopiRaka>>
+<<putar_sfx AudioManager minum>>
+<<wait 1.5>>
+<<munculkan_benda KopiRaka>>
+
+Raka: Slurrpp... Ahh, mantap kopinya.
+Raka: Pusing banget aku, Bim. Laptop di kosan makin lemot, padahal tugas akhir lagi numpuk-numpuknya.
+Bima: Lah, kan kamu ada tabungan, Rak. Beli baru aja lah, beres kan?
+Raka: Tabunganku pas-pasan banget baru kekumpul 5 juta. Kalau kupakai semua buat beli laptop, uang makanku sebulan ke depan langsung ludes.
+Bima: Yaelah Rak, hari gini masih mikir cara kuno! Nih, coba kamu liat HP-ku!
+<<putar_sfx AudioManager notif>>
+<<munculkan_benda HandphoneBima>>
+<<aktifkan_interaksi HandphoneBima>>
+<<tampilkan_tugas BoxTugasManager>>
+<<ubah_tugas BoxTugasManager "Lihat HP Bima">>
+===
+
+title: Prolog_Lihat_Hp_Bima
+position: 0,-100
+---
+<<sembunyikan_tugas BoxTugasManager>>
+<<matikan_interaksi HandphoneBima>>
+
+Raka: Buset! Ini beneran portofoliomu, Bim? Untung 126% dalam dua hari?!
+Bima: Gue bilang juga apa! Saham emiten DUIT baru dua hari beli harganya udah terbang puluhan persen! Sekali klik doang langsung dapet cuan jutaan!
+Bima: Bayangin, kalau 5 juta tabunganmu itu kamu puterin ke saham ini sekarang, minggu depan kamu udah bisa beli laptop gaming spek dewa tanpa ngurangin uang kos!
+Raka: Seriusan kamu, Bim? Tapi... emang aman? Aku kan belum pernah main saham ginian.
+Bima: Hahaha, aman 100%! Aku tuh gabung grup VIP investor elit, ada influencernya yang ngatur kapan beli biar harganya naik terus. Nggak usah mikir, tinggal ikut aba-aba doang!
+Bima: Udah, nomormu barusan udah ku-invite ke grup VIP-nya. Mending kamu sekarang balik ke kosan, santai di kasur sambil pantau HP-mu!
+Bima: Nanti pas bursa buka sesi siang jam dua, kamu langsung eksekusi beli di aplikasimu!
+Raka: Hmm... bener juga ya. Kalau bisa untung cepat, kenapa nggak dicoba. Yaudah deh, aku balik ke kosan dulu ya, Bim.
+Bima: Sip! Jangan lupa pantau terus HP-mu pas sampai kosan!
+
+<<fade_out Manager>>
+<<wait 2>>
+<<munculkan_teks Manager "Tergoda oleh omongan Bima, Raka pun bergegas kembali ke kamar kosnya...">>
+<<wait 3>>
+<<hapus_teks Manager>>
+<<wait 1>>
+<<pindah_scene Manager Gameplay>>
+===
+
 title: Start
 position: 228,-115
 ---

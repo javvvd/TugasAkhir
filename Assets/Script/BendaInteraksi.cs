@@ -11,6 +11,8 @@ public class BendaInteraktif : MonoBehaviour
     [Header("Pengaturan Status Awal")]
     [Tooltip("Jika false, collider interaksi dinonaktifkan di awal game dan menunggu perintah dari Yarn")]
     public bool aktifSaatMulai = true;
+    [Tooltip("Jika true, seluruh renderer disembunyikan di awal game dan menunggu perintah munculkan_benda")]
+    public bool sembunyikanSaatMulai = false;
 
     private Collider areaKlik;
 
@@ -31,6 +33,11 @@ public class BendaInteraktif : MonoBehaviour
         if (!aktifSaatMulai && areaKlik != null)
         {
             areaKlik.enabled = false;
+        }
+
+        if (sembunyikanSaatMulai)
+        {
+            SembunyikanBenda();
         }
 
         if (efekLayar != null)
