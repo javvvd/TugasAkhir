@@ -17,9 +17,7 @@ public class KameraMobile : MonoBehaviour
         rotasiX = rotasiAwal.x;
         rotasiY = rotasiAwal.y;
 
-        // 2. Koreksi sumbu X (Atas-Bawah)
-        // Unity menyimpan sudut negatif (misal menunduk -10 derajat) sebagai 350 derajat.
-        // Kita harus mengembalikannya ke format minus agar fungsi Clamp (-90 sampai 90) tidak rusak.
+        // 2. Koreksi sumbu X (Atas-Bawah) agar fungsi Clamp (-90 sampai 90) akurat
         if (rotasiX > 180f)
         {
             rotasiX -= 360f;
@@ -53,10 +51,10 @@ public class KameraMobile : MonoBehaviour
                 geserY = sentuhan.deltaPosition.y * sensitivitasLayarHP;
             }
         }
-        // Deteksi klik-kiri & tahan (Drag) untuk uji coba di PC/Unity Editor
+#if UNITY_EDITOR
+        // Deteksi klik-kiri & tahan (Drag) khusus untuk uji coba di Unity Editor
         else if (Input.GetMouseButton(0))
         {
-            // Jangan putar kamera jika pointer mouse di atas UI
             if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject())
             {
                 return;
@@ -65,13 +63,12 @@ public class KameraMobile : MonoBehaviour
             geserX = Input.GetAxis("Mouse X") * sensitivitasMouseEditor;
             geserY = Input.GetAxis("Mouse Y") * sensitivitasMouseEditor;
         }
+#endif
 
         // Terapkan kalkulasi rotasi jika ada pergeseran
-        if (geserX != 0 || geserY != 0)
+        if (geserX != 0f || geserY != 0f)
         {
-            rotasiX -= geserY;
-            rotasiX = Mathf.Clamp(rotasiX, -90f, 90f);
-
+            rotasiX = Mathf.Clamp(rotasiX - geserY, -90f, 90f);
             rotasiY += geserX;
 
             transform.localRotation = Quaternion.Euler(rotasiX, rotasiY, 0f);

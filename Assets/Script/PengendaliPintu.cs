@@ -5,19 +5,17 @@ using System.Collections;
 public class PengendaliPintu : MonoBehaviour
 {
     [Header("Pengaturan Pintu")]
-    public float sudutBuka = 80f; // Ubah ke -90f jika pintu terbuka ke arah yang salah
-    public float kecepatan = 2f;  // Semakin besar, semakin cepat terbuka
+    public float sudutBuka = 80f;
+    public float kecepatan = 2f;
 
-    private Quaternion rotasiAwalPintu; // Menyimpan posisi pintu saat tertutup rapat
+    private Quaternion rotasiAwalPintu;
     private Coroutine coroutinePintu;
 
     void Awake()
     {
-        // Menyimpan posisi 0 (tertutup) di Awake agar aman dari perintah Yarn di Frame 0
         rotasiAwalPintu = transform.rotation;
     }
 
-    // Perintah untuk buka pintu
     [YarnCommand("buka_pintu")]
     public void BukaPintu()
     {
@@ -25,7 +23,6 @@ public class PengendaliPintu : MonoBehaviour
         coroutinePintu = StartCoroutine(ProsesBuka());
     }
 
-    // Perintah untuk tutup pintu
     [YarnCommand("tutup_pintu")]
     public void TutupPintu()
     {
@@ -36,8 +33,7 @@ public class PengendaliPintu : MonoBehaviour
     IEnumerator ProsesBuka()
     {
         Quaternion rotasiAwal = transform.rotation;
-        // Targetkan sudutBuka (misal: 80 derajat)
-        Quaternion rotasiTarget = rotasiAwalPintu * Quaternion.Euler(0, sudutBuka, 0);
+        Quaternion rotasiTarget = rotasiAwalPintu * Quaternion.Euler(0f, sudutBuka, 0f);
 
         float waktu = 0f;
         while (waktu < 1f)
@@ -48,12 +44,12 @@ public class PengendaliPintu : MonoBehaviour
         }
 
         transform.rotation = rotasiTarget;
+        coroutinePintu = null;
     }
 
     IEnumerator ProsesTutup()
     {
         Quaternion rotasiSaatIni = transform.rotation;
-        // Target kembali ke posisi awal (0 derajat)
         Quaternion rotasiTarget = rotasiAwalPintu;
 
         float waktu = 0f;
@@ -65,11 +61,8 @@ public class PengendaliPintu : MonoBehaviour
         }
 
         transform.rotation = rotasiTarget;
+        coroutinePintu = null;
 
-        // Putar suara pintu tertutup saat pintu selesai menutup
-        if (AudioManager.Instance != null)
-        {
-            AudioManager.Instance.PutarSFX("tutup_pintu");
-        }
+        AudioManager.Instance?.PutarSFX("tutup_pintu");
     }
 }

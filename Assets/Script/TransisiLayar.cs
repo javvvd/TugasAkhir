@@ -2,7 +2,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using Yarn.Unity;
-using UnityEngine.SceneManagement;
 
 public class TransisiLayar : MonoBehaviour
 {
@@ -65,27 +64,6 @@ public class TransisiLayar : MonoBehaviour
         {
             layarHitam.gameObject.SetActive(false);
         }
-    }
-
-    // Perintah untuk memudarkan layar ke hitam lalu berpindah scene
-    [YarnCommand("pindah_scene")]
-    public void PindahScene(string namaScene, string targetNode = "")
-    {
-        if (!string.IsNullOrEmpty(targetNode))
-        {
-            KamusManager.TargetNodeLompatan = targetNode;
-        }
-        if (coroutineFade != null) StopCoroutine(coroutineFade);
-        StartCoroutine(ProsesPindahScene(namaScene));
-    }
-
-    private IEnumerator ProsesPindahScene(string namaScene)
-    {
-        if (layarHitam != null)
-        {
-            layarHitam.gameObject.SetActive(true);
-            yield return StartCoroutine(ProsesFade(layarHitam.color.a, 1f));
-        }
-        SceneManager.LoadScene(namaScene);
+        coroutineFade = null;
     }
 }

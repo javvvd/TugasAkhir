@@ -17,8 +17,13 @@ public class PauseManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        Instance = this;
         Time.timeScale = 1f;
+    }
+
+    void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     void Start()
@@ -70,8 +75,6 @@ public class PauseManager : MonoBehaviour
         {
             panelPauseModal.SetActive(true);
             Time.timeScale = 0f;
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
         }
     }
 

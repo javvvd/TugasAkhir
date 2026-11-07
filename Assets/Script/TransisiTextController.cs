@@ -61,37 +61,14 @@ public class TransisiTextController : MonoBehaviour
         }
     }
 
-    void Update()
+    // Deteksi sentuhan layar untuk perangkat Mobile (serta klik saat uji coba di Editor)
+    private bool IsLayarDisentuh()
     {
-        // Kontrol input saat Panel Ending Card sedang aktif
-        if (panelEndingCard != null && panelEndingCard.activeInHierarchy)
+        if (Input.touchCount > 0)
         {
-            if (Cursor.lockState != CursorLockMode.None)
-            {
-                Cursor.lockState = CursorLockMode.None;
-            }
-            if (!Cursor.visible)
-            {
-                Cursor.visible = true;
-            }
-
-            // Failsafe 1: Deteksi klik langsung (mouse click / mobile touch) pada area Tombol Kembali
-            if (Input.GetMouseButtonDown(0) && tombolKembaliMenu != null)
-            {
-                RectTransform btnRt = tombolKembaliMenu.GetComponent<RectTransform>();
-                if (btnRt != null && RectTransformUtility.RectangleContainsScreenPoint(btnRt, Input.mousePosition, null))
-                {
-                    KembaliKeMenu();
-                    return;
-                }
-            }
-
-            // Failsafe 2: Shortcut keyboard (Spasi, Enter, atau Escape)
-            if (Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.Escape))
-            {
-                KembaliKeMenu();
-            }
+            return Input.GetTouch(0).phase == TouchPhase.Began;
         }
+        return Input.GetMouseButtonDown(0);
     }
 
     // Perintah Yarn untuk memunculkan teks custom (transisi jam/hari atau ending cerita)
@@ -175,8 +152,8 @@ public class TransisiTextController : MonoBehaviour
 
         while (currentChar < totalCharacters)
         {
-            // Fitur skip: jika pemain klik layar / tekan Spasi saat mengetik, langsung munculkan penuh
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
+            // Fitur skip: jika pemain menyentuh layar saat mengetik, langsung munculkan penuh
+            if (IsLayarDisentuh())
             {
                 break;
             }
@@ -277,7 +254,7 @@ public class TransisiTextController : MonoBehaviour
 
         while (timerHold < holdDurasi)
         {
-            if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Escape))
+            if (IsLayarDisentuh())
             {
                 break;
             }
@@ -461,9 +438,6 @@ public class TransisiTextController : MonoBehaviour
             tombolKembaliMenu.onClick.RemoveAllListeners();
             tombolKembaliMenu.onClick.AddListener(KembaliKeMenu);
         }
-
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
 
         // Pastikan seluruh parent (termasuk CanvasEnding) ikut aktif
         Transform p = panelEndingCard.transform;

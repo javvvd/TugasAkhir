@@ -3,7 +3,7 @@ using System.Globalization;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Yarn.Unity; // Wajib dipanggil agar bisa berkomunikasi dengan Yarn
+using Yarn.Unity;
 
 public class UangManager : MonoBehaviour
 {
@@ -63,7 +63,6 @@ public class UangManager : MonoBehaviour
 
         if (teksFloatingMinus == null)
         {
-            // Coba cari TextFloatingMinus di child BoxPorto secara otomatis
             Transform boxPorto = teksUang != null ? teksUang.transform.parent : null;
             if (boxPorto != null)
             {
@@ -98,7 +97,6 @@ public class UangManager : MonoBehaviour
         UpdateLayar();
     }
 
-    // [YarnCommand] membuat fungsi ini bisa dipanggil langsung dari teks naskah Yarn!
     [YarnCommand("potong_uang")]
     public void PotongUang(int jumlahPotongan)
     {
@@ -114,7 +112,6 @@ public class UangManager : MonoBehaviour
         coroutineAnimasi = StartCoroutine(AnimasiPotongUangRoutine(jumlahPotongan, saldoSebelumnya, saldo));
     }
 
-    // [YarnCommand] untuk memicu kondisi Bangkrut Total (Ending A)
     [YarnCommand("set_bangkrut")]
     public void SetBangkrut()
     {
@@ -130,16 +127,16 @@ public class UangManager : MonoBehaviour
         coroutineAnimasi = StartCoroutine(AnimasiBangkrutRoutine(saldoSebelumnya));
     }
 
-    // [YarnCommand] untuk mengatur saldo ke nilai tertentu (misal sisa 4.700.000 saat Cut Loss di Ending B)
     [YarnCommand("set_saldo")]
-    public void SetSaldoYarn(int nilaiBaru)
+    public void SetSaldo(int nilaiBaru)
     {
-        SetSaldo(nilaiBaru);
+        saldo = nilaiBaru;
+        isBangkrut = (saldo <= 0);
+        UpdateLayar();
     }
 
     private IEnumerator AnimasiPotongUangRoutine(int jumlahPotongan, int saldoAwal, int saldoAkhir)
     {
-        // 1. Setup teks melayang
         if (teksFloatingMinus != null)
         {
             teksFloatingMinus.gameObject.SetActive(true);
@@ -148,7 +145,7 @@ public class UangManager : MonoBehaviour
             teksFloatingMinus.fontSize = 26f;
             teksFloatingMinus.fontStyle = FontStyles.Bold;
             teksFloatingMinus.rectTransform.anchoredPosition = posisiAwalFloating;
-            teksFloatingMinus.rectTransform.localScale = skalaAwalFloating * 1.35f; // Pop scale awal
+            teksFloatingMinus.rectTransform.localScale = skalaAwalFloating * 1.35f;
 
             if (canvasGroupFloating != null)
             {
@@ -156,9 +153,7 @@ public class UangManager : MonoBehaviour
             }
         }
 
-        // Efek visual teks tabungan berubah warna merah sebentar ("efek nyesek")
         Color warnaFlash = warnaTeksMinus;
-
         float elapsed = 0f;
         Vector2 targetPos = posisiAwalFloating + new Vector2(0f, -jarakTurun);
 
@@ -167,7 +162,6 @@ public class UangManager : MonoBehaviour
             elapsed += Time.deltaTime;
             float tTotal = Mathf.Clamp01(elapsed / durasiAnimasi);
 
-            // Efek GETARAN / SHAKE pada TextFloatingMinus selama 0.45 detik pertama
             Vector2 shakeOffset = Vector2.zero;
             if (elapsed < 0.45f)
             {
@@ -176,7 +170,6 @@ public class UangManager : MonoBehaviour
                 float shakeY = Mathf.Cos(elapsed * 40f) * 5f * shakeDamp;
                 shakeOffset = new Vector2(shakeX, shakeY);
 
-                // Getarkan juga BoxPorto sedikit agar terasa dampaknya ke dompet pemain
                 if (rectBoxPorto != null)
                 {
                     rectBoxPorto.anchoredPosition = posisiAwalBoxPorto + new Vector2(shakeX * 0.4f, shakeY * 0.4f);
@@ -187,13 +180,11 @@ public class UangManager : MonoBehaviour
                 rectBoxPorto.anchoredPosition = posisiAwalBoxPorto;
             }
 
-            // Pergerakan teks melayang ke bawah secara halus
             if (teksFloatingMinus != null)
             {
                 float tGerak = Mathf.SmoothStep(0f, 1f, tTotal);
                 teksFloatingMinus.rectTransform.anchoredPosition = Vector2.Lerp(posisiAwalFloating, targetPos, tGerak) + shakeOffset;
 
-                // Sedikit hentakan/pop di awal (0 - 0.2 detik)
                 if (elapsed <= 0.2f)
                 {
                     float tPop = elapsed / 0.2f;
@@ -204,7 +195,6 @@ public class UangManager : MonoBehaviour
                     teksFloatingMinus.rectTransform.localScale = skalaAwalFloating;
                 }
 
-                // Menghilang perlahan (fade out) setelah 0.7 detik
                 if (elapsed > 0.7f)
                 {
                     float tFade = Mathf.Clamp01((elapsed - 0.7f) / (durasiAnimasi - 0.7f));
@@ -221,7 +211,6 @@ public class UangManager : MonoBehaviour
                 }
             }
 
-            // Animasi angka saldo berkurang drastis secara bergulir (roll down)
             if (teksUang != null)
             {
                 float tSaldo = Mathf.Clamp01(elapsed / durasiHitungSaldo);
@@ -229,7 +218,6 @@ public class UangManager : MonoBehaviour
                 int saldoDisplay = (int)Mathf.Lerp(saldoAwal, saldoAkhir, smoothSaldo);
                 teksUang.text = saldoDisplay.ToString("N0", cultureIndo);
 
-                // Transisi warna teks saldo dari merah kembali ke warna asli (jika masih ada sisa)
                 if (saldoAkhir <= 0)
                 {
                     teksUang.color = warnaMerahBangkrut;
@@ -244,13 +232,11 @@ public class UangManager : MonoBehaviour
             yield return null;
         }
 
-        // Kembalikan posisi BoxPorto
         if (rectBoxPorto != null)
         {
             rectBoxPorto.anchoredPosition = posisiAwalBoxPorto;
         }
 
-        // Reset dan sembunyikan floating text setelah animasi selesai
         if (teksFloatingMinus != null)
         {
             teksFloatingMinus.gameObject.SetActive(false);
@@ -258,7 +244,6 @@ public class UangManager : MonoBehaviour
             teksFloatingMinus.rectTransform.localScale = skalaAwalFloating;
         }
 
-        // Pastikan angka dan warna akhir tepat
         if (teksUang != null)
         {
             teksUang.text = saldoAkhir.ToString("N0", cultureIndo);
@@ -268,10 +253,8 @@ public class UangManager : MonoBehaviour
         coroutineAnimasi = null;
     }
 
-    // Animasi Khusus Saat Bangkrut di Ending A
     private IEnumerator AnimasiBangkrutRoutine(int saldoAwal)
     {
-        // 1. Setup teks melayang dramatis
         if (teksFloatingMinus != null)
         {
             teksFloatingMinus.gameObject.SetActive(true);
@@ -288,7 +271,6 @@ public class UangManager : MonoBehaviour
             }
         }
 
-        // Ubah label tabungan menjadi merah
         if (teksLabelTabungan != null)
         {
             teksLabelTabungan.text = "Tabungan (LUDES) :";
@@ -304,7 +286,6 @@ public class UangManager : MonoBehaviour
             elapsed += Time.deltaTime;
             float tTotal = Mathf.Clamp01(elapsed / durasiBangkrut);
 
-            // Getaran dahsyat pada teks floating dan box porto
             Vector2 shakeOffset = Vector2.zero;
             if (elapsed < 0.7f)
             {
@@ -338,14 +319,13 @@ public class UangManager : MonoBehaviour
                 }
             }
 
-            // Roll down drastis ke 0
             if (teksUang != null)
             {
                 float tSaldo = Mathf.Clamp01(elapsed / 1.0f);
                 float smoothSaldo = Mathf.SmoothStep(0f, 1f, tSaldo);
                 int saldoDisplay = (int)Mathf.Lerp(saldoAwal, 0, smoothSaldo);
                 teksUang.text = saldoDisplay.ToString("N0", cultureIndo);
-                teksUang.color = warnaMerahBangkrut; // Merah pekat permanen
+                teksUang.color = warnaMerahBangkrut;
             }
 
             yield return null;
@@ -354,7 +334,6 @@ public class UangManager : MonoBehaviour
         if (rectBoxPorto != null) rectBoxPorto.anchoredPosition = posisiAwalBoxPorto;
         if (teksFloatingMinus != null) teksFloatingMinus.gameObject.SetActive(false);
 
-        // Pastikan angka saldo adalah 0 dan warna MERAH TAJAM PERMANEN
         if (teksUang != null)
         {
             teksUang.text = "0";
@@ -362,19 +341,6 @@ public class UangManager : MonoBehaviour
         }
 
         coroutineAnimasi = null;
-    }
-
-    [YarnCommand("kembali_ke_menu")]
-    public void KembaliKeMenu()
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
-    }
-
-    public void SetSaldo(int nilaiBaru)
-    {
-        saldo = nilaiBaru;
-        isBangkrut = (saldo <= 0);
-        UpdateLayar();
     }
 
     void UpdateLayar()
@@ -402,4 +368,4 @@ public class UangManager : MonoBehaviour
             }
         }
     }
-}
+}

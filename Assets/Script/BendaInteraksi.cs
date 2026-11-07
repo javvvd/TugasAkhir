@@ -14,8 +14,6 @@ public class BendaInteraktif : MonoBehaviour
     [Tooltip("Jika true, seluruh renderer disembunyikan di awal game dan menunggu perintah munculkan_benda")]
     public bool sembunyikanSaatMulai = false;
 
-    private Collider areaKlik;
-
     [Header("Efek Layar / Lampu Panggilan")]
     [Tooltip("Objek visual/lampu yang menyala ketika ada panggilan masuk (misal: Point Light atau Plane di layar HP)")]
     public GameObject efekLayar;
@@ -26,10 +24,22 @@ public class BendaInteraktif : MonoBehaviour
     [Tooltip("Material panggilan masuk saat ada telepon")]
     public Material matPanggilan;
 
+    private Collider areaKlik;
+    private Renderer[] cachedRenderers;
+    private Renderer efekLayarRenderer;
+
     void Awake()
     {
         areaKlik = GetComponent<Collider>();
         if (areaKlik == null) areaKlik = GetComponentInChildren<Collider>();
+
+        cachedRenderers = GetComponentsInChildren<Renderer>(true);
+
+        if (efekLayar != null)
+        {
+            efekLayarRenderer = efekLayar.GetComponent<Renderer>();
+            efekLayar.SetActive(false);
+        }
 
         if (!aktifSaatMulai && areaKlik != null)
         {
@@ -40,68 +50,48 @@ public class BendaInteraktif : MonoBehaviour
         {
             SembunyikanBenda();
         }
-
-        if (efekLayar != null)
-        {
-            efekLayar.SetActive(false);
-        }
     }
 
     [YarnCommand("matikan_interaksi")]
     public void MatikanInteraksi()
     {
-        if (areaKlik == null) areaKlik = GetComponent<Collider>();
-        if (areaKlik == null) areaKlik = GetComponentInChildren<Collider>();
         if (areaKlik != null) areaKlik.enabled = false;
     }
 
     [YarnCommand("aktifkan_interaksi")]
     public void AktifkanInteraksi()
     {
-        if (areaKlik == null) areaKlik = GetComponent<Collider>();
-        if (areaKlik == null) areaKlik = GetComponentInChildren<Collider>();
         if (areaKlik != null) areaKlik.enabled = true;
     }
 
-    // Mengganti target node dari dalam Yarn secara dinamis
     [YarnCommand("ubah_node")]
     public void UbahNode(string nodeBaru)
     {
         namaNodeYarn = nodeBaru;
     }
 
-    [YarnCommand("ubah_teks_interaksi")]
-    public void UbahTeksInteraksi(string teksBaru)
-    {
-        teksTombolInteraksi = teksBaru;
-    }
-
-    // Menyalakan efek layar HP (misal ada panggilan masuk atau chat masuk)
     [YarnCommand("nyalakan_layar")]
     public void NyalakanLayar(string tipe = "lockscreen")
     {
+        if (efekLayar == null) return;
+
         string t = tipe != null ? tipe.ToLower().Trim() : "";
         bool isTelepon = t.Contains("tel") || t.Contains("panggilan") || t.Contains("call");
 
-        if (efekLayar != null)
+        if (efekLayarRenderer != null)
         {
-            var mr = efekLayar.GetComponent<Renderer>();
-            if (mr != null)
+            if (isTelepon && matPanggilan != null)
             {
-                if (isTelepon && matPanggilan != null)
-                {
-                    mr.sharedMaterial = matPanggilan;
-                }
-                else if (matLockscreen != null)
-                {
-                    mr.sharedMaterial = matLockscreen;
-                }
+                efekLayarRenderer.sharedMaterial = matPanggilan;
             }
-            efekLayar.SetActive(true);
+            else if (matLockscreen != null)
+            {
+                efekLayarRenderer.sharedMaterial = matLockscreen;
+            }
         }
+        efekLayar.SetActive(true);
     }
 
-    // Mematikan efek layar HP
     [YarnCommand("matikan_layar")]
     public void MatikanLayar()
     {
@@ -111,28 +101,24 @@ public class BendaInteraktif : MonoBehaviour
         }
     }
 
-    // Menyembunyikan tampilan visual objek (misal: botol saat diangkat/diminum)
     [YarnCommand("sembunyikan_benda")]
     public void SembunyikanBenda()
     {
-        Renderer[] allRenderers = GetComponentsInChildren<Renderer>(true);
-        foreach (var r in allRenderers)
+        if (cachedRenderers == null) cachedRenderers = GetComponentsInChildren<Renderer>(true);
+        for (int i = 0; i < cachedRenderers.Length; i++)
         {
-            r.enabled = false;
+            if (cachedRenderers[i] != null) cachedRenderers[i].enabled = false;
         }
-        if (areaKlik == null) areaKlik = GetComponent<Collider>();
-        if (areaKlik == null) areaKlik = GetComponentInChildren<Collider>();
         if (areaKlik != null) areaKlik.enabled = false;
     }
 
-    // Memunculkan kembali tampilan visual objek (misal: botol ditaruh kembali ke meja)
     [YarnCommand("munculkan_benda")]
     public void MunculkanBenda()
     {
-        Renderer[] allRenderers = GetComponentsInChildren<Renderer>(true);
-        foreach (var r in allRenderers)
+        if (cachedRenderers == null) cachedRenderers = GetComponentsInChildren<Renderer>(true);
+        for (int i = 0; i < cachedRenderers.Length; i++)
         {
-            r.enabled = true;
+            if (cachedRenderers[i] != null) cachedRenderers[i].enabled = true;
         }
     }
 }

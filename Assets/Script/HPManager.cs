@@ -17,7 +17,7 @@ public class HPManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        Instance = this;
 
         if (objekHpDiMeja == null)
         {
@@ -25,12 +25,17 @@ public class HPManager : MonoBehaviour
         }
     }
 
+    void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
+    }
+
     [YarnCommand("munculkan_hp")]
     public void MunculkanHP()
     {
         if (latarGelap != null) latarGelap.SetActive(true);
         if (panelHandphone != null) panelHandphone.SetActive(true);
-        SembunyikanHpMeja();
+        if (objekHpDiMeja != null) objekHpDiMeja.SetActive(false);
     }
 
     [YarnCommand("tutup_hp")]
@@ -38,24 +43,6 @@ public class HPManager : MonoBehaviour
     {
         if (panelHandphone != null) panelHandphone.SetActive(false);
         if (latarGelap != null) latarGelap.SetActive(false);
-        MunculkanHpMeja();
-    }
-
-    [YarnCommand("sembunyikan_hp_meja")]
-    public void SembunyikanHpMeja()
-    {
-        if (objekHpDiMeja != null)
-        {
-            objekHpDiMeja.SetActive(false);
-        }
-    }
-
-    [YarnCommand("munculkan_hp_meja")]
-    public void MunculkanHpMeja()
-    {
-        if (objekHpDiMeja != null)
-        {
-            objekHpDiMeja.SetActive(true);
-        }
+        if (objekHpDiMeja != null) objekHpDiMeja.SetActive(true);
     }
 }

@@ -60,7 +60,7 @@ public class AppSahamManager : MonoBehaviour
 
         if (rectPanelHandphone == null)
         {
-            var hpMgr = Object.FindFirstObjectByType<HPManager>();
+            var hpMgr = HPManager.Instance != null ? HPManager.Instance : Object.FindFirstObjectByType<HPManager>();
             if (hpMgr != null && hpMgr.panelHandphone != null)
             {
                 rectPanelHandphone = hpMgr.panelHandphone.GetComponent<RectTransform>();

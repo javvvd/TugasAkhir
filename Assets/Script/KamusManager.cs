@@ -1,39 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
 using Yarn.Unity;
 
 public class KamusManager : MonoBehaviour
 {
     public static KamusManager Instance { get; private set; }
 
-    [System.Serializable]
-    public class IstilahSaham
-    {
-        public string judul;
-        public string kategori;
-        public string warnaKategoriHex;
-        [TextArea(2, 4)] public string definisi;
-        [TextArea(2, 4)] public string edukasiSkripsi;
-
-        public IstilahSaham(string j, string k, string hex, string def, string edu)
-        {
-            judul = j;
-            kategori = k;
-            warnaKategoriHex = hex;
-            definisi = def;
-            edukasiSkripsi = edu;
-        }
-    }
-
     [Header("Referensi UI (Otomatis dicari jika kosong)")]
     public GameObject tombolBukaKamus;
     public GameObject panelKamusModal;
-
-    [Header("Daftar Istilah Edukasi Saham")]
-    public List<IstilahSaham> daftarIstilah = new List<IstilahSaham>();
 
     // Data statis di RAM untuk lompatan babak (0ms, tanpa beban I/O disk PlayerPrefs)
     public static string TargetNodeLompatan = "";
@@ -42,10 +18,11 @@ public class KamusManager : MonoBehaviour
     private bool sedangLompatBabak = false;
     private string nodeTujuanAktif = "";
     private int saldoTujuanAktif = 5000000;
+    private ScrollRect scrollRectKamus;
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        Instance = this;
 
         // Jika ada request lompat babak dari Main Menu, alihkan startNode DialogueRunner sebelum Start() berjalan
         if (!string.IsNullOrEmpty(TargetNodeLompatan))
@@ -63,6 +40,11 @@ public class KamusManager : MonoBehaviour
                 runner.startNode = nodeTujuanAktif;
             }
         }
+    }
+
+    void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     void Start()
@@ -112,9 +94,10 @@ public class KamusManager : MonoBehaviour
             }
         }
 
-        // 3. Pasang event click tombol tutup di dalam modal
+        // 3. Cache ScrollRect dan pasang event click tombol tutup di dalam modal
         if (panelKamusModal != null)
         {
+            scrollRectKamus = panelKamusModal.GetComponentInChildren<ScrollRect>(true);
             PasangListenerTombolTutup(panelKamusModal);
             panelKamusModal.SetActive(false);
         }
@@ -136,26 +119,22 @@ public class KamusManager : MonoBehaviour
         }
     }
 
-    [YarnCommand("buka_kamus")]
     public void BukaKamus()
     {
         if (panelKamusModal != null)
         {
             panelKamusModal.SetActive(true);
-            PasangListenerTombolTutup(panelKamusModal);
 
-            ScrollRect sr = panelKamusModal.GetComponentInChildren<ScrollRect>(true);
-            if (sr != null)
+            if (scrollRectKamus != null)
             {
                 Canvas.ForceUpdateCanvases();
-                sr.verticalNormalizedPosition = 1f;
+                scrollRectKamus.verticalNormalizedPosition = 1f;
             }
 
             AudioManager.Instance?.PutarSFX("klik");
         }
     }
 
-    [YarnCommand("tutup_kamus")]
     public void TutupKamus()
     {
         if (panelKamusModal != null)

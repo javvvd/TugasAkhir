@@ -21,17 +21,16 @@ public class MainMenuAnimator : MonoBehaviour
     public Sprite particleSprite;
     public int particleCount = 20;
 
-    private class FloatingOrb
+    private struct FloatingOrb
     {
         public RectTransform rect;
-        public Image img;
-        public Vector2 speed;
+        public CanvasRenderer canvasRenderer;
+        public float speedY;
         public float sinOffset;
         public float baseAlpha;
-        public float rotSpeed;
     }
 
-    private List<FloatingOrb> orbs = new List<FloatingOrb>();
+    private readonly List<FloatingOrb> orbs = new List<FloatingOrb>(24);
     private static Sprite proceduralCircleSprite;
 
     void Start()
@@ -54,7 +53,7 @@ public class MainMenuAnimator : MonoBehaviour
         if (titleTransform != null)
         {
             float yOffset = Mathf.Sin(time * titleFloatSpeed) * titleFloatDistance;
-            titleTransform.anchoredPosition = titleOriginPos + new Vector2(0f, yOffset);
+            titleTransform.anchoredPosition = new Vector2(titleOriginPos.x, titleOriginPos.y + yOffset);
         }
 
         // 2. Pulsing Tombol Play (Denyut lembut breathing effect)
@@ -74,24 +73,29 @@ public class MainMenuAnimator : MonoBehaviour
 
         if (proceduralCircleSprite == null)
         {
-            int size = 64;
+            const int size = 64;
             Texture2D tex = new Texture2D(size, size, TextureFormat.RGBA32, false);
             tex.filterMode = FilterMode.Bilinear;
-            Vector2 center = new Vector2(size * 0.5f, size * 0.5f);
-            float radius = size * 0.48f;
+            Color32[] pixels = new Color32[size * size];
+
+            float center = size * 0.5f;
+            float invRadius = 1f / (size * 0.48f);
 
             for (int y = 0; y < size; y++)
             {
+                float dy = y - center;
+                int rowOffset = y * size;
                 for (int x = 0; x < size; x++)
                 {
-                    float dist = Vector2.Distance(new Vector2(x, y), center);
-                    float alpha = Mathf.Clamp01(1f - (dist / radius));
-                    // Smooth falloff untuk efek glowing orb
-                    alpha = Mathf.Pow(alpha, 1.5f);
-                    tex.SetPixel(x, y, new Color(1f, 1f, 1f, alpha));
+                    float dx = x - center;
+                    float dist = Mathf.Sqrt(dx * dx + dy * dy);
+                    float alpha = Mathf.Clamp01(1f - dist * invRadius);
+                    byte a = (byte)Mathf.RoundToInt(Mathf.Pow(alpha, 1.5f) * 255f);
+                    pixels[rowOffset + x] = new Color32(255, 255, 255, a);
                 }
             }
-            tex.Apply();
+            tex.SetPixels32(pixels);
+            tex.Apply(false, true);
             proceduralCircleSprite = Sprite.Create(tex, new Rect(0, 0, size, size), new Vector2(0.5f, 0.5f), 100f);
         }
 
@@ -125,7 +129,6 @@ public class MainMenuAnimator : MonoBehaviour
             float sz = Random.Range(10f, 26f);
             rt.sizeDelta = new Vector2(sz, sz);
 
-            // Posisi acak di seluruh layar
             rt.anchoredPosition = new Vector2(
                 Random.Range(-halfW, halfW),
                 Random.Range(-halfH, halfH)
@@ -133,22 +136,23 @@ public class MainMenuAnimator : MonoBehaviour
 
             Image img = orbGo.GetComponent<Image>();
             img.sprite = orbSprite;
-            img.raycastTarget = false; // Tidak mengganggu klik tombol UI
+            img.raycastTarget = false;
 
             Color32 baseCol = orbColors[Random.Range(0, orbColors.Length)];
-            img.color = baseCol;
+            img.color = new Color32(baseCol.r, baseCol.g, baseCol.b, 255);
 
-            FloatingOrb orb = new FloatingOrb
+            CanvasRenderer cr = orbGo.GetComponent<CanvasRenderer>();
+            float baseAlpha = baseCol.a / 255f;
+            cr.SetAlpha(baseAlpha);
+
+            orbs.Add(new FloatingOrb
             {
                 rect = rt,
-                img = img,
-                speed = new Vector2(Random.Range(-10f, 10f), Random.Range(20f, 45f)), // Melayang perlahan ke atas
+                canvasRenderer = cr,
+                speedY = Random.Range(20f, 45f),
                 sinOffset = Random.Range(0f, Mathf.PI * 2f),
-                baseAlpha = baseCol.a / 255f,
-                rotSpeed = Random.Range(-30f, 30f)
-            };
-
-            orbs.Add(orb);
+                baseAlpha = baseAlpha
+            });
         }
     }
 
@@ -158,6 +162,7 @@ public class MainMenuAnimator : MonoBehaviour
 
         float halfW = particleContainer.rect.width * 0.5f + 40f;
         float halfH = particleContainer.rect.height * 0.5f + 40f;
+        float dt = Time.unscaledDeltaTime;
 
         for (int i = 0; i < orbs.Count; i++)
         {
@@ -166,10 +171,9 @@ public class MainMenuAnimator : MonoBehaviour
 
             // Gerak melayang perlahan ke atas dengan goyangan horizontal
             Vector2 pos = orb.rect.anchoredPosition;
-            pos.y += orb.speed.y * Time.unscaledDeltaTime;
-            pos.x += Mathf.Sin(time * 1.4f + orb.sinOffset) * 16f * Time.unscaledDeltaTime;
+            pos.y += orb.speedY * dt;
+            pos.x += Mathf.Sin(time * 1.4f + orb.sinOffset) * 16f * dt;
 
-            // Jika keluar dari batas atas layar, reset ke bawah layar
             if (pos.y > halfH)
             {
                 pos.y = -halfH;
@@ -178,16 +182,11 @@ public class MainMenuAnimator : MonoBehaviour
 
             orb.rect.anchoredPosition = pos;
 
-            // Rotasi perlahan
-            orb.rect.Rotate(0f, 0f, orb.rotSpeed * Time.unscaledDeltaTime);
-
-            // Efek shimmering / kedip lembut
-            if (orb.img != null)
+            // Update alpha via CanvasRenderer tanpa memicu rebuild mesh Canvas
+            if (orb.canvasRenderer != null)
             {
                 float shimmer = Mathf.Sin(time * 2.2f + orb.sinOffset) * 0.35f + 0.65f;
-                Color c = orb.img.color;
-                c.a = orb.baseAlpha * shimmer;
-                orb.img.color = c;
+                orb.canvasRenderer.SetAlpha(orb.baseAlpha * shimmer);
             }
         }
     }

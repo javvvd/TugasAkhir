@@ -51,12 +51,10 @@ public class SistemInteraksi : MonoBehaviour
             return;
         }
 
-        // Cari kamera yang sedang aktif di hierarchy
-        Camera cam = (kameraPemain != null && kameraPemain.gameObject.activeInHierarchy) ? kameraPemain : Camera.main;
-        if (cam == null)
-        {
-            cam = FindFirstObjectByType<Camera>();
-        }
+        // Gunakan referensi kamera aktif dari PengendaliKamera tanpa perlu FindFirstObjectByType tiap frame
+        Camera cam = (kameraPemain != null && kameraPemain.gameObject.activeInHierarchy)
+            ? kameraPemain
+            : (PengendaliKamera.Instance != null ? PengendaliKamera.Instance.GetKameraAktif() : Camera.main);
         if (cam == null) return;
 
         Ray laser = new Ray(cam.transform.position, cam.transform.forward);
@@ -95,11 +93,6 @@ public class SistemInteraksi : MonoBehaviour
                         tombolUI.SetActive(false);
                     }
                 }
-            }
-
-            if (bendaYangDitabrak != null && Input.GetKeyDown(KeyCode.E))
-            {
-                TombolDitekan();
             }
         }
         else

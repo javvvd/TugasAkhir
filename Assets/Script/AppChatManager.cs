@@ -147,22 +147,6 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-
-    [YarnCommand("buka_chat_bima_bangkrut")]
-    public void BukaChatBimaBangkrut() => BukaChat("bima_bangkrut");
-
-    [YarnCommand("buka_chat_bima_selamat")]
-    public void BukaChatBimaSelamat() => BukaChat("bima_selamat");
-
-    [YarnCommand("buka_chat_grup_anjlok")]
-    public void BukaChatGrupAnjlok() => BukaChat("grup_anjlok");
-
-    [YarnCommand("buka_chat_grup_hold")]
-    public void BukaChatGrupHold() => BukaChat("grup_hold");
-
-    [YarnCommand("buka_chat_grup_puncak")]
-    public void BukaChatGrupPuncak() => BukaChat("grup_puncak");
-
     private void AktifkanKontenPesan(GameObject chatGo)
     {
         if (chatGo == null) return;

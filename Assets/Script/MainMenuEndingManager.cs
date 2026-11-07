@@ -14,7 +14,12 @@ public class MainMenuEndingManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        Instance = this;
+    }
+
+    void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     void Start()

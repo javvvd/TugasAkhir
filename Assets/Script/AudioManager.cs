@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -35,10 +34,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
+        Instance = this;
 
         // Buat AudioSource otomatis jika belum dipasang di Inspector
         if (sfxSource == null)
@@ -67,6 +63,11 @@ public class AudioManager : MonoBehaviour
             bgmSource.playOnAwake = false;
             bgmSource.loop = true;
         }
+    }
+
+    void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     [YarnCommand("putar_bgm")]
@@ -107,16 +108,6 @@ public class AudioManager : MonoBehaviour
     {
         if (coroutineBgm != null) StopCoroutine(coroutineBgm);
         coroutineBgm = StartCoroutine(ProsesFadeOutBGM(1.0f));
-    }
-
-    [YarnCommand("set_volume_bgm")]
-    public void SetVolumeBGM(float vol)
-    {
-        volumeBgm = Mathf.Clamp01(vol);
-        if (bgmSource != null && bgmSource.isPlaying)
-        {
-            bgmSource.volume = volumeBgm;
-        }
     }
 
     private IEnumerator ProsesFadeInBGM(AudioClip clip, float durasiFade)

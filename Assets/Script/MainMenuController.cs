@@ -36,7 +36,7 @@ public class MainMenuController : MonoBehaviour
 
     void Awake()
     {
-        if (Instance == null) Instance = this;
+        Instance = this;
 
         if (sfxSource == null)
         {
@@ -54,6 +54,11 @@ public class MainMenuController : MonoBehaviour
         // Terapkan master volume dari PlayerPrefs
         float savedVol = PlayerPrefs.GetFloat("MasterVolume", 1f);
         AudioListener.volume = savedVol;
+    }
+
+    void OnDestroy()
+    {
+        if (Instance == this) Instance = null;
     }
 
     void Start()
