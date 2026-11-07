@@ -8,7 +8,6 @@ public class ChatManager : MonoBehaviour
     public GameObject layarTelepon;
 
     [Header("Daftar Layar Chat Spesifik")]
-    public GameObject chatMama;
     public GameObject chatBimaBangkrut;
     public GameObject chatBimaSelamat;
     public GameObject chatGrupAnjlok;
@@ -22,7 +21,7 @@ public class ChatManager : MonoBehaviour
     void Awake()
     {
         // Hanya cari PanelHandphone jika masih ada referensi yang belum terpasang di Inspector
-        if (appChat != null && layarTelepon != null && chatMama != null &&
+        if (appChat != null && layarTelepon != null &&
             chatBimaBangkrut != null && chatBimaSelamat != null &&
             chatGrupAnjlok != null && chatGrupHold != null && chatGrupPuncak != null)
         {
@@ -48,7 +47,6 @@ public class ChatManager : MonoBehaviour
             Transform t = panelHp.transform;
             if (appChat == null) appChat = t.Find("ChatBima")?.gameObject;
             if (layarTelepon == null) layarTelepon = t.Find("TeleponBima")?.gameObject;
-            if (chatMama == null) chatMama = t.Find("Chat_mama")?.gameObject;
             if (chatBimaBangkrut == null) chatBimaBangkrut = t.Find("Chat_bima_bangkrut")?.gameObject;
             if (chatBimaSelamat == null) chatBimaSelamat = t.Find("Chat_bima_selamat")?.gameObject;
             if (chatGrupAnjlok == null) chatGrupAnjlok = t.Find("Chat_grup_anjlok")?.gameObject;
@@ -73,7 +71,6 @@ public class ChatManager : MonoBehaviour
     public void TutupSemuaChat()
     {
         if (appChat != null) appChat.SetActive(false);
-        if (chatMama != null) chatMama.SetActive(false);
         if (chatBimaBangkrut != null) chatBimaBangkrut.SetActive(false);
         if (chatBimaSelamat != null) chatBimaSelamat.SetActive(false);
         if (chatGrupAnjlok != null) chatGrupAnjlok.SetActive(false);
@@ -90,14 +87,6 @@ public class ChatManager : MonoBehaviour
 
         switch (key)
         {
-            case "mama":
-            case "chat_mama":
-                if (chatMama != null)
-                {
-                    chatMama.SetActive(true);
-                    AktifkanKontenPesan(chatMama);
-                }
-                break;
 
             case "bima_bangkrut":
             case "chat_bima_bangkrut":
@@ -158,8 +147,6 @@ public class ChatManager : MonoBehaviour
         }
     }
 
-    [YarnCommand("buka_chat_mama")]
-    public void BukaChatMama() => BukaChat("mama");
 
     [YarnCommand("buka_chat_bima_bangkrut")]
     public void BukaChatBimaBangkrut() => BukaChat("bima_bangkrut");

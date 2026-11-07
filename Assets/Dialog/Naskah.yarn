@@ -1,7 +1,11 @@
-﻿title: Start
+title: Start
 position: 228,-115
 ---
 <<set_kamera_instan PLAYER pintu>>
+<<munculkan_teks Manager "Game ini memiliki 4 Ending">>
+<<wait 3.5>>
+<<hapus_teks Manager>>
+<<wait 1>>
 <<tampilkan_panduan Manager 8>>
 <<wait 8>>
 <<munculkan_teks Manager "Raka adalah seorang mahasiswa yang sedang berjuang menyelesaikan kuliahnya.\n\nBerbulan-bulan ia menyisihkan uang hingga terkumpul tabungan Rp 5.000.000 untuk membeli laptop impian demi tugas akhirnya.\n\nSiang itu, setelah dari kampus , Raka kembali ke kamar kosnya...">>
@@ -86,9 +90,9 @@ Raka: Udah, makanya ini aku telpon. Kau dapet untung segitu darimana ceritanya, 
 Bima: Hahaha, gampang sekarang cari duit. Kau tinggal daftar aplikasi saham, masukin modal, terus ikutin arahan. Cuan deh.
 Raka: Arahan apaan? Aku selama ini baru belajar di akun virtual demo. Bahaya nggak tuh?
 Bima: Ah.. kau kebanyakan mikir! Emang nggak ngerti, tapi aku gabung grup VIP Telegram-nya "Master Trading".
-Bima: Dia tuh influencer top. Kita nggak usah capek mikir, tinggal copy-paste aja apa yang dia suruh beli.
+Bima: Dia tuh influencer top. Kita nggak usah capek mikir, tinggal ikuti saja arahan dia.
 Raka: Grup VIP Influencer? Yakin kau itu aman? 
-Bima: Aman 100%! Buktinya aku udah untung jutaan hari ini. Kau kalau mau, nanti aku invite ke grupnya deh. 
+Bima: Aman! Buktinya aku udah untung jutaan hari ini. Kau kalau mau, nanti aku invite ke grupnya deh. 
 Raka: Mmm... 
 Bima: Kalau kau takut dan cuma pake akun virtual doang, kapan bisa dapet untung besar.
 Bima: Udah, ntar ku kirim aja link grupnya. aku mau lanjut push rank.
@@ -114,7 +118,7 @@ Raka: ...
 <<tutup_hp HPmanager>>
 Raka: Selama ini aku masih belajar pakai akun virtual sih.
 Raka: Tapi lihat Bima untung besar dengan uang asli aku jadi tergiur.
-Raka: Aku coba lihat deh saham DUIT itu
+Raka: Aku coba lihat deh saham DUIT itu.
 
 // Raka membuka aplikasi saham untuk pertama kali
 <<munculkan_hp HPmanager>>
@@ -370,13 +374,13 @@ position: 604,450
 
 Raka: (Klik... Telepon terhubung)
 Raka: Halo, Bim? Kenapa nelepon?
-Bima: Rak!! kau masih di kosan kan?
+Bima: Rak!! kau ada di kosan kan?
 Raka: Iya, Ada apa, Bim?
-Bima: Buruan keluar, nyeberang ke warkop depan kosan sekarang
+Bima: Buruan keluar, ke warkop depan kosan sekarang
 Bima: Aku lagi di sini nongkrong, ada hal gila banget yang mau ku tunjukin!!
-Raka: Hal gila apaan sih? Tumben banget heboh ngajak ketemuan mendadak gini.
+Raka: Hal gila apaan sih?
 Bima: Udah jangan banyak tanya, buruan ke sini sekarang!
-Raka: Lah, langsung dimatiin... Yaudah deh, mumpung sumpek juga habis nugas, samperin bentar ke warkop depan.
+Raka: Yaudah deh, mumpung sumpek juga habis nugas, samperin bentar ke warkop depan.
 
 // Telepon dimatikan
 <<putar_sfx AudioManager klik>>
@@ -415,7 +419,6 @@ position: 604,520
 Raka: ...Ahh, mantap kopinya.
 Raka: Jadi ada apaan sih, Bim? Heboh banget nyuruh aku buru-buru nyeberang ke warkop.
 Bima: RAK!! KAU LIHAT SAHAM DUIT SEKARANG!!
-Bima: SAHAM DUIT TERBANG KE 135!! NAIK 35% HARI INI!!
 Bima: Nih, liat sendiri di HP ku! Keuntungan jutaan ngalir deras dalam sehari!! Ikut VIP Master Trading ga ada lawan!
 <<putar_sfx AudioManager notif>>
 <<munculkan_benda HandphoneBima>>
@@ -429,13 +432,28 @@ position: 604,600
 ---
 <<sembunyikan_tugas BoxTugasManager>>
 <<matikan_interaksi HandphoneBima>>
-
+<<munculkan_hp HPmanager>>
+<<buka_AppSaham AppSahamManager>>
+<<ganti_layar_saham AppSahamManager 6>>
+<<wait 2>>
+Raka: naik sampai Rp 135?!
 Raka: Grafiknya naik vertikal!
-Bima: Makanya aku suruh kau ke sini sekarang mumpung bursa belum tutup jam 4!
-Bima: Barusan ada arahan dari Master Trading di grup VIP: HAKA (Hajar Kanan) sebelum kehabisan antrean!!
-Raka: Tapi Bim... tadi siang aku cek laporan keuangannya rugi, takutnya ini jebakan.
-Bima: Kau terlalu banyak mikir.
-Bima: Bursa bentar lagi jam 4 tutup! ambil keputusan!!
+
+<<tutup_AppSaham AppSahamManager>>
+<<buka_AppGrup AppGrupManager>>
+<<wait 1>>
+
+Bima: Nih, liat grup VIP Master Trading!
+Bima: Pengikutnya pada cuan, sampai puluhan juta!
+Bima: Tuh, baca pesan yang Master Trading barusan!
+Bima: Disuruh beli sekarang juga!
+
+<<tutup_AppGrup AppGrupManager>>
+<<tutup_hp HPmanager>>
+
+Raka: Tapi Bim... tadi siang aku cek laporan keuangannya buruk, takutnya ini jebakan.
+Bima: Kau terlalu banyak pikir dan penakut
+Bima: Bursa jam 4 tutup, ambil keputusan!!
 
 <<fade_out Manager>>
 <<stop_bgm AudioManager>>
@@ -462,7 +480,7 @@ Raka: ...Beli sekarang aja kali ya?!
 // ----------------------------------------------------
 // BAGIAN 3: PILIHAN (UJIAN TERAKHIR)
 // ----------------------------------------------------
--> Jangan mau menyesal 2x (Beli di 5 Juta)
+-> Jangan mau menyesal 2x (Beli 5 Juta)
     Raka: Bodo amat lah sama laporan keuangan tadi! Mau perusahaannya rugi, utangnya segunung, faktanya sekarang harganya terbang!
     Raka: Si Bima sama Master Trading udah buktiin sendiri bisa dapet cuan jutaan!
     Raka: Buka aplikasi, masukin semua 5 juta! 
