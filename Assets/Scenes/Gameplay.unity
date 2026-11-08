@@ -1451,10 +1451,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 997879917}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &84572358
 MonoBehaviour:
@@ -1479,8 +1479,8 @@ MonoBehaviour:
   m_text: Batas maksimal persentase penurunan harga saham harian. Saat ARB beruntun,
     saham sangat sulit dijual karena antrean jual menumpuk tanpa ada pembeli.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1504,14 +1504,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -1690,8 +1690,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Saham Gorengan & Bandar
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3919,10 +3919,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 549691144}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &191104549
 MonoBehaviour:
@@ -3947,8 +3947,8 @@ MonoBehaviour:
   m_text: Batas maksimal persentase kenaikan harga saham dalam satu hari bursa. Saat
     mencapai batas ARA, harga tidak dapat naik lebih tinggi lagi pada hari tersebut.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3972,14 +3972,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4477,10 +4477,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1079725123}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &208138093
 MonoBehaviour:
@@ -4505,8 +4505,8 @@ MonoBehaviour:
   m_text: Kondisi ketika harga saham yang dimiliki anjlok jauh di bawah harga beli
     dan belum sempat dijual (Cut Loss).
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -4530,14 +4530,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -4773,8 +4773,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Average Down
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6073,10 +6073,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2090805889}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &285867598
 MonoBehaviour:
@@ -6102,8 +6102,8 @@ MonoBehaviour:
     publik ikut memborong, sehingga oknum pembuat ajakan bisa jual dengan keuntungan
     besar.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6127,14 +6127,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -7831,8 +7831,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: KAMUS & ISTILAH
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7938,10 +7938,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2004709319}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &407415610
 MonoBehaviour:
@@ -7965,8 +7965,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Keputusan menjual saham saat mengalami kerugian.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7990,14 +7990,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -8148,10 +8148,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 94589466}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &414542754
 MonoBehaviour:
@@ -8176,8 +8176,8 @@ MonoBehaviour:
   m_text: Rasa takut ketinggalan sesuatu yang sedang ramai. Di dunia saham, dorongan
     emosional ini kerap memicu pengambilan keputusan yang tidak rasional.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -8201,14 +8201,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -9284,8 +9284,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: HAKA (Hajar Kanan)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10103,10 +10103,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 123998808}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &534064011
 MonoBehaviour:
@@ -10131,8 +10131,8 @@ MonoBehaviour:
   m_text: Sebutan bagi pembeli yang baru masuk di harga pucuk karena terpancing euforia,
     yang pada akhirnya hanya menjadi pihak penampung jualan bagi para bandar.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -10156,14 +10156,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -12920,10 +12920,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1445926448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &691095218
 MonoBehaviour:
@@ -12949,8 +12949,8 @@ MonoBehaviour:
     riset independen. Biasanya berujung penyesalan ketika tren mendadak berbalik
     arah.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12974,14 +12974,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -13119,10 +13119,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1681832442}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &709149520
 MonoBehaviour:
@@ -13147,8 +13147,8 @@ MonoBehaviour:
   m_text: Metode penilaian  aset  dengan cara menganalisis kondisi bisnis, kinerja
     keuangan, serta faktor ekonomi dan industri yang mempengaruhinya.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -13172,14 +13172,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -13722,8 +13722,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Exit Liquidity (Beli di Puncak)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14335,8 +14335,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Cut Loss
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -16375,8 +16375,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ARB (Auto Rejection Bawah)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -17639,8 +17639,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Uang Dingin vs Uang Panas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19155,8 +19155,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Herding Behavior
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19350,10 +19350,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 914726194}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1070103834
 MonoBehaviour:
@@ -19378,8 +19378,8 @@ MonoBehaviour:
   m_text: Membeli saham langsung di harga penawaran jual (kolom Offer) agar order
     langsung tereksekusi seketika tanpa perlu mengantre di kolom beli.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -19403,14 +19403,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -20172,8 +20172,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Analisis Fundamental
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20442,8 +20442,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Skema Pump and Dump
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20817,10 +20817,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 820490317}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1167435237
 MonoBehaviour:
@@ -20845,8 +20845,8 @@ MonoBehaviour:
   m_text: Bid adalah daftar antrean harga beli, sedangkan Offer adalah daftar harga
     jual.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -20870,14 +20870,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -23502,8 +23502,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Lot Saham
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23609,10 +23609,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 429209456}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1345076694
 MonoBehaviour:
@@ -23637,8 +23637,8 @@ MonoBehaviour:
   m_text: Membeli saham kembali saat harganya sedang merosot untuk menurunkan rata-rata
     modal beli.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -23662,14 +23662,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -24160,8 +24160,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Nyangkut (Floating Loss)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25493,10 +25493,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2041714574}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1431853444
 MonoBehaviour:
@@ -25521,8 +25521,8 @@ MonoBehaviour:
   m_text: Satuan resmi pembelian saham di Bursa Efek Indonesia. 1 Lot setara dengan
     100 lembar saham.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -25546,14 +25546,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -27454,8 +27454,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: ARA (Auto Rejection Atas)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28426,10 +28426,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 338527822}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1662694891
 MonoBehaviour:
@@ -28454,8 +28454,8 @@ MonoBehaviour:
   m_text: Saham yang pergerakan harganya sengaja dimanipulasi oleh oknum bermodal
     besar (bandar) untuk menciptakan ilusi keramaian.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -28479,14 +28479,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -29451,8 +29451,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: FOMO (Fear of Missing Out)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30363,10 +30363,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1216690074}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1752731135
 MonoBehaviour:
@@ -30391,8 +30391,8 @@ MonoBehaviour:
   m_text: Uang dingin adalah dana tabungan yang tidak akan terpakai dalam waktu dekat.
     Sebaliknya, uang panas adalah dana kebutuhan pokok.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -30416,14 +30416,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -32409,10 +32409,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 37909448}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.05}
+  m_AnchorMin: {x: 0, y: 0.02}
   m_AnchorMax: {x: 1, y: 0.62}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -56, y: 0}
+  m_SizeDelta: {x: -64, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1875988395
 MonoBehaviour:
@@ -32438,8 +32438,8 @@ MonoBehaviour:
     agar harga saham melambung tinggi (pump), kemudian para pelaku serentak menjual
     saham di harga puncak (dump).
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -32463,14 +32463,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 23
+  m_fontSizeBase: 23
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 8
+  m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -35323,8 +35323,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Bid & Offer (Order Book)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -35525,8 +35525,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Pom-pom Saham (Stock Pumping)
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -37093,8 +37093,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: X
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
+  m_sharedMaterial: {fileID: -5507110204243765598, guid: 26de2e9bcba7f98439cac6475544dcf3, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
