@@ -393,6 +393,7 @@ GameObject:
   - component: {fileID: 37909448}
   - component: {fileID: 37909450}
   - component: {fileID: 37909449}
+  - component: {fileID: 37909451}
   m_Layer: 0
   m_Name: Item_Skema Pump and Dump
   m_TagString: Untagged
@@ -459,6 +460,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 37909447}
   m_CullTransparentMesh: 1
+--- !u!114 &37909451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37909447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &46034193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1565,6 +1581,7 @@ GameObject:
   - component: {fileID: 94589466}
   - component: {fileID: 94589468}
   - component: {fileID: 94589467}
+  - component: {fileID: 94589469}
   m_Layer: 0
   m_Name: Item_FOMO (Fear of Missing Out)
   m_TagString: Untagged
@@ -1631,6 +1648,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 94589465}
   m_CullTransparentMesh: 1
+--- !u!114 &94589469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94589465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &106107428
 GameObject:
   m_ObjectHideFlags: 0
@@ -2180,6 +2212,7 @@ GameObject:
   - component: {fileID: 123998808}
   - component: {fileID: 123998810}
   - component: {fileID: 123998809}
+  - component: {fileID: 123998811}
   m_Layer: 0
   m_Name: Item_Exit Liquidity (Beli di Puncak)
   m_TagString: Untagged
@@ -2246,6 +2279,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123998807}
   m_CullTransparentMesh: 1
+--- !u!114 &123998811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 123998807}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &127047918
 GameObject:
   m_ObjectHideFlags: 0
@@ -6933,6 +6981,7 @@ GameObject:
   - component: {fileID: 338527822}
   - component: {fileID: 338527824}
   - component: {fileID: 338527823}
+  - component: {fileID: 338527825}
   m_Layer: 0
   m_Name: Item_Saham Gorengan & Bandar
   m_TagString: Untagged
@@ -6999,6 +7048,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338527821}
   m_CullTransparentMesh: 1
+--- !u!114 &338527825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 338527821}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &343888266
 GameObject:
   m_ObjectHideFlags: 0
@@ -8382,6 +8446,7 @@ GameObject:
   - component: {fileID: 429209456}
   - component: {fileID: 429209458}
   - component: {fileID: 429209457}
+  - component: {fileID: 429209459}
   m_Layer: 0
   m_Name: Item_Average Down (Serok Bawah)
   m_TagString: Untagged
@@ -8448,6 +8513,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429209455}
   m_CullTransparentMesh: 1
+--- !u!114 &429209459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 429209455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &433247449
 GameObject:
   m_ObjectHideFlags: 0
@@ -10480,6 +10560,7 @@ GameObject:
   - component: {fileID: 549691144}
   - component: {fileID: 549691146}
   - component: {fileID: 549691145}
+  - component: {fileID: 549691147}
   m_Layer: 0
   m_Name: Item_ARA (Auto Rejection Atas)
   m_TagString: Untagged
@@ -10546,6 +10627,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 549691143}
   m_CullTransparentMesh: 1
+--- !u!114 &549691147
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549691143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!4 &553551125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e71bc3bbb3bf08e44a7d70d427045194, type: 3}
@@ -15501,6 +15597,7 @@ GameObject:
   - component: {fileID: 820490317}
   - component: {fileID: 820490319}
   - component: {fileID: 820490318}
+  - component: {fileID: 820490320}
   m_Layer: 0
   m_Name: Item_Bid & Offer (Order Book)
   m_TagString: Untagged
@@ -15567,6 +15664,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 820490316}
   m_CullTransparentMesh: 1
+--- !u!114 &820490320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820490316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &823513388
 GameObject:
   m_ObjectHideFlags: 0
@@ -16544,6 +16656,7 @@ GameObject:
   - component: {fileID: 914726194}
   - component: {fileID: 914726196}
   - component: {fileID: 914726195}
+  - component: {fileID: 914726197}
   m_Layer: 0
   m_Name: Item_HAKA (Hajar Kanan)
   m_TagString: Untagged
@@ -16610,6 +16723,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 914726193}
   m_CullTransparentMesh: 1
+--- !u!114 &914726197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914726193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &917846205
 GameObject:
   m_ObjectHideFlags: 0
@@ -18613,6 +18741,7 @@ GameObject:
   - component: {fileID: 997879917}
   - component: {fileID: 997879919}
   - component: {fileID: 997879918}
+  - component: {fileID: 997879920}
   m_Layer: 0
   m_Name: Item_ARB (Auto Rejection Bawah)
   m_TagString: Untagged
@@ -18679,6 +18808,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 997879916}
   m_CullTransparentMesh: 1
+--- !u!114 &997879920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 997879916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1025485289
 GameObject:
   m_ObjectHideFlags: 0
@@ -19599,6 +19743,7 @@ GameObject:
   - component: {fileID: 1079725123}
   - component: {fileID: 1079725125}
   - component: {fileID: 1079725124}
+  - component: {fileID: 1079725126}
   m_Layer: 0
   m_Name: Item_Nyangkut (Floating Loss)
   m_TagString: Untagged
@@ -19665,6 +19810,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1079725122}
   m_CullTransparentMesh: 1
+--- !u!114 &1079725126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1079725122}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1082522563
 GameObject:
   m_ObjectHideFlags: 0
@@ -21599,6 +21759,7 @@ GameObject:
   - component: {fileID: 1216690074}
   - component: {fileID: 1216690076}
   - component: {fileID: 1216690075}
+  - component: {fileID: 1216690077}
   m_Layer: 0
   m_Name: Item_Uang Dingin & Uang Panas
   m_TagString: Untagged
@@ -21665,6 +21826,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1216690073}
   m_CullTransparentMesh: 1
+--- !u!114 &1216690077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1216690073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!4 &1217742819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 3d429ea3ace34314a833272c701126c9, type: 3}
@@ -25727,6 +25903,7 @@ GameObject:
   - component: {fileID: 1445926448}
   - component: {fileID: 1445926450}
   - component: {fileID: 1445926449}
+  - component: {fileID: 1445926451}
   m_Layer: 0
   m_Name: Item_Herding Behavior (Perilaku Ikut-ikutan)
   m_TagString: Untagged
@@ -25793,6 +25970,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1445926447}
   m_CullTransparentMesh: 1
+--- !u!114 &1445926451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1445926447}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1453100777
 GameObject:
   m_ObjectHideFlags: 0
@@ -29117,6 +29309,7 @@ GameObject:
   - component: {fileID: 1681832442}
   - component: {fileID: 1681832444}
   - component: {fileID: 1681832443}
+  - component: {fileID: 1681832445}
   m_Layer: 0
   m_Name: Item_Analisis Fundamental
   m_TagString: Untagged
@@ -29183,6 +29376,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1681832441}
   m_CullTransparentMesh: 1
+--- !u!114 &1681832445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681832441}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!134 &1684630261
 PhysicMaterial:
   m_ObjectHideFlags: 0
@@ -35611,6 +35819,7 @@ GameObject:
   - component: {fileID: 2004709319}
   - component: {fileID: 2004709321}
   - component: {fileID: 2004709320}
+  - component: {fileID: 2004709322}
   m_Layer: 0
   m_Name: Item_Cut Loss (Manajemen Risiko)
   m_TagString: Untagged
@@ -35677,6 +35886,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004709318}
   m_CullTransparentMesh: 1
+--- !u!114 &2004709322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004709318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2008185819
 GameObject:
   m_ObjectHideFlags: 0
@@ -35976,6 +36200,7 @@ GameObject:
   - component: {fileID: 2041714574}
   - component: {fileID: 2041714576}
   - component: {fileID: 2041714575}
+  - component: {fileID: 2041714577}
   m_Layer: 0
   m_Name: Item_Lot Saham
   m_TagString: Untagged
@@ -36042,6 +36267,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041714573}
   m_CullTransparentMesh: 1
+--- !u!114 &2041714577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041714573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!4 &2050765450 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 9a724592961f97844ac1e67f8dd7a1f9, type: 3}
@@ -36460,6 +36700,7 @@ GameObject:
   - component: {fileID: 2090805889}
   - component: {fileID: 2090805891}
   - component: {fileID: 2090805890}
+  - component: {fileID: 2090805892}
   m_Layer: 0
   m_Name: Item_Pom-pom Saham (Stock Pumping)
   m_TagString: Untagged
@@ -36526,6 +36767,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2090805888}
   m_CullTransparentMesh: 1
+--- !u!114 &2090805892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090805888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0.004, g: 0.047, b: 0.024, a: 1}
+  m_EffectDistance: {x: 2.5, y: 2.5}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2097822348
 GameObject:
   m_ObjectHideFlags: 0
