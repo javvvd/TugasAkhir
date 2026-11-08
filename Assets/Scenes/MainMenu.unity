@@ -179,23 +179,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<b>WEALTH PATH : Game Simulasi Literasi Saham</b>
+  m_text: '<b>WEALTH PATH </b>
 
-    Game ini dikembangkan
-    sebagai karya <b>Tugas Akhir</b> untuk mengedukasi generasi muda mengenai bahaya
-    FOMO dalam investasi.
+    Wealth Path adalah game yang dikembangkan sebagai
+    karya <b>Tugas Akhir</b> untuk mengedukasi generasi muda mengenai bahaya FOMO
+    dalam investasi. Sehingga pemain diharapkan bisa menyadari seperti apa perilaku
+    FOMO dalam investasi serta bahaya yang bisa ditimbulkan.
 
 
-    <color=#FEF08A><b>PENGEMBANG / PENELITI:</b></color>
+    <color=#FEF08A><b>PENGEMBANG</b></color>
 
     <b>Javier
-    Andries Dien</b> (Programmer & Game Designer)
+    Andries Dien</b> (Developer & Game Designer)
 
-
-    <color=#FEF08A><b>PLATFORM
-    PENGEMBANGAN:</b></color>
-
-    Unity 3D Engine & Yarn Spinner'
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1869,7 +1866,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Babak 3 : Harga Saham Anjlok'
+  m_text: Fase 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2384,7 +2381,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <b>Kredit</b>
+  m_text: <b>Tentang</b>
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4670,7 +4667,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Babak 2 : Saham Naik Tinggi'
+  m_text: 'Fase 2 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7091,7 +7088,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: KREDIT & TUGAS AKHIR
+  m_text: TENTANG
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7225,7 +7222,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Babak 1 : Awal Kenal Saham'
+  m_text: 'Fase 1 '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

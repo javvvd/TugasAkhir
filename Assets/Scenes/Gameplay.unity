@@ -20306,8 +20306,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Interaksi
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 269599945}
+  m_fontAsset: {fileID: 11400000, guid: 4f33f5f3f3d08eb4593327f3c47300fe, type: 2}
+  m_sharedMaterial: {fileID: -3646488057023447536, guid: 4f33f5f3f3d08eb4593327f3c47300fe, type: 2}
   m_fontSharedMaterials:
   - {fileID: 269599945}
   m_fontMaterial: {fileID: 269599945}

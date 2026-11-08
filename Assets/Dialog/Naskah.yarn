@@ -1,4 +1,4 @@
-title: Start
+﻿title: Start
 position: 228,-115
 ---
 <<set_kamera_instan PLAYER pintu>>
@@ -263,7 +263,7 @@ Raka: Uang 2 jutaku sekarang jadi Rp 2.200.000! Dapet 200 ribu!
 Raka: Aduh. Aku nyesel tadi siang cuma masukin 2 juta. 
 Raka: Kalau tadi aku masukin semua 5 juta, pasti untungnya udah 500 ribu!
 Raka: Kalau aku masukin sisa tabunganku yang 3 juta sekarang... dan harganya ditarik terbang terus sampai ARA... 
-Raka: ...dalam beberapa hari aku bisa langsung beli laptop Gaming baru cash!
+Raka: ...dalam beberapa hari aku bisa langsung beli laptop baru cash!
 
 <<wait 3>>
 Raka: Gimana nih? Bentar lagi bursa tutup jam 4 sore. Tambah muatan habisin semua sisa tabungan, atau biarin aja yang 2 juta?
@@ -377,8 +377,8 @@ Raka: Halo, Bim? Kenapa nelepon?
 Bima: Rak!! kau ada di kosan kan?
 Raka: Iya, Ada apa, Bim?
 Bima: Buruan keluar, ke warkop depan kosan sekarang
-Bima: Aku lagi di sini nongkrong, ada hal gila banget yang mau ku tunjukin!!
-Raka: Hal gila apaan sih?
+Bima: Aku lagi di sini nongkrong, ada hal yang mau ku tunjukin!!
+Raka: Ada apaan sih?
 Bima: Udah jangan banyak tanya, buruan ke sini sekarang!
 Raka: Yaudah deh, mumpung sumpek juga habis nugas, samperin bentar ke warkop depan.
 
@@ -489,7 +489,7 @@ Raka: ...Beli sekarang aja kali ya?!
     <<tutup_AppSaham AppSahamManager>>
     <<tutup_hp HPmanager>>
     Raka: Nggak. Nggak. Aku udah janji sama diri sendiri.
-    Raka: Harganya udah naik 35% mentok batas atas, risikonya pasti makin gila kalau dibanting turun.
+    Raka: Harganya udah naik 35%, risikonya pasti makin tinggi kalau dibanting turun.
     Raka: Belum siap aku kalau sampai uang tabungan laptopku ludes.
     Raka: Biarin aja Bima yang untung. Aku tetep fokus nabung aman buat beli laptop.
     <<jump Ending_D_Tujuan_Tercapai>>
@@ -514,7 +514,7 @@ position: -18,623
 
 Raka: Haaah, mantap. Uang tabungan 5 juta udah masuk semua ke saham DUIT.
 Raka: Modal rata-rataku sekarang di Rp 106. 
-Raka: Tinggal nunggu harganya ditarik terbang lagi, besok langsung meluncur beli laptop baru.
+Raka: Tinggal nunggu harganya ditarik terbang lagi.
 
 // SFX: Bunyi notifikasi Telegram bertubi-tubi sangat cepat (Spam Panik)
 Raka: Eh, rame banget grup Telegramnya. Pasti harganya udah makin terbang nih!
@@ -545,7 +545,7 @@ Raka: Nilai investasiku tinggal 4,3 juta... Lenyap 600 ribu dalam hitungan menit
 Raka: Nggak, Ayo jual! Jual semuanya sekarang juga!! 
 
 // Animasi/Dialog Raka panik menekan tombol jual tapi gagal (Tidak ada match)
--> Jual Semua Saham Sekarang! (472 Lot)
+-> Jual Semua Sekarang! (472 Lot)
     <<efek_gagal_jual AppSahamManager>>
 <<wait 1>>
 Raka: ...Gagal?! Kenapa order jualku nggak ada yang nampung sama sekali?!
@@ -654,9 +654,9 @@ Raka: Tapi kalau aku ikutin Master masukin sisa 3 jutaku... dan besok harganya b
 // ========================================
 // PILIHAN 3: AVERAGE DOWN ATAU CUT LOSS
 // ========================================
--> Ikut Influencer! Serok Bawah (Average Down sisa 3 Juta)
+-> Beli lagi (Average Down sisa 3 Juta)
     <<jump Fase_Pilih_Average_Down>>
--> Jangan gila! Cut loss sekarang, terima rugi.
+-> Cut loss sekarang, terima rugi.
     <<jump Fase_Pilih_Cut_Loss>>
 ===
 
@@ -696,7 +696,7 @@ Raka: Sepertinya ini bukan perusahaan yang baik. Rela rugi sekarang daripada uan
 <<ganti_layar_saham AppSahamManager 5>>
 <<wait 1>>
 Raka: Aku pasang antrean jual... Biar langsung laku begitu bursa buka
--> Pasang Order Jual / Cut Loss (200 Lot)
+-> Pasang Order Jual (200 Lot)
     <<putar_sfx AudioManager order>>
 <<wait 1>>
 <<tutup_AppSaham AppSahamManager>>
@@ -906,7 +906,7 @@ Heri: Dibanting parah sampai ARB ke 93. Di forum saham lagi rame banget.
 
 // SPRITE: Raka, ekspresi kaget bercampur lega
 Raka: Astaga... Serius, Her?!
-Raka: Gila... Kalau tadi siang aku nekat masukin uangku, udah nangis darah aku sekarang di pojokan kamar.
+Raka: Kalau tadi siang aku nekat masukin uangku, udah nangis darah aku sekarang di pojokan kamar.
 Raka: Makasih banyak lho, Her. Kalau kau nggak ngingetin, aku pasti udah jadi salah satu korban itu.
 
 Heri: Hahaha, syukurlah kalau kau nggak jadi beli. Aku tadi juga agak was-was takut kau beneran kemakan omongan orang.
